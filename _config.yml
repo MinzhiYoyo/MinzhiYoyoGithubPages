@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 雨探青鸟
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: 雨探青鸟
 language: zh-CN
 timezone: ''
 
@@ -99,6 +99,10 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: Meadow
 
+sitemap:
+  path: sitemap.xml
+baidusitemap:
+  path: baidusitemap.xml
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:

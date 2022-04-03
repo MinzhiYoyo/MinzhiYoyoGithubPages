@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Allow: /home
+Allow: /categories
+Allow: /about
+Allow: /tags
+Disallow:
+Sitemap: https://https://minzhiyoyo.github.io//sitemap.xml
+Sitemap: https://https://minzhiyoyo.github.io//baidusitemap.xml
