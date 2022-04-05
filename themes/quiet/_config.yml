@@ -1,0 +1,103 @@
+# 网站标题
+title: 主页
+# 网站标题后缀
+suffix: 雨探青鸟
+# 作者名称(会显示在首页文章下面)
+author: MINZHI
+# 首页简介（显示在首页顶部Logo的那句话）
+home_describe: 我   想    读    研    究   生
+# 网站关键字
+keyword: 雨探青鸟的博客
+is_article_img: false  #false是否开启文章背景图显示(随机图片)
+# 网站描述
+web_description: 雨探青鸟的个人博客
+# 导航名称
+menus_title:
+  home: 主页
+  archive: 档案
+  categories: 分类
+  tags: 标签
+  links: 友链
+  about: 关于
+# 导航 （不建议修改）
+menus:
+  home: /
+  archive: /archives
+  categories: /categories
+  tags: /tags
+  links: /links
+  about: /about
+  
+# logo
+logo: /image/logo.png
+# 网页标签上那个小图标 一定要用本地存储
+icon: /image/favicon.ico
+# 每个页面上面的图表
+topIcon:
+  homeIcon: "/image/logo.png"
+  archivesIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051903462.png"
+  tagIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051929205.png"
+  linksIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051905452.png"
+  categoriesIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051828739.png"
+  
+# 标签页显示多少个标签
+tagsNum: 1000
+# 网页访问统计
+web_analytics:  
+  enable: true #需要改为true
+  baidu: https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js  # （替换）百度统计的 Key，参见 https://tongji.baidu.com/sc-web/10000033910/home/site/getjs?siteId=13751376 代码获取中 hm.js? 后边的字符串
+# 底部显示的图标（github 或者其他）
+bottomIcon: 
+  #可以多个
+  - {
+    #描述名称
+    name: 'Github',
+    #图标    
+    iconLink: 'https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png',
+    #跳转链接    
+    toUrl: 'https://github.com/MinzhiYoyo'
+  }
+  - {
+    name: 'QQ',
+    iconLink: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051824843.png',
+    toUrl: 'http://wpa.qq.com/msgrd?v=3&uin=2498369702&site=qq&menu=yes'
+  }
+  - {
+    name: 'Telegram',
+    iconLink: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051749115.png',
+    toUrl: 'https://t.me/Yoyesam'
+  }
+  - {
+    name: 'E-Mail',
+    iconLink: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051834260.png',
+    toUrl: 'mailto:2498369702@qq.com'
+  }
+  - {
+    name: 'bilibili',
+    iconLink: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051835645.png',
+    toUrl: 'https://space.bilibili.com/178629981?spm_id_from=333.337.0.0'
+  }
+# 友情链接
+linksList:
+  - {
+    title: '谭永峰',
+    intro: '计软院的大佬',
+    link: 'https://tans.fun/',
+    image: 'https://tans.fun/upload/2022/03/qq%E5%A4%B4%E5%83%8F-bec8f4fb13ec4122b58d43ff25e12537.jpg'
+  }
+  - {
+    title: '本项目仓库',
+    intro: '包含源码和发布文件',
+    link: 'https://github.com/MinzhiYoyo/MinzhiYoyo.github.io',
+    image: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052122364.jpg'
+  }
+# 文字内点击图片放大相关配置
+picture:
+  # 蒙版的颜色也就是 打开图片背景 显示的颜色
+  colour: '#333'
+  # 透明度
+  opacity: 0.3
+  # 图片角度 就是显示图片的角度
+  imgRadius: "10px"
+#默认的cover (默认缩略图) 在没有填写（这里可以替换（可以是api也可以是固定的图））
+default_cover: https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051826973.jpg

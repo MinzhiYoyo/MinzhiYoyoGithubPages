@@ -5,7 +5,7 @@
 # Site
 title: 雨探青鸟
 subtitle: ''
-description: ''
+description: '只是一名热爱技术的普通学生'
 keywords:
 author: 雨探青鸟
 language: zh-CN
@@ -45,8 +45,8 @@ relative_link: false
 future: true
 highlight:
   enable: true
-  line_number: true
-  auto_detect: false
+  line_number: false
+  auto_detect: true
   tab_replace: ''
   wrap: true
   hljs: false
@@ -62,7 +62,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 10
+  per_page: 9
   order_by: -date
 
 # Category & Tag
@@ -97,7 +97,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: Meadow
+theme: quiet
 
 sitemap:
   path: sitemap.xml
@@ -110,4 +110,10 @@ deploy:
   repo: https://github.com/MinzhiYoyo/MinzhiYoyo.github.io.git
   branch: main
   token: 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
-  
+
+
+mermaid:
+  enable: true
+  version: "8.0.0"
+  options: https://github.com/knsv/mermaid/blob/master/src/mermaidAPI.js
+  startOnload: true
