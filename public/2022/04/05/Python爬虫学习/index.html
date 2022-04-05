@@ -94,7 +94,7 @@
 						
 								<li>
 									<a href="/links">
-										链接
+										友链
 									</a>
 									<span class="dot"></span>
 								</li>
@@ -142,7 +142,7 @@
         </li>
         
         <li>
-            <a href="/links">链接</a>
+            <a href="/links">友链</a>
         </li>
         
         <li>
@@ -577,6 +577,13 @@
     $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
 </script>
 <div class="Last-Next">
+    
+    <a href="/2022/04/05/GitHub-%E9%83%A8%E7%BD%B2%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>GitHub 部署个人博客</p>
+        </div>
+    </a>
     
 
     
