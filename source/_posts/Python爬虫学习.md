@@ -11,6 +11,8 @@ categories:
   - 爬虫
 ---
 
+​		***这篇博客主要是写给自己看的，如果完全的初学者，建议看我的另外一篇[博客](https://minzhiyoyo.github.io/2022/04/05/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%88%9D%E5%AD%A6%E8%80%85/)。***
+
 ## 1、`requests`模块的使用
 
 > **response的用法**

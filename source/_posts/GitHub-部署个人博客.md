@@ -8,6 +8,8 @@ tags:
   - Hexo
 excerpt: 借助GitHub的力量，部署好自己的个人博客
 categories: 前端
+
+
 ---
 
 教程适用于`Windows`
@@ -255,7 +257,7 @@ linksList:
 ## 3、上传
 
  ```shell
- # 上述配置完成
- hexo g -d  # 一条命令上传了
+# 上述配置完成
+hexo g -d  # 一条命令上传了
  ```
 

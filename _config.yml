@@ -8,7 +8,7 @@ subtitle: ''
 description: '只是一名热爱技术的普通学生'
 keywords:
 author: 雨探青鸟
-language: zh-CN
+language: zh-Hans
 timezone: ''
 
 # URL
@@ -105,12 +105,20 @@ baidusitemap:
   path: baidusitemap.xml
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+# deploy:
+#   type: git
+#   repo: https://github.com/MinzhiYoyo/MinzhiYoyo.github.io.git
+#   branch: main
+#   token: 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
 deploy:
   type: git
-  repo: https://github.com/MinzhiYoyo/MinzhiYoyo.github.io.git
-  branch: main
-  token: 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
+  repo: blog@lmzyoyo.top:/www/wwwblog/repo/hexo.git
+  branch: master
 
+# image_stream:
+#   jquery: //cdn.bootcss.com/jquery/2.1.0/jquery.min.js
+#   jquery_lazyload: //cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js
+#   img_placeholder: http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif
 
 mermaid:
   enable: true

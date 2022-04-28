@@ -19,6 +19,8 @@ menus_title:
   tags: 标签
   links: 友链
   about: 关于
+  photo: 照片墙
+  donation: 捐赠
 # 导航 （不建议修改）
 menus:
   home: /
@@ -27,6 +29,8 @@ menus:
   tags: /tags
   links: /links
   about: /about
+  photo: /photo
+  donation: /donation
   
 # logo
 logo: /image/logo.png
@@ -39,6 +43,7 @@ topIcon:
   tagIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051929205.png"
   linksIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051905452.png"
   categoriesIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051828739.png"
+  photosIcon: "https://imagere.oss-cn-beijing.aliyuncs.com/img/202204251647452.png"
   
 # 标签页显示多少个标签
 tagsNum: 1000
@@ -53,7 +58,7 @@ bottomIcon:
     #描述名称
     name: 'Github',
     #图标    
-    iconLink: 'https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png',
+    iconLink: 'https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png',
     #跳转链接    
     toUrl: 'https://github.com/MinzhiYoyo'
   }
