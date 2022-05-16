@@ -30,7 +30,11 @@
 </script>
 
 
-	<meta name="generator" content="Hexo 6.1.0"></head>
+	<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
 
 	<body>
 		
@@ -328,7 +332,7 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h2><h3 id="极大连通、极小连通、极大连通子图、极小连通子图"><a href="#极大连通、极小连通、极大连通子图、极小连通子图" class="headerlink" title="极大连通、极小连通、极大连通子图、极小连通子图"></a>极大连通、极小连通、极大连通子图、极小连通子图</h3><ul>
+        <h1 id="图"><a href="#图" class="headerlink" title="图"></a>图</h1><h2 id="1、基本概念"><a href="#1、基本概念" class="headerlink" title="1、基本概念"></a>1、基本概念</h2><h3 id="极大连通、极小连通、极大连通子图、极小连通子图、连通分量"><a href="#极大连通、极小连通、极大连通子图、极小连通子图、连通分量" class="headerlink" title="极大连通、极小连通、极大连通子图、极小连通子图、连通分量"></a>极大连通、极小连通、极大连通子图、极小连通子图、连通分量</h3><ul>
 <li><p>极大连通</p>
 <blockquote>
 <p>在无向图中，指的是任意两点都有直接或者间接的路径</p>
@@ -336,12 +340,42 @@
 </li>
 <li><p>极小连通</p>
 <blockquote>
-<p>在无向图中，生成树就是一个极小连通；如果加一条边就会形成一个环，如果减一条边就会出现孤立的节点；n个节点应该有n-1条边</p>
+<p>在无向图中，生成树就是一个极小连通；如果加一条边就会形成一个环，如果减一条边就会出现孤立的节点；<strong>n</strong>个节点应该有<strong>n-1</strong>条边</p>
 </blockquote>
 </li>
 <li><p>极大连通子图和极小连通子图</p>
 <blockquote>
 <p>满足上述极大连通和极小连通的子图</p>
+</blockquote>
+</li>
+<li><p>连通分量</p>
+<blockquote>
+<p>指的是极大连通子图的数目</p>
+</blockquote>
+</li>
+<li><p>思考：假如一个图有<strong>n</strong>个节点</p>
+<blockquote>
+<p>如果边数小于<strong>n-1</strong>的话，此图必定是非连通图</p>
+<p>非连通图最多应该有 $\frac{(n-1)(n-2)}{2}$ 条边 ，解释：由<strong>n-1</strong>构成完全图，如果此时再加入一条边，那么就会形成连通图了</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="强连通图、强连通分量"><a href="#强连通图、强连通分量" class="headerlink" title="强连通图、强连通分量"></a>强连通图、强连通分量</h3><ul>
+<li><p>强连通图</p>
+<blockquote>
+<p>有向图中，任意两个顶点都有直接或者间接的路径到达（注意，路径是有方向的），此图称为强连通图</p>
+</blockquote>
+</li>
+<li><p>强连通分量</p>
+<blockquote>
+<p>有向图的强连通子图的数量就是强连通分量，书上是说‘有向图的极大连通子图就是强连通分量’</p>
+<p>如下图所示，三个强连通分量 {1,2,3,4}, {5}, {6}</p>
+</blockquote>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202205161036960.png" alt="image-20220516103614869"></p>
+</li>
+<li><p>思考：假如有n个节点的有向图</p>
+<blockquote>
+<p>强连通情况下，至少需要<strong>n</strong>条边；解释：构成一个环就行了，这样，任意两点直接都可循环到达。</p>
 </blockquote>
 </li>
 </ul>
@@ -507,6 +541,21 @@
 <script>
 	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 
 </html>
