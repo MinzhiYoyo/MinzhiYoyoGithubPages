@@ -337,14 +337,26 @@
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><h2 id="1、安装node-js"><a href="#1、安装node-js" class="headerlink" title="1、安装node.js"></a>1、安装<code>node.js</code></h2><p>​    <code>hexo</code>是基于<code>node.js</code>的，所以需要先安装<code>node.js</code></p>
 <p>​    直接去<a target="_blank" rel="noopener" href="https://nodejs.org/zh-cn/">官网</a>下载对应你电脑版本的安装即可</p>
 <h2 id="2、安装hexo"><a href="#2、安装hexo" class="headerlink" title="2、安装hexo"></a>2、安装<code>hexo</code></h2><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">官网参考文档</a>，可以参考一下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli  # 安装hexo</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这一步往往需要科学上网，不然会非常慢</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">也有的教程是说改国内镜像源</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">但是适用国内镜像源会出一点小问题，所以我用了官网镜像源</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">npm install -g hexo-cli  # 安装hexo
+# 这一步往往需要科学上网，不然会非常慢
+# 也有的教程是说改国内镜像源
+# 但是适用国内镜像源会出一点小问题，所以我用了官网镜像源<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>出现下面就算成功了</p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052138992.png" alt="image-20220405213817866"></p>
 <hr>
-<h1 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h1><h2 id="1、初始化"><a href="#1、初始化" class="headerlink" title="1、初始化"></a>1、初始化</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">生成一个名为 folder 的文件夹</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">这个文件夹里面就是你的博客了</span></span><br><span class="line">hexo init &lt;folder&gt;</span><br><span class="line">cd &lt;folder&gt;  # 切花到这个文件夹下</span><br></pre></td></tr></table></figure>
+<h1 id="创建博客"><a href="#创建博客" class="headerlink" title="创建博客"></a>创建博客</h1><h2 id="1、初始化"><a href="#1、初始化" class="headerlink" title="1、初始化"></a>1、初始化</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 生成一个名为 folder 的文件夹
+# 这个文件夹里面就是你的博客了
+hexo init &lt;folder&gt;
+cd &lt;folder&gt;  # 切花到这个文件夹下<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h2 id="2、文件结构"><a href="#2、文件结构" class="headerlink" title="2、文件结构"></a>2、文件结构</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.</span><br><span class="line">|—— _config.yml  # 配置文件</span><br><span class="line">|—— package.json # 配置文件</span><br><span class="line">|—— scaffolds # 生成的markdown模板</span><br><span class="line">|—— source # 资源文件，图片或者文章都在这</span><br><span class="line">|	|—— _posts # 文章</span><br><span class="line">|—— themes # 主题</span><br></pre></td></tr></table></figure>
+<h2 id="2、文件结构"><a href="#2、文件结构" class="headerlink" title="2、文件结构"></a>2、文件结构</h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">.
+|—— _config.yml  # 配置文件
+|—— package.json # 配置文件
+|—— scaffolds # 生成的markdown模板
+|—— source # 资源文件，图片或者文章都在这
+|	|—— _posts # 文章
+|—— themes # 主题<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h2 id="3、下载主题"><a href="#3、下载主题" class="headerlink" title="3、下载主题"></a>3、下载主题</h2><p>​    每个主题的用法有些许不一样，主题一般会给出官方用法，我们去到<a target="_blank" rel="noopener" href="https://hexo.io/themes/">主题网</a>下载自己喜欢的主题即可</p>
 <p>​    我使用的主题叫做<code>quiet</code>，所以接下来会使用这个主题作为教程，其他主题操作类似</p>
@@ -355,13 +367,27 @@
 <ul>
 <li><strong>生成网页</strong></li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo g  # 我们发现根目录下有 public 文件夹</span><br><span class="line">hexo server # 生成服务</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">然后浏览器访问 https://localhost:4000即可</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">hexo g  # 我们发现根目录下有 public 文件夹
+hexo server # 生成服务
+# 然后浏览器访问 https:&#x2F;&#x2F;localhost:4000即可<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <p>​    下图是我的文件根目录结构，只需要注意<strong>红框</strong>里面的即可。</p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052154141.png" alt="image-20220405215423041"></p>
 <hr>
 <h1 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h1><h2 id="1、更改hexo博客的配置"><a href="#1、更改hexo博客的配置" class="headerlink" title="1、更改hexo博客的配置"></a>1、更改<code>hexo</code>博客的配置</h2><p>​    更改<code>./_config.yml</code>的文件内容</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 第5行处</span></span><br><span class="line"><span class="comment"># Site</span></span><br><span class="line"><span class="attr">title:</span> <span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">subtitle:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">&#x27;&#x27;</span> <span class="comment"># 简单介绍</span></span><br><span class="line"><span class="attr">keywords:</span></span><br><span class="line"><span class="attr">author:</span> <span class="comment"># 作者</span></span><br><span class="line"><span class="attr">language:</span> <span class="string">zh-CN</span></span><br><span class="line"><span class="attr">timezone:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 第100行左右</span></span><br><span class="line"><span class="attr">theme:</span> <span class="string">quiet</span> <span class="comment"># 更改为自己的主题名字，themes/&lt;主题文件夹名&gt;</span></span><br><span class="line"><span class="comment"># 使用这个后面&lt;主题文件夹名&gt;就可以</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 第5行处</span>
+<span class="token comment"># Site</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> <span class="token comment"># 网站标题</span>
+<span class="token key atrule">subtitle</span><span class="token punctuation">:</span> <span class="token string">''</span>
+<span class="token key atrule">description</span><span class="token punctuation">:</span> <span class="token string">''</span> <span class="token comment"># 简单介绍</span>
+<span class="token key atrule">keywords</span><span class="token punctuation">:</span>
+<span class="token key atrule">author</span><span class="token punctuation">:</span> <span class="token comment"># 作者</span>
+<span class="token key atrule">language</span><span class="token punctuation">:</span> zh<span class="token punctuation">-</span>CN
+<span class="token key atrule">timezone</span><span class="token punctuation">:</span> <span class="token string">''</span>
+
+<span class="token comment"># 第100行左右</span>
+<span class="token key atrule">theme</span><span class="token punctuation">:</span> quiet <span class="token comment"># 更改为自己的主题名字，themes/&lt;主题文件夹名></span>
+<span class="token comment"># 使用这个后面&lt;主题文件夹名>就可以</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
@@ -371,21 +397,54 @@
 <li><strong>基础设置</strong></li>
 </ul>
 <p>​    图片修改**<code>themes/&lt;folder&gt;/source/image/</code><strong>下面的图片即可，最好</strong>长宽比例**不要变，不然丑，哈哈哈</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 网站标题</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">主页</span></span><br><span class="line"><span class="comment"># 网站标题后缀</span></span><br><span class="line"><span class="attr">suffix:</span> <span class="string">雨探青鸟</span></span><br><span class="line"><span class="comment"># 作者名称(会显示在首页文章下面)</span></span><br><span class="line"><span class="attr">author:</span> <span class="string">MINZHI</span></span><br><span class="line"><span class="comment"># 首页简介（显示在首页顶部Logo的那句话）</span></span><br><span class="line"><span class="attr">home_describe:</span> <span class="string">我</span>   <span class="string">想</span>    <span class="string">读</span>    <span class="string">研</span>    <span class="string">究</span>   <span class="string">生</span></span><br><span class="line"><span class="comment"># 网站关键字</span></span><br><span class="line"><span class="attr">keyword:</span> <span class="string">雨探青鸟的博客</span></span><br><span class="line"><span class="attr">is_article_img:</span> <span class="literal">false</span>  <span class="comment">#false是否开启文章背景图显示(随机图片)</span></span><br><span class="line"><span class="comment"># 网站描述</span></span><br><span class="line"><span class="attr">web_description:</span> <span class="string">雨探青鸟的个人博客</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># logo</span></span><br><span class="line"><span class="attr">logo:</span> <span class="string">/image/logo.png</span>  <span class="comment"># 我更改了自己的图片</span></span><br><span class="line"><span class="comment"># 网页标签上那个小图标 一定要用本地存储</span></span><br><span class="line"><span class="attr">icon:</span> <span class="string">/image/favicon.ico</span> <span class="comment"># 我也更改了自己的icon</span></span><br><span class="line"><span class="comment">##### 上面的话，没有啥好讲的</span></span><br><span class="line"><span class="comment">#### 对应着下图的一些东西</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 网站标题</span>
+<span class="token key atrule">title</span><span class="token punctuation">:</span> 主页
+<span class="token comment"># 网站标题后缀</span>
+<span class="token key atrule">suffix</span><span class="token punctuation">:</span> 雨探青鸟
+<span class="token comment"># 作者名称(会显示在首页文章下面)</span>
+<span class="token key atrule">author</span><span class="token punctuation">:</span> MINZHI
+<span class="token comment"># 首页简介（显示在首页顶部Logo的那句话）</span>
+<span class="token key atrule">home_describe</span><span class="token punctuation">:</span> 我   想    读    研    究   生
+<span class="token comment"># 网站关键字</span>
+<span class="token key atrule">keyword</span><span class="token punctuation">:</span> 雨探青鸟的博客
+<span class="token key atrule">is_article_img</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>  <span class="token comment">#false是否开启文章背景图显示(随机图片)</span>
+<span class="token comment"># 网站描述</span>
+<span class="token key atrule">web_description</span><span class="token punctuation">:</span> 雨探青鸟的个人博客
+
+<span class="token comment"># logo</span>
+<span class="token key atrule">logo</span><span class="token punctuation">:</span> /image/logo.png  <span class="token comment"># 我更改了自己的图片</span>
+<span class="token comment"># 网页标签上那个小图标 一定要用本地存储</span>
+<span class="token key atrule">icon</span><span class="token punctuation">:</span> /image/favicon.ico <span class="token comment"># 我也更改了自己的icon</span>
+<span class="token comment">##### 上面的话，没有啥好讲的</span>
+<span class="token comment">#### 对应着下图的一些东西</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052226682.png" alt="image-20220405222601632"></p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052226063.png" alt="image-20220405222631005"></p>
 <ul>
 <li><strong>导航栏设置</strong></li>
 </ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导航名称，原版是英文，我修改为中文</span></span><br><span class="line"><span class="attr">menus_title:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">主页</span></span><br><span class="line">  <span class="attr">archive:</span> <span class="string">档案</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">分类</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">标签</span></span><br><span class="line">  <span class="attr">links:</span> <span class="string">友链</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">关于</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 导航名称，原版是英文，我修改为中文</span>
+<span class="token key atrule">menus_title</span><span class="token punctuation">:</span>
+  <span class="token key atrule">home</span><span class="token punctuation">:</span> 主页
+  <span class="token key atrule">archive</span><span class="token punctuation">:</span> 档案
+  <span class="token key atrule">categories</span><span class="token punctuation">:</span> 分类
+  <span class="token key atrule">tags</span><span class="token punctuation">:</span> 标签
+  <span class="token key atrule">links</span><span class="token punctuation">:</span> 友链
+  <span class="token key atrule">about</span><span class="token punctuation">:</span> 关于<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052229553.png" alt="image-20220405222935475"></p>
 <ul>
 <li><strong>图标设置</strong></li>
 </ul>
 <p>图标我是在<a target="_blank" rel="noopener" href="https://www.iconfont.cn/">阿里巴巴</a>上面找到的</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这里我用的我自己图床里面的文件，如果想知道怎么配置图床，可以看我的另一篇博客</span></span><br><span class="line"><span class="attr">topIcon:</span></span><br><span class="line">  <span class="attr">homeIcon:</span> <span class="string">&quot;/image/logo.png&quot;</span>  <span class="comment"># 这个只能使用本地的文件，不然会有点问题</span></span><br><span class="line">  <span class="attr">archivesIcon:</span> <span class="string">&quot;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051903462.png&quot;</span></span><br><span class="line">  <span class="attr">tagIcon:</span> <span class="string">&quot;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051929205.png&quot;</span></span><br><span class="line">  <span class="attr">linksIcon:</span> <span class="string">&quot;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051905452.png&quot;</span></span><br><span class="line">  <span class="attr">categoriesIcon:</span> <span class="string">&quot;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051828739.png&quot;</span></span><br><span class="line"> <span class="comment"># 列如下图</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 这里我用的我自己图床里面的文件，如果想知道怎么配置图床，可以看我的另一篇博客</span>
+<span class="token key atrule">topIcon</span><span class="token punctuation">:</span>
+  <span class="token key atrule">homeIcon</span><span class="token punctuation">:</span> <span class="token string">"/image/logo.png"</span>  <span class="token comment"># 这个只能使用本地的文件，不然会有点问题</span>
+  <span class="token key atrule">archivesIcon</span><span class="token punctuation">:</span> <span class="token string">"https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051903462.png"</span>
+  <span class="token key atrule">tagIcon</span><span class="token punctuation">:</span> <span class="token string">"https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051929205.png"</span>
+  <span class="token key atrule">linksIcon</span><span class="token punctuation">:</span> <span class="token string">"https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051905452.png"</span>
+  <span class="token key atrule">categoriesIcon</span><span class="token punctuation">:</span> <span class="token string">"https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051828739.png"</span>
+ <span class="token comment"># 列如下图</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052233887.png" alt="image-20220405223336833"></p>
 <ul>
@@ -394,24 +453,50 @@
 <p>​    我用的是不蒜子做的，原本的主题没有加入访问量统计的插件。我改了一下代码，对于一般主题都适用。</p>
 <p>​    当然，如果你下载的主题有访问量统计，只需要配置一下就行。</p>
 <p>**<code>_config.yml</code>**文件修改：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 网页访问统计</span></span><br><span class="line"><span class="attr">web_analytics:</span>  </span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span> <span class="comment">#需要改为true</span></span><br><span class="line">  <span class="attr">baidu:</span> <span class="string">https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js</span>  <span class="comment"># 不蒜子</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 网页访问统计</span>
+<span class="token key atrule">web_analytics</span><span class="token punctuation">:</span>  
+  <span class="token key atrule">enable</span><span class="token punctuation">:</span> <span class="token boolean important">true</span> <span class="token comment">#需要改为true</span>
+  <span class="token key atrule">baidu</span><span class="token punctuation">:</span> https<span class="token punctuation">:</span>//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js  <span class="token comment"># 不蒜子</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>**<code>themes/&lt;folder&gt;/layout/_partial/foot.ejs</code>**文件修改：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;div <span class="keyword">class</span>=<span class="string">&quot;Copyright&quot;</span>&gt;</span><br><span class="line">	©&lt;%= <span class="keyword">new</span> <span class="title class_">Date</span>().<span class="title function_">getFullYear</span>() %&gt; <span class="title class_">By</span> &lt;%- theme.<span class="property">author</span> %&gt;.    本站总访问量：</span><br><span class="line">	&lt;script <span class="keyword">async</span> src=<span class="string">&quot;//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js&quot;</span>&gt;&lt;/script&gt;</span><br><span class="line">	<span class="language-xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_container_site_pv&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">&quot;busuanzi_value_site_pv&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>次<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span></span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;!--这个是更改过的，注意上面第<span class="number">3</span> <span class="number">4</span>行，这个是重点--&gt;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-javascript" data-language="javascript"><code class="language-javascript"><span class="token operator">&lt;</span>div <span class="token keyword">class</span><span class="token operator">=</span><span class="token string">"Copyright"</span><span class="token operator">></span>
+	©<span class="token operator">&lt;</span><span class="token operator">%=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getFullYear</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span><span class="token operator">></span> By <span class="token operator">&lt;</span><span class="token operator">%</span><span class="token operator">-</span> theme<span class="token punctuation">.</span>author <span class="token operator">%</span><span class="token operator">></span><span class="token punctuation">.</span>    本站总访问量：
+	<span class="token operator">&lt;</span>script <span class="token keyword">async</span> src<span class="token operator">=</span><span class="token string">"//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">></span>
+	<span class="token operator">&lt;</span>span id<span class="token operator">=</span><span class="token string">"busuanzi_container_site_pv"</span><span class="token operator">></span><span class="token operator">&lt;</span>span id<span class="token operator">=</span><span class="token string">"busuanzi_value_site_pv"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>次<span class="token operator">&lt;</span><span class="token operator">/</span>span<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+<span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span>这个是更改过的，注意上面第<span class="token number">3</span> <span class="token number">4</span>行，这个是重点<span class="token operator">--</span><span class="token operator">></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 
 
 <ul>
 <li><strong>底部图标</strong></li>
 </ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 底部显示的图标（github 或者其他）</span></span><br><span class="line"><span class="attr">bottomIcon:</span> </span><br><span class="line">  <span class="comment">#可以多个</span></span><br><span class="line">  <span class="bullet">-</span> &#123;</span><br><span class="line">    <span class="comment">#描述名称</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">&#x27;Github&#x27;</span>,</span><br><span class="line">    <span class="comment">#图标    </span></span><br><span class="line">    <span class="attr">iconLink:</span> <span class="string">&#x27;https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png&#x27;</span>,</span><br><span class="line">    <span class="comment">#跳转链接    </span></span><br><span class="line">    <span class="attr">toUrl:</span> <span class="string">&#x27;https://github.com/MinzhiYoyo&#x27;</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 底部显示的图标（github 或者其他）</span>
+<span class="token key atrule">bottomIcon</span><span class="token punctuation">:</span> 
+  <span class="token comment">#可以多个</span>
+  <span class="token punctuation">-</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">#描述名称</span>
+    <span class="token key atrule">name</span><span class="token punctuation">:</span> <span class="token string">'Github'</span><span class="token punctuation">,</span>
+    <span class="token comment">#图标    </span>
+    <span class="token key atrule">iconLink</span><span class="token punctuation">:</span> <span class="token string">'https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png'</span><span class="token punctuation">,</span>
+    <span class="token comment">#跳转链接    </span>
+    <span class="token key atrule">toUrl</span><span class="token punctuation">:</span> <span class="token string">'https://github.com/MinzhiYoyo'</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li><strong>友情链接</strong></li>
 </ul>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 友情链接</span></span><br><span class="line"><span class="attr">linksList:</span></span><br><span class="line">  <span class="bullet">-</span> &#123;</span><br><span class="line">    <span class="attr">title:</span> <span class="string">&#x27;本项目仓库&#x27;</span>, <span class="comment"># 名字</span></span><br><span class="line">    <span class="attr">intro:</span> <span class="string">&#x27;包含源码和发布文件&#x27;</span>, <span class="comment"># 简单的描述</span></span><br><span class="line">    <span class="attr">link:</span> <span class="string">&#x27;https://github.com/MinzhiYoyo/MinzhiYoyo.github.io&#x27;</span>, <span class="comment"># 跳转链接</span></span><br><span class="line">    <span class="attr">image:</span> <span class="string">&#x27;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052122364.jpg&#x27;</span> <span class="comment"># 图片链接</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 友情链接</span>
+<span class="token key atrule">linksList</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token punctuation">&#123;</span>
+    <span class="token key atrule">title</span><span class="token punctuation">:</span> <span class="token string">'本项目仓库'</span><span class="token punctuation">,</span> <span class="token comment"># 名字</span>
+    <span class="token key atrule">intro</span><span class="token punctuation">:</span> <span class="token string">'包含源码和发布文件'</span><span class="token punctuation">,</span> <span class="token comment"># 简单的描述</span>
+    <span class="token key atrule">link</span><span class="token punctuation">:</span> <span class="token string">'https://github.com/MinzhiYoyo/MinzhiYoyo.github.io'</span><span class="token punctuation">,</span> <span class="token comment"># 跳转链接</span>
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> <span class="token string">'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052122364.jpg'</span> <span class="token comment"># 图片链接</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><h2 id="1、GitHub配置"><a href="#1、GitHub配置" class="headerlink" title="1、GitHub配置"></a>1、<code>GitHub</code>配置</h2><h2 id="2、配置token"><a href="#2、配置token" class="headerlink" title="2、配置token"></a>2、配置<code>token</code></h2><h2 id="3、上传"><a href="#3、上传" class="headerlink" title="3、上传"></a>3、上传</h2> <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">上述配置完成</span></span><br><span class="line">hexo g -d  # 一条命令上传了</span><br></pre></td></tr></table></figure>
+<h1 id="发布"><a href="#发布" class="headerlink" title="发布"></a>发布</h1><h2 id="1、GitHub配置"><a href="#1、GitHub配置" class="headerlink" title="1、GitHub配置"></a>1、<code>GitHub</code>配置</h2><h2 id="2、配置token"><a href="#2、配置token" class="headerlink" title="2、配置token"></a>2、配置<code>token</code></h2><h2 id="3、上传"><a href="#3、上传" class="headerlink" title="3、上传"></a>3、上传</h2> <pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"># 上述配置完成
+hexo g -d  # 一条命令上传了<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 
     </div>
@@ -582,21 +667,6 @@
 <script>
 	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-</body>
+	</body>
 
 </html>
