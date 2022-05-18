@@ -10,7 +10,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="计算机妙招,Windows,注册表,">
+<meta name="keywords" content="计算机妙招,注册表,Windows,">
 <meta name="description" content="使得能右键以某个软件打开">
 
 
@@ -306,9 +306,9 @@
             
             <li><a href="/tags/计算机妙招">计算机妙招</a></li>
             
-            <li><a href="/tags/Windows">Windows</a></li>
-            
             <li><a href="/tags/注册表">注册表</a></li>
+            
+            <li><a href="/tags/Windows">Windows</a></li>
             
             
         </ul>
@@ -333,7 +333,7 @@
 <div class="article-content">
     <div id="article" class="content">
         <p>win+R regedit调出注册表</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\</span><br></pre></td></tr></table></figure>
 
 <blockquote>
 <p>上面这个路径下新建项：Open with ……</p>
@@ -514,6 +514,21 @@
 <script>
 	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 
 </html>

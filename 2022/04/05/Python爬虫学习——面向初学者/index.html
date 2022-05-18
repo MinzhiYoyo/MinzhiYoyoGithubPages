@@ -334,14 +334,7 @@
 <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="什么是HTML、CSS、JavaScript"><a href="#什么是HTML、CSS、JavaScript" class="headerlink" title="什么是HTML、CSS、JavaScript"></a>什么是<code>HTML、CSS、JavaScript</code></h3><blockquote>
 <p>网页往往采用<code>html+css+js</code>开发，<code>html</code>是一门标记语言</p>
 <p>如下：</p>
-<pre class="line-numbers language-html" data-language="html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-</span> <span class="token attr-name">将下面这句话放入html文件中，--</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-</span> <span class="token attr-name">然后浏览器就会将这句话解释为下面那张图片，--</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-</span> <span class="token attr-name">这个就是浏览器渲染的功能--</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-</span> <span class="token attr-name">这里我们知道了一个词——浏览器的渲染</span>   <span class="token attr-name">--</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-</span> <span class="token attr-name">并且我们发现，浏览器会在下面这个网址</span> <span class="token attr-name">自动</span> <span class="token attr-name">--</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>!-</span> <span class="token attr-name">把这张图片下载下来，然后渲染给我们看，这在我们之后抓包会有用</span> <span class="token attr-name">--</span><span class="token punctuation">></span></span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png<span class="token punctuation">"</span></span>
-<span class="token attr-name">width</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>300px<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;!- 将下面这句话放入html文件中，--&gt;</span><br><span class="line">&lt;!- 然后浏览器就会将这句话解释为下面那张图片，--&gt;</span><br><span class="line">&lt;!- 这个就是浏览器渲染的功能--&gt;</span><br><span class="line">&lt;!- 这里我们知道了一个词——浏览器的渲染   --&gt;</span><br><span class="line">&lt;!- 并且我们发现，浏览器会在下面这个网址 自动 --&gt;</span><br><span class="line">&lt;!- 把这张图片下载下来，然后渲染给我们看，这在我们之后抓包会有用 --&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">width</span>=<span class="string">&quot;300px&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png" width="300px">
 </blockquote>
@@ -362,26 +355,7 @@
 </blockquote>
 <h3 id="Python基本语法"><a href="#Python基本语法" class="headerlink" title="Python基本语法"></a><code>Python</code>基本语法</h3><blockquote>
 <p>这个本该大家自己去学习的，但是这里说好基础入门，就简单提一点点</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python">a <span class="token operator">=</span> <span class="token number">1</span>
-b <span class="token operator">=</span> <span class="token number">2</span>
-<span class="token comment"># if结构</span>
-<span class="token keyword">if</span> a <span class="token operator">></span> b<span class="token punctuation">:</span>
- <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a大于b"</span><span class="token punctuation">)</span>
-<span class="token keyword">else</span><span class="token punctuation">:</span>
- <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"a不大于b"</span><span class="token punctuation">)</span>
-
-<span class="token comment"># while循环</span>
-<span class="token keyword">while</span> <span class="token boolean">True</span><span class="token punctuation">:</span>
- <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"这里面是while循环"</span><span class="token punctuation">)</span>
-
-<span class="token comment"># 列表和字典</span>
-m <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">"hello"</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">4.5</span><span class="token punctuation">]</span>  <span class="token comment"># 列表支持不同数据类型，并且可以随意扩充和删减</span>
-n <span class="token operator">=</span> <span class="token punctuation">&#123;</span>			<span class="token comment"># 字典里面每个元素都是   键值:值   组成</span>
- <span class="token string">"key1"</span><span class="token punctuation">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
- <span class="token string">"key3"</span><span class="token punctuation">:</span> <span class="token string">"hello"</span>
-<span class="token punctuation">&#125;</span>
-m<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span>    <span class="token comment">## 索引到第0个元素，即 "hello"</span>
-n<span class="token punctuation">[</span><span class="token string">"key1"</span><span class="token punctuation">]</span>   <span class="token comment">## 索引到键值为"key1"的值，即 3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">a = <span class="number">1</span></span><br><span class="line">b = <span class="number">2</span></span><br><span class="line"><span class="comment"># if结构</span></span><br><span class="line"><span class="keyword">if</span> a &gt; b:</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&quot;a大于b&quot;</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&quot;a不大于b&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># while循环</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"> <span class="built_in">print</span>(<span class="string">&quot;这里面是while循环&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 列表和字典</span></span><br><span class="line">m = [<span class="string">&quot;hello&quot;</span>, <span class="number">2</span>, <span class="number">4.5</span>]  <span class="comment"># 列表支持不同数据类型，并且可以随意扩充和删减</span></span><br><span class="line">n = &#123;			<span class="comment"># 字典里面每个元素都是   键值:值   组成</span></span><br><span class="line"> <span class="string">&quot;key1&quot;</span>: <span class="number">3</span>,</span><br><span class="line"> <span class="string">&quot;key3&quot;</span>: <span class="string">&quot;hello&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">m[<span class="number">0</span>]    <span class="comment">## 索引到第0个元素，即 &quot;hello&quot;</span></span><br><span class="line">n[<span class="string">&quot;key1&quot;</span>]   <span class="comment">## 索引到键值为&quot;key1&quot;的值，即 3</span></span><br></pre></td></tr></table></figure>
 </blockquote>
 <h3 id="什么是抓包"><a href="#什么是抓包" class="headerlink" title="什么是抓包"></a>什么是抓包</h3><blockquote>
 <p>打个比方：你要向某人发一条数据，我在你们之间截获了或者记录了你们的数据，这个叫做抓包</p>
@@ -490,62 +464,11 @@ B -->|转发响应|A</pre>
 </blockquote>
 <h4 id="requests包的使用"><a href="#requests包的使用" class="headerlink" title="requests包的使用"></a><code>requests</code>包的使用</h4><blockquote>
 <p>这个教程顺序可能和网上很多都不一样</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> requests <span class="token keyword">as</span> rq
-<span class="token keyword">import</span> json
-<span class="token keyword">import</span> re
-
-tool <span class="token operator">=</span> rq<span class="token punctuation">.</span>session<span class="token punctuation">(</span><span class="token punctuation">)</span>   <span class="token comment"># 这个会返回一个爬虫工具箱，并且它会自动维持cookie</span>
-
-verify<span class="token operator">=</span><span class="token boolean">False</span>   <span class="token comment"># 设置是否进行SSL验证，一般设置为否</span>
-url<span class="token operator">=</span><span class="token string">"https://baidu.com"</span>  <span class="token comment"># 这里请求百度的数据</span>
-headers<span class="token operator">=</span><span class="token punctuation">&#123;</span>   <span class="token comment"># 设置请求头</span>
- <span class="token string">"User-Agent"</span><span class="token punctuation">:</span> <span class="token string">"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/"</span>
-  <span class="token string">"537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36"</span><span class="token punctuation">,</span>
-<span class="token punctuation">&#125;</span>
-proxies<span class="token operator">=</span><span class="token punctuation">&#123;</span>    <span class="token comment"># 设置代理</span>
- <span class="token string">"http"</span><span class="token punctuation">:</span> <span class="token boolean">None</span><span class="token punctuation">,</span>
- <span class="token string">"https"</span><span class="token punctuation">:</span> <span class="token boolean">None</span>
-<span class="token punctuation">&#125;</span>
-params<span class="token operator">=</span><span class="token punctuation">&#123;</span>   <span class="token comment"># 设置字符串参数</span>
-
-<span class="token punctuation">&#125;</span>
-data<span class="token operator">=</span><span class="token punctuation">&#123;</span>  <span class="token comment"># 设置请求表单</span>
-
-<span class="token punctuation">&#125;</span>
-
-<span class="token comment"># 发送get请求，得到get响应</span>
-responseGet <span class="token operator">=</span> tool<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> params<span class="token operator">=</span>params<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> verify<span class="token operator">=</span>verify<span class="token punctuation">,</span> proxies<span class="token operator">=</span>proxies<span class="token punctuation">)</span>
-<span class="token comment"># 发送post请求，得到post响应</span>
-responsePost <span class="token operator">=</span> tool<span class="token punctuation">.</span>post<span class="token punctuation">(</span>url<span class="token operator">=</span>url<span class="token punctuation">,</span> data<span class="token operator">=</span>data<span class="token punctuation">,</span> headers<span class="token operator">=</span>headers<span class="token punctuation">,</span> verify<span class="token operator">=</span>verify<span class="token punctuation">,</span> proxies<span class="token operator">=</span>proxies<span class="token punctuation">)</span>
-
-<span class="token comment"># 解析响应</span>
-<span class="token comment"># 1、假如响应是文本数据，如html文本</span>
-response <span class="token operator">=</span> responseGet
-response<span class="token punctuation">.</span>content <span class="token comment"># 这个是内容，是二进制编码</span>
-response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token string">"gbk"</span><span class="token punctuation">)</span>  <span class="token comment"># 使用gbk解码，不加参数就是utf-8解码</span>
-<span class="token comment"># 2、假如响应是图片数据</span>
-<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">"1.png"</span><span class="token punctuation">,</span> <span class="token string">"wb"</span><span class="token punctuation">)</span> <span class="token keyword">as</span> f<span class="token punctuation">:</span>
- f<span class="token punctuation">.</span>write<span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">)</span>   <span class="token comment"># 直接以二进制写入文件</span>
-<span class="token comment"># 3、假如响应是表单数据</span>
-dat <span class="token operator">=</span> json<span class="token punctuation">.</span>loads<span class="token punctuation">(</span>response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>   <span class="token comment"># 返回的就是一个字典数据了</span>
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">tool = rq.session()   <span class="comment"># 这个会返回一个爬虫工具箱，并且它会自动维持cookie</span></span><br><span class="line"></span><br><span class="line">verify=<span class="literal">False</span>   <span class="comment"># 设置是否进行SSL验证，一般设置为否</span></span><br><span class="line">url=<span class="string">&quot;https://baidu.com&quot;</span>  <span class="comment"># 这里请求百度的数据</span></span><br><span class="line">headers=&#123;   <span class="comment"># 设置请求头</span></span><br><span class="line"> <span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/&quot;</span></span><br><span class="line">  <span class="string">&quot;537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&quot;</span>,</span><br><span class="line">&#125;</span><br><span class="line">proxies=&#123;    <span class="comment"># 设置代理</span></span><br><span class="line"> <span class="string">&quot;http&quot;</span>: <span class="literal">None</span>,</span><br><span class="line"> <span class="string">&quot;https&quot;</span>: <span class="literal">None</span></span><br><span class="line">&#125;</span><br><span class="line">params=&#123;   <span class="comment"># 设置字符串参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">data=&#123;  <span class="comment"># 设置请求表单</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送get请求，得到get响应</span></span><br><span class="line">responseGet = tool.get(url=url, params=params, headers=headers, verify=verify, proxies=proxies)</span><br><span class="line"><span class="comment"># 发送post请求，得到post响应</span></span><br><span class="line">responsePost = tool.post(url=url, data=data, headers=headers, verify=verify, proxies=proxies)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析响应</span></span><br><span class="line"><span class="comment"># 1、假如响应是文本数据，如html文本</span></span><br><span class="line">response = responseGet</span><br><span class="line">response.content <span class="comment"># 这个是内容，是二进制编码</span></span><br><span class="line">response.content.decode(<span class="string">&quot;gbk&quot;</span>)  <span class="comment"># 使用gbk解码，不加参数就是utf-8解码</span></span><br><span class="line"><span class="comment"># 2、假如响应是图片数据</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.png&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line"> f.write(response.content)   <span class="comment"># 直接以二进制写入文件</span></span><br><span class="line"><span class="comment"># 3、假如响应是表单数据</span></span><br><span class="line">dat = json.loads(response.content.decode())   <span class="comment"># 返回的就是一个字典数据了</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </blockquote>
 <h4 id="正则表达式简单用法"><a href="#正则表达式简单用法" class="headerlink" title="正则表达式简单用法"></a>正则表达式简单用法</h4><blockquote>
 <p>爬虫中的正则表达式一般会比较简单</p>
-<pre class="line-numbers language-python" data-language="python"><code class="language-python"><span class="token keyword">import</span> re   <span class="token comment"># 导入正则表达式包</span>
-<span class="token comment"># 假如有下列字符串需要被匹配</span>
-<span class="token comment"># str1 = "&lt;link href="https://stacdn.proginn.com/plugin/swiper/swiper.min.css?version=4.30.2"</span>
-<span class="token comment"># rel="stylesheet" type="text/css">"</span>
-<span class="token comment"># 其中href中的是我们需要的那么</span>
-html <span class="token operator">=</span> response<span class="token punctuation">.</span>content<span class="token punctuation">.</span>decode<span class="token punctuation">(</span><span class="token punctuation">)</span>
-restr <span class="token operator">=</span> <span class="token string">"&lt;link\\shref=\"(.*?)\"\\srel=\"stylesheet\"\\stype=\"text/css\">"</span>
-dst_list <span class="token operator">=</span> re<span class="token punctuation">.</span>findall<span class="token punctuation">(</span>restr<span class="token punctuation">,</span> html<span class="token punctuation">)</span>   <span class="token comment"># 返回一个列表</span>
-<span class="token comment"># 上面这条语句，会将html里面所有形如str1中的href都返回到列表中</span>
-
-<span class="token comment"># 假如我们是要爬取妹妹图，那么就把当前页面所有的妹妹图的网址都保存到列表了</span>
-<span class="token comment"># 只需要进行如下操作遍历列表就行</span>
-<span class="token keyword">for</span> pngurl <span class="token keyword">in</span> dst_list<span class="token punctuation">:</span>
- <span class="token keyword">print</span><span class="token punctuation">(</span>pngurl<span class="token punctuation">)</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re   <span class="comment"># 导入正则表达式包</span></span><br><span class="line"><span class="comment"># 假如有下列字符串需要被匹配</span></span><br><span class="line"><span class="comment"># str1 = &quot;&lt;link href=&quot;https://stacdn.proginn.com/plugin/swiper/swiper.min.css?version=4.30.2&quot;</span></span><br><span class="line"><span class="comment"># rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;&quot;</span></span><br><span class="line"><span class="comment"># 其中href中的是我们需要的那么</span></span><br><span class="line">html = response.content.decode()</span><br><span class="line">restr = <span class="string">&quot;&lt;link\\shref=\&quot;(.*?)\&quot;\\srel=\&quot;stylesheet\&quot;\\stype=\&quot;text/css\&quot;&gt;&quot;</span></span><br><span class="line">dst_list = re.findall(restr, html)   <span class="comment"># 返回一个列表</span></span><br><span class="line"><span class="comment"># 上面这条语句，会将html里面所有形如str1中的href都返回到列表中</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 假如我们是要爬取妹妹图，那么就把当前页面所有的妹妹图的网址都保存到列表了</span></span><br><span class="line"><span class="comment"># 只需要进行如下操作遍历列表就行</span></span><br><span class="line"><span class="keyword">for</span> pngurl <span class="keyword">in</span> dst_list:</span><br><span class="line"> <span class="built_in">print</span>(pngurl)</span><br></pre></td></tr></table></figure>
 </blockquote>
 <hr>
 <h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>​        爬虫会涉及到有关法律问题，这里不作讨论，但是希望大家不要拿来干坏事。<em><strong>概不负责</strong></em>。</p>
@@ -721,6 +644,21 @@ dst_list <span class="token operator">=</span> re<span class="token punctuation"
 <script>
 	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 
 </html>
