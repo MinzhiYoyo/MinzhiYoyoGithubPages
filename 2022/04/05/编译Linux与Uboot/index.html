@@ -336,10 +336,10 @@
 <h1 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h1><p>准备太久了</p>
 <h1 id="三、PCB绘制"><a href="#三、PCB绘制" class="headerlink" title="三、PCB绘制"></a>三、PCB绘制</h1><p>不是我绘制的</p>
 <h1 id="四、下载编译工具链"><a href="#四、下载编译工具链" class="headerlink" title="四、下载编译工具链"></a>四、下载编译工具链</h1><p>我下的是<code>arm-linux-gnueabi-</code></p>
-<h1 id="五、u-boot移植"><a href="#五、u-boot移植" class="headerlink" title="五、u-boot移植"></a>五、u-boot移植</h1><h2 id="1、下载u-boot"><a href="#1、下载u-boot" class="headerlink" title="1、下载u-boot"></a>1、下载<code>u-boot</code></h2><pre><code class="shell">git clone https://github.com/Lichee-Pi/u-boot.git
+<h1 id="五、u-boot移植"><a href="#五、u-boot移植" class="headerlink" title="五、u-boot移植"></a>五、u-boot移植</h1><h2 id="1、下载u-boot"><a href="#1、下载u-boot" class="headerlink" title="1、下载u-boot"></a>1、下载<code>u-boot</code></h2><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">git clone https:&#x2F;&#x2F;github.com&#x2F;Lichee-Pi&#x2F;u-boot.git
 git branch -a  # 查看分支，我们使用的是nano-v2018.01u-boot
-git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支
-</code></pre>
+git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
 <h2 id="2、选取config配置"><a href="#2、选取config配置" class="headerlink" title="2、选取config配置"></a>2、选取<code>config</code>配置</h2><p>考虑到水平有限，我们采用从现有的配置上进行更改。或者，我完全不进行更改，就直接使用了。</p>
 <h3 id="对几个config简单介绍："><a href="#对几个config简单介绍：" class="headerlink" title="对几个config简单介绍："></a><em>对几个config简单介绍：</em></h3><blockquote>
 <p><code>f1c100s_nano_uboot_defconfig</code>：<code>SPI Flash</code>支持版</p>
@@ -347,19 +347,19 @@ git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支
 <p><code>licheepi_nano_spiflash_defconfig</code>：从<code>SPI</code>设备启动</p>
 </blockquote>
 <p>其实上面三种我也分不清楚，我第一次采用的是 <code>licheepi_nano_defconfig</code>。我也找不到 <code>f1c100s_nano_uboot_defconfig</code>，但是在<a target="_blank" rel="noopener" href="https://gitee.com/LicheePiNano/u-boot">这</a>可以找到，这个是荔枝派的 <code>u-boot</code>，可能毕竟这款 <code>f1c100s</code>是国产芯片，在<code>GitHub</code>上面找不到。</p>
-<h3 id="选取config操作"><a href="#选取config操作" class="headerlink" title="选取config操作"></a>选取<code>config</code>操作</h3><pre><code class="shell">cd ~/u-boot  # 切换到 下载的 u-boot 的根目录
-make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_defconfig  
+<h3 id="选取config操作"><a href="#选取config操作" class="headerlink" title="选取config操作"></a>选取<code>config</code>操作</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">cd ~&#x2F;u-boot  # 切换到 下载的 u-boot 的根目录
+make ARCH&#x3D;arm CROSS_COMPILE&#x3D;arm-linux-gnueabi- licheepi_nano_defconfig  
 # 参数介绍：
-# ARCH=arm 是arm架构的
-# CROSS_COMPILE=arm-linux-gnueabi-  是之前的下载的编译工具链
-# licheepi_nano_defconfig 选取的默认config
-</code></pre>
-<h2 id="3、可视化配置"><a href="#3、可视化配置" class="headerlink" title="3、可视化配置"></a>3、可视化配置</h2><h3 id="打开菜单命令"><a href="#打开菜单命令" class="headerlink" title="打开菜单命令"></a>打开菜单命令</h3><pre><code class="shell">make ARCH=arm menuconfig
+# ARCH&#x3D;arm 是arm架构的
+# CROSS_COMPILE&#x3D;arm-linux-gnueabi-  是之前的下载的编译工具链
+# licheepi_nano_defconfig 选取的默认config<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="3、可视化配置"><a href="#3、可视化配置" class="headerlink" title="3、可视化配置"></a>3、可视化配置</h2><h3 id="打开菜单命令"><a href="#打开菜单命令" class="headerlink" title="打开菜单命令"></a>打开菜单命令</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">make ARCH&#x3D;arm menuconfig
 # 之后上下键进行移动
 # 空格或者回车进行选择
 # 左右可以选择下方菜单
-# ctrl+退格才能删除已经填入的默认参数
-</code></pre>
+# ctrl+退格才能删除已经填入的默认参数<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 <h3 id="参数讲解"><a href="#参数讲解" class="headerlink" title="参数讲解"></a>参数讲解</h3><p>注意下面这两个参数就行</p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958695.png" alt="image-20220305195147976"></p>
 <h4 id="boot-arguments"><a href="#boot-arguments" class="headerlink" title="boot arguments"></a><code>boot arguments</code></h4><blockquote>
