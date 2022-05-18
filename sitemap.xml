@@ -136,15 +136,6 @@
     <priority>0.6</priority>
   </url>
   
-  <url>
-    <loc>http://example.com/google87c07700b203804b.html</loc>
-    
-    <lastmod>2022-04-03</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
 
   <url>
     <loc>http://example.com/</loc>
