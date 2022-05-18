@@ -10,8 +10,8 @@
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="标签，可以多个,">
-<meta name="description" content="简单描述一下">
+<meta name="keywords" content="图床,">
+<meta name="description" content="搭建图床，目前只介绍了 Gitee">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -304,7 +304,7 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/标签，可以多个">标签，可以多个</a></li>
+            <li><a href="/tags/图床">图床</a></li>
             
             
         </ul>
@@ -328,7 +328,75 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        
+        <h1 id="ImageRepository"><a href="#ImageRepository" class="headerlink" title="ImageRepository"></a>ImageRepository</h1><h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>图床，个人用来存图的图床</p>
+<h2 id="简单的讲讲教程"><a href="#简单的讲讲教程" class="headerlink" title="简单的讲讲教程"></a>简单的讲讲教程</h2><blockquote>
+<p>主要是害怕自己忘了，hhh<br>因为直接在网页上写的，不想搞图片了，直接用文字代替了</p>
+</blockquote>
+<h3 id="1、gitee上的操作"><a href="#1、gitee上的操作" class="headerlink" title="1、gitee上的操作"></a>1、gitee上的操作</h3><blockquote>
+<p>（1）在gitee上建一个仓库，然后记一下仓库名称 </p>
+<blockquote>
+<ul>
+<li>比如该仓库名称是: lmz2498369702&#x2F;image-repository</li>
+<li>发现，是进入仓库，上面链接 gitee.com&#x2F;后面的内容</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>(2) 生成私人令牌</p>
+<blockquote>
+<ul>
+<li>点击右上角个人头像的三角形</li>
+<li>点击设置</li>
+<li>点击左下角<code>私人令牌</code></li>
+<li>之后<code>私人令牌</code>只会生成一次明码，一定要复制下来，后面有用</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="2、PicGo设置"><a href="#2、PicGo设置" class="headerlink" title="2、PicGo设置"></a>2、<code>PicGo</code>设置</h3><blockquote>
+<p>（1）下载</p>
+<blockquote>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/Molunerfinn/PicGo/releases/tag/v2.3.0"><code>点击下载PicGo</code></a></li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>(2) 设置图床</p>
+<blockquote>
+<ul>
+<li>点击<code>PicGo</code>左侧<code>图床设置</code>，选择<code>gitee</code></li>
+<li><code>repo</code>中填入<code>仓库名称</code>,如<code>lmz2498369702/image-repository</code></li>
+<li><code>token</code>中填入<code>私人令牌</code></li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>(3) 设置服务器端口</p>
+<blockquote>
+<p>如果使用<code>Typora</code>的话，就需要这一步</p>
+<ul>
+<li>点击<code>PicGo</code>左侧<code>PicGo设置</code></li>
+<li>往下滑，点击<code>设置Server</code></li>
+<li>将监听端口改为<code>36677</code>，因为<code>Typora</code>默认的就是<code>36677</code></li>
+<li>如果<code>36677</code>端口被用了，自行查找更改<code>Typora</code>的端口和这个端口，反正要一致</li>
+</ul>
+</blockquote>
+</blockquote>
+<h3 id="3、Typora设置"><a href="#3、Typora设置" class="headerlink" title="3、Typora设置"></a>3、<code>Typora</code>设置</h3><blockquote>
+<p>(1) 下载，这个好像不用说吧</p>
+</blockquote>
+<blockquote>
+<p>(2) 设置图床</p>
+<blockquote>
+<ul>
+<li>点到<code>偏好设置</code>中的<code>图像</code></li>
+<li>选择<code>上传服务</code>中的<code>PicGo(app)</code></li>
+<li><code>PicGo路径</code>选择你电脑安装的<code>PicGo</code>路径即可</li>
+<li>然后点击<code>验证图片上传选项</code>，出现上传成功即可</li>
+</ul>
+</blockquote>
+</blockquote>
+
     </div>
 </div>
 <style>
