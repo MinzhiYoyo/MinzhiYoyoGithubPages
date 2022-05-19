@@ -373,7 +373,16 @@
 </ul>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回值介绍</span></span><br><span class="line"><span class="comment">// 限制返回 int</span></span><br><span class="line"><span class="keyword">auto</span> f = [&amp;]() -&gt; <span class="type">int</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p>​    有人发现了，前面都是使用<code>auto</code>关键词声明的，那么可不可以声明为具体类型了，答案是<em><strong>否定</strong></em>的。既然是匿名函数，肯定没有固定的<code>typeid</code>，经过测试，那怕完全相同的两个函数，其<code>typeid</code>都是<em><strong>不一样</strong></em>的。就像<code>int a = 1; int b = 1;</code>中<code>a,b</code>不是用一个东西，仅仅是两个变量的值一样，但是<code>a,b</code>的<code>typeid</code>是一样的。<code>auto f1 = []()&#123;&#125;; auto f2 = []()&#123;&#125;;</code>中，<code>f1, f2</code>他们仅仅是地址对应的值相同而已，都是只执行了<code>[]()&#123;&#125;</code>这个函数。</p>
+<h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p>​    有人发现了，前面都是使用<code>auto</code>关键词声明的，那么可不可以声明为具体类型了，答案是<em><strong>也可以</strong></em>的。既然是匿名函数，肯定没有固定的<code>typeid</code>，经过测试，那怕完全相同的两个函数，其<code>typeid</code>都是<em><strong>不一样</strong></em>的。就像<code>int a = 1; int b = 1;</code>中<code>a,b</code>不是用一个东西，仅仅是两个变量的值一样，但是<code>a,b</code>的<code>typeid</code>是一样的。<code>auto f1 = []()&#123;&#125;; auto f2 = []()&#123;&#125;;</code>中，<code>f1, f2</code>他们仅仅是地址对应的值相同而已，都是只执行了<code>[]()&#123;&#125;</code>这个函数。</p>
+<p>​    但是，前面说可以声明为具体类型，那么，该怎么实现呢？答案是：<em><strong>函数指针</strong></em></p>
+<ul>
+<li>注意，这里的返回值<code>-&gt; int</code>不能省略</li>
+<li>而且，如果下述实现，是有<code>typeid(f)==typeid(g)</code></li>
+<li>并且还有<code>typeid(f) == typeid(g) == typeid(h)</code></li>
+<li>至于这个为什么呢？我也没有想明白这些，之后再努力看看才行。</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> (*f)() = []() -&gt; <span class="type">int</span> &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;;</span><br><span class="line"><span class="built_in">int</span> (*g)() = []() -&gt; <span class="type">int</span> &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">a</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;</span><br><span class="line"><span class="built_in">int</span> (*h)() = a; <span class="comment">// 也可写做 int(*h)() = &amp;a; 因为函数名本来就是地址</span></span><br></pre></td></tr></table></figure>
+
 
     </div>
 </div>
