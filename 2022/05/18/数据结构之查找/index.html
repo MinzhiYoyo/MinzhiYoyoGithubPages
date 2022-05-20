@@ -344,8 +344,8 @@
 <h2 id="2、顺序二叉树与平衡二叉树"><a href="#2、顺序二叉树与平衡二叉树" class="headerlink" title="2、顺序二叉树与平衡二叉树"></a>2、顺序二叉树与平衡二叉树</h2><h3 id="顺序二叉树"><a href="#顺序二叉树" class="headerlink" title="顺序二叉树"></a>顺序二叉树</h3><h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><ul>
 <li><p>树高为<code>h</code>时，节点数<code>n</code>的最小值怎么计算</p>
 <blockquote>
-<p>1、先给出答案：$n(h)<em>{min} &#x3D; n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
-<p>​            且 $n(0)<em>{min} &#x3D; 0;n(1)</em>{min} &#x3D; 1 ; n(2)_{min} &#x3D; 2;$ 这个应该很好得知，就像下面图示一样，</p>
+<p>1、先给出答案：$n(h)<em>{min} = n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
+<p>​            且 $n(0)<em>{min} = 0;n(1)</em>{min} = 1 ; n(2)_{min} = 2;$ 这个应该很好得知，就像下面图示一样，</p>
 <p>2、证明吧：首先，设定$n(x)_{min}$为树高为$x$时，最少需要的节点数目</p>
 <p>3、假设现在有两棵$AVL$，且$AVL_1$的树高为<code>h-1</code>，$AVL_2$的树高为<code>h-2</code></p>
 <p>4、树高为<code>h</code>的<code>AVL</code>，左右子树也是一颗<code>AVL</code>，且左右子树的树高差不超过<code>1</code></p>
@@ -354,10 +354,15 @@
 <p>6、既然想要追求节点少，那么肯定是树高最小最好，肯定选择方法2。</p>
 <p>​        不妨设左子树为<code>h-1</code>，右子树为<code>h-2</code></p>
 <p>7、那就可以用上述的$AVL_1 和 AVL_2$来作为<code>AVL</code>的两棵子树，再加上一个新的根节点</p>
-<p>8、那么节点数目递推公式就是：$n(h)<em>{min} &#x3D; n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
+<p>8、那么节点数目递推公式就是：$n(h)<em>{min} = n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
 </blockquote>
-<p>$$<br>\begin{cases}<br>n(h)<em>{min} &amp; 高度为 h 的最小节点数目\<br>n(h-1)</em>{min} &amp; 高度为 h-1 左子树的最小节点数目\<br>n(h-2)_{min} &amp; 高度为 h-2 右子树的最小节点数目\<br>1 &amp; 额外的根节点数目<br>\end{cases}<br>$$</p>
-</li>
+<script type="math/tex; mode=display">
+\begin{cases}
+n(h)_{min} & 高度为 h 的最小节点数目\\
+n(h-1)_{min} & 高度为 h-1 左子树的最小节点数目\\
+n(h-2)_{min} & 高度为 h-2 右子树的最小节点数目\\
+1 & 额外的根节点数目
+\end{cases}</script></li>
 </ul>
 <pre class="mermaid">graph TB
 A 

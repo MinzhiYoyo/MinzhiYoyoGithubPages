@@ -335,8 +335,7 @@
 <p>网页往往采用<code>html+css+js</code>开发，<code>html</code>是一门标记语言</p>
 <p>如下：</p>
 <figure class="highlight html"><table><tr><td class="code"><pre><span class="line">&lt;!- 将下面这句话放入html文件中，--&gt;</span><br><span class="line">&lt;!- 然后浏览器就会将这句话解释为下面那张图片，--&gt;</span><br><span class="line">&lt;!- 这个就是浏览器渲染的功能--&gt;</span><br><span class="line">&lt;!- 这里我们知道了一个词——浏览器的渲染   --&gt;</span><br><span class="line">&lt;!- 并且我们发现，浏览器会在下面这个网址 自动 --&gt;</span><br><span class="line">&lt;!- 把这张图片下载下来，然后渲染给我们看，这在我们之后抓包会有用 --&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">width</span>=<span class="string">&quot;300px&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png" width="300px">
+<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png" width="300px"></p>
 </blockquote>
 <h3 id="什么是请求，什么是响应"><a href="#什么是请求，什么是响应" class="headerlink" title="什么是请求，什么是响应"></a>什么是请求，什么是响应</h3><blockquote>
 <p>请求：就是前端向后端发送一个请求，如请求我的账户浏览记录</p>
@@ -359,29 +358,29 @@
 </blockquote>
 <h3 id="什么是抓包"><a href="#什么是抓包" class="headerlink" title="什么是抓包"></a>什么是抓包</h3><blockquote>
 <p>打个比方：你要向某人发一条数据，我在你们之间截获了或者记录了你们的数据，这个叫做抓包</p>
-</blockquote>
 <pre class="mermaid">graph LR
 A(数据发送者) -->B[抓包者]
 B -->C(数据接收者)</pre>
-<blockquote>
+
 <p><strong>那么我们需要抓什么包呢？抓包的用处在哪呢？</strong></p>
 <p>答：我们需要抓取浏览器和后端服务器通信的包；用处是分析他们的数据然后用代码进行伪造数据发送，以便获得和浏览器同样的响应</p>
 </blockquote>
 <h3 id="什么是代理"><a href="#什么是代理" class="headerlink" title="什么是代理"></a>什么是代理</h3><blockquote>
 <p>不进行代理应该是下列图：</p>
-</blockquote>
 <pre class="mermaid">graph LR
 A(前台客户端)-->|发送请求|C[后台服务器]
 C -->|返回响应|A</pre>
-<blockquote>
+
+
+
 <p>代理就是如下：</p>
-</blockquote>
 <pre class="mermaid">graph LR
 A(前台客户端)-->|发送请求|B[代理服务器]
 B -->|转发请求|C(后台服务器)
 C -->|返回响应|B
 B -->|转发响应|A</pre>
 
+</blockquote>
 <h3 id="如何伪造呢？"><a href="#如何伪造呢？" class="headerlink" title="如何伪造呢？"></a>如何伪造呢？</h3><blockquote>
 <p>1、一般网站开发者希望我们使用浏览器浏览他们的网站，不希望我们使用代码进行浏览</p>
 <p>2、欸，但我就想用代码进行浏览，怎么办呢？</p>
@@ -393,9 +392,7 @@ B -->|转发响应|A</pre>
 <p>打开某个浏览器，按下键盘上的<kbd>F12</kbd>键，进入调试模式</p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019536.png" alt="image-20211219160806912"></p>
 <p>一般用得到上面四个红圈里面的内容，建议跟我一样，将这个调试界面放到右侧，不然之后找不到对应的按钮（仅代表个人习惯）。<br>如果是英文的，也不要担心，相信这点英文应该看得懂，看不懂应该也能找到相应位置，还可以自行百度怎么换成中文哦。</p>
-<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019319.png" width="300px">
-</blockquote>
-<blockquote>
+<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019319.png" width="300px"></p>
 <ul>
 <li>红圈1、找到页面上的元素分别对应哪句<code>html</code>标签</li>
 <li>红圈2、主要看<kbd>元素</kbd>和<kbd>网络</kbd>两个</li>
@@ -439,8 +436,6 @@ B -->|转发响应|A</pre>
 <p>响应数据多种多样，常见的有：<code>html</code>文本，图片文件，表单数据，视频文件等等</p>
 <p>其中，图片文件和视频文件等都是二进制格式</p>
 <p><code>html</code>文本和表单数据是文本格式</p>
-</blockquote>
-<blockquote>
 <ul>
 <li><code>html</code>文本</li>
 </ul>
@@ -456,11 +451,11 @@ B -->|转发响应|A</pre>
 <p>返回的数据中一般带有我们需要的数据，如翻译的请求，就会把翻译的结果再以表单的形式返回了</p>
 </blockquote>
 <h2 id="代码编写"><a href="#代码编写" class="headerlink" title="代码编写"></a>代码编写</h2><p>有了上述的知识，可以进行代码编写，其实完全可以先进行代码编写，然后再去上述补充基本知识，这个顺序可以根据大家喜好来看。</p>
-<p><a target="_blank" rel="noopener" href="https://docs.python-requests.org/zh_CN/latest/user/quickstart.html"><em><strong><code>requests</code>教程</strong></em></a></p>
+<p><a target="_blank" rel="noopener" href="https://docs.python-requests.org/zh_CN/latest/user/quickstart.html"><strong><em><code>requests</code>教程</em></strong></a></p>
 <h4 id="导入requests包"><a href="#导入requests包" class="headerlink" title="导入requests包"></a>导入<code>requests</code>包</h4><blockquote>
 <p>下载：<code>pip install requests</code></p>
 <p>导入：<code>import requests</code></p>
-<p><code>emmmmm </code>怎么说呢，这个好像不如跟着视频里面做一遍，虽然我还没有录视频，但是聪明的你们肯定会上百度吧</p>
+<p><code>emmmmm</code>怎么说呢，这个好像不如跟着视频里面做一遍，虽然我还没有录视频，但是聪明的你们肯定会上百度吧</p>
 </blockquote>
 <h4 id="requests包的使用"><a href="#requests包的使用" class="headerlink" title="requests包的使用"></a><code>requests</code>包的使用</h4><blockquote>
 <p>这个教程顺序可能和网上很多都不一样</p>
@@ -471,7 +466,7 @@ B -->|转发响应|A</pre>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re   <span class="comment"># 导入正则表达式包</span></span><br><span class="line"><span class="comment"># 假如有下列字符串需要被匹配</span></span><br><span class="line"><span class="comment"># str1 = &quot;&lt;link href=&quot;https://stacdn.proginn.com/plugin/swiper/swiper.min.css?version=4.30.2&quot;</span></span><br><span class="line"><span class="comment"># rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;&quot;</span></span><br><span class="line"><span class="comment"># 其中href中的是我们需要的那么</span></span><br><span class="line">html = response.content.decode()</span><br><span class="line">restr = <span class="string">&quot;&lt;link\\shref=\&quot;(.*?)\&quot;\\srel=\&quot;stylesheet\&quot;\\stype=\&quot;text/css\&quot;&gt;&quot;</span></span><br><span class="line">dst_list = re.findall(restr, html)   <span class="comment"># 返回一个列表</span></span><br><span class="line"><span class="comment"># 上面这条语句，会将html里面所有形如str1中的href都返回到列表中</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 假如我们是要爬取妹妹图，那么就把当前页面所有的妹妹图的网址都保存到列表了</span></span><br><span class="line"><span class="comment"># 只需要进行如下操作遍历列表就行</span></span><br><span class="line"><span class="keyword">for</span> pngurl <span class="keyword">in</span> dst_list:</span><br><span class="line"> <span class="built_in">print</span>(pngurl)</span><br></pre></td></tr></table></figure>
 </blockquote>
 <hr>
-<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>​        爬虫会涉及到有关法律问题，这里不作讨论，但是希望大家不要拿来干坏事。<em><strong>概不负责</strong></em>。</p>
+<h1 id="结束语"><a href="#结束语" class="headerlink" title="结束语"></a>结束语</h1><p>​        爬虫会涉及到有关法律问题，这里不作讨论，但是希望大家不要拿来干坏事。<strong><em>概不负责</em></strong>。</p>
 <p>​        爬虫与反爬、反反爬一直都在相互进行着，是相互迭代的过程，爬虫重点在于数据分析而不是代码编写。</p>
 <p>​        本课程涉及的只是非常非常简单的爬虫，还有很多很多爬虫知识需要后续的学习，爬虫涉及的知识太广了，不是一堂课能够讲的清楚的。涵盖网络知识、密码知识、前后端工作方式、编码格式等等。之后应该学校课程有一门叫做<kbd>《计算机网络技术》</kbd>，我个人感觉这门课程非常重要，但是其实学校老师讲的可能<code>emmmmmm...</code>。大家可以课外多花时间学习，不管之后是嵌入式，物联网，互联网，软件开发，网络安全、科学上网等等方向都需要用到计算机网络的知识。</p>
 <p>​        任重而道远，我学这个是凭借着兴趣而学习，所以更多的知识还是得看自己慢慢学。之后我如果有时间，应该会录制两三个爬虫例子。如爬取二次元桌面图片、一键登录校园网、获取天气预报、打造一个翻译官等等。</p>
