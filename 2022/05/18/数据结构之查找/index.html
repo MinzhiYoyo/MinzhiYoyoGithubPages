@@ -341,7 +341,24 @@
 <div class="article-content">
     <div id="article" class="content">
         <h1 id="查找大法"><a href="#查找大法" class="headerlink" title="查找大法"></a>查找大法</h1><h2 id="1、顺序查找与二分法查找"><a href="#1、顺序查找与二分法查找" class="headerlink" title="1、顺序查找与二分法查找"></a>1、顺序查找与二分法查找</h2><hr>
-<h2 id="2、二叉树与平衡二叉树"><a href="#2、二叉树与平衡二叉树" class="headerlink" title="2、二叉树与平衡二叉树"></a>2、二叉树与平衡二叉树</h2><hr>
+<h2 id="2、顺序二叉树与平衡二叉树"><a href="#2、顺序二叉树与平衡二叉树" class="headerlink" title="2、顺序二叉树与平衡二叉树"></a>2、顺序二叉树与平衡二叉树</h2><h3 id="顺序二叉树"><a href="#顺序二叉树" class="headerlink" title="顺序二叉树"></a>顺序二叉树</h3><h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><ul>
+<li><p>树高为<code>h</code>时，节点数<code>n</code>的最小值怎么计算</p>
+<blockquote>
+<p>1、先给出答案：$n(h)<em>{min} &#x3D; n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
+<p>2、证明吧：首先，设定$n(x)_{min}$为树高为$x$时，最少需要的节点数目</p>
+<p>3、假设现在有两棵$AVL$，且$AVL_1$的树高为<code>h-1</code>，$AVL_2$的树高为<code>h-2</code></p>
+<p>4、树高为<code>h</code>的<code>AVL</code>，左右子树也是一颗<code>AVL</code>，且左右子树的树高差不超过<code>1</code></p>
+<p>5、也就是说，左右子树的树高要么都为<code>h-1</code>（方法1）；</p>
+<p>​                        要么一个为<code>h-1</code>，一个为<code>h-2</code>（方法2）。</p>
+<p>6、既然想要追求节点少，那么肯定是树高最小最好，肯定选择方法2。</p>
+<p>​        不妨设左子树为<code>h-1</code>，右子树为<code>h-2</code></p>
+<p>7、那就可以用上述的$AVL_1 和 AVL_2$来作为<code>AVL</code>的两棵子树，再加上一个新的根节点</p>
+<p>8、那么节点数目递推公式就是：$n(h)<em>{min} &#x3D; n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
+</blockquote>
+<p>$$<br>\begin{cases}<br>n(h)<em>{min} &amp; 高度为 h 的最小节点数目\<br>n(h-1)</em>{min} &amp; 高度为 h-1 左子树的最小节点数目\<br>n(h-2)_{min} &amp; 高度为 h-2 右子树的最小节点数目\<br>1 &amp; 额外的根节点数目<br>\end{cases}<br>$$</p>
+</li>
+</ul>
+<hr>
 <h2 id="3、重头戏——红黑树"><a href="#3、重头戏——红黑树" class="headerlink" title="3、重头戏——红黑树"></a>3、重头戏——红黑树</h2>
     </div>
 </div>
@@ -511,6 +528,21 @@
 <script>
 	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
 </script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
 
 </html>
