@@ -345,6 +345,7 @@
 <li><p>树高为<code>h</code>时，节点数<code>n</code>的最小值怎么计算</p>
 <blockquote>
 <p>1、先给出答案：$n(h)<em>{min} &#x3D; n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
+<p>​            且$n(0)<em>{min} &#x3D; 0;n(1)</em>{min} &#x3D; 1 ; n(2)_{min} &#x3D; 2;$ 这个应该很好得知，就像下面图示一样，</p>
 <p>2、证明吧：首先，设定$n(x)_{min}$为树高为$x$时，最少需要的节点数目</p>
 <p>3、假设现在有两棵$AVL$，且$AVL_1$的树高为<code>h-1</code>，$AVL_2$的树高为<code>h-2</code></p>
 <p>4、树高为<code>h</code>的<code>AVL</code>，左右子树也是一颗<code>AVL</code>，且左右子树的树高差不超过<code>1</code></p>
@@ -358,6 +359,15 @@
 <p>$$<br>\begin{cases}<br>n(h)<em>{min} &amp; 高度为 h 的最小节点数目\<br>n(h-1)</em>{min} &amp; 高度为 h-1 左子树的最小节点数目\<br>n(h-2)_{min} &amp; 高度为 h-2 右子树的最小节点数目\<br>1 &amp; 额外的根节点数目<br>\end{cases}<br>$$</p>
 </li>
 </ul>
+<pre class="mermaid">graph TB
+A 
+B --> C
+显然左边分别是h为1和2的情况</pre>
+
+
+
+
+
 <hr>
 <h2 id="3、重头戏——红黑树"><a href="#3、重头戏——红黑树" class="headerlink" title="3、重头戏——红黑树"></a>3、重头戏——红黑树</h2>
     </div>
