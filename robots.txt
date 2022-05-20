@@ -4,5 +4,6 @@ Allow: /home
 Allow: /categories
 Allow: /about
 Allow: /tags
-Sitemap: http://lmzyoyo.top/sitemap.xml
 Disallow:
+Sitemap: https://https://minzhiyoyo.github.io//sitemap.xml
+Sitemap: https://https://minzhiyoyo.github.io//baidusitemap.xml
