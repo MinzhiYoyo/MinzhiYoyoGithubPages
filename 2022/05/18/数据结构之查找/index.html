@@ -342,9 +342,132 @@
     <div id="article" class="content">
         <h1 id="查找大法"><a href="#查找大法" class="headerlink" title="查找大法"></a>查找大法</h1><h2 id="1、顺序查找与二分法查找"><a href="#1、顺序查找与二分法查找" class="headerlink" title="1、顺序查找与二分法查找"></a>1、顺序查找与二分法查找</h2><hr>
 <h2 id="2、顺序二叉树与平衡二叉树"><a href="#2、顺序二叉树与平衡二叉树" class="headerlink" title="2、顺序二叉树与平衡二叉树"></a>2、顺序二叉树与平衡二叉树</h2><h3 id="顺序二叉树"><a href="#顺序二叉树" class="headerlink" title="顺序二叉树"></a>顺序二叉树</h3><h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><ul>
+<li><p>平衡二叉树的<strong>旋转</strong></p>
+<blockquote>
+<ul>
+<li><p>对节点<code>A</code>左旋：</p>
+<blockquote>
+<p>1、<code>A</code> <strong>右</strong>孩子的<strong>左</strong>孩子变成<code>A</code>的<strong>右</strong>孩子：<code>A-&gt;right = A-&gt;right-&gt;left</code></p>
+<p>2、<code>A</code>的<strong>右</strong>孩子取代<code>A</code>的位置</p>
+<p>3、<code>A</code>变成<strong>右</strong>孩子的<strong>左</strong>孩子：<code>A-&gt;right-&gt;left = A</code></p>
+</blockquote>
+</li>
+<li><p>对节点<code>A</code>右旋：</p>
+<blockquote>
+<p>1、<code>A</code> 左孩子的右孩子变成<code>A</code>的左孩子：<code>A-&gt;left = A-&gt;left-&gt;right</code></p>
+<p>2、<code>A</code>的左孩子取代A的位置</p>
+<p>3、<code>A</code>变成左孩子的右孩子：<code>A-&gt;left-&gt;right = A</code></p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>平衡二叉树的<strong>插入</strong>（王道书  <script type="math/tex">P_{274}</script>）</p>
+<blockquote>
+<ul>
+<li><p>基本假设：找到<strong>插入路径</strong>上离<strong>插入点</strong>最近的<strong>不平衡</strong>节点<code>A</code>，<code>A</code>一般是插入树<code>C</code>的<strong>爷爷</strong>，设<code>B</code>是<code>C</code>的<strong>父亲</strong></p>
+<blockquote>
+<p>第一是找<strong>不平衡节点</strong></p>
+<p>第二是<code>C</code>可能是新节点也可能不是，是在<code>C</code>的<strong>子树</strong>或者<code>C</code>处插入，但是<code>C</code>没有失衡</p>
+<p>第三是<code>B</code>必须是<strong>插入路径</strong>上的节点，插入路径和排序二叉树一样的</p>
+</blockquote>
+</li>
+<li><p>核心思想：将中间大小的节点旋转到<code>A</code>的位置，这里很混乱，没关系，看下面的</p>
+</li>
+<li><p>1、<code>LL</code>平衡旋转：<code>A</code>的<strong>左（L）</strong>孩子是<code>B</code>，<code>B</code>的<strong>左（L）</strong>孩子是<code>C</code></p>
+<blockquote>
+<p>1）<strong>右</strong>单旋转即可</p>
+<p>2）对<code>A</code>点右旋一次即可</p>
+<p>3）核心思想：显然有<code>A&gt;B&gt;C</code>，最后右旋一下，<code>B（中间大小）</code>取代了<code>A</code></p>
+</blockquote>
+</li>
+<li><p>2、<code>RR</code>平衡旋转：<code>A</code>的<strong>右（R）</strong>孩子是<code>B</code>，<code>B</code>的<strong>右（R）</strong>孩子是<code>C</code></p>
+<blockquote>
+<p>1）左单旋转即可</p>
+<p>2）对<code>A</code>点左旋一次即可</p>
+<p>3）核心思想：显然有<code>A&lt;B&lt;C</code>，最后右旋一下，<code>B（中间大小）</code>取代了<code>A</code></p>
+</blockquote>
+</li>
+<li><p>3、<code>LR</code>平衡旋转：<code>A</code>的<strong>左（L）</strong>孩子是<code>B</code>，<code>B</code>的<strong>右（R）</strong>孩子是<code>C</code></p>
+<blockquote>
+<p>1）先左后右旋转</p>
+<p>2）先对<code>B</code><strong>左</strong>旋，后对<code>A</code><strong>右</strong>旋</p>
+<p>3）核心思想：显然是<code>B&lt;C&lt;A</code>，最后是把<code>C</code>旋转到<code>A</code>的位置</p>
+<p>4）解释：</p>
+<ul>
+<li>对<code>B</code>左旋：将<code>C</code>提升到<code>B</code>的位置，提升第一次，<code>C</code>变成儿子，<code>B</code>变成孙子</li>
+<li>对<code>A</code>右旋：将<code>C</code>提升到<code>A</code>的位置，提升第二次，<code>C</code>变成爷爷，<code>A</code>变成儿子</li>
+</ul>
+</blockquote>
+</li>
+<li><p>4、<code>RL</code>平衡旋转：<code>A</code>的<strong>右（R）</strong>孩子是<code>B</code>，<code>B</code>的<strong>左（L）</strong>孩子是<code>C</code></p>
+<blockquote>
+<p>1）先右后左旋转</p>
+<p>2）先对<code>B</code><strong>右</strong>旋，后对<code>A</code><strong>左</strong>旋</p>
+<p>3）核心思想：显然是<code>B&gt;C&gt;A</code>，最后是把<code>C</code>旋转到<code>A</code>的位置</p>
+<p>4）解释：</p>
+<ul>
+<li>对<code>B</code>右旋：将<code>C</code>提升到<code>B</code>的位置，提升第一次，<code>C</code>变成儿子，<code>B</code>变成孙子</li>
+<li>对<code>A</code>左旋：将<code>C</code>提升到<code>A</code>的位置，提升第二次，<code>C</code>变成爷爷，<code>A</code>变成儿子</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
+<li><p>平衡二叉树的<strong>删除</strong></p>
+<blockquote>
+<ul>
+<li><p>基本假设：<code>w</code>是需要<strong>删除</strong>的节点，从<code>w</code>向上面找，离<code>w</code><strong>最近且失衡</strong>的节点为<code>z</code></p>
+<blockquote>
+<p><code>z</code>有左右子树，左右子树高度差大于1，设高度较<strong>高</strong>的<strong>子树根节点</strong>为<code>y</code></p>
+<p><code>y</code>有左右子树，左右子树高度差小于等于1，设高度较<strong>高</strong>的<strong>子树根节点</strong>为<code>x</code></p>
+<p>如果<code>y</code>的左右子树高度相等，那么<code>x</code>任意左还是右</p>
+<p>还是有，<code>z</code>是爷爷，<code>y</code>是父亲，<code>x</code>是孙子</p>
+</blockquote>
+</li>
+<li><p>核心思想：还是把中间大小的节点旋转到<code>z</code>处</p>
+</li>
+<li><p>1、<code>LL</code>平衡旋转：<code>z</code>的<strong>左（L）</strong>孩子是<code>y</code>，<code>y</code>的<strong>左（L）</strong>孩子是<code>x</code></p>
+<blockquote>
+<p>1）<strong>右</strong>单旋转即可</p>
+<p>2）对<code>z</code>点右旋一次即可</p>
+<p>3）核心思想：显然有<code>z&gt;y&gt;x</code>，最后右旋一下，<code>y（中间大小）</code>取代了<code>z</code></p>
+</blockquote>
+</li>
+<li><p>2、<code>RR</code>平衡旋转：<code>z</code>的<strong>右（R）</strong>孩子是<code>y</code>，<code>y</code>的<strong>右（R）</strong>孩子是<code>x</code></p>
+<blockquote>
+<p>1）左单旋转即可</p>
+<p>2）对<code>z</code>点左旋一次即可</p>
+<p>3）核心思想：显然有<code>z&lt;y&lt;x</code>，最后右旋一下，<code>y（中间大小）</code>取代了<code>z</code></p>
+</blockquote>
+</li>
+<li><p>3、<code>LR</code>平衡旋转：<code>z</code>的<strong>左（L）</strong>孩子是<code>y</code>，<code>y</code>的<strong>右（R）</strong>孩子是<code>x</code></p>
+<blockquote>
+<p>1）先左后右旋转</p>
+<p>2）先对<code>y</code><strong>左</strong>旋，后对<code>z</code><strong>右</strong>旋</p>
+<p>3）核心思想：显然是<code>y&lt;x&lt;z</code>，最后是把<code>x</code>旋转到<code>z</code>的位置</p>
+</blockquote>
+</li>
+<li><p>4、<code>RL</code>平衡旋转：<code>z</code>的<strong>右（R）</strong>孩子是<code>y</code>，<code>y</code>的<strong>左（L）</strong>孩子是<code>x</code></p>
+<blockquote>
+<p>1）先右后左旋转</p>
+<p>2）先对<code>y</code><strong>右</strong>旋，后对<code>z</code><strong>左</strong>旋</p>
+<p>3）核心思想：显然是<code>y&gt;x&gt;z</code>，最后是把<code>x</code>旋转到<code>z</code>的位置</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<ul>
 <li><p>树高为<code>h</code>时，节点数<code>n</code>的最小值怎么计算</p>
 <blockquote>
-<p>1、先给出答案：<script type="math/tex">n(h)_{min} = n(h-1)_{min} + m(h-2)_{min} + 1</script></p>
+<p>1、先给出答案：<script type="math/tex">n(h)_{min} = n(h-1)_{min} + n(h-2)_{min} + 1</script></p>
 <p>​            且 <script type="math/tex">n(0)_{min} = 0;n(1)_{min} = 1 ; n(2)_{min} = 2;</script> 这个应该很好得知，就像下面图示一样，</p>
 <p>2、证明吧：首先，设定$n(x)_{min}$为树高为$x$时，最少需要的节点数目</p>
 <p>3、假设现在有两棵$AVL$，且$AVL_1$的树高为<code>h-1</code>，$AVL_2$的树高为<code>h-2</code></p>
@@ -354,7 +477,7 @@
 <p>6、既然想要追求节点少，那么肯定是树高最小最好，肯定选择方法2。</p>
 <p>​        不妨设左子树为<code>h-1</code>，右子树为<code>h-2</code></p>
 <p>7、那就可以用上述的$AVL_1 和 AVL_2$来作为<code>AVL</code>的两棵子树，再加上一个新的根节点</p>
-<p>8、那么节点数目递推公式就是：$n(h)<em>{min} = n(h-1)</em>{min} + m(h-2)_{min} + 1$</p>
+<p>8、那么节点数目递推公式就是：<script type="math/tex">n(h)_{min} = n(h-1)_{min} + n(h-2)_{min} + 1</script></p>
 </blockquote>
 <script type="math/tex; mode=display">
 \begin{cases}
