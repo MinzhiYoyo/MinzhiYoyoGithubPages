@@ -334,20 +334,11 @@
     <div id="article" class="content">
         <p>win+R regedit调出注册表</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">计算机\HKEY_LOCAL_MACHINE\SOFTWARE\Classes\*\shell\</span><br></pre></td></tr></table></figure>
-
 <blockquote>
 <p>上面这个路径下新建项：Open with ……</p>
-</blockquote>
-<blockquote>
 <p>然后Open with ……新建项Command</p>
-</blockquote>
-<blockquote>
 <p>Command 默认为 路径\…….。exe  “%1”</p>
-</blockquote>
-<blockquote>
 <p>然后Open with ……新建Icon字符串值</p>
-</blockquote>
-<blockquote>
 <p>为路径\…….。exe</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051936063.png" alt="image-20210102212700378"></p>
@@ -439,7 +430,7 @@
 <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
 <script>
 	if (window.mermaid) {
-		console.log('开启mermaid');
+		// console.log('开启mermaid');
 		mermaid.initialize({ theme: 'forest' });
 	}
 </script>
@@ -528,7 +519,9 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 
 </html>

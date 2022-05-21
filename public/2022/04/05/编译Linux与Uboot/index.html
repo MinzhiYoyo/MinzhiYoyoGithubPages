@@ -337,7 +337,6 @@
 <h1 id="三、PCB绘制"><a href="#三、PCB绘制" class="headerlink" title="三、PCB绘制"></a>三、PCB绘制</h1><p>不是我绘制的</p>
 <h1 id="四、下载编译工具链"><a href="#四、下载编译工具链" class="headerlink" title="四、下载编译工具链"></a>四、下载编译工具链</h1><p>我下的是<code>arm-linux-gnueabi-</code></p>
 <h1 id="五、u-boot移植"><a href="#五、u-boot移植" class="headerlink" title="五、u-boot移植"></a>五、u-boot移植</h1><h2 id="1、下载u-boot"><a href="#1、下载u-boot" class="headerlink" title="1、下载u-boot"></a>1、下载<code>u-boot</code></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/Lichee-Pi/u-boot.git</span><br><span class="line">git branch -a  # 查看分支，我们使用的是nano-v2018.01u-boot</span><br><span class="line">git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支</span><br></pre></td></tr></table></figure>
-
 <h2 id="2、选取config配置"><a href="#2、选取config配置" class="headerlink" title="2、选取config配置"></a>2、选取<code>config</code>配置</h2><p>考虑到水平有限，我们采用从现有的配置上进行更改。或者，我完全不进行更改，就直接使用了。</p>
 <h3 id="对几个config简单介绍："><a href="#对几个config简单介绍：" class="headerlink" title="对几个config简单介绍："></a><em>对几个config简单介绍：</em></h3><blockquote>
 <p><code>f1c100s_nano_uboot_defconfig</code>：<code>SPI Flash</code>支持版</p>
@@ -346,9 +345,7 @@
 </blockquote>
 <p>其实上面三种我也分不清楚，我第一次采用的是 <code>licheepi_nano_defconfig</code>。我也找不到 <code>f1c100s_nano_uboot_defconfig</code>，但是在<a target="_blank" rel="noopener" href="https://gitee.com/LicheePiNano/u-boot">这</a>可以找到，这个是荔枝派的 <code>u-boot</code>，可能毕竟这款 <code>f1c100s</code>是国产芯片，在<code>GitHub</code>上面找不到。</p>
 <h3 id="选取config操作"><a href="#选取config操作" class="headerlink" title="选取config操作"></a>选取<code>config</code>操作</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/u-boot  # 切换到 下载的 u-boot 的根目录</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_defconfig  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参数介绍：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ARCH=arm 是arm架构的</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CROSS_COMPILE=arm-linux-gnueabi-  是之前的下载的编译工具链</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">licheepi_nano_defconfig 选取的默认config</span></span><br></pre></td></tr></table></figure>
-
 <h2 id="3、可视化配置"><a href="#3、可视化配置" class="headerlink" title="3、可视化配置"></a>3、可视化配置</h2><h3 id="打开菜单命令"><a href="#打开菜单命令" class="headerlink" title="打开菜单命令"></a>打开菜单命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">make ARCH=arm menuconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">之后上下键进行移动</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">空格或者回车进行选择</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">左右可以选择下方菜单</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ctrl+退格才能删除已经填入的默认参数</span></span><br></pre></td></tr></table></figure>
-
 <h3 id="参数讲解"><a href="#参数讲解" class="headerlink" title="参数讲解"></a>参数讲解</h3><p>注意下面这两个参数就行</p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958695.png" alt="image-20220305195147976"></p>
 <h4 id="boot-arguments"><a href="#boot-arguments" class="headerlink" title="boot arguments"></a><code>boot arguments</code></h4><blockquote>
@@ -357,9 +354,9 @@
 </ul>
 <blockquote>
 <p><strong><code>console=ttyS0,115200</code></strong> 表示终端为ttyS0即串口0,波特率为115200；</p>
-<p>**<code>panic=5</code> **字面意思是恐慌，即linux内核恐慌，其实就是linux不知道怎么执行了，此时内核就需要做一些相关的处理，这里的5表示超时时间，当Linux卡住5秒后仍未成功就会执行Linux恐慌异常的一些操作。</p>
+<p><strong><code>panic=5</code> </strong>字面意思是恐慌，即linux内核恐慌，其实就是linux不知道怎么执行了，此时内核就需要做一些相关的处理，这里的5表示超时时间，当Linux卡住5秒后仍未成功就会执行Linux恐慌异常的一些操作。</p>
 <p><code>rootwait</code> 该参数是告诉内核挂在文件系统之前需要先加载相关驱动，这样做的目的是防止因mmc驱动还未加载就开始挂载驱动而导致文件系统挂载失败，所以一般bootargs中都要加上这个参数。</p>
-<p><strong>root&#x3D;&#x2F;dev&#x2F;mmcblk0p2</strong> 表示根文件系统的位置在mmc的0:2分区处，**&#x2F;dev<strong>是设备文件夹，内核在加载mmc中的时候就会在根文件系统中生成</strong>mmcblk0p2**设备文件，这个设备文件其实就是mmc的0:2分区(这里对应TF卡的第二个分区：rootfs)，这样内核对文件系统的读写操作方式本质上就是读写&#x2F;dev&#x2F;mmcblk0p2该设备文件。</p>
+<p><strong>root=/dev/mmcblk0p2</strong> 表示根文件系统的位置在mmc的0:2分区处，<strong>/dev</strong>是设备文件夹，内核在加载mmc中的时候就会在根文件系统中生成<strong>mmcblk0p2</strong>设备文件，这个设备文件其实就是mmc的0:2分区(这里对应TF卡的第二个分区：rootfs)，这样内核对文件系统的读写操作方式本质上就是读写/dev/mmcblk0p2该设备文件。</p>
 <p><strong><code>earlyprintk</code></strong> 参数是指在内核加载的过程中打印输出信息，这样内核在加载的时候终端就会输出相应的启动信息。rw表示文件系统的操作属性，此处rw表示可读可写。</p>
 </blockquote>
 </blockquote>
@@ -371,7 +368,7 @@
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959333.png" alt="image-20220305195531843"></p>
 </blockquote>
 </blockquote>
-<h2 id="、遇到问题不要慌"><a href="#、遇到问题不要慌" class="headerlink" title="、遇到问题不要慌"></a>、遇到问题不要慌</h2><h3 id="（1）-execute-39-swig-39"><a href="#（1）-execute-39-swig-39" class="headerlink" title="（1） execute &#39;swig&#39;"></a>（1）<code> execute &#39;swig&#39;</code></h3><blockquote>
+<h2 id="、遇到问题不要慌"><a href="#、遇到问题不要慌" class="headerlink" title="、遇到问题不要慌"></a>、遇到问题不要慌</h2><h3 id="（1）execute-39-swig-39"><a href="#（1）execute-39-swig-39" class="headerlink" title="（1）execute &#39;swig&#39;"></a>（1）<code>execute &#39;swig&#39;</code></h3><blockquote>
 <p>没有<code>swig</code>这个东西，安装即可：<code>sudo apt install swig</code></p>
 <p><code>swig</code>：我从<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SWIG">网上</a>了解到是一个将<code>C/C++</code>的类封装成库，给<code>Python、Lua、PHP</code>等脚本语言调用。（题外话）</p>
 </blockquote>
@@ -379,24 +376,24 @@
 <p><a target="_blank" rel="noopener" href="https://cnblogs.com/twzy/p/14865952.html">参考博客</a></p>
 <p><a target="_blank" rel="noopener" href="https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/get_started/first_eat.html">参考荔枝派</a><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959649.png" alt="image-20220305205126696"></p>
 </blockquote>
-<h1 id="六、Linux的移植"><a href="#六、Linux的移植" class="headerlink" title="六、Linux的移植"></a>六、<code>Linux</code>的移植</h1><h2 id="1、分区操作"><a href="#1、分区操作" class="headerlink" title="1、分区操作"></a>1、分区操作</h2><p>​    一个硬盘对于<code>Linux</code>来说，需要进行<strong>挂载</strong>命令是：<code>mount</code>，一般插上自动挂载），然后再能使用，然后需要<strong>卸载</strong>（命令：<code>umount</code>）才能操作，如格式化，分区之类的。我们借助了<code>Ubuntu</code>下图形化工具——**<code>Gparted</code>**，命令行进行下载就行了。</p>
-<p>​    然后，买到手的<code>sd</code>卡，可能已经分区了，有一个主分区。如果没法删除，或者进场出现例如*<code>/dev/sdb contains a mounted filesystem</code>*，我的建议，使用一个全0的映像文件写入<code>sd</code>卡，将前面的数据覆盖。</p>
+<h1 id="六、Linux的移植"><a href="#六、Linux的移植" class="headerlink" title="六、Linux的移植"></a>六、<code>Linux</code>的移植</h1><h2 id="1、分区操作"><a href="#1、分区操作" class="headerlink" title="1、分区操作"></a>1、分区操作</h2><p>​    一个硬盘对于<code>Linux</code>来说，需要进行<strong>挂载</strong>命令是：<code>mount</code>，一般插上自动挂载），然后再能使用，然后需要<strong>卸载</strong>（命令：<code>umount</code>）才能操作，如格式化，分区之类的。我们借助了<code>Ubuntu</code>下图形化工具——<strong><code>Gparted</code></strong>，命令行进行下载就行了。</p>
+<p>​    然后，买到手的<code>sd</code>卡，可能已经分区了，有一个主分区。如果没法删除，或者进场出现例如<em><code>/dev/sdb contains a mounted filesystem</code></em>，我的建议，使用一个全0的映像文件写入<code>sd</code>卡，将前面的数据覆盖。</p>
 <p>​    之后便是分区了，将只有一个未分区的，且没有任何分区的<code>sd</code>卡连接<code>Ubuntu</code>。</p>
 <h3 id="分区1、boot"><a href="#分区1、boot" class="headerlink" title="分区1、boot"></a>分区1、<code>boot</code></h3><blockquote>
 <p>新建一个分区</p>
-<p>之前剩余空间为<strong>1M</strong>，新大小为<strong>32M</strong>，文件系统为**<code>fat16</code><strong>，卷标就设置为</strong><code>boot</code>**</p>
-<p>对于之前的<code>1M</code>，是留给**<code>uboot</code>**的，而且在<code>gparted</code>是看不到的</p>
+<p>之前剩余空间为<strong>1M</strong>，新大小为<strong>32M</strong>，文件系统为<strong><code>fat16</code></strong>，卷标就设置为<strong><code>boot</code></strong></p>
+<p>对于之前的<code>1M</code>，是留给<strong><code>uboot</code></strong>的，而且在<code>gparted</code>是看不到的</p>
 <p><strong>图片来源于网络</strong></p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958740.png" alt="image-20220314221728714"></p>
 </blockquote>
 <h3 id="分区2、rootfs"><a href="#分区2、rootfs" class="headerlink" title="分区2、rootfs"></a>分区2、<code>rootfs</code></h3><blockquote>
 <p>新建一个分区</p>
-<p>之前剩余空间为<strong>0M</strong>，新大小为<strong>100M</strong>，文件系统为**<code>ext4</code><strong>，卷标就设置为</strong><code>rootfs</code>**</p>
-<p><em><strong>图片来源于网络</strong></em></p>
+<p>之前剩余空间为<strong>0M</strong>，新大小为<strong>100M</strong>，文件系统为<strong><code>ext4</code></strong>，卷标就设置为<strong><code>rootfs</code></strong></p>
+<p><strong><em>图片来源于网络</em></strong></p>
 <p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958803.png" alt="image-20220314221807562"></p>
 </blockquote>
 <h3 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h3><p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958789.png" alt="image-20220314221850652"></p>
-<h2 id="2、编译-Linux"><a href="#2、编译-Linux" class="headerlink" title="2、编译**Linux**"></a>2、编译**<code>Linux</code>**</h2><h3 id="更改设备树"><a href="#更改设备树" class="headerlink" title="更改设备树"></a>更改设备树</h3><h1 id="七、编译rootfs"><a href="#七、编译rootfs" class="headerlink" title="七、编译rootfs"></a>七、编译<code>rootfs</code></h1>
+<h2 id="2、编译Linux"><a href="#2、编译Linux" class="headerlink" title="2、编译Linux"></a>2、编译<strong><code>Linux</code></strong></h2><h3 id="更改设备树"><a href="#更改设备树" class="headerlink" title="更改设备树"></a>更改设备树</h3><h1 id="七、编译rootfs"><a href="#七、编译rootfs" class="headerlink" title="七、编译rootfs"></a>七、编译<code>rootfs</code></h1>
     </div>
 </div>
 <style>
@@ -490,7 +487,7 @@
 <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
 <script>
 	if (window.mermaid) {
-		console.log('开启mermaid');
+		// console.log('开启mermaid');
 		mermaid.initialize({ theme: 'forest' });
 	}
 </script>
@@ -579,7 +576,9 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 
 </html>

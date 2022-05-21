@@ -98,7 +98,7 @@ hexo server # 生成服务
 
 ## 1、更改`hexo`博客的配置
 
-​	更改**`_config.yml`**的文件内容
+​	更改`./_config.yml`的文件内容
 
 ```yaml
 # 第5行处

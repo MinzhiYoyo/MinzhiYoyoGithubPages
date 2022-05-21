@@ -330,17 +330,13 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <p>​        <em><strong>这篇博客主要是写给自己看的，如果完全的初学者，建议看我的另外一篇<a target="_blank" rel="noopener" href="https://minzhiyoyo.github.io/2022/04/05/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%88%9D%E5%AD%A6%E8%80%85/">博客</a>。</strong></em></p>
+        <p>​        <strong><em>这篇博客主要是写给自己看的，如果完全的初学者，建议看我的另外一篇<a target="_blank" rel="noopener" href="https://minzhiyoyo.github.io/2022/04/05/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%88%9D%E5%AD%A6%E8%80%85/">博客</a>。</em></strong></p>
 <h2 id="1、requests模块的使用"><a href="#1、requests模块的使用" class="headerlink" title="1、requests模块的使用"></a>1、<code>requests</code>模块的使用</h2><blockquote>
 <p><strong>response的用法</strong></p>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># ====== 1、基础知识  ======== #</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line">url = <span class="string">&quot;http://www.baidu.com&quot;</span></span><br><span class="line">response = requests.get(url)</span><br><span class="line"><span class="built_in">print</span>(respones.text)			<span class="comment"># 注意，text这个变量是默认解码过的，根据内容自动猜测的解码，str类数据</span></span><br><span class="line"><span class="built_in">print</span>(response.content.decode())   	</span><br><span class="line"><span class="comment"># content是没有解码的，bytes数据，默认用utf-8解码，也可以指定gbk解码，如decode(&#x27;gbk&#x27;)</span></span><br><span class="line"><span class="comment"># 常见的解码方式：utf-8，gbk，gb2312，ascii，iso-8859-1</span></span><br><span class="line"><span class="comment"># 有些平台可能上述都不行，那就用bytes存储就好</span></span><br><span class="line"><span class="built_in">print</span>(responst.encoding)			<span class="comment"># 推测的遍码格式</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 当然可以先设置encoding</span></span><br><span class="line">response.encoding = <span class="string">&quot;utf8&quot;</span>   <span class="comment"># 注意不是写成 utf-8</span></span><br><span class="line"><span class="built_in">print</span>(response.text)   <span class="comment"># 即可按照utf-8解码</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># ====== 2、常见的对象参数和方法  ======== #</span></span><br><span class="line"><span class="comment"># 响应的url</span></span><br><span class="line"><span class="built_in">print</span>(response.url)  </span><br><span class="line"></span><br><span class="line"><span class="comment"># 状态码（一般来说，不要相信）</span></span><br><span class="line"><span class="built_in">print</span>(response.status_code)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 响应对应的请求头</span></span><br><span class="line"><span class="built_in">print</span>(response.request.headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 响应头</span></span><br><span class="line"><span class="built_in">print</span>(response.headers)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 响应对应请求的cookie 返回cookieJar类型</span></span><br><span class="line"><span class="built_in">print</span>(response.request._cookies)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 响应的cookie</span></span><br><span class="line"><span class="built_in">print</span>(response.cookies)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 自动将json字符串类型的响应内容转换成python对象</span></span><br><span class="line"><span class="built_in">print</span>(response.json())</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-</blockquote>
-<blockquote>
 <p><strong>关闭代理</strong></p>
 <blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">proxies = &#123;<span class="string">&quot;http&quot;</span>: <span class="literal">None</span>, <span class="string">&quot;https&quot;</span>: <span class="literal">None</span>&#125;</span><br><span class="line">response = rq.get(url, headers=headers, verify=<span class="literal">False</span>, proxies=proxies) <span class="comment"># 关闭代理，关闭ssl认证</span></span><br></pre></td></tr></table></figure>
-
-
 </blockquote>
 </blockquote>
 <hr>
@@ -451,8 +447,6 @@
 </ul>
 <blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">wresponse = requests.get(url, timeout=<span class="number">3</span>)  <span class="comment"># 设为3s，一般设个十秒左右就好</span></span><br></pre></td></tr></table></figure>
-
-
 </blockquote>
 <p><strong>代理<code>Proxy</code></strong></p>
 <blockquote>
@@ -485,7 +479,6 @@
 <p><strong>用法</strong></p>
 <blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">proxies = &#123;</span><br><span class="line"> <span class="string">&#x27;http&#x27;</span>: <span class="string">&#x27;http://127.0.0.1:7890&#x27;</span>,</span><br><span class="line"> <span class="string">&#x27;https&#x27;</span>: <span class="string">&#x27;http://127.0.0.1:7890&#x27;</span></span><br><span class="line">&#125;</span><br><span class="line">response = requests.get(url, proxies=proxies)</span><br></pre></td></tr></table></figure>
-
 <p><a target="_blank" rel="noopener" href="https://www.kuaidaili.com/free/">国内免费代理站点1</a></p>
 <p><a target="_blank" rel="noopener" href="https://proxy.mimvp.com/freeopen">国内免费代理站点2</a></p>
 <p><a target="_blank" rel="noopener" href="https://www.89ip.cn/index.html">国内免费代理站点3</a></p>
@@ -550,8 +543,6 @@
 <p><strong>首先如何使用正则表达式</strong></p>
 <blockquote>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line">response = requests.get(url)</span><br><span class="line">restr = response.content.decode()   <span class="comment"># 转成utf-8或者gbk</span></span><br><span class="line"><span class="comment"># 正则提取</span></span><br><span class="line"><span class="keyword">import</span> re  <span class="comment"># 导入正则模块</span></span><br><span class="line">str_tmp = <span class="string">&quot;&lt;link href=\&quot;https://stacdn.proginn.com/plugin/swiper/swiper.min.css?version=4.30.2\&quot; rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot;&gt;&quot;</span>   <span class="comment"># 临时字符串，不用写到代码里</span></span><br><span class="line"><span class="comment"># 假如想要获取上面中的href，那么这样写正则表达式</span></span><br><span class="line"><span class="comment"># 正则</span></span><br><span class="line">restr = <span class="string">&#x27;&lt;link href=\&quot;(.*?)\&quot; rel=\&quot;stylesheet\&quot; type=\&quot;text/css\&quot;&gt;&#x27;</span>   <span class="comment"># 这个是以非贪婪模式匹配多个字符</span></span><br><span class="line"><span class="comment"># 然后匹配一下全文，看看是否获取了对应的</span></span><br><span class="line">dst_list = re.findall(restr, str_tmp)   <span class="comment"># 打印一下看看就知道了</span></span><br></pre></td></tr></table></figure>
-
-
 </blockquote>
 </blockquote>
 <h2 id="额外补充知识"><a href="#额外补充知识" class="headerlink" title="额外补充知识"></a>额外补充知识</h2><blockquote>
@@ -674,7 +665,7 @@
 <script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
 <script>
 	if (window.mermaid) {
-		console.log('开启mermaid');
+		// console.log('开启mermaid');
 		mermaid.initialize({ theme: 'forest' });
 	}
 </script>
@@ -763,7 +754,9 @@
             all[i].SourceElement().parentNode.className += ' has-jax';
     });
 </script>
-<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
 </body>
 
 </html>

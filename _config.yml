@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: http://example.com
+url: http://lmzyoyo.top
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -43,6 +43,7 @@ render_drafts: false
 post_asset_folder: true
 relative_link: false
 future: true
+
 highlight:
   enable: true
   line_number: false
@@ -62,7 +63,7 @@ prismjs:
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
   path: ''
-  per_page: 9
+  per_page: 6
   order_by: -date
 
 # Category & Tag
@@ -98,7 +99,9 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: quiet
-
+Plugins:
+- hexo-generator-baidu-sitemap
+- hexo-generator-sitemap
 sitemap:
   path: sitemap.xml
 baidusitemap:
@@ -119,6 +122,17 @@ deploy:
 #   jquery: //cdn.bootcss.com/jquery/2.1.0/jquery.min.js
 #   jquery_lazyload: //cdn.bootcss.com/jquery.lazyload/1.9.1/jquery.lazyload.min.js
 #   img_placeholder: http://ww4.sinaimg.cn/large/e724cbefgw1etyppy7bgwg2001001017.gif
+
+# math: 
+#   engine: 'mathjax'
+#   mathjax: 
+#     src: custom_mathjax_source
+#     config:
+  
+#   katex:
+#     css: custom_css_source
+#     js: custom_js_source
+#     config:
 
 mermaid:
   enable: true
