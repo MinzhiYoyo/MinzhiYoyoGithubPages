@@ -348,6 +348,14 @@
 <p>如何判断：对于<script type="math/tex">a_i</script>来说，如果<script type="math/tex">a_{i+1}>a_i</script>，那么，所有<script type="math/tex">n>i都有a_n>a_i</script>。</p>
 </blockquote>
 </li>
+<li><p>计算顺序二叉树的成功查找长度</p>
+<blockquote>
+<script type="math/tex; mode=display">ASL_{成功} = \frac{\sum{第i层节点数*i}}{节点总数}</script></blockquote>
+</li>
+<li><p>计算顺序二叉树的失败查找长度</p>
+<blockquote>
+<script type="math/tex; mode=display">ASL_{失败} = \frac{\sum{空链的父节点高度}}{空链的个数}</script></blockquote>
+</li>
 </ul>
 <h3 id="平衡二叉树"><a href="#平衡二叉树" class="headerlink" title="平衡二叉树"></a>平衡二叉树</h3><ul>
 <li>平衡因子：<strong>左</strong>子树的高度<strong>减</strong>去<strong>右</strong>子树的高度，<script type="math/tex">h_左-h_右</script></li>
@@ -503,12 +511,47 @@ A
 B --> C
 显然左边分别是h为1和2的情况</pre>
 
-
-
-
-
 <hr>
-<h2 id="3、重头戏——红黑树"><a href="#3、重头戏——红黑树" class="headerlink" title="3、重头戏——红黑树"></a>3、重头戏——红黑树</h2>
+<h2 id="3、重头戏——红黑树"><a href="#3、重头戏——红黑树" class="headerlink" title="3、重头戏——红黑树"></a>3、重头戏——红黑树</h2><h2 id="4、B树"><a href="#4、B树" class="headerlink" title="4、B树"></a>4、B树</h2><p>&emsp;首先，B-Tree称为B树或者B-树，也就是说B树和B-树其实是一个东西，本篇用B树这个名字。B树是用来外查找的，也就说在磁盘上面查找，因为可能内容太多，不适合全部加载到内存中来。</p>
+<ul>
+<li><p>B树的一些概念</p>
+<blockquote>
+<p>1、终端节点：下图的倒数第二层节点就是<strong>终端节点</strong>（也就是最后一层<strong>非空节点</strong>）</p>
+<p>2、叶子节点：最后一层的<code>null</code>节点，也就是<strong>空节点</strong>叫做<strong>叶子节点</strong>。</p>
+</blockquote>
+</li>
+</ul>
+<pre class="mermaid">graph TB
+A[22]-->B[5    11]
+A-->C[36     45]
+B-->D(null)
+B-->E(null)
+B-->F(null)
+C-->g(null)
+C-->h(null)
+C-->i(null)</pre>
+
+
+
+<ul>
+<li><p>B树的特性（这几个特性决定B树的插入删除操作）</p>
+<blockquote>
+<p>1、树中每个节点之多有<code>m</code>棵<strong>子树</strong>，至多有<code>m-1</code>个<strong>关键字</strong></p>
+<p>2、若根节点不是<strong>终端节点</strong>，则至少有<strong>两棵</strong>子树。（对于根节点不要求子树很多）</p>
+<p>3、除了根节点之外的所有非叶子节点，至少有<script type="math/tex">\lceil m/2\rceil</script>（向上取整）棵子树，至少含有<script type="math/tex">\lceil (m-1)/2\rceil</script>个关键字。</p>
+<p>4、所有的非叶子节点的结构如下：n是总数，P是子树，K是关键字</p>
+<p>| n    | P0   | K1   | P1   | K2   | …  | Kn   | Pn   |<br>| :—: | :—: | :—: | :—: | :—: | :—: | :—: | :—: |</p>
+<p><code>Ki</code>关键字小于<code>Pi</code>子树的所有关键字，<code>Ki</code>关键字大于<code>Pi-1</code>子树的所有关键字，且关键字是有序的。</p>
+<p>5、所有的叶节点都出现在同一层次，并且不携带信息，也就是为<code>null</code>。说明每棵子树高相同的。</p>
+</blockquote>
+</li>
+<li><p>B树的查找</p>
+<blockquote>
+<p>B树</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="5、B-树"><a href="#5、B-树" class="headerlink" title="5、B+树"></a>5、B+树</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
