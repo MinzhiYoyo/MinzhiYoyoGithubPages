@@ -512,8 +512,15 @@ B --> C
 显然左边分别是h为1和2的情况</pre>
 
 <hr>
-<h2 id="3、重头戏——红黑树"><a href="#3、重头戏——红黑树" class="headerlink" title="3、重头戏——红黑树"></a>3、重头戏——红黑树</h2><h2 id="4、B树"><a href="#4、B树" class="headerlink" title="4、B树"></a>4、B树</h2><p>&emsp;首先，B-Tree称为B树或者B-树，也就是说B树和B-树其实是一个东西，本篇用B树这个名字。B树是用来外查找的，也就说在磁盘上面查找，因为可能内容太多，不适合全部加载到内存中来。</p>
+<h2 id="3、红黑树（916目前不考，先留坑）"><a href="#3、红黑树（916目前不考，先留坑）" class="headerlink" title="3、红黑树（916目前不考，先留坑）"></a>3、红黑树（916目前不考，先留坑）</h2><h2 id="4、B树"><a href="#4、B树" class="headerlink" title="4、B树"></a>4、B树</h2><p>&emsp;首先，B-Tree称为B树或者B-树，也就是说B树和B-树其实是一个东西，本篇用B树这个名字。B树是用来外查找的，也就说在磁盘上面查找，因为可能内容太多，不适合全部加载到内存中来。</p>
 <ul>
+<li><p>高度与关键字数关系先给出：<script type="math/tex">log_m(n+1) \leq h \leq log_{\lceil m/2 \rceil}(\frac{n+1}{2})+1</script></p>
+<blockquote>
+<p>1、<code>n</code>是关键字数，<code>m</code>是阶数，<code>h</code>是树高</p>
+<p>2、每个节点关键字最多，那么树高度最低：<script type="math/tex">n \leq (m-1)(1+m+m^2+m^3+...+m^{h-1})</script></p>
+<p>3、每个节点关键字最少，那么树高度最高</p>
+</blockquote>
+</li>
 <li><p>B树的一些概念</p>
 <blockquote>
 <p>1、终端节点：下图的倒数第二层节点就是<strong>终端节点</strong>（也就是最后一层<strong>非空节点</strong>）</p>
@@ -539,19 +546,99 @@ C-->i(null)</pre>
 <p>1、树中每个节点之多有<code>m</code>棵<strong>子树</strong>，至多有<code>m-1</code>个<strong>关键字</strong></p>
 <p>2、若根节点不是<strong>终端节点</strong>，则至少有<strong>两棵</strong>子树。（对于根节点不要求子树很多）</p>
 <p>3、除了根节点之外的所有非叶子节点，至少有<script type="math/tex">\lceil m/2\rceil</script>（向上取整）棵子树，至少含有<script type="math/tex">\lceil (m-1)/2\rceil</script>个关键字。</p>
-<p>4、所有的非叶子节点的结构如下：n是总数，P是子树，K是关键字</p>
-<p>| n    | P0   | K1   | P1   | K2   | …  | Kn   | Pn   |<br>| :—: | :—: | :—: | :—: | :—: | :—: | :—: | :—: |</p>
+<p>4、所有的非叶子节点的结构如下：n是总数，P是子树，K是关键字<br>  |   <code>n</code>    |   <code>P0</code>   |   <code>K1</code>   |   <code>P1</code>   |  <code>K2</code>   |  <code>...</code>  | <code>Kn</code>   | <code>Pn</code>   | </p>
 <p><code>Ki</code>关键字小于<code>Pi</code>子树的所有关键字，<code>Ki</code>关键字大于<code>Pi-1</code>子树的所有关键字，且关键字是有序的。</p>
-<p>5、所有的叶节点都出现在同一层次，并且不携带信息，也就是为<code>null</code>。说明每棵子树高相同的。</p>
+<p>5、所有的叶节点都出现在<strong>同一层次</strong>，并且不携带信息，也就是为<code>null</code>。说明每棵子树<strong>高相同</strong>的。</p>
 </blockquote>
 </li>
 <li><p>B树的查找</p>
 <blockquote>
-<p>B树</p>
+<p>1、先将一个节点的信息读入内存，然后用顺序查找或者折半查找的方法，找到关键字或者找到子树。</p>
+<p>2、如果找到关键字就结束，如果找到子树就将当前节点写入磁盘，重复上述过程</p>
+</blockquote>
+</li>
+<li><p>B树的插入</p>
+<blockquote>
+<p>核心：还是需要满足B树的五条性质。</p>
+<p>步骤：</p>
+<ul>
+<li><p>找到最低层的某个终端节点</p>
+</li>
+<li><p>进行插入，分情况情况讨论</p>
+<blockquote>
+<p>如果插入该关键字时候，该终端节点的关键字个数仍然是<script type="math/tex">[\lceil m/2 \rceil-1,m-1]</script>这个区间中，则直接插入</p>
+<p>如果插入关键字时候，关键字数目溢出了，那么，就先将关键字插入对应位置得到一串新的关键字序列，取得这串新关键字序列中间值<code>m</code>，并以<code>m</code>将序列分割成两段。将<code>m</code>插入到本节点的父节点，并将两段序列变成父节点的两个子树孩子。同时判断父节点是否超过了，超过了继续向上迭代。直到根节点仍然超过了，那么就新建根节点，B树高加1。</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="5、B-树"><a href="#5、B-树" class="headerlink" title="5、B+树"></a>5、B+树</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+</blockquote>
+</li>
+<li><p>B树的删除</p>
+<blockquote>
+<p>核心：还是满足B树的五条性质</p>
+<p>步骤：</p>
+<ul>
+<li><p>找到需要删除的节点，直接删除</p>
+</li>
+<li><p>看是否仍然是B树</p>
+<blockquote>
+<p>删除节点是<strong>非终端节点</strong>的关键字：</p>
+<ul>
+<li>用其前驱或者后继节点替代就行，这样就相当于删除了其前驱或者后继节点</li>
+<li>然后依次迭代，知道变成删除终端节点</li>
+</ul>
+<p>删除节点是<strong>终端节点</strong>的关键字：</p>
+<ul>
+<li><p>如果删除了关键字之后，关键字个数仍然是<script type="math/tex">[\lceil m/2 \rceil-1,m-1]</script>，直接删除，而且终端节点没有子树，所以不用考虑子树如何处理。</p>
+</li>
+<li><p>如果删除了关键字之后，关键字个数不够<script type="math/tex">\lceil m/2 \rceil</script></p>
+<blockquote>
+<p>其左（或右）兄弟够借一个节点给他也就是左（或右）兄弟节点关键字借出一个仍然满足<script type="math/tex">[\lceil m/2 \rceil-1,m-1]</script>，那么就用其<strong>前驱（或后继）</strong>关键字替换<strong>此</strong>位置，其<strong>前驱的前驱（或后继的后继）</strong>替换<strong>前驱（或后继）</strong>关键字的位置</p>
+<p>如果其左右兄弟都不够借：说明本节点以及兄弟节点的关键字个数肯定<strong>等于</strong><script type="math/tex">\lceil m/2 \rceil-1</script>，这样，就可以将<strong>两兄弟</strong>以及<strong>两兄弟在父节点中包围的关键字</strong>合并成一个新节点。至于这样<strong>为什么</strong>不会超过<strong>关键字个数</strong>的要求呢？看下面的解释！！！</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+<li><p>为什么B树的关键字要求为<strong><script type="math/tex">[\lceil m/2 \rceil-1,m-1]</script></strong>呢？</p>
+<blockquote>
+<p>首先，关键字最大值确实为<script type="math/tex">m-1</script>，这个没问题，因为是有m棵子树，关键字可以少一个，仍然能够走正确的路径寻找。可以参看<strong>性质4</strong></p>
+<p>然后，前面说到删除关键字时候，兄弟节点需要合并的情况。那么本节点以及兄弟节点的关键字个数肯定<strong>等于</strong>关键字个数最小值才行的。不妨设最小值为<code>n</code></p>
+<p>要求合并之后关键字相加仍然满足关键字个数要求。有：</p>
+<p><script type="math/tex">(n-1)+1+n \leq m-1</script>：<code>(n-1)</code>是需要删除一个关键字，<code>1</code>是父节点中的一个关键字，<code>n</code>是兄弟节点的关键字个数</p>
+<p><script type="math/tex">n \leq \frac{m-1}{2}</script>，但是需要关键字多，这样查找效率高，所以<script type="math/tex">n = \frac{m-1}{2}</script>，考虑到奇偶，<script type="math/tex">n=\lceil m/2 \rceil-1</script>为通式（带入<script type="math/tex">m=5和m=4</script>很容易验证正确性）</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="5、B-树"><a href="#5、B-树" class="headerlink" title="5、B+树"></a>5、B+树</h2><p>&emsp;B+树是数据库的出现而出现的B树的一种变形，它的插入以及删除和B树的操作基本类似，现在只讲讲它的性质以及和B树的不同点。</p>
+<blockquote>
+<p>B+树的一些概念</p>
+<ul>
+<li>叶子节点：这个和B树<strong>不同</strong>，这里就是指最低层的非空节点，和普通的树一样</li>
+<li>分支节点：非叶子节点</li>
+</ul>
+<p>B+树的<strong>性质</strong></p>
+<ul>
+<li>1、每个分支节点最多有m棵子树（与B树没什么区别）</li>
+<li>2、非叶根节点至少有两棵子树，其他每个分支节点至少有<script type="math/tex">\lceil m/2 \rceil</script>棵子树（有点区别）</li>
+<li>3、节点的子树个数与关键字个数相等（有区别）</li>
+<li>4、所有叶节点关键字才有包含数据的指针，且关键字有序（有区别）</li>
+<li>5、所有分支节点中关键字仅包含子节点的指针，而且此关键字是子节点关键字的<strong>最大值</strong>（大区别）</li>
+</ul>
+<p>B树与B+树区别</p>
+<ul>
+<li>1、关键字个数不一样：B+树含有<code>n</code>个关键字和<code>n</code>棵子树，B树含有<code>n-1</code>个关键字和<code>n</code>棵子树。</li>
+<li>2、关键字个数的范围不同：<script type="math/tex">\lceil m/2 \rceil \leq N_{B+关键字个数} \leq m</script>（<script type="math/tex">2 \leq N_{B+根节点} \leq m</script>），<script type="math/tex">\lceil m/2 \rceil -1 \leq N_{B树关键字个数} \leq m - 1</script>（<script type="math/tex">1 \leq N_{B树根节点} \leq m-1</script>）</li>
+<li>3、<strong>B+树</strong>中，只有<strong>叶子节点</strong>包含<strong>数据索引</strong>，<strong>其他节点</strong>只包含<strong>子节点索引</strong>。<strong>B树</strong>中，<strong>所有非空节点</strong>都包含<strong>数据索引</strong>和<strong>子节点索引</strong>。</li>
+<li>4、<strong>B+树</strong>中，关键字<strong>等于</strong>其<strong>子树</strong>的<strong>最大值</strong>；<strong>B树</strong>中，关键字<strong>大于</strong>其<strong>左</strong>边子树<strong>小于</strong>其<strong>右</strong>边子树。</li>
+<li>5、查找操作有点不一样：<strong>B+树</strong>需要查找到叶子节点中关键字相等的地方，<strong>B树</strong>仅需要查找到关键字相等的地方。</li>
+<li>6、<strong>B+树</strong>每个叶子节点直接以<strong>链表</strong>形式存储，所以，<strong>B+树</strong>还可以用链式查找方式查找</li>
+</ul>
+</blockquote>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
