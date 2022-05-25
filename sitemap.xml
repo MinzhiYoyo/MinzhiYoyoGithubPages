@@ -29,15 +29,6 @@
   </url>
   
   <url>
-    <loc>http://lmzyoyo.top/2022/05/21/%E8%8B%B1%E8%AF%AD%E4%B8%80%E5%8D%95%E8%AF%8D/</loc>
-    
-    <lastmod>2022-05-21</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://lmzyoyo.top/about/index.html</loc>
     
     <lastmod>2022-05-21</lastmod>
@@ -345,13 +336,6 @@
   </url>
   
   <url>
-    <loc>http://lmzyoyo.top/tags/%E8%8B%B1%E8%AF%AD/</loc>
-    <lastmod>2022-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://lmzyoyo.top/tags/%E7%BA%A2%E9%BB%91%E6%A0%91/</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>weekly</changefreq>
@@ -425,13 +409,6 @@
   
   <url>
     <loc>http://lmzyoyo.top/categories/Linux/</loc>
-    <lastmod>2022-05-25</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://lmzyoyo.top/categories/%E8%8B%B1%E8%AF%AD/</loc>
     <lastmod>2022-05-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
