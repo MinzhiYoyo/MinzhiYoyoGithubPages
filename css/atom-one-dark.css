@@ -18,7 +18,7 @@ hue-6-2: #e6c07b
 
 */
 
-.hljs {
+.highlight.javascript {
   display: block;
   overflow-x: auto;
   padding: 0.5em;
@@ -27,7 +27,7 @@ hue-6-2: #e6c07b
 }
 
 .gutter {
-  width: 20px;
+  width: 5%;
 }
 
 .comment,
