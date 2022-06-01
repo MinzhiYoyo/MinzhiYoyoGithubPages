@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>编译Linux与Uboot-雨探青鸟</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="Linux,Uboot,编译,">
+<meta name="description" content="编译你自己的Linux和uboot">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+	<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										档案
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友链
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/photo">
+										照片墙
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/donation">
+										捐赠
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>MINZHI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">档案</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友链</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+        <li>
+            <a href="/photo">照片墙</a>
+        </li>
+        
+        <li>
+            <a href="/donation">捐赠</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+            <img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+        </a>
+        
+        <a href="mailto:2498369702@qq.com">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/Linux">Linux</a></li>
+            
+            <li><a href="/tags/Uboot">Uboot</a></li>
+            
+            <li><a href="/tags/编译">编译</a></li>
+            
+            
+        </ul>
+        <h1>编译Linux与Uboot</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">MINZHI</a></span>
+                <p>2022-04-05 19:53:21</p>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h1><p>目前没有前言</p>
+<h1 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h1><p>准备太久了</p>
+<h1 id="三、PCB绘制"><a href="#三、PCB绘制" class="headerlink" title="三、PCB绘制"></a>三、PCB绘制</h1><p>不是我绘制的</p>
+<h1 id="四、下载编译工具链"><a href="#四、下载编译工具链" class="headerlink" title="四、下载编译工具链"></a>四、下载编译工具链</h1><p>我下的是<code>arm-linux-gnueabi-</code></p>
+<h1 id="五、u-boot移植"><a href="#五、u-boot移植" class="headerlink" title="五、u-boot移植"></a>五、u-boot移植</h1><h2 id="1、下载u-boot"><a href="#1、下载u-boot" class="headerlink" title="1、下载u-boot"></a>1、下载<code>u-boot</code></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Lichee-Pi/u-boot.git</span><br><span class="line">git branch -a  # 查看分支，我们使用的是nano-v2018.01u-boot</span><br><span class="line">git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支</span><br></pre></td></tr></table></figure>
+<h2 id="2、选取config配置"><a href="#2、选取config配置" class="headerlink" title="2、选取config配置"></a>2、选取<code>config</code>配置</h2><p>考虑到水平有限，我们采用从现有的配置上进行更改。或者，我完全不进行更改，就直接使用了。</p>
+<h3 id="对几个config简单介绍："><a href="#对几个config简单介绍：" class="headerlink" title="对几个config简单介绍："></a><em>对几个config简单介绍：</em></h3><blockquote>
+<p><code>f1c100s_nano_uboot_defconfig</code>：<code>SPI Flash</code>支持版</p>
+<p><code>licheepi_nano_defconfig</code>：不带<code>SPI Flash</code>，从<code>TF</code>卡启动</p>
+<p><code>licheepi_nano_spiflash_defconfig</code>：从<code>SPI</code>设备启动</p>
+</blockquote>
+<p>其实上面三种我也分不清楚，我第一次采用的是 <code>licheepi_nano_defconfig</code>。我也找不到 <code>f1c100s_nano_uboot_defconfig</code>，但是在<a target="_blank" rel="noopener" href="https://gitee.com/LicheePiNano/u-boot">这</a>可以找到，这个是荔枝派的 <code>u-boot</code>，可能毕竟这款 <code>f1c100s</code>是国产芯片，在<code>GitHub</code>上面找不到。</p>
+<h3 id="选取config操作"><a href="#选取config操作" class="headerlink" title="选取config操作"></a>选取<code>config</code>操作</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/u-boot  # 切换到 下载的 u-boot 的根目录</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_defconfig  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参数介绍：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ARCH=arm 是arm架构的</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CROSS_COMPILE=arm-linux-gnueabi-  是之前的下载的编译工具链</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">licheepi_nano_defconfig 选取的默认config</span></span><br></pre></td></tr></table></figure>
+<h2 id="3、可视化配置"><a href="#3、可视化配置" class="headerlink" title="3、可视化配置"></a>3、可视化配置</h2><h3 id="打开菜单命令"><a href="#打开菜单命令" class="headerlink" title="打开菜单命令"></a>打开菜单命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">make ARCH=arm menuconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">之后上下键进行移动</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">空格或者回车进行选择</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">左右可以选择下方菜单</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ctrl+退格才能删除已经填入的默认参数</span></span><br></pre></td></tr></table></figure>
+<h3 id="参数讲解"><a href="#参数讲解" class="headerlink" title="参数讲解"></a>参数讲解</h3><p>注意下面这两个参数就行</p>
+<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958695.png" alt="image-20220305195147976"></p>
+<h4 id="boot-arguments"><a href="#boot-arguments" class="headerlink" title="boot arguments"></a><code>boot arguments</code></h4><blockquote>
+<ul>
+<li><code>console=ttyS0,115200 panic=5 rootwait root=/dev/mmcblk0p2 earlyprintk rw</code></li>
+</ul>
+<blockquote>
+<p><strong><code>console=ttyS0,115200</code></strong> 表示终端为ttyS0即串口0,波特率为115200；</p>
+<p><strong><code>panic=5</code> </strong>字面意思是恐慌，即linux内核恐慌，其实就是linux不知道怎么执行了，此时内核就需要做一些相关的处理，这里的5表示超时时间，当Linux卡住5秒后仍未成功就会执行Linux恐慌异常的一些操作。</p>
+<p><code>rootwait</code> 该参数是告诉内核挂在文件系统之前需要先加载相关驱动，这样做的目的是防止因mmc驱动还未加载就开始挂载驱动而导致文件系统挂载失败，所以一般bootargs中都要加上这个参数。</p>
+<p><strong>root=/dev/mmcblk0p2</strong> 表示根文件系统的位置在mmc的0:2分区处，<strong>/dev</strong>是设备文件夹，内核在加载mmc中的时候就会在根文件系统中生成<strong>mmcblk0p2</strong>设备文件，这个设备文件其实就是mmc的0:2分区(这里对应TF卡的第二个分区：rootfs)，这样内核对文件系统的读写操作方式本质上就是读写/dev/mmcblk0p2该设备文件。</p>
+<p><strong><code>earlyprintk</code></strong> 参数是指在内核加载的过程中打印输出信息，这样内核在加载的时候终端就会输出相应的启动信息。rw表示文件系统的操作属性，此处rw表示可读可写。</p>
+</blockquote>
+</blockquote>
+<h4 id="bootcmd"><a href="#bootcmd" class="headerlink" title="bootcmd"></a><code>bootcmd</code></h4><blockquote>
+<ul>
+<li><code>load mmc 0:1 0x80008000 zImage;load mmc 0:1 0x80c08000 suniv-f1c100s-licheepi-nano.dtb;bootz 0x80008000 - 0x80c08000;</code></li>
+</ul>
+<blockquote>
+<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959333.png" alt="image-20220305195531843"></p>
+</blockquote>
+</blockquote>
+<h2 id="、遇到问题不要慌"><a href="#、遇到问题不要慌" class="headerlink" title="、遇到问题不要慌"></a>、遇到问题不要慌</h2><h3 id="（1）execute-39-swig-39"><a href="#（1）execute-39-swig-39" class="headerlink" title="（1）execute &#39;swig&#39;"></a>（1）<code>execute &#39;swig&#39;</code></h3><blockquote>
+<p>没有<code>swig</code>这个东西，安装即可：<code>sudo apt install swig</code></p>
+<p><code>swig</code>：我从<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/SWIG">网上</a>了解到是一个将<code>C/C++</code>的类封装成库，给<code>Python、Lua、PHP</code>等脚本语言调用。（题外话）</p>
+</blockquote>
+<h2 id="、参考链接"><a href="#、参考链接" class="headerlink" title="、参考链接"></a>、参考链接</h2><blockquote>
+<p><a target="_blank" rel="noopener" href="https://cnblogs.com/twzy/p/14865952.html">参考博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/get_started/first_eat.html">参考荔枝派</a><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959649.png" alt="image-20220305205126696"></p>
+</blockquote>
+<h1 id="六、Linux的移植"><a href="#六、Linux的移植" class="headerlink" title="六、Linux的移植"></a>六、<code>Linux</code>的移植</h1><h2 id="1、分区操作"><a href="#1、分区操作" class="headerlink" title="1、分区操作"></a>1、分区操作</h2><p>​    一个硬盘对于<code>Linux</code>来说，需要进行<strong>挂载</strong>命令是：<code>mount</code>，一般插上自动挂载），然后再能使用，然后需要<strong>卸载</strong>（命令：<code>umount</code>）才能操作，如格式化，分区之类的。我们借助了<code>Ubuntu</code>下图形化工具——<strong><code>Gparted</code></strong>，命令行进行下载就行了。</p>
+<p>​    然后，买到手的<code>sd</code>卡，可能已经分区了，有一个主分区。如果没法删除，或者进场出现例如<em><code>/dev/sdb contains a mounted filesystem</code></em>，我的建议，使用一个全0的映像文件写入<code>sd</code>卡，将前面的数据覆盖。</p>
+<p>​    之后便是分区了，将只有一个未分区的，且没有任何分区的<code>sd</code>卡连接<code>Ubuntu</code>。</p>
+<h3 id="分区1、boot"><a href="#分区1、boot" class="headerlink" title="分区1、boot"></a>分区1、<code>boot</code></h3><blockquote>
+<p>新建一个分区</p>
+<p>之前剩余空间为<strong>1M</strong>，新大小为<strong>32M</strong>，文件系统为<strong><code>fat16</code></strong>，卷标就设置为<strong><code>boot</code></strong></p>
+<p>对于之前的<code>1M</code>，是留给<strong><code>uboot</code></strong>的，而且在<code>gparted</code>是看不到的</p>
+<p><strong>图片来源于网络</strong></p>
+<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958740.png" alt="image-20220314221728714"></p>
+</blockquote>
+<h3 id="分区2、rootfs"><a href="#分区2、rootfs" class="headerlink" title="分区2、rootfs"></a>分区2、<code>rootfs</code></h3><blockquote>
+<p>新建一个分区</p>
+<p>之前剩余空间为<strong>0M</strong>，新大小为<strong>100M</strong>，文件系统为<strong><code>ext4</code></strong>，卷标就设置为<strong><code>rootfs</code></strong></p>
+<p><strong><em>图片来源于网络</em></strong></p>
+<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958803.png" alt="image-20220314221807562"></p>
+</blockquote>
+<h3 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h3><p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958789.png" alt="image-20220314221850652"></p>
+<h2 id="2、编译Linux"><a href="#2、编译Linux" class="headerlink" title="2、编译Linux"></a>2、编译<strong><code>Linux</code></strong></h2><h3 id="更改设备树"><a href="#更改设备树" class="headerlink" title="更改设备树"></a>更改设备树</h3><h1 id="七、编译rootfs"><a href="#七、编译rootfs" class="headerlink" title="七、编译rootfs"></a>七、编译<code>rootfs</code></h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2022/04/05/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%88%9D%E5%AD%A6%E8%80%85/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>Python爬虫学习-更加友好的教程</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/04/05/Windows%E5%B1%80%E5%9F%9F%E7%BD%91%E5%85%B1%E4%BA%AB%E6%96%87%E4%BB%B6/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>Windows局域网共享文件</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2022 By MINZHI.    本站总访问量：
+		<!-- . 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a> -->
+	<!-- </div>
+	<div class="Copyright"> -->
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次。</span>
+		<span>
+			<a style="text-decoration: none;display: contents; color: #898F9F;"
+				target="_blank" rel="noopener" href="https://beian.miit.gov.cn">
+				湘ICP备2022006759号
+			</a>
+		</span>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+			<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+		</a>
+		
+		<a href="mailto:2498369702@qq.com">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+<script>
+	if (window.mermaid) {
+		// console.log('开启mermaid');
+		mermaid.initialize({ theme: 'forest' });
+	}
+</script>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>
