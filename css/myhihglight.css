@@ -31,7 +31,7 @@ hue-6-2: #e6c07b
 
 .highlight {
   background: #DCDCDC;
-  
+  overflow: auto;
 }
 
 .highlight span {
