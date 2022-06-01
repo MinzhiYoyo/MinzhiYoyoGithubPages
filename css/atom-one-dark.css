@@ -29,12 +29,12 @@ hue-6-2: #e6c07b
     url('TTF/SourceCodePro-ExtraLight.ttf') format('truetype');
 }
 
-.highlight.javascript {
+.highlight {
   background: #DCDCDC;
   
 }
 
-.highlight.javascript span {
+.highlight span {
   font-family: 'Source Code Pro';
 }
 
