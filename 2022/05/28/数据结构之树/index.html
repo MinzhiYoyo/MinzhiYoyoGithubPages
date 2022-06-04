@@ -463,6 +463,67 @@
 </blockquote>
 </li>
 </ul>
+<h2 id="8、哈夫曼树"><a href="#8、哈夫曼树" class="headerlink" title="8、哈夫曼树"></a>8、哈夫曼树</h2><p>&emsp;若<strong>没有</strong>一个编码是另一个编码的<strong>前缀</strong>，称这样的编码为<strong>前缀编码</strong>，前缀编码可以被唯一翻译。</p>
+<ul>
+<li><p>哈夫曼树：带权路径（WPL）最小的树</p>
+</li>
+<li><p>哈夫曼树构造过程</p>
+<blockquote>
+<p>下面四个节点，字母代表节点名称，数字代码权重</p>
+<p>选取所有节点中最小的两个节点，构造新节点代替两个旧节点，一直重复，知道只剩一个节点</p>
+</blockquote>
+</li>
+</ul>
+<pre class="mermaid">graph TB
+A(a:7)
+B(b:5)
+C(c:2)
+D(d:4)</pre>
+
+<pre class="mermaid">graph TB
+A(a:7)
+B(b:5)
+C(c:2)
+D(d:4)
+E(c+d:6)
+E-->C
+E-->D</pre>
+
+<pre class="mermaid">graph TB
+A(a:7)
+B(b:5)
+C(c:2)
+D(d:4)
+E(e = c+d:6)
+E-->C
+E-->D
+F(f = b+e:11)
+F-->B
+F-->E</pre>
+
+<pre class="mermaid">graph TB
+A(a:7)
+B(b:5)
+C(c:2)
+D(d:4)
+E(e = c+d:6)
+E-->C
+E-->D
+F(f = b+e:11)
+F-->B
+F-->E
+G(g = a+f:18)
+G-->A
+G-->F</pre>
+
+<p>&emsp;这样生成的带权路径最短，就是一颗哈夫曼树了。</p>
+<ul>
+<li><p>哈夫曼树特点</p>
+<blockquote>
+<p>只有度为0和度为2的节点：即<script type="math/tex">n_1 = 0</script>，且根据树的特点有：<script type="math/tex">n_0 = n_2 + 1 \quad \Rightarrow \quad n=2n_2+1</script></p>
+</blockquote>
+</li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
