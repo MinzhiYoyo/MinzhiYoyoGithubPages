@@ -310,13 +310,6 @@
   </url>
   
   <url>
-    <loc>http://lmzyoyo.top/tags/%E5%9B%BE/</loc>
-    <lastmod>2022-06-05</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>http://lmzyoyo.top/tags/%E5%AD%97%E7%AC%A6%E4%B8%B2/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>weekly</changefreq>
@@ -325,6 +318,13 @@
   
   <url>
     <loc>http://lmzyoyo.top/tags/KMP/</loc>
+    <lastmod>2022-06-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://lmzyoyo.top/tags/%E5%9B%BE/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -417,14 +417,14 @@
   </url>
   
   <url>
-    <loc>http://lmzyoyo.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8B%E5%8D%8A%E5%8A%9F%E5%80%8D/</loc>
+    <loc>http://lmzyoyo.top/categories/Python/%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>http://lmzyoyo.top/categories/Python/%E7%88%AC%E8%99%AB/</loc>
+    <loc>http://lmzyoyo.top/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%BA%8B%E5%8D%8A%E5%8A%9F%E5%80%8D/</loc>
     <lastmod>2022-06-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
