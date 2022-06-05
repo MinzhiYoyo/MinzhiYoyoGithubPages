@@ -364,29 +364,35 @@
 </blockquote>
 <h3 id="什么是抓包"><a href="#什么是抓包" class="headerlink" title="什么是抓包"></a>什么是抓包</h3><blockquote>
 <p>打个比方：你要向某人发一条数据，我在你们之间截获了或者记录了你们的数据，这个叫做抓包</p>
+</blockquote>
 <pre class="mermaid">graph LR
 A(数据发送者) -->B[抓包者]
 B -->C(数据接收者)</pre>
+>
+> **那么我们需要抓什么包呢？抓包的用处在哪呢？**
+>
+> 答：我们需要抓取浏览器和后端服务器通信的包；用处是分析他们的数据然后用代码进行伪造数据发送，以便获得和浏览器同样的响应
 
-<p><strong>那么我们需要抓什么包呢？抓包的用处在哪呢？</strong></p>
-<p>答：我们需要抓取浏览器和后端服务器通信的包；用处是分析他们的数据然后用代码进行伪造数据发送，以便获得和浏览器同样的响应</p>
-</blockquote>
-<h3 id="什么是代理"><a href="#什么是代理" class="headerlink" title="什么是代理"></a>什么是代理</h3><blockquote>
-<p>不进行代理应该是下列图：</p>
+### 什么是代理
+
+> 不进行代理应该是下列图：
+>
+
 <pre class="mermaid">graph LR
 A(前台客户端)-->|发送请求|C[后台服务器]
 C -->|返回响应|A</pre>
+>
+> 
+>
+> 代理就是如下：
+>
 
-
-
-<p>代理就是如下：</p>
 <pre class="mermaid">graph LR
 A(前台客户端)-->|发送请求|B[代理服务器]
 B -->|转发请求|C(后台服务器)
 C -->|返回响应|B
 B -->|转发响应|A</pre>
 
-</blockquote>
 <h3 id="如何伪造呢？"><a href="#如何伪造呢？" class="headerlink" title="如何伪造呢？"></a>如何伪造呢？</h3><blockquote>
 <p>1、一般网站开发者希望我们使用浏览器浏览他们的网站，不希望我们使用代码进行浏览</p>
 <p>2、欸，但我就想用代码进行浏览，怎么办呢？</p>
@@ -644,6 +650,23 @@ B -->|转发响应|A</pre>
 
 		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 
 </html>
