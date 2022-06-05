@@ -34,6 +34,10 @@ hue-6-2: #e6c07b
   overflow: auto;
 }
 
+.highlight table{
+  height: 100%;
+}
+
 .highlight span {
   font-family: 'Source Code Pro';
 }
