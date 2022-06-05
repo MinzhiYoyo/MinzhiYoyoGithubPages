@@ -349,17 +349,23 @@
 </li>
 <li><p>KMP模式匹配</p>
 <blockquote>
-<p>依次匹配，如果失配，根据<code>next</code>后移</p>
+<p>依次匹配，如果失配，根据<code>next数组</code>后移</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="3、KMP算法"><a href="#3、KMP算法" class="headerlink" title="3、KMP算法"></a>3、KMP算法</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<h2 id="3、KMP算法"><a href="#3、KMP算法" class="headerlink" title="3、KMP算法"></a>3、KMP算法</h2><p>&emsp;<strong><em>假设所有下标都是从1开始</em></strong></p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
 <li>前缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_0,\quad p_0p_1, \quad... \quad,\quad p_0p_1...p_{n-1}  \}</script></li>
 <li>后缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_1,\quad p_1p_2, \quad... \quad,\quad p_1p_2...p_{n}  \}</script></li>
 <li>最长匹配长度：前缀集合与后缀结合中，最长相等元素的长度。</li>
 <li>注意：<strong>前</strong>缀集合<strong>不包含</strong><script type="math/tex">p_n</script>，<strong>后</strong>缀集合中<strong>不包含</strong><script type="math/tex">p_0</script>，如果字串只有一个字符，那么前缀集合和后缀集合都为<strong>空</strong>。</li>
 </ul>
-<h3 id="KMP算法基本"><a href="#KMP算法基本" class="headerlink" title="KMP算法基本"></a>KMP算法基本</h3><h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><p>&emsp;定义：模式串为<code>p</code>（下标从1开始），<code>next[i]</code>代表<code>p[1]~p[i-1]</code>组成的<strong>子串</strong>的最长匹配长度<strong>加</strong>1。特殊地，<code>next[0] = 0</code>。<code>next</code>数组只与模式串有关系，与主串无关地。<code>next[i]</code>的值与<code>p[i]</code>无关，只与<code>p[i]</code>前面的值有关。</p>
+<h3 id="KMP算法基本"><a href="#KMP算法基本" class="headerlink" title="KMP算法基本"></a>KMP算法基本</h3><p>&emsp;假设我们已经有了<code>next</code>数组（下面会介绍<code>next</code>数组求解），假如在主串(<code>S</code>)下标为<code>i</code>，模式串(<code>P</code>)下标为<code>j</code>的位置失配了。</p>
+<p>&emsp;暴力算法中，我们将会把<code>i</code>和<code>j</code>都回溯了，<code>i</code>回溯到<code>j</code>个，<code>j</code>回溯到1。KMP算法中，我们让<code>i</code>不进行回溯，仅仅只回溯<code>j</code>。那么，<code>j</code>应该如何回溯呢?</p>
+<p>&emsp;首先，这里只需要考虑模式串，next数组含义就是，在位置<code>j</code>前面有<code>next[j]-1</code>个字符组成的字符串与从位置1开始往后的<code>next[j]-1</code>个字符组成的字符串是相等的。</p>
+<p>&emsp;然后，因为主串与模式串在位置j前面的字符串完全相等。我们就只需要把模式串回溯到不相等的位置，最开始不相等的位置，应该是第<code>next[j]</code>个位置。</p>
+<p>&emsp;解释，因为我们知道<script type="math/tex">P_1...P_{next[j]-1}</script>与<script type="math/tex">P_{j-next[j]}...P_{j-1}</script>是相等的，所以只需要从主串当前位置与模式串<code>P[next[j]]</code>开始继续比较即可。</p>
+<h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><p>&emsp;定义：模式串为<code>p</code>（下标从1开始），<code>next[i]</code>代表<code>p[1]~p[i-1]</code>组成的<strong>子串</strong>的最长匹配长度<strong>加</strong>1。特殊地，<code>next[0] = 0</code>。<code>next</code>数组只与模式串有关系，与主串无关地。<code>next[i]</code>的值与<code>p[i]</code>无关，只与<code>p[i]</code>前面的值有关。</p>
 <script type="math/tex; mode=display">
 next[j] = \begin{cases}
 0 & j=1\\
@@ -374,9 +380,12 @@ max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当�
 </li>
 <li><p>代码求解</p>
 <blockquote>
+<p>比较复杂</p>
 </blockquote>
 </li>
 </ul>
+<p>&emsp;<strong><em>附上代码</em></strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模式串为p</span></span><br><span class="line"><span class="type">int</span> next[p.size] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt; p.size; i++)&#123;</span><br><span class="line">    <span class="type">int</span> j = next[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            next[i] = j+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
