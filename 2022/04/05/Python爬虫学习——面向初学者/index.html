@@ -340,8 +340,8 @@
 <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="什么是HTML、CSS、JavaScript"><a href="#什么是HTML、CSS、JavaScript" class="headerlink" title="什么是HTML、CSS、JavaScript"></a>什么是<code>HTML、CSS、JavaScript</code></h3><blockquote>
 <p>网页往往采用<code>html+css+js</code>开发，<code>html</code>是一门标记语言</p>
 <p>如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!- 将下面这句话放入html文件中，--&gt;</span><br><span class="line">&lt;!- 然后浏览器就会将这句话解释为下面那张图片，--&gt;</span><br><span class="line">&lt;!- 这个就是浏览器渲染的功能--&gt;</span><br><span class="line">&lt;!- 这里我们知道了一个词——浏览器的渲染   --&gt;</span><br><span class="line">&lt;!- 并且我们发现，浏览器会在下面这个网址 自动 --&gt;</span><br><span class="line">&lt;!- 把这张图片下载下来，然后渲染给我们看，这在我们之后抓包会有用 --&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">width</span>=<span class="string">&quot;300px&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png" width="300px"></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;!- 将下面这句话放入html文件中，--&gt;</span><br><span class="line">&lt;!- 然后浏览器就会将这句话解释为下面那张图片，--&gt;</span><br><span class="line">&lt;!- 这个就是浏览器渲染的功能--&gt;</span><br><span class="line">&lt;!- 这里我们知道了一个词——浏览器的渲染   --&gt;</span><br><span class="line">&lt;!- 并且我们发现，浏览器会在下面这个网址 自动 --&gt;</span><br><span class="line">&lt;!- 把这张图片下载下来，然后渲染给我们看，这在我们之后抓包会有用 --&gt;</span><br><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141724826735.png&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">width</span>=<span class="string">&quot;300px&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141724826735.png" width="300px"></p>
 </blockquote>
 <h3 id="什么是请求，什么是响应"><a href="#什么是请求，什么是响应" class="headerlink" title="什么是请求，什么是响应"></a>什么是请求，什么是响应</h3><blockquote>
 <p>请求：就是前端向后端发送一个请求，如请求我的账户浏览记录</p>
@@ -396,9 +396,9 @@ B -->|转发响应|A</pre>
 <hr>
 <h2 id="浏览器抓包"><a href="#浏览器抓包" class="headerlink" title="浏览器抓包"></a>浏览器抓包</h2><h3 id="进入调试模式"><a href="#进入调试模式" class="headerlink" title="进入调试模式"></a>进入调试模式</h3><blockquote>
 <p>打开某个浏览器，按下键盘上的<kbd>F12</kbd>键，进入调试模式</p>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019536.png" alt="image-20211219160806912"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141725898764.png" alt="image-20211219160806912"></p>
 <p>一般用得到上面四个红圈里面的内容，建议跟我一样，将这个调试界面放到右侧，不然之后找不到对应的按钮（仅代表个人习惯）。<br>如果是英文的，也不要担心，相信这点英文应该看得懂，看不懂应该也能找到相应位置，还可以自行百度怎么换成中文哦。</p>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019319.png" width="300px"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141726760313.png" width="300px"></p>
 <ul>
 <li>红圈1、找到页面上的元素分别对应哪句<code>html</code>标签</li>
 <li>红圈2、主要看<kbd>元素</kbd>和<kbd>网络</kbd>两个</li>
@@ -407,14 +407,14 @@ B -->|转发响应|A</pre>
 </ul>
 </blockquote>
 <h3 id="如何寻找数据呢？"><a href="#如何寻找数据呢？" class="headerlink" title="如何寻找数据呢？"></a>如何寻找数据呢？</h3><blockquote>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019519.png" alt="image-20211219162409621"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141727626349.png" alt="image-20211219162409621"></p>
 <p>我们首先需要伪造成浏览器，发送请求标头，然后分析一下响应的数据，这个就是一个抓包过程啦</p>
 <p>听起来是不是很简单呢？</p>
 <p><kbd>简单</kbd> 打在公屏上</p>
 </blockquote>
 <hr>
 <h2 id="分析数据"><a href="#分析数据" class="headerlink" title="分析数据"></a>分析数据</h2><h3 id="浏览器人性化查看数据"><a href="#浏览器人性化查看数据" class="headerlink" title="浏览器人性化查看数据"></a>浏览器人性化查看数据</h3><blockquote>
-<center><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052033311.png" width="450px"><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052033151.png" width="450px"></center>
+<center><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141728484488.png" width="450px"><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141729063974.png" width="450px"></center>
 
 <p>第一张图和第二张图有所区别，多了一个<kbd>载荷</kbd>选项，因为第二张图是在百度翻译上面抓的</p>
 <p>第二张图发送请求时候带了参数，所以比第一张图多了<kbd>载荷</kbd>选项</p>
@@ -428,13 +428,13 @@ B -->|转发响应|A</pre>
 <li><code>请求网址</code>：就是你向哪个网址发送请求，请求的对象是哪个</li>
 </ul>
 <p><strong>查看载荷</strong></p>
-<p>如上面第二张图中的请求网址是：<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019090.png" alt="image-20211219170540421"></p>
+<p>如上面第二张图中的请求网址是：<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141729622955.png" alt="image-20211219170540421"></p>
 <p>分为前后两部分组成，后面那部分就是载荷了，它是多个<kbd>字符串参数</kbd>，然后它是这么个形式：<kbd>键值=值</kbd> 组成的</p>
 <p>多个<kbd>字符串参数</kbd>用<code>&amp;</code>链接起来，把他人性化一点查看就是这样：<kbd>字符串参数</kbd></p>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019096.png" alt="image-20211219170645219"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141730156726.png" alt="image-20211219170645219"></p>
 <p><strong>POST请求不仅仅只有请求头还有请求数据</strong></p>
 <p>下面是百度翻译的<code>post</code>请求的载荷</p>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019112.png" alt="image-20211219170803923"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141730680021.png" alt="image-20211219170803923"></p>
 <p>上面和<code>get</code>请求一样，是<kbd>字符串参数</kbd>，下面就是<kbd>表单数据</kbd>，这个是很重要的一个部分</p>
 </blockquote>
 <p>这些都是基础概念，之后会用到，现在先学学</p>
@@ -644,23 +644,6 @@ B -->|转发响应|A</pre>
 
 		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+	</body>
 
 </html>

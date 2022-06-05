@@ -390,11 +390,18 @@
 <h2 id="5、二叉树的遍历"><a href="#5、二叉树的遍历" class="headerlink" title="5、二叉树的遍历"></a>5、二叉树的遍历</h2><ul>
 <li><p>前序遍历</p>
 <blockquote>
+<p>先遍历根节点，再遍历左子树，最后遍历右子树。如果有为空的，直接跳过。</p>
 </blockquote>
 </li>
 <li><p>中序遍历</p>
+<blockquote>
+<p>先遍历左子树，再遍历根节点，最后遍历右子树。如果有为空的，直接跳过。</p>
+</blockquote>
 </li>
 <li><p>后序遍历</p>
+<blockquote>
+<p>先遍历左子树，再遍历右子树，最后遍历根节点。如果有为空的，直接跳过。</p>
+</blockquote>
 </li>
 <li><p>前序遍历与后序遍历序列恰好相反</p>
 <blockquote>
@@ -475,44 +482,44 @@
 </li>
 </ul>
 <pre class="mermaid">graph TB
-A(a:7)
-B(b:5)
-C(c:2)
-D(d:4)</pre>
+A((a:7))
+B((b:5))
+C((c:2))
+D((d:4))</pre>
 
 <pre class="mermaid">graph TB
-A(a:7)
-B(b:5)
-C(c:2)
-D(d:4)
-E(c+d:6)
+A((a:7))
+B((b:5))
+C((c:2))
+D((d:4))
+E((c+d:6))
 E-->C
 E-->D</pre>
 
 <pre class="mermaid">graph TB
-A(a:7)
-B(b:5)
-C(c:2)
-D(d:4)
-E(e = c+d:6)
+A((a:7))
+B((b:5))
+C((c:2))
+D((d:4))
+E((c+d:6))
 E-->C
 E-->D
-F(f = b+e:11)
+F((f = b+e:11))
 F-->B
 F-->E</pre>
 
 <pre class="mermaid">graph TB
-A(a:7)
-B(b:5)
-C(c:2)
-D(d:4)
-E(e = c+d:6)
+A((a:7))
+B((b:5))
+C((c:2))
+D((d:4))
+E((c+d:6))
 E-->C
 E-->D
-F(f = b+e:11)
+F((f = b+e:11))
 F-->B
 F-->E
-G(g = a+f:18)
+G((g = a+f:18))
 G-->A
 G-->F</pre>
 
@@ -520,10 +527,13 @@ G-->F</pre>
 <ul>
 <li><p>哈夫曼树特点</p>
 <blockquote>
-<p>只有度为0和度为2的节点：即<script type="math/tex">n_1 = 0</script>，且根据树的特点有：<script type="math/tex">n_0 = n_2 + 1 \quad \Rightarrow \quad n=2n_2+1</script></p>
+<p>只有<strong>度为0</strong>和<strong>度为2</strong>的节点：即<script type="math/tex">n_1 = 0</script>，且根据树的特点有：<script type="math/tex">n_0 = n_2 + 1 \quad \Rightarrow \quad n=2n_2+1</script></p>
+<p><strong>度为m</strong>的哈夫曼树，那就只有<strong>度为0</strong>和<strong>度为m</strong>的两种节点。</p>
+<p>一个叶节点对应一个码字</p>
 </blockquote>
 </li>
 </ul>
+<h2 id="并查集"><a href="#并查集" class="headerlink" title="并查集"></a>并查集</h2><p>&emsp;通常使用<strong>双亲表示法</strong>的树作为存储结构，注意不一定是二叉树了。每个集合表示为一棵树，所有的集合，表示成为森林了。并查集最重要的三个操作：<code>Initial(S)初始化</code>、<code>Union(S, Root1, Root2)联合</code>、<code>Find(S,x)查找</code>。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
@@ -685,23 +695,6 @@ G-->F</pre>
 
 		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+	</body>
 
 </html>

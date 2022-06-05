@@ -340,7 +340,44 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="1、字符串存储"><a href="#1、字符串存储" class="headerlink" title="1、字符串存储"></a>1、字符串存储</h2><h2 id="2、字符串的模式匹配"><a href="#2、字符串的模式匹配" class="headerlink" title="2、字符串的模式匹配"></a>2、字符串的模式匹配</h2><h3 id="KMP算法基本"><a href="#KMP算法基本" class="headerlink" title="KMP算法基本"></a>KMP算法基本</h3><h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+        <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="1、字符串存储"><a href="#1、字符串存储" class="headerlink" title="1、字符串存储"></a>1、字符串存储</h2><h2 id="2、字符串的模式匹配"><a href="#2、字符串的模式匹配" class="headerlink" title="2、字符串的模式匹配"></a>2、字符串的模式匹配</h2><p>&emsp;模式匹配是指，在主串中寻找模式串的位置。</p>
+<ul>
+<li><p>简单模式匹配</p>
+<blockquote>
+<p>依次匹配，如果失配，就后移一位</p>
+</blockquote>
+</li>
+<li><p>KMP模式匹配</p>
+<blockquote>
+<p>依次匹配，如果失配，根据<code>next</code>后移</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3、KMP算法"><a href="#3、KMP算法" class="headerlink" title="3、KMP算法"></a>3、KMP算法</h2><h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>前缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_0,\quad p_0p_1, \quad... \quad,\quad p_0p_1...p_{n-1}  \}</script></li>
+<li>后缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_1,\quad p_1p_2, \quad... \quad,\quad p_1p_2...p_{n}  \}</script></li>
+<li>最长匹配长度：前缀集合与后缀结合中，最长相等元素的长度。</li>
+<li>注意：<strong>前</strong>缀集合<strong>不包含</strong><script type="math/tex">p_n</script>，<strong>后</strong>缀集合中<strong>不包含</strong><script type="math/tex">p_0</script>，如果字串只有一个字符，那么前缀集合和后缀集合都为<strong>空</strong>。</li>
+</ul>
+<h3 id="KMP算法基本"><a href="#KMP算法基本" class="headerlink" title="KMP算法基本"></a>KMP算法基本</h3><h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><p>&emsp;定义：模式串为<code>p</code>（下标从1开始），<code>next[i]</code>代表<code>p[1]~p[i-1]</code>组成的<strong>子串</strong>的最长匹配长度<strong>加</strong>1。特殊地，<code>next[0] = 0</code>。<code>next</code>数组只与模式串有关系，与主串无关地。<code>next[i]</code>的值与<code>p[i]</code>无关，只与<code>p[i]</code>前面的值有关。</p>
+<script type="math/tex; mode=display">
+next[j] = \begin{cases}
+0 & j=1\\
+max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当此结合不为空时\\
+1 & 其他情况
+\end{cases}</script><p>&emsp;上述公式看不懂，问题不大，我也没看懂。</p>
+<ul>
+<li><p>人为求解</p>
+<blockquote>
+<p>认为求解的话，根据定义来即可，一步一步算</p>
+</blockquote>
+</li>
+<li><p>代码求解</p>
+<blockquote>
+</blockquote>
+</li>
+</ul>
+<h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
@@ -508,23 +545,6 @@
 
 		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
-	<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
-            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
-            processEscapes: true
-        }
-    });
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax();
-        for (var i = 0; i < all.length; ++i)
-            all[i].SourceElement().parentNode.className += ' has-jax';
-    });
-</script>
-<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-
-</body>
+	</body>
 
 </html>
