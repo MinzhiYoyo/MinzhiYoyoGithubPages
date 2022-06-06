@@ -365,7 +365,7 @@
 <p>&emsp;首先，这里只需要考虑模式串，next数组含义就是，在位置<code>j</code>前面有<code>next[j]-1</code>个字符组成的字符串与从位置1开始往后的<code>next[j]-1</code>个字符组成的字符串是相等的。</p>
 <p>&emsp;然后，因为主串与模式串在位置j前面的字符串完全相等。我们就只需要把模式串回溯到不相等的位置，最开始不相等的位置，应该是第<code>next[j]</code>个位置。</p>
 <p>&emsp;解释，因为我们知道<script type="math/tex">P_1...P_{next[j]-1}</script>与<script type="math/tex">P_{j-next[j]}...P_{j-1}</script>是相等的，所以只需要从主串当前位置与模式串<code>P[next[j]]</code>开始继续比较即可。</p>
-<h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><p>&emsp;定义：模式串为<code>p</code>（下标从1开始），<code>next[i]</code>代表<code>p[1]~p[i-1]</code>组成的<strong>子串</strong>的最长匹配长度<strong>加</strong>1。特殊地，<code>next[0] = 0</code>。<code>next</code>数组只与模式串有关系，与主串无关地。<code>next[i]</code>的值与<code>p[i]</code>无关，只与<code>p[i]</code>前面的值有关。</p>
+<h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><p>&emsp;定义：模式串为<code>p</code>（下标从1开始），<code>next[i]</code>代表<code>p[1]~p[i-1]</code>组成的<strong>子串</strong>的最长匹配长度<strong>加</strong>1。特殊地，<code>next[0] = 0</code>。<code>next</code>数组只与模式串有关系，与主串无关地。<code>next[i]</code>的值与<code>p[i]</code><strong>无关</strong>，只与<code>p[i]</code><strong>前面的值</strong>有关。</p>
 <script type="math/tex; mode=display">
 next[j] = \begin{cases}
 0 & j=1\\
@@ -385,8 +385,82 @@ max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当�
 </li>
 </ul>
 <p>&emsp;<strong><em>附上代码</em></strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模式串为p</span></span><br><span class="line"><span class="type">int</span> next[p.size] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt; p.size; i++)&#123;</span><br><span class="line">    <span class="type">int</span> j = next[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            next[i] = j+<span class="number">1</span>;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模式串为p</span></span><br><span class="line"><span class="type">int</span> next[p.size] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt; p.size; i++)&#123;</span><br><span class="line">    <span class="type">int</span> j = next[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            next[i] = j;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><p>&emsp;前面提到<code>next[j]</code>值与<code>p[j]</code>无关，只与前前面的字符串有关。如果在<code>j</code>失配，也就是<code>p[j]!=s[i]</code>的话，那么下一个<code>j</code>回溯到<code>next[j]</code>的位置。如果此时<code>p[next[j]]!=s[i]</code>的话，那么还得继续回溯到<code>p[next[next[j]]]</code>，不如我们在构建<code>next</code>数组就把这种情况规避掉。因此，有了下列优化算法。</p>
+<p>&emsp;其他情况与上述<code>next</code>数组构造一样，不同的是，如果<code>p[j]==p[next[j]]</code>，就把上面代码改为如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j] != p[i]) next[i] = j;</span><br><span class="line">            <span class="keyword">else</span> next[i] = next[j];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>&emsp;如何在考试中认为求解呢？</p>
+<p>答：我的建议是，先求出<code>next</code>数组，然后在<code>next</code>数组的基础上，再看。如果<code>p[j]==p[next[j]]</code>，就修正<code>next[j]=nextval[next[j]]</code>。否则不变。因为是从前往后的，所以我们在<code>next</code>和已修正<code>nextval</code>的基础上，构造出<code>nextval[j]</code>。</p>
+<p>&emsp;如题所示，<code>&quot;ababaaababaa&quot;</code>的<code>nextval</code>数组应该是什么样的？</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">下标</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+<th style="text-align:center">11</th>
+<th style="text-align:center">12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>模式串</strong></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>next</code></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>nextval</code></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
