@@ -547,13 +547,14 @@
 </li>
 <li><p><strong>SAP</strong>：服务访问点（Service Access Point），这是比较抽象的一个概念，用我自己的话来讲，就是一个接口，上一层如何使用下一层的协议，那必然在计算机中看来，就是上一层调用了下一层的软件接口API。</p>
 </li>
-<li><p><strong>SDU</strong>：服务数据单元（Service Data Unit）</p>
+<li><p><strong>SDU</strong>：服务数据单元（Service Data Unit），看作本层的数据部分。</p>
 </li>
-<li><p><strong>PDU</strong>：协议数据单元（Protocol Data Unit）</p>
+<li><p><strong>PDU</strong>：协议数据单元（Protocol Data Unit），看作本层的数据加上报头（也就是协议部分）。</p>
 </li>
 <li><p>详解PDU与SDU</p>
 <blockquote>
 <p>&emsp;<strong>上一层数据加协议</strong>包装好的数据报给了本层就是<strong>本层的SDU</strong>，本层再将<strong>SDU用本层的协议</strong>包装好成为本层的<strong>PDU</strong>，传递给下一层，作为<strong>下一层的SDU</strong>。依次类推到物理层。</p>
+<p>&emsp;如果把SDU看作一封信的内容，那么PDU就是内容加上署名，加上邮寄的地址等等信息。</p>
 <p>&emsp;那么有：<script type="math/tex">PDU(n+1)=SDU(n),\quad PDU(n) = SDU(n-1)</script>。</p>
 </blockquote>
 </li>
