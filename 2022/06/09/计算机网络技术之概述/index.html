@@ -447,11 +447,11 @@
 </ul>
 <h2 id="3、计算机网络体系"><a href="#3、计算机网络体系" class="headerlink" title="3、计算机网络体系"></a>3、计算机网络体系</h2><h3 id="基本的体系介绍"><a href="#基本的体系介绍" class="headerlink" title="基本的体系介绍"></a>基本的体系介绍</h3><p>&emsp;在计算机网络的基本概念中，分层次的<strong>体系结构</strong>是最基本的。<code>ARPANET</code>最初设计网络时提出了分层的概念，将庞大而复杂的问题转为若干个小问题。</p>
 <p>&emsp;首先提出的是<strong>系统网络体系结构SNA（System Network Architecture）</strong>，而后国际标准化组织提出著名的<strong>开放系统互连基本参考模型OSI/RM（Open System Interconnection Reference Model）</strong>，简称OSI，完整的OSI是一个七层模型。但，尽管OSI提出时间很早，但是由于基于<strong>TCP/IP</strong>的互联网已经在全球范围内成功地运行了，所以最后的结果是<strong>法律上的国际标准OSI</strong>与<strong>事实上的国际标准TCP/IP</strong>的局面。</p>
-<p>&emsp;网络中最重要的便是<strong>协议（protocol）</strong>，所有简称里面带了<strong>P</strong>的，都是协议的缩写。所以，计算机网络讲的就是协议。协议又分为三个部分：</p>
+<p>&emsp;网络中最重要的便是<strong>协议（protocol）</strong>，所有简称里面带了<strong>P</strong>的，都是协议的缩写。所以，计算机网络讲的就是协议。协议又分为三个部分：（括号中是自己的理解）</p>
 <ul>
-<li>（1）<strong>语法</strong>：数据与控制信息的结构和格式。</li>
-<li>（2）<strong>语义</strong>：需要发出何种控制信息，完成何种动作以及做出何种响应。</li>
-<li>（3）<strong>同步</strong>：即时间实现顺序的详细说明。</li>
+<li>（1）<strong>语法</strong>：数据与控制信息的结构和格式。（可以看成，整个数据报中，分为很多部分，每个部分的长度，类型等等。）</li>
+<li>（2）<strong>语义</strong>：需要发出何种控制信息，完成何种动作以及做出何种响应。（解释上述语法分成的部分，该部分应该程序做什么，该部分代表着什么意思。）</li>
+<li>（3）<strong>同步</strong>：即时间实现顺序的详细说明。（同步是为了能够确定数据报的边界，区分不同数据报，以及数据报的归属。）</li>
 </ul>
 <p>&emsp;分层的一些好处：</p>
 <ul>
