@@ -410,7 +410,14 @@
   </url>
   
   <url>
-    <loc>http://lmzyoyo.top/tags/%E6%A6%82%E8%BF%B0/</loc>
+    <loc>http://lmzyoyo.top/tags/OSI/</loc>
+    <lastmod>2022-06-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>http://lmzyoyo.top/tags/TCP-IP/</loc>
     <lastmod>2022-06-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
