@@ -30,6 +30,12 @@
 </script>
 
 
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
 	<!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -187,19 +193,19 @@
         </a>
         
         <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051824843.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
         </a>
         
         <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051749115.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
         </a>
         
         <a href="mailto:2498369702@qq.com">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051834260.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
         </a>
         
         <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051835645.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
         </a>
         
     </div>
@@ -334,7 +340,127 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="1、字符串存储"><a href="#1、字符串存储" class="headerlink" title="1、字符串存储"></a>1、字符串存储</h2><h2 id="2、字符串的模式匹配"><a href="#2、字符串的模式匹配" class="headerlink" title="2、字符串的模式匹配"></a>2、字符串的模式匹配</h2><h3 id="KMP算法基本"><a href="#KMP算法基本" class="headerlink" title="KMP算法基本"></a>KMP算法基本</h3><h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+        <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="1、字符串存储"><a href="#1、字符串存储" class="headerlink" title="1、字符串存储"></a>1、字符串存储</h2><h2 id="2、字符串的模式匹配"><a href="#2、字符串的模式匹配" class="headerlink" title="2、字符串的模式匹配"></a>2、字符串的模式匹配</h2><p>&emsp;模式匹配是指，在主串中寻找模式串的位置。</p>
+<ul>
+<li><p>简单模式匹配</p>
+<blockquote>
+<p>依次匹配，如果失配，就后移一位</p>
+</blockquote>
+</li>
+<li><p>KMP模式匹配</p>
+<blockquote>
+<p>依次匹配，如果失配，根据<code>next数组</code>后移</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="3、KMP算法"><a href="#3、KMP算法" class="headerlink" title="3、KMP算法"></a>3、KMP算法</h2><p>&emsp;<strong><em>假设所有下标都是从1开始</em></strong></p>
+<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
+<li>前缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_0,\quad p_0p_1, \quad... \quad,\quad p_0p_1...p_{n-1}  \}</script></li>
+<li>后缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_1,\quad p_1p_2, \quad... \quad,\quad p_1p_2...p_{n}  \}</script></li>
+<li>最长匹配长度：前缀集合与后缀结合中，最长相等元素的长度。</li>
+<li>注意：<strong>前</strong>缀集合<strong>不包含</strong><script type="math/tex">p_n</script>，<strong>后</strong>缀集合中<strong>不包含</strong><script type="math/tex">p_0</script>，如果字串只有一个字符，那么前缀集合和后缀集合都为<strong>空</strong>。</li>
+</ul>
+<h3 id="KMP算法基本"><a href="#KMP算法基本" class="headerlink" title="KMP算法基本"></a>KMP算法基本</h3><p>&emsp;假设我们已经有了<code>next</code>数组（下面会介绍<code>next</code>数组求解），假如在主串(<code>S</code>)下标为<code>i</code>，模式串(<code>P</code>)下标为<code>j</code>的位置失配了。</p>
+<p>&emsp;暴力算法中，我们将会把<code>i</code>和<code>j</code>都回溯了，<code>i</code>回溯到<code>j</code>个，<code>j</code>回溯到1。KMP算法中，我们让<code>i</code>不进行回溯，仅仅只回溯<code>j</code>。那么，<code>j</code>应该如何回溯呢?</p>
+<p>&emsp;首先，这里只需要考虑模式串，next数组含义就是，在位置<code>j</code>前面有<code>next[j]-1</code>个字符组成的字符串与从位置1开始往后的<code>next[j]-1</code>个字符组成的字符串是相等的。</p>
+<p>&emsp;然后，因为主串与模式串在位置j前面的字符串完全相等。我们就只需要把模式串回溯到不相等的位置，最开始不相等的位置，应该是第<code>next[j]</code>个位置。</p>
+<p>&emsp;解释，因为我们知道<script type="math/tex">P_1...P_{next[j]-1}</script>与<script type="math/tex">P_{j-next[j]}...P_{j-1}</script>是相等的，所以只需要从主串当前位置与模式串<code>P[next[j]]</code>开始继续比较即可。</p>
+<h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><p>&emsp;定义：模式串为<code>p</code>（下标从1开始），<code>next[i]</code>代表<code>p[1]~p[i-1]</code>组成的<strong>子串</strong>的最长匹配长度<strong>加</strong>1。特殊地，<code>next[0] = 0</code>。<code>next</code>数组只与模式串有关系，与主串无关地。<code>next[i]</code>的值与<code>p[i]</code><strong>无关</strong>，只与<code>p[i]</code><strong>前面的值</strong>有关。</p>
+<script type="math/tex; mode=display">
+next[j] = \begin{cases}
+0 & j=1\\
+max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当此结合不为空时\\
+1 & 其他情况
+\end{cases}</script><p>&emsp;上述公式看不懂，问题不大，我也没看懂。</p>
+<ul>
+<li><p>人为求解</p>
+<blockquote>
+<p>认为求解的话，根据定义来即可，一步一步算</p>
+</blockquote>
+</li>
+<li><p>代码求解</p>
+<blockquote>
+<p>比较复杂</p>
+</blockquote>
+</li>
+</ul>
+<p>&emsp;<strong><em>附上代码</em></strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模式串为p</span></span><br><span class="line"><span class="type">int</span> next[p.size] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt; p.size; i++)&#123;</span><br><span class="line">    <span class="type">int</span> j = next[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            next[i] = j;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><p>&emsp;前面提到<code>next[j]</code>值与<code>p[j]</code>无关，只与前前面的字符串有关。如果在<code>j</code>失配，也就是<code>p[j]!=s[i]</code>的话，那么下一个<code>j</code>回溯到<code>next[j]</code>的位置。如果此时<code>p[next[j]]!=s[i]</code>的话，那么还得继续回溯到<code>p[next[next[j]]]</code>，不如我们在构建<code>next</code>数组就把这种情况规避掉。因此，有了下列优化算法。</p>
+<p>&emsp;其他情况与上述<code>next</code>数组构造一样，不同的是，如果<code>p[j]==p[next[j]]</code>，就把上面代码改为如下：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j] != p[i]) next[i] = j;</span><br><span class="line">            <span class="keyword">else</span> next[i] = next[j];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>&emsp;如何在考试中认为求解呢？</p>
+<p>答：我的建议是，先求出<code>next</code>数组，然后在<code>next</code>数组的基础上，再看。如果<code>p[j]==p[next[j]]</code>，就修正<code>next[j]=nextval[next[j]]</code>。否则不变。因为是从前往后的，所以我们在<code>next</code>和已修正<code>nextval</code>的基础上，构造出<code>nextval[j]</code>。</p>
+<p>&emsp;如题所示，<code>&quot;ababaaababaa&quot;</code>的<code>nextval</code>数组应该是什么样的？</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">下标</th>
+<th style="text-align:center">1</th>
+<th style="text-align:center">2</th>
+<th style="text-align:center">3</th>
+<th style="text-align:center">4</th>
+<th style="text-align:center">5</th>
+<th style="text-align:center">6</th>
+<th style="text-align:center">7</th>
+<th style="text-align:center">8</th>
+<th style="text-align:center">9</th>
+<th style="text-align:center">10</th>
+<th style="text-align:center">11</th>
+<th style="text-align:center">12</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>模式串</strong></td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">b</td>
+<td style="text-align:center">a</td>
+<td style="text-align:center">a</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>next</code></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">3</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">5</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>nextval</code></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">4</td>
+<td style="text-align:center">2</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">4</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
@@ -407,19 +533,19 @@
 		</a>
 		
 		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051824843.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
 		</a>
 		
 		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051749115.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
 		</a>
 		
 		<a href="mailto:2498369702@qq.com">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051834260.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
 		</a>
 		
 		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051835645.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
 		</a>
 		
 	</div>
@@ -432,7 +558,6 @@
 		mermaid.initialize({ theme: 'forest' });
 	}
 </script>
-
 
 <script src="/js/jquery.min.js"></script>
 
@@ -500,9 +625,9 @@
 <script>
     $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
 </script>
-<script>
-	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
-</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

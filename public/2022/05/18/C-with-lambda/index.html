@@ -30,6 +30,12 @@
 </script>
 
 
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
 	<!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -187,19 +193,19 @@
         </a>
         
         <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051824843.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
         </a>
         
         <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051749115.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
         </a>
         
         <a href="mailto:2498369702@qq.com">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051834260.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
         </a>
         
         <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051835645.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
         </a>
         
     </div>
@@ -335,7 +341,7 @@
         <h1 id="什么是λ演算"><a href="#什么是λ演算" class="headerlink" title="什么是λ演算"></a>什么是<code>λ</code>演算</h1><p>  首先，这个<code>λ</code>演算是非常牛逼的一个东西，可以看一下<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%CE%9B%E6%BC%94%E7%AE%97">维基百科——λ</a>的介绍</p>
 <h1 id="C-适用-λ-表达式"><a href="#C-适用-λ-表达式" class="headerlink" title="C++ 适用 λ 表达式"></a><code>C++</code> 适用 <code>λ</code> 表达式</h1><p>  众所周知，如果一个工程中用了很多函数名，最终会导致命名污染。</p>
 <p>  不妨假设如下场景，如果你有一个函数，需要重复写一段代码，你会选择将这段代码封装成另一个函数<code>FUN</code>。但是，一个函数就需要一个名字，你封装成的另一个函数<code>FUN</code>就需要一个名字，但是这个<code>FUN</code>函数，你在其他地方又用不到了，那么就可以尝试适用匿名函数来实现了。</p>
-<h2 id="简单用法"><a href="#简单用法" class="headerlink" title="简单用法"></a>简单用法</h2><figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	<span class="keyword">auto</span> add = [](<span class="type">int</span> a, <span class="type">int</span> b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a % <span class="number">2</span>) <span class="keyword">return</span> a+b;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;;</span><br><span class="line">	cout &lt;&lt; <span class="built_in">add</span>(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面这个结果就会输出 7</span></span><br><span class="line"><span class="comment">// 用到这里你会发现lambda没有什么牛逼之处</span></span><br><span class="line"><span class="comment">// 但是，如果你不想这个add函数在外部用到，而仅仅是function函数中使用</span></span><br><span class="line"><span class="comment">// 那么它将带来很大的遍历，你不需要考虑如何去命名</span></span><br></pre></td></tr></table></figure>
+<h2 id="简单用法"><a href="#简单用法" class="headerlink" title="简单用法"></a>简单用法</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">function</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">auto</span> add = [](<span class="type">int</span> a, <span class="type">int</span> b)&#123;</span><br><span class="line">        <span class="keyword">if</span>(a % <span class="number">2</span>) <span class="keyword">return</span> a+b;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;;</span><br><span class="line">    cout &lt;&lt; <span class="built_in">add</span>(<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 上面这个结果就会输出 7</span></span><br><span class="line"><span class="comment">// 用到这里你会发现lambda没有什么牛逼之处</span></span><br><span class="line"><span class="comment">// 但是，如果你不想这个add函数在外部用到，而仅仅是function函数中使用</span></span><br><span class="line"><span class="comment">// 那么它将带来很大的遍历，你不需要考虑如何去命名</span></span><br></pre></td></tr></table></figure>
 <h2 id="细节用法"><a href="#细节用法" class="headerlink" title="细节用法"></a>细节用法</h2><p>​    可能不太理解为什么像上述写法这么写 <code>[]()&#123;&#125;</code>，这个为什么构成<code>lambda</code>表达式</p>
 <ul>
 <li><p><code>[]</code>部分：这里是表示捕获部分，为什么需要捕获呢？</p>
@@ -363,13 +369,13 @@
 </ul>
 <hr>
 <p>​    除此之外，还和普通函数一样，有说明符和返回值的约束。</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 说明符的介绍</span></span><br><span class="line"><span class="keyword">auto</span> f = [&amp;]() <span class="keyword">mutable</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 说明符的介绍</span></span><br><span class="line"><span class="keyword">auto</span> f = [&amp;]() <span class="keyword">mutable</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li><code>mutable</code>：允许 函数体 修改各个复制捕获的对象，以及调用其非 <code>const</code> 成员函数；</li>
 <li><code>constexpr</code>：显式指定函数调用运算符为 <code>constexpr</code>函数。此说明符不存在时，若函数调用运算符恰好满足针对 <code>constexpr</code>函数的所有要求，则它也会是 <code>constexpr</code>； (C++17 起)</li>
 <li><code>consteval</code>：指定函数调用运算符为立即函数。不能同时使用 <code>consteval</code> 和 <code>constexpr</code>。(C++20 起)</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 返回值介绍</span></span><br><span class="line"><span class="comment">// 限制返回 int</span></span><br><span class="line"><span class="keyword">auto</span> f = [&amp;]() -&gt; <span class="type">int</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 返回值介绍</span></span><br><span class="line"><span class="comment">// 限制返回 int</span></span><br><span class="line"><span class="keyword">auto</span> f = [&amp;]() -&gt; <span class="type">int</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="补充说明"><a href="#补充说明" class="headerlink" title="补充说明"></a>补充说明</h2><p>​    有人发现了，前面都是使用<code>auto</code>关键词声明的，那么可不可以声明为具体类型了，答案是<strong><em>也可以</em></strong>的。既然是匿名函数，肯定没有固定的<code>typeid</code>，经过测试，那怕完全相同的两个函数，其<code>typeid</code>都是<strong><em>不一样</em></strong>的。就像<code>int a = 1; int b = 1;</code>中<code>a,b</code>不是用一个东西，仅仅是两个变量的值一样，但是<code>a,b</code>的<code>typeid</code>是一样的。<code>auto f1 = []()&#123;&#125;; auto f2 = []()&#123;&#125;;</code>中，<code>f1, f2</code>他们仅仅是地址对应的值相同而已，都是只执行了<code>[]()&#123;&#125;</code>这个函数。</p>
 <p>​    但是，前面说可以声明为具体类型，那么，该怎么实现呢？答案是：<strong><em>函数指针</em></strong></p>
 <ul>
@@ -378,8 +384,8 @@
 <li>并且还有<code>typeid(f) == typeid(g) == typeid(h)</code></li>
 <li>至于这个为什么呢？我也没有想明白这些，之后再努力看看才行。</li>
 </ul>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">int</span> (*f)() = []() -&gt; <span class="type">int</span> &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;;</span><br><span class="line"><span class="built_in">int</span> (*g)() = []() -&gt; <span class="type">int</span> &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">a</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;</span><br><span class="line"><span class="built_in">int</span> (*h)() = a; <span class="comment">// 也可写做 int(*h)() = &amp;a; 因为函数名本来就是地址</span></span><br></pre></td></tr></table></figure>
-
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> (*f)() = []() -&gt; <span class="type">int</span> &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;;</span><br><span class="line"><span class="built_in">int</span> (*g)() = []() -&gt; <span class="type">int</span> &#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">a</span><span class="params">()</span></span>&#123;<span class="keyword">return</span> <span class="number">1</span>;&#125;</span><br><span class="line"><span class="built_in">int</span> (*h)() = a; <span class="comment">// 也可写做 int(*h)() = &amp;a; 因为函数名本来就是地址</span></span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
@@ -408,10 +414,10 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2022/05/21/%E8%8B%B1%E8%AF%AD%E4%B8%80%E5%8D%95%E8%AF%8D/">
+    <a href="/2022/05/28/%E5%8D%97%E9%82%AE%E6%9C%9F%E6%9C%AB%E8%AF%84%E4%BB%B7%E8%84%9A%E6%9C%AC/">
         <div class="last">
             <span>上一篇</span>
-            <p>英语一单词</p>
+            <p>南邮期末评价脚本</p>
         </div>
     </a>
     
@@ -452,19 +458,19 @@
 		</a>
 		
 		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051824843.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
 		</a>
 		
 		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051749115.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
 		</a>
 		
 		<a href="mailto:2498369702@qq.com">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051834260.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
 		</a>
 		
 		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051835645.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
 		</a>
 		
 	</div>
@@ -477,7 +483,6 @@
 		mermaid.initialize({ theme: 'forest' });
 	}
 </script>
-
 
 <script src="/js/jquery.min.js"></script>
 
@@ -545,9 +550,9 @@
 <script>
     $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
 </script>
-<script>
-	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
-</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

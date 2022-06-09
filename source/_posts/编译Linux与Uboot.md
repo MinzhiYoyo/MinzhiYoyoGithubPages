@@ -1,6 +1,6 @@
 ---
 title: 编译Linux与Uboot
-cover: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052005616.png'
+cover: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141843271749.png'
 date: 2022-04-05 19:53:21
 tags: 
 	- Linux
@@ -8,6 +8,7 @@ tags:
 	- 编译
 excerpt: 编译你自己的Linux和uboot
 categories: Linux
+
 ---
 
 # 一、前言
@@ -30,7 +31,7 @@ categories: Linux
 
 ## 1、下载`u-boot`
 
-```shell
+``` shell
 git clone https://github.com/Lichee-Pi/u-boot.git
 git branch -a  # 查看分支，我们使用的是nano-v2018.01u-boot
 git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支
@@ -52,7 +53,7 @@ git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支
 
 ### 选取`config`操作
 
-```shell
+``` shell
 cd ~/u-boot  # 切换到 下载的 u-boot 的根目录
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_defconfig  
 # 参数介绍：
@@ -65,7 +66,7 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_defconfig
 
 ### 打开菜单命令
 
-```shell
+``` shell
 make ARCH=arm menuconfig
 # 之后上下键进行移动
 # 空格或者回车进行选择
@@ -77,7 +78,7 @@ make ARCH=arm menuconfig
 
 注意下面这两个参数就行
 
-![image-20220305195147976](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958695.png)
+![image-20220305195147976](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141844131100.png)
 
 #### `boot arguments`
 
@@ -97,7 +98,7 @@ make ARCH=arm menuconfig
 
 > - `load mmc 0:1 0x80008000 zImage;load mmc 0:1 0x80c08000 suniv-f1c100s-licheepi-nano.dtb;bootz 0x80008000 - 0x80c08000;`
 >
-> > ![image-20220305195531843](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959333.png)
+> > ![image-20220305195531843](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141844720138.png)
 
 
 
@@ -113,7 +114,7 @@ make ARCH=arm menuconfig
 
 > [参考博客](https://cnblogs.com/twzy/p/14865952.html)
 >
-> [参考荔枝派](https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/get_started/first_eat.html)![image-20220305205126696](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959649.png)
+> [参考荔枝派](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141846763856.png)
 
 # 六、`Linux`的移植
 
@@ -135,7 +136,7 @@ make ARCH=arm menuconfig
 >
 > **图片来源于网络**
 >
-> ![image-20220314221728714](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958740.png)
+> ![image-20220314221728714](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141847334316.png)
 
 ### 分区2、`rootfs`
 
@@ -145,11 +146,11 @@ make ARCH=arm menuconfig
 >
 > ***图片来源于网络***
 >
-> ![image-20220314221807562](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958803.png)
+> ![image-20220314221807562](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141848448533.png)
 
 ### 最后的效果
 
-![image-20220314221850652](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958789.png)
+![image-20220314221850652](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141849061332.png)
 
 ## 2、编译**`Linux`**
 

@@ -30,6 +30,12 @@
 </script>
 
 
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
 	<!-- hexo injector head_end start -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
@@ -187,19 +193,19 @@
         </a>
         
         <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051824843.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
         </a>
         
         <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051749115.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
         </a>
         
         <a href="mailto:2498369702@qq.com">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051834260.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
         </a>
         
         <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
-            <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051835645.png" alt="Quiet主题">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
         </a>
         
     </div>
@@ -336,7 +342,7 @@
 <h1 id="二、准备工作"><a href="#二、准备工作" class="headerlink" title="二、准备工作"></a>二、准备工作</h1><p>准备太久了</p>
 <h1 id="三、PCB绘制"><a href="#三、PCB绘制" class="headerlink" title="三、PCB绘制"></a>三、PCB绘制</h1><p>不是我绘制的</p>
 <h1 id="四、下载编译工具链"><a href="#四、下载编译工具链" class="headerlink" title="四、下载编译工具链"></a>四、下载编译工具链</h1><p>我下的是<code>arm-linux-gnueabi-</code></p>
-<h1 id="五、u-boot移植"><a href="#五、u-boot移植" class="headerlink" title="五、u-boot移植"></a>五、u-boot移植</h1><h2 id="1、下载u-boot"><a href="#1、下载u-boot" class="headerlink" title="1、下载u-boot"></a>1、下载<code>u-boot</code></h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/Lichee-Pi/u-boot.git</span><br><span class="line">git branch -a  # 查看分支，我们使用的是nano-v2018.01u-boot</span><br><span class="line">git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支</span><br></pre></td></tr></table></figure>
+<h1 id="五、u-boot移植"><a href="#五、u-boot移植" class="headerlink" title="五、u-boot移植"></a>五、u-boot移植</h1><h2 id="1、下载u-boot"><a href="#1、下载u-boot" class="headerlink" title="1、下载u-boot"></a>1、下载<code>u-boot</code></h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Lichee-Pi/u-boot.git</span><br><span class="line">git branch -a  # 查看分支，我们使用的是nano-v2018.01u-boot</span><br><span class="line">git checkout nano-v2018.01u-boot  # 切换到nano-v2018.01u-boot这个分支</span><br></pre></td></tr></table></figure>
 <h2 id="2、选取config配置"><a href="#2、选取config配置" class="headerlink" title="2、选取config配置"></a>2、选取<code>config</code>配置</h2><p>考虑到水平有限，我们采用从现有的配置上进行更改。或者，我完全不进行更改，就直接使用了。</p>
 <h3 id="对几个config简单介绍："><a href="#对几个config简单介绍：" class="headerlink" title="对几个config简单介绍："></a><em>对几个config简单介绍：</em></h3><blockquote>
 <p><code>f1c100s_nano_uboot_defconfig</code>：<code>SPI Flash</code>支持版</p>
@@ -344,10 +350,10 @@
 <p><code>licheepi_nano_spiflash_defconfig</code>：从<code>SPI</code>设备启动</p>
 </blockquote>
 <p>其实上面三种我也分不清楚，我第一次采用的是 <code>licheepi_nano_defconfig</code>。我也找不到 <code>f1c100s_nano_uboot_defconfig</code>，但是在<a target="_blank" rel="noopener" href="https://gitee.com/LicheePiNano/u-boot">这</a>可以找到，这个是荔枝派的 <code>u-boot</code>，可能毕竟这款 <code>f1c100s</code>是国产芯片，在<code>GitHub</code>上面找不到。</p>
-<h3 id="选取config操作"><a href="#选取config操作" class="headerlink" title="选取config操作"></a>选取<code>config</code>操作</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">cd ~/u-boot  # 切换到 下载的 u-boot 的根目录</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_defconfig  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参数介绍：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ARCH=arm 是arm架构的</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CROSS_COMPILE=arm-linux-gnueabi-  是之前的下载的编译工具链</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">licheepi_nano_defconfig 选取的默认config</span></span><br></pre></td></tr></table></figure>
-<h2 id="3、可视化配置"><a href="#3、可视化配置" class="headerlink" title="3、可视化配置"></a>3、可视化配置</h2><h3 id="打开菜单命令"><a href="#打开菜单命令" class="headerlink" title="打开菜单命令"></a>打开菜单命令</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">make ARCH=arm menuconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">之后上下键进行移动</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">空格或者回车进行选择</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">左右可以选择下方菜单</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ctrl+退格才能删除已经填入的默认参数</span></span><br></pre></td></tr></table></figure>
+<h3 id="选取config操作"><a href="#选取config操作" class="headerlink" title="选取config操作"></a>选取<code>config</code>操作</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd ~/u-boot  # 切换到 下载的 u-boot 的根目录</span><br><span class="line">make ARCH=arm CROSS_COMPILE=arm-linux-gnueabi- licheepi_nano_defconfig  </span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">参数介绍：</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ARCH=arm 是arm架构的</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">CROSS_COMPILE=arm-linux-gnueabi-  是之前的下载的编译工具链</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">licheepi_nano_defconfig 选取的默认config</span></span><br></pre></td></tr></table></figure>
+<h2 id="3、可视化配置"><a href="#3、可视化配置" class="headerlink" title="3、可视化配置"></a>3、可视化配置</h2><h3 id="打开菜单命令"><a href="#打开菜单命令" class="headerlink" title="打开菜单命令"></a>打开菜单命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">make ARCH=arm menuconfig</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">之后上下键进行移动</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">空格或者回车进行选择</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">左右可以选择下方菜单</span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">ctrl+退格才能删除已经填入的默认参数</span></span><br></pre></td></tr></table></figure>
 <h3 id="参数讲解"><a href="#参数讲解" class="headerlink" title="参数讲解"></a>参数讲解</h3><p>注意下面这两个参数就行</p>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958695.png" alt="image-20220305195147976"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141844131100.png" alt="image-20220305195147976"></p>
 <h4 id="boot-arguments"><a href="#boot-arguments" class="headerlink" title="boot arguments"></a><code>boot arguments</code></h4><blockquote>
 <ul>
 <li><code>console=ttyS0,115200 panic=5 rootwait root=/dev/mmcblk0p2 earlyprintk rw</code></li>
@@ -365,7 +371,7 @@
 <li><code>load mmc 0:1 0x80008000 zImage;load mmc 0:1 0x80c08000 suniv-f1c100s-licheepi-nano.dtb;bootz 0x80008000 - 0x80c08000;</code></li>
 </ul>
 <blockquote>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959333.png" alt="image-20220305195531843"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141844720138.png" alt="image-20220305195531843"></p>
 </blockquote>
 </blockquote>
 <h2 id="、遇到问题不要慌"><a href="#、遇到问题不要慌" class="headerlink" title="、遇到问题不要慌"></a>、遇到问题不要慌</h2><h3 id="（1）execute-39-swig-39"><a href="#（1）execute-39-swig-39" class="headerlink" title="（1）execute &#39;swig&#39;"></a>（1）<code>execute &#39;swig&#39;</code></h3><blockquote>
@@ -374,7 +380,7 @@
 </blockquote>
 <h2 id="、参考链接"><a href="#、参考链接" class="headerlink" title="、参考链接"></a>、参考链接</h2><blockquote>
 <p><a target="_blank" rel="noopener" href="https://cnblogs.com/twzy/p/14865952.html">参考博客</a></p>
-<p><a target="_blank" rel="noopener" href="https://wiki.sipeed.com/soft/Lichee/zh/Nano-Doc-Backup/get_started/first_eat.html">参考荔枝派</a><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051959649.png" alt="image-20220305205126696"></p>
+<p><a target="_blank" rel="noopener" href="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141846763856.png">参考荔枝派</a></p>
 </blockquote>
 <h1 id="六、Linux的移植"><a href="#六、Linux的移植" class="headerlink" title="六、Linux的移植"></a>六、<code>Linux</code>的移植</h1><h2 id="1、分区操作"><a href="#1、分区操作" class="headerlink" title="1、分区操作"></a>1、分区操作</h2><p>​    一个硬盘对于<code>Linux</code>来说，需要进行<strong>挂载</strong>命令是：<code>mount</code>，一般插上自动挂载），然后再能使用，然后需要<strong>卸载</strong>（命令：<code>umount</code>）才能操作，如格式化，分区之类的。我们借助了<code>Ubuntu</code>下图形化工具——<strong><code>Gparted</code></strong>，命令行进行下载就行了。</p>
 <p>​    然后，买到手的<code>sd</code>卡，可能已经分区了，有一个主分区。如果没法删除，或者进场出现例如<em><code>/dev/sdb contains a mounted filesystem</code></em>，我的建议，使用一个全0的映像文件写入<code>sd</code>卡，将前面的数据覆盖。</p>
@@ -384,16 +390,16 @@
 <p>之前剩余空间为<strong>1M</strong>，新大小为<strong>32M</strong>，文件系统为<strong><code>fat16</code></strong>，卷标就设置为<strong><code>boot</code></strong></p>
 <p>对于之前的<code>1M</code>，是留给<strong><code>uboot</code></strong>的，而且在<code>gparted</code>是看不到的</p>
 <p><strong>图片来源于网络</strong></p>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958740.png" alt="image-20220314221728714"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141847334316.png" alt="image-20220314221728714"></p>
 </blockquote>
 <h3 id="分区2、rootfs"><a href="#分区2、rootfs" class="headerlink" title="分区2、rootfs"></a>分区2、<code>rootfs</code></h3><blockquote>
 <p>新建一个分区</p>
 <p>之前剩余空间为<strong>0M</strong>，新大小为<strong>100M</strong>，文件系统为<strong><code>ext4</code></strong>，卷标就设置为<strong><code>rootfs</code></strong></p>
 <p><strong><em>图片来源于网络</em></strong></p>
-<p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958803.png" alt="image-20220314221807562"></p>
+<p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141848448533.png" alt="image-20220314221807562"></p>
 </blockquote>
-<h3 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h3><p><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051958789.png" alt="image-20220314221850652"></p>
-<h2 id="2、编译Linux"><a href="#2、编译Linux" class="headerlink" title="2、编译Linux"></a>2、编译<strong><code>Linux</code></strong></h2><h3 id="更改设备树"><a href="#更改设备树" class="headerlink" title="更改设备树"></a>更改设备树</h3><h1 id="七、编译rootfs"><a href="#七、编译rootfs" class="headerlink" title="七、编译rootfs"></a>七、编译<code>rootfs</code></h1>
+<h3 id="最后的效果"><a href="#最后的效果" class="headerlink" title="最后的效果"></a>最后的效果</h3><p><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141849061332.png" alt="image-20220314221850652"></p>
+<h2 id="2、编译Linux"><a href="#2、编译Linux" class="headerlink" title="2、编译Linux"></a>2、编译<strong><code>Linux</code></strong></h2><h3 id="更改设备树"><a href="#更改设备树" class="headerlink" title="更改设备树"></a>更改设备树</h3><h1 id="七、编译rootfs"><a href="#七、编译rootfs" class="headerlink" title="七、编译rootfs"></a>七、编译<code>rootfs</code></h1><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
@@ -466,19 +472,19 @@
 		</a>
 		
 		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051824843.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
 		</a>
 		
 		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051749115.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
 		</a>
 		
 		<a href="mailto:2498369702@qq.com">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051834260.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
 		</a>
 		
 		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
-			<img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051835645.png" alt="Quiet主题">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
 		</a>
 		
 	</div>
@@ -491,7 +497,6 @@
 		mermaid.initialize({ theme: 'forest' });
 	}
 </script>
-
 
 <script src="/js/jquery.min.js"></script>
 
@@ -559,9 +564,9 @@
 <script>
     $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
 </script>
-<script>
-	// console.log('\n %c Hexo-Quiet 主题 %c https://github.com/QiaoBug/hexo-theme-quiet \n', 'color: #fadfa3; background: #030307; padding:5px 0;', 'background: #fadfa3; padding:5px 0;')
-</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
 	<script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

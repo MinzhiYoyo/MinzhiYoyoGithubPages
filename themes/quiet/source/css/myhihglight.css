@@ -1,0 +1,153 @@
+/*
+
+Atom One Dark by Daniel Gamage
+Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
+
+base:    #282c34
+mono-1:  #abb2bf
+mono-2:  #818896
+mono-3:  #5c6370
+hue-1:   #56b6c2
+hue-2:   #61aeee
+hue-3:   #c678dd
+hue-4:   #98c379
+hue-5:   #e06c75
+hue-5-2: #be5046
+hue-6:   #d19a66
+hue-6-2: #e6c07b
+
+*/
+
+@font-face {
+  font-family: 'Source Code Pro';
+  font-weight: 200;
+  font-style: normal;
+  font-stretch: normal;
+  src: url('WOFF2/TTF/SourceCodePro-ExtraLight.ttf.woff2') format('woff2'),
+    url('WOFF/OTF/SourceCodePro-ExtraLight.otf.woff') format('woff'),
+    url('OTF/SourceCodePro-ExtraLight.otf') format('opentype'),
+    url('TTF/SourceCodePro-ExtraLight.ttf') format('truetype');
+}
+
+.highlight {
+  background: #DCDCDC;
+  overflow: auto;
+}
+
+.highlight span {
+  font-family: 'Source Code Pro';
+}
+
+.gutter {
+  width: 6%;
+}
+
+.keyword,
+.literal,
+.symbol,
+.name {
+  color: #569CD6;
+}
+
+.link {
+  color: #569CD6;
+  text-decoration: underline;
+}
+
+.built_in,
+.type {
+  color: #4EC9B0;
+}
+
+.number,
+.class {
+  color: #B8D7A3;
+}
+
+.string,
+.meta .string {
+  color: #D69D85;
+}
+
+.regexp,
+.template-tag {
+  color: #9A5334;
+}
+
+.subst,
+.function,
+.title,
+.params,
+.formula {
+  /* color: #DCDCDC; */
+  color: #4EC9B0;
+}
+
+.comment,
+.quote {
+  color: #57A64A;
+  font-style: italic;
+}
+
+.doctag {
+  color: #608B4E;
+}
+
+.meta,
+.meta .keyword,
+
+.tag {
+  color: #9B9B9B;
+}
+
+.variable,
+.template-variable {
+  color: #BD63C5;
+}
+
+.attr,
+.attribute {
+  color: #9CDCFE;
+}
+
+.section {
+  color: gold;
+}
+
+.emphasis {
+  font-style: italic;
+}
+
+.strong {
+  font-weight: bold;
+}
+
+/*.code {
+  font-family:'Monospace';
+}*/
+
+.bullet,
+.selector-tag,
+.selector-id,
+.selector-class,
+.selector-attr,
+.selector-pseudo {
+  color: #D7BA7D;
+}
+
+.addition {
+  background-color: #144212;
+  display: inline-block;
+  width: 100%;
+}
+
+.deletion {
+  background-color: #600;
+  display: inline-block;
+  width: 100%;
+}
+
+
+
+
+

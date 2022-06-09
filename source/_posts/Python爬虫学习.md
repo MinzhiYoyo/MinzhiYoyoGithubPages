@@ -1,6 +1,6 @@
 ---
 title: Python爬虫学习
-cover: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052015303.png'
+cover: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141652858875.png'
 date: 2022-04-05 20:07:16
 tags:
   - Python
@@ -74,15 +74,15 @@ categories:
 
 > **获取所有数据，勾选`All`**
 >
-> > ![image-20211201095759608](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052011268.png)
+> > ![image-20211201095759608](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141654056235.png)
 >
 > **登录或者其他导致页面自动跳转，那么抓的包会刷新，勾选下面这个就不会刷新**
 >
-> > ![image-20211201205357600](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052008211.png)
+> > ![image-20211201205357600](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141654704502.png)
 >
 > **查看请求数据和响应数据**
 >
-> > ![image-20211201195017543](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052008042.png)
+> > ![image-20211201195017543](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141655305903.png)
 >
 > **关于请求头的一些参数意义**
 >
@@ -112,7 +112,7 @@ categories:
 >
 > > 上面的`host`是域名，不一定是请求`url`，请求url看下面图
 > >
-> > > ![image-20211201194750582](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052008032.png)
+> > > ![image-20211201194750582](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141656030791.png)
 >
 > **其他帮助网站合集**
 >
@@ -179,7 +179,7 @@ categories:
 >
 > > 见下列图片，浏览器抓包
 > >
-> > ![image-20211201111147337](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052008253.png)
+> > ![image-20211201111147337](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141656765084.png)
 >
 > - 在`headers`携带
 >
@@ -287,7 +287,7 @@ categories:
 >
 > > 很多情况如下图所示
 > >
-> > > ![image-20211201192347257](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052008307.png)
+> > > ![image-20211201192347257](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141657415221.png)
 > >
 > > 爬虫过程遇到下列情况
 > >
@@ -384,7 +384,7 @@ categories:
 > - 以`github`为例
 > - 一般来说，`form`表单上面会有很多消息可挖掘，如下图所示
 >
-> > ![image-20211201205057556](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052010824.png)
+> > ![image-20211201205057556](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141658057971.png)
 > >
 > > - 其中，`action`指的是提交给的路径
 > > - `method`是提交方法

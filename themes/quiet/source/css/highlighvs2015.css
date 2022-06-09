@@ -1,0 +1,113 @@
+/*
+ * Visual Studio 2015 dark style
+ * Author: Nicolas LLOBERA <nllobera@gmailspan.com>
+ */
+
+span.hljs {
+	background: #1E1E1E;
+	color: #DCDCDC;
+}
+
+span.keyword,
+span.literal,
+span.symbol,
+span.name {
+	color: #569CD6;
+}
+
+span.link {
+	color: #569CD6;
+	text-decoration: underline;
+}
+
+span.built_in,
+span.type {
+	color: #4EC9B0;
+}
+
+span.number,
+span.class {
+	color: #B8D7A3;
+}
+
+span.string,
+span.meta span.string {
+	color: #D69D85;
+}
+
+span.regexp,
+span.template-tag {
+	color: #9A5334;
+}
+
+span.subst,
+span.function,
+span.title,
+span.params,
+span.formula {
+	color: #DCDCDC;
+}
+
+span.comment,
+span.quote {
+	color: #57A64A;
+	font-style: italic;
+}
+
+span.doctag {
+	color: #608B4E;
+}
+
+span.meta,
+span.meta span.keyword,
+
+span.tag {
+	color: #9B9B9B;
+}
+
+span.variable,
+span.template-variable {
+	color: #BD63C5;
+}
+
+span.attr,
+span.attribute {
+	color: #9CDCFE;
+}
+
+span.section {
+	color: gold;
+}
+
+span.emphasis {
+	font-style: italic;
+}
+
+span.strong {
+	font-weight: bold;
+}
+
+/*span.code {
+  font-family:'Monospace';
+}*/
+
+span.bullet,
+span.selector-tag,
+span.selector-id,
+span.selector-class,
+span.selector-attr,
+span.selector-pseudo {
+	color: #D7BA7D;
+}
+
+span.addition {
+	background-color: #144212;
+	display: inline-block;
+	width: 100%;
+}
+
+span.deletion {
+	background-color: #600;
+	display: inline-block;
+	width: 100%;
+}

@@ -6,7 +6,7 @@ tags:
 	- 注册表
 	- Windows
 excerpt: 使得能右键以某个软件打开
-cover: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051934962.png'
+cover: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141605353731.png'
 categories: 计算机事半功倍
 ---
 win+R regedit调出注册表
@@ -25,6 +25,6 @@ win+R regedit调出注册表
 
 > 为路径\…….。exe
 
-![image-20210102212700378](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051936063.png)
+![image-20210102212700378](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141606230245.png)
 
-![image-20210102212729670](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051936887.png)
+![image-20210102212729670](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141606775108.png)

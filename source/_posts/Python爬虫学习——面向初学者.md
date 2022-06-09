@@ -1,6 +1,6 @@
 ---
 title: Python爬虫学习-更加友好的教程
-cover: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052018349.png'
+cover: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141723386044.png'
 date: 2022-04-05 20:07:16
 tags:
   - Python
@@ -30,11 +30,11 @@ categories:
 > <!- 这里我们知道了一个词——浏览器的渲染   -->
 > <!- 并且我们发现，浏览器会在下面这个网址 自动 -->
 > <!- 把这张图片下载下来，然后渲染给我们看，这在我们之后抓包会有用 -->
-> <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png"
+> <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141724826735.png"
 > width="300px">
 > ```
 >
-> <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019260.png" width="300px">
+> <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141724826735.png" width="300px">
 
 ### 什么是请求，什么是响应
 
@@ -90,13 +90,14 @@ categories:
 ### 什么是抓包
 
 > 打个比方：你要向某人发一条数据，我在你们之间截获了或者记录了你们的数据，这个叫做抓包
->
+
+
 ```mermaid
 graph LR
 A(数据发送者) -->B[抓包者]
 B -->C(数据接收者)
 ```
->
+
 > **那么我们需要抓什么包呢？抓包的用处在哪呢？**
 >
 > 答：我们需要抓取浏览器和后端服务器通信的包；用处是分析他们的数据然后用代码进行伪造数据发送，以便获得和浏览器同样的响应
@@ -104,17 +105,16 @@ B -->C(数据接收者)
 ### 什么是代理
 
 > 不进行代理应该是下列图：
->
+
 ```mermaid
 graph LR
 A(前台客户端)-->|发送请求|C[后台服务器]
 C -->|返回响应|A
 ```
->
-> 
->
+
 > 代理就是如下：
->
+
+
 ```mermaid
 graph LR
 A(前台客户端)-->|发送请求|B[代理服务器]
@@ -141,12 +141,12 @@ B -->|转发响应|A
 
 > 打开某个浏览器，按下键盘上的<kbd>F12</kbd>键，进入调试模式
 >
-> ![image-20211219160806912](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019536.png)
+> ![image-20211219160806912](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141725898764.png)
 >
 > 一般用得到上面四个红圈里面的内容，建议跟我一样，将这个调试界面放到右侧，不然之后找不到对应的按钮（仅代表个人习惯）。
 > 如果是英文的，也不要担心，相信这点英文应该看得懂，看不懂应该也能找到相应位置，还可以自行百度怎么换成中文哦。
 >
-> <img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019319.png" width="300px">
+> <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141726760313.png" width="300px">
 
 > - 红圈1、找到页面上的元素分别对应哪句`html`标签
 > - 红圈2、主要看<kbd>元素</kbd>和<kbd>网络</kbd>两个
@@ -155,7 +155,7 @@ B -->|转发响应|A
 
 ### 如何寻找数据呢？
 
-> ![image-20211219162409621](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019519.png)
+> ![image-20211219162409621](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141727626349.png)
 >
 > 我们首先需要伪造成浏览器，发送请求标头，然后分析一下响应的数据，这个就是一个抓包过程啦
 >
@@ -169,7 +169,7 @@ B -->|转发响应|A
 
 ### 浏览器人性化查看数据
 
-> <center><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052033311.png" width="450px"><img src="https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052033151.png" width="450px"></center>
+> <center><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141728484488.png" width="450px"><img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141729063974.png" width="450px"></center>
 >
 > 第一张图和第二张图有所区别，多了一个<kbd>载荷</kbd>选项，因为第二张图是在百度翻译上面抓的
 >
@@ -186,19 +186,19 @@ B -->|转发响应|A
 >
 > **查看载荷**
 >
-> 如上面第二张图中的请求网址是：![image-20211219170540421](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019090.png)
+> 如上面第二张图中的请求网址是：![image-20211219170540421](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141729622955.png)
 >
 > 分为前后两部分组成，后面那部分就是载荷了，它是多个<kbd>字符串参数</kbd>，然后它是这么个形式：<kbd>键值=值</kbd> 组成的
 >
 > 多个<kbd>字符串参数</kbd>用`&`链接起来，把他人性化一点查看就是这样：<kbd>字符串参数</kbd>
 >
-> ![image-20211219170645219](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019096.png)
+> ![image-20211219170645219](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141730156726.png)
 >
 > **POST请求不仅仅只有请求头还有请求数据**
 >
 > 下面是百度翻译的`post`请求的载荷
 >
-> ![image-20211219170803923](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052019112.png)
+> ![image-20211219170803923](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141730680021.png)
 >
 > 上面和`get`请求一样，是<kbd>字符串参数</kbd>，下面就是<kbd>表单数据</kbd>，这个是很重要的一个部分
 

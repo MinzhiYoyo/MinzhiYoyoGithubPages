@@ -3,7 +3,7 @@ title: 个人简介
 date: 2022-04-03 16:32:46
 aubot: Yoyo
 layout: "about"
-portrait: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051857441.png"
+portrait: "http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525150310647712.png"
 describe: 
 ---
 
@@ -13,7 +13,7 @@ describe:
 
 ​	Hello, my name is `Minzhi Liang`. ***Yoyo*** is my screen name for many social media platforms, as is ***Yutan Jade Bird***.
 
-#### 身份 Identity 
+#### 身份 	 
 
 ​	我现在是一名来自***南京邮电大学***的***大学生***，一名小白程序猿。
 

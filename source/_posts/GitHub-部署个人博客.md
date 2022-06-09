@@ -1,6 +1,6 @@
 ---
 title: GitHub 部署个人博客
-cover: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052130527.png'
+cover: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141326085663.png'
 date: 2022-04-05 21:13:20
 tags: 
   - 前端
@@ -37,7 +37,7 @@ npm install -g hexo-cli  # 安装hexo
 
 出现下面就算成功了
 
-![image-20220405213817866](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052138992.png)
+![image-20220405213817866](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141328100824.png)
 
 ---
 
@@ -72,7 +72,7 @@ cd <folder>  # 切花到这个文件夹下
 
 ​	下载下来的主题，放到 `themes` 目录下，**如图所示**，我这里下载了多个主题，有一个就够了
 
-![image-20220405215544804](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052155840.png)
+![image-20220405215544804](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141328691309.png)
 
 ## 4、测试
 
@@ -90,7 +90,7 @@ hexo server # 生成服务
 
 ​	下图是我的文件根目录结构，只需要注意**红框**里面的即可。
 
-![image-20220405215423041](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052154141.png)
+![image-20220405215423041](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141329444279.png)
 
 ---
 
@@ -151,9 +151,9 @@ icon: /image/favicon.ico # 我也更改了自己的icon
 #### 对应着下图的一些东西
 ```
 
-![image-20220405222601632](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052226682.png)
+![image-20220405222601632](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141330103935.png)
 
-![image-20220405222631005](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052226063.png)
+![image-20220405222631005](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141330623947.png)
 
 
 
@@ -170,7 +170,7 @@ menus_title:
   about: 关于
 ```
 
-![image-20220405222935475](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052229553.png)
+![image-20220405222935475](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141331126724.png)
 
 
 
@@ -182,14 +182,14 @@ menus_title:
 # 这里我用的我自己图床里面的文件，如果想知道怎么配置图床，可以看我的另一篇博客
 topIcon:
   homeIcon: "/image/logo.png"  # 这个只能使用本地的文件，不然会有点问题
-  archivesIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051903462.png"
-  tagIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051929205.png"
-  linksIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051905452.png"
-  categoriesIcon: "https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204051828739.png"
+  archivesIcon: "http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141332059694.png"
+  tagIcon: "http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141332501326.png"
+  linksIcon: "http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141332918685.png"
+  categoriesIcon: "http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141333506277.png"
  # 列如下图
 ```
 
-![image-20220405223336833](https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052233887.png)
+![image-20220405223336833](http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141452539019.png)
 
 - **访问量统计**
 
@@ -229,7 +229,7 @@ bottomIcon:
     #描述名称
     name: 'Github',
     #图标    
-    iconLink: 'https://cdn.jsdelivr.net/gh/duogongneng/MyBlogImg/imggithub.png',
+    iconLink: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141453283429.png',
     #跳转链接    
     toUrl: 'https://github.com/MinzhiYoyo'
   }
@@ -244,7 +244,7 @@ linksList:
     title: '本项目仓库', # 名字
     intro: '包含源码和发布文件', # 简单的描述
     link: 'https://github.com/MinzhiYoyo/MinzhiYoyo.github.io', # 跳转链接
-    image: 'https://raw.githubusercontent.com/MinzhiYoyo/ImageHost/main/202204052122364.jpg' # 图片链接
+    image: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141453792920.jpg' # 图片链接
   }
 ```
 

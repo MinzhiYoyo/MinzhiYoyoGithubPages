@@ -44,17 +44,21 @@ post_asset_folder: true
 relative_link: false
 future: true
 
+# _config.yml
 highlight:
   enable: true
-  line_number: false
-  auto_detect: true
-  tab_replace: ''
+  auto_detect: false
+  line_number: true
+  line_threshold: 0
+  tab_replace: '    '
+  exclude_languages:
   wrap: true
   hljs: false
 prismjs:
   enable: false
   preprocess: true
   line_number: true
+  line_threshold: 0
   tab_replace: ''
 
 # Home page setting
@@ -99,6 +103,7 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: quiet
+# theme: love
 Plugins:
 - hexo-generator-baidu-sitemap
 - hexo-generator-sitemap
@@ -108,6 +113,7 @@ baidusitemap:
   path: baidusitemap.xml
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
+
 # deploy:
 #   type: git
 #   repo: https://github.com/MinzhiYoyo/MinzhiYoyo.github.io.git
