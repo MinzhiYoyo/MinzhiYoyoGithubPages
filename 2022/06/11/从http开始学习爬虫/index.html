@@ -364,6 +364,7 @@
 </blockquote>
 </li>
 </ul>
+<p>-</p>
 <h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><h2 id="1、URL"><a href="#1、URL" class="headerlink" title="1、URL"></a>1、URL</h2><p>&emsp;URL是统一资源定位表示符号，当然，还有URI，URN的概念，这里就不细究这两个这三者区别，因为我们重点是讨论<strong>URL</strong>是什么，以及如何解析URL就行。</p>
 <p>&emsp;完整的URL如下，方括号表示可以省略的，圆括号表示不能省略，尖括号表示浏览器默认会加上去的。空格只是为了讲解，URL是<strong>不能</strong>有空格的。不仅如此，URL只能有<strong>英文字母</strong>，<strong>阿拉伯数字</strong>和某些<strong>英文标点符号</strong>组成。</p>
 <ul>
@@ -451,6 +452,7 @@
 </blockquote>
 </li>
 </ul>
+<hr>
 <h1 id="浏览器抓包知识"><a href="#浏览器抓包知识" class="headerlink" title="浏览器抓包知识"></a>浏览器抓包知识</h1><h2 id="1、打开调试窗口"><a href="#1、打开调试窗口" class="headerlink" title="1、打开调试窗口"></a>1、打开调试窗口</h2><p>&emsp;要么空白地方右键，然后点击属性。要么按F12。打开如下页面，点击网络（Network）就算成功。</p>
 <p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111644891.png" alt="image-20220611164445757"></p>
 <p>&emsp;简要介绍了主体界面构成</p>
@@ -505,6 +507,7 @@
 <li><p>至于这些请求头，谁给我们加到，一般是网站的<code>js</code>代码和浏览器的默认加。我们要做的，就是用代码伪造这些数据，把我们伪造成网站希望我们访问的方式来访问，听着有点绕。比如，把我们伪造成浏览器来抓取数据。</p>
 </li>
 </ul>
+<hr>
 <h1 id="Python实现简单抓包"><a href="#Python实现简单抓包" class="headerlink" title="Python实现简单抓包"></a>Python实现简单抓包</h1><h2 id="1、requests模块使用"><a href="#1、requests模块使用" class="headerlink" title="1、requests模块使用"></a>1、requests模块使用</h2><h3 id="1）安装requests模块"><a href="#1）安装requests模块" class="headerlink" title="1）安装requests模块"></a>1）安装requests模块</h3><p>&emsp;打开你的命令行，键入如下命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
 <h3 id="2）简单介绍"><a href="#2）简单介绍" class="headerlink" title="2）简单介绍"></a>2）简单介绍</h3><p>&emsp;讲得非常浅显，用来下载图片或者自动登录还可以。</p>
