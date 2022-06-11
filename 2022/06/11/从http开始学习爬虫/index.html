@@ -336,7 +336,35 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><h2 id="1、URL"><a href="#1、URL" class="headerlink" title="1、URL"></a>1、URL</h2><p>&emsp;URL是统一资源定位表示符号，当然，还有URI，URN的概念，这里就不细究这两个这三者区别，因为我们重点是讨论<strong>URL</strong>是什么，以及如何解析URL就行。</p>
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><p>前置知识</p>
+<blockquote>
+<ul>
+<li>1、URL</li>
+<li>2、http请求</li>
+<li>3、http响应</li>
+<li>4、爬虫步骤</li>
+</ul>
+</blockquote>
+</li>
+<li><p>浏览器抓包知识</p>
+<blockquote>
+<ul>
+<li>1、打开调试窗口</li>
+<li>2、详解请求头参数</li>
+</ul>
+</blockquote>
+</li>
+<li><p>python实现简单抓包</p>
+<blockquote>
+<ul>
+<li>1、requests模块使用</li>
+<li>2、正则表达式</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><h2 id="1、URL"><a href="#1、URL" class="headerlink" title="1、URL"></a>1、URL</h2><p>&emsp;URL是统一资源定位表示符号，当然，还有URI，URN的概念，这里就不细究这两个这三者区别，因为我们重点是讨论<strong>URL</strong>是什么，以及如何解析URL就行。</p>
 <p>&emsp;完整的URL如下，方括号表示可以省略的，圆括号表示不能省略，尖括号表示浏览器默认会加上去的。空格只是为了讲解，URL是<strong>不能</strong>有空格的。不仅如此，URL只能有<strong>英文字母</strong>，<strong>阿拉伯数字</strong>和某些<strong>英文标点符号</strong>组成。</p>
 <ul>
 <li><p>&lt; 协议 &gt; :// ( <strong>域名</strong>或<strong>IP</strong> ) : &lt; 端口 &gt; / 【 [ 路径信息 ] / [ 文件名 ] ? [ 参数部分 ] # [ 锚部分 ] 】</p>
@@ -481,7 +509,7 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
 <h3 id="2）简单介绍"><a href="#2）简单介绍" class="headerlink" title="2）简单介绍"></a>2）简单介绍</h3><p>&emsp;讲得非常浅显，用来下载图片或者自动登录还可以。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq  <span class="comment"># 导入代码包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的理解是创立一个请求工具箱</span></span><br><span class="line"><span class="comment"># 这个会维持Cookie，就像我上面所说的一样</span></span><br><span class="line"><span class="comment"># 之后使用这个工具箱进行操作</span></span><br><span class="line">tool = rq.session()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置是否进行SSL验证</span></span><br><span class="line"><span class="comment"># 也就是是否需要验证https</span></span><br><span class="line"><span class="comment"># 这个得看自己决定，看看https是什么样的，有什么用</span></span><br><span class="line"><span class="comment"># 当然，一般可以设置为False</span></span><br><span class="line">verify=<span class="literal">False</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求主机，一般就是Host字段的值</span></span><br><span class="line"><span class="comment"># 我这里是百度</span></span><br><span class="line">url=<span class="string">&quot;https://baidu.com&quot;</span> </span><br><span class="line">headers=&#123;   <span class="comment"># 设置请求头</span></span><br><span class="line"><span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/&quot;</span></span><br><span class="line"><span class="string">&quot;537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&quot;</span>,</span><br><span class="line"><span class="string">&quot;Referer&quot;</span>: <span class="string">&quot;https://baidu.com&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">proxies=&#123;    <span class="comment"># 设置代理</span></span><br><span class="line"><span class="string">&quot;http&quot;</span>: <span class="literal">None</span>,</span><br><span class="line"><span class="string">&quot;https&quot;</span>: <span class="literal">None</span></span><br><span class="line">&#125;</span><br><span class="line">params=&#123;   <span class="comment"># 设置字符串参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置请求表单，一般在post请求中常用到</span></span><br><span class="line"><span class="comment"># 我请求百度的页面，用的是post请求</span></span><br><span class="line">data=&#123;  <span class="comment"># 设置请求表单</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送get请求，得到get响应</span></span><br><span class="line">responseGet = tool.get(url=url, params=params, headers=headers, verify=verify, proxies=proxies)</span><br><span class="line"><span class="comment"># 发送post请求，得到post响应</span></span><br><span class="line">responsePost = tool.post(url=url, data=data, headers=headers, verify=verify, proxies=proxies)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 响应的主体内容一般都是二进制内容</span></span><br><span class="line"><span class="comment"># 需要进行对应解析，这个好像需要设计到python知识</span></span><br><span class="line"><span class="comment"># 我的评价是，不是这里的重点</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析响应</span></span><br><span class="line"><span class="comment"># 1、假如响应是文本数据，如html文本</span></span><br><span class="line">response = responseGet</span><br><span class="line">response.content <span class="comment"># 这个是内容，是二进制编码</span></span><br><span class="line">response.content.decode(<span class="string">&quot;gbk&quot;</span>)  <span class="comment"># 使用gbk解码，不加参数就是utf-8解码</span></span><br><span class="line"><span class="comment"># 2、假如响应是图片数据</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.png&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(response.content)   <span class="comment"># 直接以二进制写入文件</span></span><br><span class="line"><span class="comment"># 3、假如响应是表单数据</span></span><br><span class="line">dat = json.loads(response.content.decode())   <span class="comment"># 返回的就是一个字典数据了</span></span><br></pre></td></tr></table></figure>
-<h2 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h2><p>&emsp;正则表达式有什么用呢？</p>
+<h2 id="2、正则表达式"><a href="#2、正则表达式" class="headerlink" title="2、正则表达式"></a>2、正则表达式</h2><p>&emsp;正则表达式有什么用呢？</p>
 <p>​    假如，你需要下载一个页面中的所有图片，虽然我们<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111727842.png" alt="image-20220611164808155">这里的箭头可以确定你要的图片，如果一张一张点，是不是有点太慢了，跟手动下载有什么区别。所以，我们需要用到正则表达式，用来匹配一定规则的字符串。因为我们知道，图片是渲染出来的，本质在html中仍然以字符串存在，如：<code>&lt;img src=&quot;http://example.com/momo.png&quot; width=&quot;300px&quot;&gt;</code>。</p>
 <p>​    如果我们雇佣一个人来找这些图片，你会告诉他如下知识：“</p>
 <p>&emsp;&emsp;按照使用<code>&lt;img&gt;</code>标签圈起来的，里面是以<code>src=</code>开头的后面那串字符串。而且，图片的连接是以<code>http://</code>或者<code>https://</code>并且以<code>.png</code>、<code>.jpeg</code>、<code>.git</code>或者<code>.jpg</code>结尾的那串字符串。请给我把所有的找出来。</p>
