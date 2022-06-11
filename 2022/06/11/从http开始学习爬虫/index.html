@@ -408,6 +408,21 @@
 <li><p>主体内容，返回的响应内容在此。</p>
 </li>
 </ul>
+<h2 id="4、爬虫步骤"><a href="#4、爬虫步骤" class="headerlink" title="4、爬虫步骤"></a>4、爬虫步骤</h2><p>&emsp;首先确定请求方法，然后根据请求方法寻找请求参数，然后使用代码进行请求。寻找请求方法和请求参数的过程叫做<strong>抓包</strong>，用代码进行请求的过程叫做<strong>爬取内容</strong>。请求方法常见的是POST和GET</p>
+<ul>
+<li><p>GET请求</p>
+<blockquote>
+<p>需要找到请求标头，请求字符串参数。</p>
+<p>确定是否需要https，是否需要代理，是否需要cookie等</p>
+</blockquote>
+</li>
+<li><p>POST请求</p>
+<blockquote>
+<p>需要找到请求标头，请求字符串参数，请求数据。</p>
+<p>确定是否需要https，是否需要代理，是否需要cookie等。</p>
+</blockquote>
+</li>
+</ul>
 <h1 id="浏览器抓包知识"><a href="#浏览器抓包知识" class="headerlink" title="浏览器抓包知识"></a>浏览器抓包知识</h1><h2 id="1、打开调试窗口"><a href="#1、打开调试窗口" class="headerlink" title="1、打开调试窗口"></a>1、打开调试窗口</h2><p>&emsp;要么空白地方右键，然后点击属性。要么按F12。打开如下页面，点击网络（Network）就算成功。</p>
 <p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111644891.png" alt="image-20220611164445757"></p>
 <p>&emsp;简要介绍了主体界面构成</p>
