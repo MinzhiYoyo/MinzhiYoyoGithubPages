@@ -396,14 +396,15 @@
 <li>码元与比特关系：比特才是真正的数据信息，码元只是传输时候的数据。最后，一码元需要转化成若干比特才行的。一码元如果只有两种状态，那么只能携带两种信息。一码元如果有16种状态，那么就能携带4比特信息。所以，<script type="math/tex">比特=log_2码元</script>。</li>
 </ul>
 <p>&emsp;因此奈奎斯特传输定理是限制<strong>码元传输速率</strong>，也就是最高能传输2W的码元信息，然后要想提高比特信息。那么就需要提高每一个码元的状态。如使用0~7V电平代表一个码元（一个码元对应8种状态），那么就能传输3bit数据。</p>
-<h3 id="有高斯白噪声"><a href="#有高斯白噪声" class="headerlink" title="有高斯白噪声"></a>有高斯白噪声</h3><p>&emsp;香农定理提出高斯白噪声干扰下传输速率。</p>
-<script type="math/tex; mode=display">C = Wlog_2(1+\frac{S}{N}) $$，其中：
-
-- `C`：传输速率，bit/s
-- `W`：带宽，Hz
-- `S/N`：信噪比，信号的平均功率与噪声的平均功率比值。可以直接用数字表示，无单位。也可以用dB表示。
-- 信噪比：$$1dB = 10log_{10}(\frac{S}{N})$$，如S/N=10，就是代表信噪比10dB，S/N=1000时，代表信噪比为30dB。
-- 常用数值：$$log_2(1+1000)=9.967 \quad log_2(1+10)=3.459</script><p>&emsp;香农定理限制的直接是<strong>比特传输速率</strong>。</p>
+<h3 id="有高斯白噪声"><a href="#有高斯白噪声" class="headerlink" title="有高斯白噪声"></a>有高斯白噪声</h3><p>&emsp;香农定理提出高斯白噪声干扰下传输速率。<script type="math/tex">C = Wlog_2(1+\frac{S}{N})</script>，其中：</p>
+<ul>
+<li><code>C</code>：传输速率，bit/s</li>
+<li><code>W</code>：带宽，Hz</li>
+<li><code>S/N</code>：信噪比，信号的平均功率与噪声的平均功率比值。可以直接用数字表示，无单位。也可以用dB表示。</li>
+<li>信噪比：<script type="math/tex">1dB = 10log_{10}(\frac{S}{N})</script>，如S/N=10，就是代表信噪比10dB，S/N=1000时，代表信噪比为30dB。</li>
+<li>常用数值：<script type="math/tex">log_2(1+1000)=9.967 \quad log_2(1+10)=3.459</script></li>
+</ul>
+<p>&emsp;香农定理限制的直接是<strong>比特传输速率</strong>。</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
 <li>奈奎斯特定理：无噪声，码元传输速率</li>
 <li>香农定理：有高斯白噪声，数据传输速率</li>
