@@ -419,7 +419,7 @@
 <p>&emsp;<strong>统计时分复用（STDM）</strong>是一种改进的时分复用技术，明显提高利用率。普通的时分复用中，如果当前用户分配到时间间隙，但是该用户没有信息要发送，那么信道就是空的。而统计时分复用便是，当前用户没有数据需要发送，那么讲会顺延给下一个发送数据的用户，以此类推，大大提高利用率。</p>
 <p>&emsp;下图便是造成时间段浪费的示意图：</p>
 <p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206151404573.png" alt="image-20220615140444466"></p>
-<p>&emsp;统计时分复用能够更好地理用信道：</p>
+<p>&emsp;统计时分复用能够更好地利用信道：</p>
 <p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206151405780.png" alt="image-20220615140550744"></p>
 <h4 id="波分复用（WDM）"><a href="#波分复用（WDM）" class="headerlink" title="波分复用（WDM）"></a>波分复用（WDM）</h4><p>&emsp;就是光的频分复用，只在光纤通信中用的复用技术。不用波长的光代表不同用户的数据。</p>
 <h4 id="码分复用（CDM）"><a href="#码分复用（CDM）" class="headerlink" title="码分复用（CDM）"></a>码分复用（CDM）</h4><p>&emsp;采用<strong>码分多址（CDMA）</strong>技术，用户使用同样的频带进行通信，但是每个用户挑选不同的码型，因此不会互相干扰。通信的频率应该变成了原来的m倍，因为原来1单位的数据，已经被扩充到m单位了。</p>
@@ -433,7 +433,7 @@
 <p><strong>为什么不会冲突讲解</strong>：（规格化内积：<script type="math/tex">S \cdot T = \frac{1}{m}\sum_{i=1}^{m} S_iT_i</script>）</p>
 <p>&emsp;将0记为-1，1记为+1。我们已知，S与自己的规格化内积为1，与T的规格化内积为0。S的反码记为S’，T的反码记为T’。显然有，S与S’的规格化内积为-1，S’与T的规格化内积为0。对T也一样。</p>
 <p>&emsp;假设S发送的数据为<script type="math/tex">S_x</script>，T发送的数据为<script type="math/tex">T_x</script>。两者数据之和为：<script type="math/tex">D = S_x + T_x</script>。用S的码片序列和D进行规格化内积有：<script type="math/tex">D\cdot T = \frac{1}{m} \sum_{i=1}^{m} S_i(S_{xi}+T_{xi}) = \frac{1}{m} \sum_{i=1}^{m} (S_iS_{xi}+S_iT_{xi}) = \frac{1}{m} \sum_{i=1}^{m} S_iS_{xi}</script>，因为<script type="math/tex">S_x \cdot T_x = 0</script>，所以，最后算出来要么是+1，要么是-1，要么是0。代表着，要么发送了1，要么发送了0，要么<script type="math/tex">S_x</script>为空，即没有发送数据。对于T也是一样的，也能够从总共的信息中提取出T的信息。</p>
-<h2 id="四、通信技术"><a href="#四、通信技术" class="headerlink" title="四、通信技术"></a>四、通信技术</h2><p>&emsp;这个在第一章也有提到，这里着重讲解以下</p>
+<h2 id="四、通信技术"><a href="#四、通信技术" class="headerlink" title="四、通信技术"></a>四、通信技术</h2><p>&emsp;这个在第一章也有提到，这里着重讲解下</p>
 <h3 id="1、电路交换"><a href="#1、电路交换" class="headerlink" title="1、电路交换"></a>1、电路交换</h3><p>&emsp;双方通信之前，需要先建立一条专用（双方独占）的物理通信路径，该路径途径许多节点，这些节点都被双方占用（第三方无法使用）。连接建立、数据传输和连接释放。</p>
 <ul>
 <li><p>优点：</p>
