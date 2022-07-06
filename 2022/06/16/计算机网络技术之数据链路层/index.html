@@ -544,7 +544,62 @@
 <h2 id="4、PPP协议的工作状态"><a href="#4、PPP协议的工作状态" class="headerlink" title="4、PPP协议的工作状态"></a>4、PPP协议的工作状态</h2><p>&emsp;我们知道PPP协议主要是为了传输网络层的数据，但是，数据链路层也有自己的数据需要传送，如有些链路需要建立连接。PPP协议组成应该包含了三个部分，<strong>一是</strong>将IP数据报封装到串行链路中，既支持异步链路，又支持面向比特的同步链路。<strong>二是</strong>用来建立、配置和测试数据链路连接的<strong>链路控制协议LCP（Link Control Protocol）</strong>。<strong>三是</strong>一套<strong>网络控制协议（Network Control Protocol）</strong>，这其中，每一个协议支持不同的网络层协议。</p>
 <p>&emsp;用户接入ISP后，会主动发送一系列LCP分组，以便建立LCP。紧接着，NCP就会为新接入的主机分配一个IP地址。用户通信完毕，NCP收回IP地址，并释放连接。步骤如下图所示：<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206161415001.png" alt="image-20220616141536749"></p>
 <p>&emsp;PPP链路起始和终止状态都是<strong>链路静止</strong>状态，用户发起连接后（如连接一个WiFi，接上一根网线），进入了链路建立状态。这是LCP开始进行一些协商，发送LCP<strong>配置请求帧</strong>，包括<strong>配置确认帧（接受）、配置否认帧（理解意思但不接受）和配置拒绝帧（无法识别或不接受）</strong>。之后ISP对用户进行鉴别（如WiFi密码正确与否，账号密码登录，网费是否充足）。采用了<strong>口令鉴别协议PAP（Password Authentication Protocol）或口令握手鉴别协议CHAP（Challenge-Handshake Authentication Protocol）</strong>。之后便进入了网络层协议。</p>
-<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<h1 id="四、数据链路层"><a href="#四、数据链路层" class="headerlink" title="四、数据链路层"></a>四、数据链路层</h1><h2 id="1、局域网的数据链路层"><a href="#1、局域网的数据链路层" class="headerlink" title="1、局域网的数据链路层"></a>1、局域网的数据链路层</h2><p>&emsp;局域网工作的层次横跨了数据链路层和物理层。局域网内的主机共享连接在局域网上的各种软硬件资源，共享需要考虑的一个问题是，如何使众多用户能够合理而方便地共享通信媒体资源。这在技术上有两种方法：</p>
+<ul>
+<li><p>（1）<strong>静态划分信道</strong>，如前面提到的时分复用等，这种信道划分的方法代价高</p>
+</li>
+<li><p>（2）<strong>动态媒体接入控制技术</strong>，分为：</p>
+<blockquote>
+<ul>
+<li><strong>随机接入</strong>：所有用户可以随时发送消息，但是如果恰巧不止一个用户在发送消息，那么就会产生<strong>碰撞</strong>（<strong>即产生冲突</strong>），因此需要有协议来解决这些碰撞。</li>
+<li><strong>受控接入</strong>：用户不能随时发送消息，而是服从一定控制发送消息，使用<strong>轮询</strong>方式</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="2、数据链路层的划分"><a href="#2、数据链路层的划分" class="headerlink" title="2、数据链路层的划分"></a>2、数据链路层的划分</h2><p>&emsp;因为各个公司的协议不同，所以产生了很多不同种类的数据链路层，而IEEE 802 委员会将<strong>局域网的数据链路层</strong>拆分为<strong>逻辑链路控制LLC（Logical Link Control）</strong>和<strong>媒体接入控制MAC（Medium Access Control）</strong>两层。而委员会仅仅只能是制定标准的人，真正实行的还是各大企业，因此，最后局域网只剩下<strong>以太网（DIX Ethernet V2）</strong>了，<strong>LLC</strong>已经消失，只剩下<strong>MAC</strong>。</p>
+<h2 id="3、适配器"><a href="#3、适配器" class="headerlink" title="3、适配器"></a>3、适配器</h2><p>&emsp;计算机与外界局域网的连接都是通过<strong>适配器（adapter）</strong>，适配器是在主机箱内插入的一块网络接口板，称为<strong>网络接口卡NIC</strong>，简称<strong>网卡</strong>。适配器不仅仅包含<strong>数据链路层</strong>的功能，还需要实现<strong>物理层</strong>的功能。适配器有自己的<strong>处理器（CPU）和存储器（RAM, ROM）</strong>，因此，不需要使用计算机的CPU。<strong>网卡</strong>的ROM有<strong>MAC</strong>地址，而<strong>计算机</strong>的软件地址（<strong>IP</strong>地址），则在计算机的存储器中。</p>
+<h2 id="4、访问控制"><a href="#4、访问控制" class="headerlink" title="4、访问控制"></a>4、访问控制</h2><p>&emsp;前面已经讲过<strong>静态划分信道</strong>，如时分复用，码分复用等。这里只讲<strong>动态媒体接入控制</strong></p>
+<h3 id="（1）ALOHA协议"><a href="#（1）ALOHA协议" class="headerlink" title="（1）ALOHA协议"></a>（1）ALOHA协议</h3><h4 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h4><p>&emsp;各个用户想发送数据就发送数据，如果一段时间内没有收到确认，就认为发生了冲突，随机等待一段时间后再发送。假设网络负载（单位时间内所有站点发送成功和未成功而重传的帧数）为G，则纯ALOHA协议网络的吞吐量（单位时间内发送成功的平均帧数）为<script type="math/tex">S=Ge^{-2G}</script>。当G=1.5时，S≈0.184。</p>
+<h4 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h4><p>&emsp;讲各个用户时间同步起来，并且划分了一段段时隙，只有在时隙开始时，各个用户才可发送消息。其他基本与纯ALOHA协议一致。</p>
+<h3 id="（2）CSMA协议协议"><a href="#（2）CSMA协议协议" class="headerlink" title="（2）CSMA协议协议"></a>（2）CSMA协议协议</h3><p>&emsp;<strong>载波监听多路访问 ( Carrier Sense Multiple Access ) </strong>协议，相比于ALOHA协议，多了一个载波监听装置。CSMA协议分为三种方式：</p>
+<ul>
+<li>1-坚持CSMA：结点需要发送数据，首先侦听信道，信道<strong>空闲</strong>就立马<strong>发送</strong>，信道<strong>忙</strong>，就一直<strong>等待并持续监听</strong>。</li>
+<li>非坚持CSMA：结点需要发送数据，首先侦听信道，信道<strong>空闲</strong>就立马<strong>发送</strong>，信道<strong>忙</strong>，就<strong>等待</strong>一个<strong>随机</strong>时间再重复上述过程</li>
+<li>p-坚持CSMA：结点需要发送数据，首先侦听信道，信道<strong>忙</strong>就持续监听，信道<strong>空闲</strong>，以概率p发送数据，以概率1-p推迟到下个时隙，重复。</li>
+</ul>
+<h3 id="（3）CSMA-CD协议"><a href="#（3）CSMA-CD协议" class="headerlink" title="（3）CSMA/CD协议"></a>（3）CSMA/CD协议</h3><h4 id="CSMA-CD协议介绍"><a href="#CSMA-CD协议介绍" class="headerlink" title="CSMA/CD协议介绍"></a>CSMA/CD协议介绍</h4><p>&emsp;<strong>载波侦听多路访问/碰撞检测（Carrier Sense Multiple Access with Collision Detection，CSMA/CD）</strong>过程如下：</p>
+<ul>
+<li>1）适配器从网络层获得一个分组，封装成以太网帧，放入适配器缓存，准备发送。</li>
+<li>2）如果适配器侦听到信道空闲，就发送该帧。侦听到忙，就持续侦听直到信道上没有信号能量，然后发送该帧</li>
+<li>3）在发送过程中，仍然持续检测信道，如果没有检测到碰撞，就顺利发送该帧。否则，中止发送，并发送一个拥塞信号。</li>
+<li>4）中止发送后，适配器执行指数退避算法，等到一段随机事件后返回步骤2。</li>
+</ul>
+<p>&emsp;<strong>以太网</strong>常常采用此方法进行处理冲突，以太网使用<strong>曼彻斯特编码</strong>，曼彻斯特在传输过程中自带了时钟信息，可以很方便的检测出当前信道是否有数据在发送。下面讲解<strong>CSMA/CD</strong>协议的要点：</p>
+<ul>
+<li><strong>多点接入</strong>：表示了是<strong>总线型</strong>，各台计算机以多点的方式接入到网络中</li>
+<li><strong>载波监听</strong>：也就是<strong>边发送边监听</strong></li>
+<li><strong>碰撞检测</strong>：通过检测电压变化，判断网络是否发生了冲突</li>
+</ul>
+<h4 id="碰撞检测"><a href="#碰撞检测" class="headerlink" title="碰撞检测"></a>碰撞检测</h4><p>&emsp;首先，假设A、B两方在通信，规定了端到端的传播时延为<script type="math/tex">\tau</script>。假设A向B发送数据，那么最多经过<script type="math/tex">2\tau</script>的时间，A能够检测到碰撞发生与否（即，信号往返的时间）。显然，采用CSMA/CD协议的以太网只能实现<strong>半双工通信</strong>（我的理解是，总线型，只有一根信道，也就是对于任何一个主机而言，接收端也是发送端）。</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207061352402.png" alt="image-20220706135253122"></p>
+<p>&emsp;设想如下场景：</p>
+<ul>
+<li><script type="math/tex">t=0</script>，A检测到信道空闲，向B发送数据</li>
+<li><script type="math/tex">t=\tau - \delta</script>，B检测到信道空闲，向A发送数据，<script type="math/tex">\delta</script>为B发送数据到A的数据到达B的时间</li>
+<li><script type="math/tex">t= \tau - \frac{\delta}{2}</script>，也就是B发送数据后经过<script type="math/tex">\frac{\delta}{2}</script>后，A,B数据发生了碰撞</li>
+<li><script type="math/tex">t=\tau</script>，B检测到了碰撞</li>
+<li><script type="math/tex">t=2\tau-\delta</script>，A检测到了碰撞</li>
+<li>当<script type="math/tex">{\lim\limits_{\delta \to 0}}</script>，最慢到<script type="math/tex">t=2\tau</script>时，A检测到碰撞发生。</li>
+</ul>
+<p>&emsp;<strong>最短帧长</strong>：A最多在<script type="math/tex">2\tau</script>的时间后能够检测到碰撞，因此把<script type="math/tex">2\tau</script>称为<strong>争用期</strong>。发送方是在发送数据以及将要发送数据的时候才检测信道是否发生冲突，为了确保发送数据过程中，发送方能够检测到冲突，要求发送方在争用期中，一直发送数据。那么争用期中发送数据的帧长就是最短帧长，即<strong>最短帧长</strong>=<script type="math/tex">2\tau\times</script>数据传输率。例如，以太网规定争用期为<script type="math/tex">51.2\mu s</script>，对于<script type="math/tex">10Mb/s</script>的以太网，最短帧长为<script type="math/tex">512bit = 64B</script>。凡是小于<script type="math/tex">64B</script>的帧都是由于冲突而异常中止的无效帧。</p>
+<h4 id="二进制退避算法"><a href="#二进制退避算法" class="headerlink" title="二进制退避算法"></a>二进制退避算法</h4><ul>
+<li>1）确定基本的退避时间，通常为<script type="math/tex">2\tau</script></li>
+<li>2）定义参数<script type="math/tex">k</script>，<script type="math/tex">k = min[重传次数, 10]</script>，重传次数即，此次是该帧第几次重传了，也就是发生了几次碰撞。</li>
+<li>3）从离散集合<script type="math/tex">[0,\quad1,\quad,...,2^k-1]</script>中随机取出一个数<script type="math/tex">r</script>，重传所需要的退避时间就是<script type="math/tex">2r\tau</script>。</li>
+<li>4）当重传16次都未成功，那么丢弃此帧，并向上层（网络层）报告错误。</li>
+</ul>
+<h3 id="（4）CSMA-CA协议"><a href="#（4）CSMA-CA协议" class="headerlink" title="（4）CSMA/CA协议"></a>（4）CSMA/CA协议</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
@@ -712,6 +767,23 @@
 
 		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 
 </html>
