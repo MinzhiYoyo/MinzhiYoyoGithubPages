@@ -559,8 +559,9 @@
 </ul>
 <h2 id="2、数据链路层的划分"><a href="#2、数据链路层的划分" class="headerlink" title="2、数据链路层的划分"></a>2、数据链路层的划分</h2><p>&emsp;因为各个公司的协议不同，所以产生了很多不同种类的数据链路层，而IEEE 802 委员会将<strong>局域网的数据链路层</strong>拆分为<strong>逻辑链路控制LLC（Logical Link Control）</strong>和<strong>媒体接入控制MAC（Medium Access Control）</strong>两层。而委员会仅仅只能是制定标准的人，真正实行的还是各大企业，因此，最后局域网只剩下<strong>以太网（DIX Ethernet V2）</strong>了，<strong>LLC</strong>已经消失，只剩下<strong>MAC</strong>。</p>
 <h2 id="3、适配器"><a href="#3、适配器" class="headerlink" title="3、适配器"></a>3、适配器</h2><p>&emsp;计算机与外界局域网的连接都是通过<strong>适配器（adapter）</strong>，适配器是在主机箱内插入的一块网络接口板，称为<strong>网络接口卡NIC</strong>，简称<strong>网卡</strong>。适配器不仅仅包含<strong>数据链路层</strong>的功能，还需要实现<strong>物理层</strong>的功能。适配器有自己的<strong>处理器（CPU）和存储器（RAM, ROM）</strong>，因此，不需要使用计算机的CPU。<strong>网卡</strong>的ROM有<strong>MAC</strong>地址，而<strong>计算机</strong>的软件地址（<strong>IP</strong>地址），则在计算机的存储器中。</p>
-<h2 id="4、访问控制"><a href="#4、访问控制" class="headerlink" title="4、访问控制"></a>4、访问控制</h2><p>&emsp;前面已经讲过<strong>静态划分信道</strong>，如时分复用，码分复用等。这里只讲<strong>动态媒体接入控制</strong></p>
-<h3 id="（1）ALOHA协议"><a href="#（1）ALOHA协议" class="headerlink" title="（1）ALOHA协议"></a>（1）ALOHA协议</h3><h4 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h4><p>&emsp;各个用户想发送数据就发送数据，如果一段时间内没有收到确认，就认为发生了冲突，随机等待一段时间后再发送。假设网络负载（单位时间内所有站点发送成功和未成功而重传的帧数）为G，则纯ALOHA协议网络的吞吐量（单位时间内发送成功的平均帧数）为<script type="math/tex">S=Ge^{-2G}</script>。当G=1.5时，S≈0.184。</p>
+<h2 id="4、信道划分介质访问控制"><a href="#4、信道划分介质访问控制" class="headerlink" title="4、信道划分介质访问控制"></a>4、信道划分介质访问控制</h2><p>&emsp;介质访问控制有，介质访问控制，随机访问介质访问控制和轮询访问介质访问控制。</p>
+<p>&emsp;信道划分介质访问控制便是之前讲的，复用技术：频分复用、时分复用、码分复用、波分复用</p>
+<h2 id="5、随机访问介质访问控制"><a href="#5、随机访问介质访问控制" class="headerlink" title="5、随机访问介质访问控制"></a>5、随机访问介质访问控制</h2><h3 id="（1）ALOHA协议"><a href="#（1）ALOHA协议" class="headerlink" title="（1）ALOHA协议"></a>（1）ALOHA协议</h3><h4 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h4><p>&emsp;各个用户想发送数据就发送数据，如果一段时间内没有收到确认，就认为发生了冲突，随机等待一段时间后再发送。假设网络负载（单位时间内所有站点发送成功和未成功而重传的帧数）为G，则纯ALOHA协议网络的吞吐量（单位时间内发送成功的平均帧数）为<script type="math/tex">S=Ge^{-2G}</script>。当G=1.5时，S≈0.184。</p>
 <h4 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h4><p>&emsp;讲各个用户时间同步起来，并且划分了一段段时隙，只有在时隙开始时，各个用户才可发送消息。其他基本与纯ALOHA协议一致。</p>
 <h3 id="（2）CSMA协议协议"><a href="#（2）CSMA协议协议" class="headerlink" title="（2）CSMA协议协议"></a>（2）CSMA协议协议</h3><p>&emsp;<strong>载波监听多路访问 ( Carrier Sense Multiple Access ) </strong>协议，相比于ALOHA协议，多了一个载波监听装置。CSMA协议分为三种方式：</p>
 <ul>
@@ -599,7 +600,44 @@
 <li>3）从离散集合<script type="math/tex">[0,\quad1,\quad,...,2^k-1]</script>中随机取出一个数<script type="math/tex">r</script>，重传所需要的退避时间就是<script type="math/tex">2r\tau</script>。</li>
 <li>4）当重传16次都未成功，那么丢弃此帧，并向上层（网络层）报告错误。</li>
 </ul>
-<h3 id="（4）CSMA-CA协议"><a href="#（4）CSMA-CA协议" class="headerlink" title="（4）CSMA/CA协议"></a>（4）CSMA/CA协议</h3><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<h3 id="（4）CSMA-CA协议"><a href="#（4）CSMA-CA协议" class="headerlink" title="（4）CSMA/CA协议"></a>（4）CSMA/CA协议</h3><p>&emsp;<strong>载波监听多路访问/碰撞避免（Carries Sense Multiple Access with Collision Avoidance）</strong>协议，相比于CSMA/CD协议，将碰撞<strong>检测</strong>变成了碰撞<strong>避免</strong>。</p>
+<p>&emsp;<strong>CSMA/CD</strong>协议很好地应用于<strong>有线局域网</strong>中了，但在<strong>无线局域网</strong>中，则需要使用<strong>CSMA/CA</strong>协议。原因如下：</p>
+<ul>
+<li>1）接收信号的强度往往远小于发送信号的强度，因此要是实现碰撞检测，硬件花费大。</li>
+<li>2）无线通信中，并非所有的站点都能够听见对方，存在<strong>隐蔽站</strong>问题。</li>
+</ul>
+<p>&emsp;无线信道的通信质量远远小于有线信道，所以采用了<strong>链路层确认/重传（ARQ）</strong>方案，发送完一帧，需要收到确认才能发送下一帧。为了尽量避免碰撞，所有站发送完成后，必须等待一段很短的时间才能发送下一帧，这段时间间隔称为<strong>帧间间隔（InterFrame Space, IFS）</strong>，类型如下：</p>
+<ul>
+<li>1）SIFS（短IFS）：最短的IFS，用于分隔属于一次对话的各帧，如ACK帧，CTS帧，分片后的数据帧，以及所有回答AP探询的帧。</li>
+<li>2）PIFS（点协调IFS）：中等长度的IFS，在PCF操作中使用</li>
+<li>3）DIFS（分布式协调IFS）：最长的IFS，用于异步帧竞争访问的时延</li>
+</ul>
+<p>&emsp;CSMA/CA的退避算法和CSMA/CD的稍有不同，当且仅当信道空闲且当前为发送的第一个帧才不使用退避算法，其他时间都需要使用。CSMA/CA协议归纳如下：</p>
+<ul>
+<li>1）若站点有数据发送（该帧第一次发送），检测到信道空闲，等待DIFS后，发送整个数据帧</li>
+<li>2）否则，站点执行CSMA/CA退避算法，选取一个随机时间回退值。一旦检测到信道忙，退避计时器保持不变，信道空闲，计时器才计时</li>
+<li>3）当计时器减到0，发送数据帧</li>
+<li>4）发送站收到确认帧，发送第二帧时，从步骤2）开始。</li>
+</ul>
+<p>&emsp;隐蔽站问题：RTS和CTS</p>
+<ul>
+<li><strong>RTS(Request  To Send)</strong>：请求发送帧，每个站点发送数据帧之前广播发送一个RTS进行信道预约，包括源地址、目的地址、和此次通信持续时间。</li>
+<li><strong>CTS(Clear To Send)</strong>：允许发送帧，若信道空闲，AP广播发送一个CTS，包括此次发送持续时间（从RTS中获得）。任何站点听到此帧，将会抑制发送。</li>
+</ul>
+<h3 id="（5）CSMA-CD-VS-CSMA-CA"><a href="#（5）CSMA-CD-VS-CSMA-CA" class="headerlink" title="（5）CSMA/CD   VS   CSMA/CA"></a>（5）CSMA/CD   VS   CSMA/CA</h3><ul>
+<li>1）CD可以检测冲突，无法避免；CA不能同时发送和检测冲突</li>
+<li>2）介质不同，CD是以太网，CA是无线局域网</li>
+<li>3）检测方式不同，CD是通过电压变化，CA通过能量检测、载波检测、能量载波混合检测三种检测信道的方式。</li>
+</ul>
+<h2 id="6、轮询访问介质访问控制"><a href="#6、轮询访问介质访问控制" class="headerlink" title="6、轮询访问介质访问控制"></a>6、轮询访问介质访问控制</h2><p>&emsp;令牌传递协议，物理上不必是环形，但是逻辑上是环形结构，过程如下：</p>
+<ul>
+<li>1）网络空闲时，环路中只有令牌帧在循环传递</li>
+<li>2）令牌传递到有数据发送的站点时，该站点就修改令牌中的一个标志位，并在令牌中附上自己的数据，令牌就变成一个数据帧</li>
+<li>3）数据帧沿着环路传输，接收到的站点一边转发数据，一边查看目的地址，如果目的地址是自己的，就复制下来该数据</li>
+<li>4）数据帧沿着环路到达源发送站点，就不再转发，同时，检测返回的帧来查看数据传输是否出错</li>
+<li>5）源站点传送完数据后，重新生成一个令牌，并且传送个下一个站点，交出控制权。</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
