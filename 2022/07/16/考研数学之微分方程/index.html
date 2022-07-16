@@ -3,15 +3,15 @@
 
 	<head>
 		
-<title>数据结构之插入排序-雨探青鸟</title>
+<title>考研数学之微分方程-雨探青鸟</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="数据结构,考研,排序,">
-<meta name="description" content="数据结构之插入排序">
+<meta name="keywords" content="考研,数学,微分方程,">
+<meta name="description" content="考研数学中的微分方程基础知识">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -310,15 +310,15 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/数据结构">数据结构</a></li>
-            
             <li><a href="/tags/考研">考研</a></li>
             
-            <li><a href="/tags/排序">排序</a></li>
+            <li><a href="/tags/数学">数学</a></li>
+            
+            <li><a href="/tags/微分方程">微分方程</a></li>
             
             
         </ul>
-        <h1>数据结构之插入排序</h1>
+        <h1>考研数学之微分方程</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -331,20 +331,55 @@
                 </svg>
                 
                 <span> <a href="">MINZHI</a></span>
-                <p>2022-06-18 18:55:51</p>
+                <p>2022-07-16 15:03:22</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h1><p>&emsp;将每个关键词，按照顺序，依次插入到前面有序的序列中去。检索到第i个关键字，那么前面所有的关键字都是有序的，所以，把第i个关键字也在前面中按序插入即可。C++代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">simpleInsertSort</span><span class="params">(vector&lt;<span class="type">int</span>&gt; &amp;arraySimple)</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">1</span> ; i &lt; length ; i++)&#123;</span><br><span class="line">        <span class="type">int</span> temp = arraySimple[i];</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">0</span>; j--)&#123;</span><br><span class="line">            <span class="keyword">if</span> (temp &gt;= arraySimple[j]) <span class="keyword">break</span>;</span><br><span class="line">            arraySimple[j+<span class="number">1</span>] = arraySimple[j];</span><br><span class="line">            arraySimple[j] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h1><p>&emsp;思想跟前面一样，都是将第i个关键字插入到前面有序的序列中，但是插入位置，前面是用的顺序查找，这里可以用二分搜索。</p>
-<p>C++代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><p>&emsp;根据前面的直接插入来看，如果数据基本有序的话，那么效率是非常快的。所以，希尔排序的思想是，慢慢让序列变得有序。直到完全有序。C++代码如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+        <h1 id="第一节、一阶微分方程"><a href="#第一节、一阶微分方程" class="headerlink" title="第一节、一阶微分方程"></a>第一节、一阶微分方程</h1><h2 id="1、可分离变量的一阶微分方程"><a href="#1、可分离变量的一阶微分方程" class="headerlink" title="1、可分离变量的一阶微分方程"></a>1、可分离变量的一阶微分方程</h2><p>&emsp;形如<script type="math/tex">\frac{dy}{dx}=g(x)h(y)</script>的方程，称为可分离变量的微分方程。解法如下：<script type="math/tex">\frac{dy}{h(y)} = g(x)dx</script>，对两边进行积分即可。<script type="math/tex">\int{\frac{dy}{h(y)}} = \int{ g(x) dx } + C</script></p>
+<h2 id="2、齐次一阶微分方程"><a href="#2、齐次一阶微分方程" class="headerlink" title="2、齐次一阶微分方程"></a>2、齐次一阶微分方程</h2><p>&emsp;形如<script type="math/tex">\frac{dy}{dx} = \varphi(\frac{y}{x})</script>的形式，可令<script type="math/tex">u=\frac{y}{x}, \quad \frac{dy}{dx} = u + x\frac{du}{dx}</script>，进而计算</p>
+<h2 id="3、一阶线性微分方程"><a href="#3、一阶线性微分方程" class="headerlink" title="3、一阶线性微分方程"></a>3、一阶线性微分方程</h2><p>&emsp;形如<script type="math/tex">y' + p(x)y = q(x)</script>的方程，可以得出通解为：<script type="math/tex">y = e^{ -\int{p(x)}dx }[\int{q(x) e^{\int{p(x)}dx}}dx + C]</script>，并且，如果出现绝对值的情况，可以不用考虑，直接去掉即可。</p>
+<h2 id="4、伯努利方程"><a href="#4、伯努利方程" class="headerlink" title="4、伯努利方程"></a>4、伯努利方程</h2><p>&emsp;形如<script type="math/tex">y' + p(x)y = q(x)y^n</script>，将原式化为：<script type="math/tex">y^{-n}y' + p(x)y^{1-n} = q(x) \\ y^{-n}\frac{dy}{dx} + p(x)y^{1-n} = q(x)</script>，然后令<script type="math/tex">z = y^{1-n}</script>，可以带入得出：<script type="math/tex">\frac{1}{1-n} \cdot \frac{dz}{dx} + p(x) z = q(x)</script>，这样，就化为一阶线性微分方程了。得出通解如下：<script type="math/tex">z = e^{ -\int{(1-n)p(x)}dx }[\int{(1-n)q(x) e^{\int{(1-n)p(x)}dx}}dx + C] \\ y = \sqrt[1-n]{z} =  \sqrt[1-n]{e^{ -\int{(1-n)p(x)}dx }[\int{(1-n)q(x) e^{\int{(1-n)p(x)}dx}}dx + C]}</script>，后面这一步完全可以自己化了。</p>
+<h2 id="5、全微分方程"><a href="#5、全微分方程" class="headerlink" title="5、全微分方程"></a>5、全微分方程</h2><p>&emsp;如果存在<script type="math/tex">dF(x,y)  = p(x,y)dx + q(x,y)dy</script>的方程，那么称<script type="math/tex">p(x,y)dx + q(x,y)dy = 0</script>为全微分方程，通解为：<script type="math/tex">F(x,y) = C</script>。判断是否为全微分的依据是：<script type="math/tex">\frac{\partial p}{\partial y} = \frac{\partial q}{\partial x}</script></p>
+<h1 id="第二节、二阶微分方程"><a href="#第二节、二阶微分方程" class="headerlink" title="第二节、二阶微分方程"></a>第二节、二阶微分方程</h1><h2 id="1、二阶微分方程的两种形式"><a href="#1、二阶微分方程的两种形式" class="headerlink" title="1、二阶微分方程的两种形式"></a>1、二阶微分方程的两种形式</h2><ul>
+<li><strong>齐次</strong>：<script type="math/tex">y'' + p(x)y' + q(x)y = 0</script></li>
+<li><strong>非齐次</strong>：<script type="math/tex">y'' + p(x)y' + q(x)y = f(x)</script></li>
+</ul>
+<h2 id="2、解的叠加定理"><a href="#2、解的叠加定理" class="headerlink" title="2、解的叠加定理"></a>2、解的叠加定理</h2><p>&emsp;此处以二阶微分方程举例，可以应用于多阶微分方程。</p>
+<ul>
+<li>如果<script type="math/tex">y_1(x)、y_2(x)</script>是<strong>齐次</strong>的解，那么<script type="math/tex">Y(x) = c_1y_1(x) + c_2y_2(x)</script>也是<strong>齐次</strong>的解，即线性组合仍是<strong>齐次</strong>的解。并且如果<script type="math/tex">y_1(x)、y_2(x)</script>线性无关的话，<script type="math/tex">Y(x)</script>是<strong>齐次</strong>的通解。对于n阶，只要解的个数是n个线性无关的，那也成立。</li>
+<li>如果<script type="math/tex">y^*</script>是<strong>非齐次特解</strong>，<script type="math/tex">Y(x)</script>是<strong>齐次通解</strong>，那么<script type="math/tex">y(x) = Y(x) + y^*</script>是<strong>非齐次通解</strong></li>
+<li>如果<script type="math/tex">y_1^*(x)、y_2^*(x)</script>分别是<script type="math/tex">y'' + p(x)y' + q(x)y = f_1(x)\\y'' + p(x)y' + q(x)y = f_2(x)</script><strong>非齐次特解</strong>，那么<script type="math/tex">y_1^*(x)-y_2^*(x)</script>是<strong>齐次特解</strong>，<script type="math/tex">y_1^*(x)-y_2^*(x)</script>是<script type="math/tex">y'' + p(x)y' + q(x)y = f_1(x)+f_2(x)</script>的<strong>特解</strong>。</li>
+</ul>
+<h2 id="3、二阶微分方程的计算"><a href="#3、二阶微分方程的计算" class="headerlink" title="3、二阶微分方程的计算"></a>3、二阶微分方程的计算</h2><h3 id="（1）可降阶"><a href="#（1）可降阶" class="headerlink" title="（1）可降阶"></a>（1）可降阶</h3><p>&emsp;形如<script type="math/tex">y^{(n)} = f(x)</script>的，一步一步降阶即可。</p>
+<h3 id="（2）不含y的"><a href="#（2）不含y的" class="headerlink" title="（2）不含y的"></a>（2）不含y的</h3><p>&emsp;形如<script type="math/tex">y'' = f(x,y')</script>的，令<script type="math/tex">\frac{dy}{dx}= p, \frac{d^2y}{dx^2} = \frac{dp}{dx} \Rightarrow p'= f(x,p)</script>，即可化成一阶方程，进而计算。</p>
+<h3 id="（3）不含x的"><a href="#（3）不含x的" class="headerlink" title="（3）不含x的"></a>（3）不含x的</h3><p>&emsp;形如<script type="math/tex">y'' = f(y,y')</script>的，令<script type="math/tex">p' = y,y'' = \frac{dp}{dx} = \frac{dp}{dy}\cdot\frac{dy}{dx} = p'\cdot p \Rightarrow pp' = f(y,p)</script>，化成一阶的，进而计算。</p>
+<h3 id="（4）二阶常系数齐次微分方程"><a href="#（4）二阶常系数齐次微分方程" class="headerlink" title="（4）二阶常系数齐次微分方程"></a>（4）二阶常系数齐次微分方程</h3><p>&emsp;注意<strong>常系数</strong>，<strong>齐次</strong>两个关键词。</p>
+<p>&emsp;形如<script type="math/tex">y'' + py' + qy = 0</script>，对应的特征方程为<script type="math/tex">r^2 + pr + q = 0</script>，现在对特征根进行讨论。</p>
+<h4 id="1）两个不相同的实根"><a href="#1）两个不相同的实根" class="headerlink" title="1）两个不相同的实根"></a>1）两个不相同的实根</h4><p>即：<script type="math/tex">r_1 \neq r_2</script>，那么通解：</p>
+<script type="math/tex; mode=display">
+y = c_1 e^{r_1x} + c_2e^{r_2x}</script><h4 id="2）两个相同的实根"><a href="#2）两个相同的实根" class="headerlink" title="2）两个相同的实根"></a>2）两个相同的实根</h4><p>即：<script type="math/tex">r = r_1 = r_2</script>，那么通解：</p>
+<script type="math/tex; mode=display">
+y = e^{rx}(c_1+c_2x)</script><h4 id="3）无实根"><a href="#3）无实根" class="headerlink" title="3）无实根"></a>3）无实根</h4><p>即：<script type="math/tex">r_{1,2} = \alpha + i\beta</script>，那么通解为：</p>
+<script type="math/tex; mode=display">
+y = e^{\alpha x}(c_1cos\beta x + c_2sin\beta x)</script><h3 id="（5）二阶常系数非齐次微分方程"><a href="#（5）二阶常系数非齐次微分方程" class="headerlink" title="（5）二阶常系数非齐次微分方程"></a>（5）二阶常系数非齐次微分方程</h3><p>&emsp;注意，<strong>常系数</strong>和<strong>非齐次</strong>，并且对应的齐次方程的通解用(4)的方法求出。</p>
+<p>形如<script type="math/tex">y'' + py' + qy = f(x)</script></p>
+<h4 id="1）右边为多项式"><a href="#1）右边为多项式" class="headerlink" title="1）右边为多项式"></a>1）右边为多项式</h4><p>若<script type="math/tex">f(x) = e^{\lambda x}P_m(x)</script>，其中，m为多项式的最高次数。令<strong>特解</strong><script type="math/tex">y^*(x) = x^kQ_m(x)e^{\lambda x}</script>，其中</p>
+<script type="math/tex; mode=display">k = \begin{cases} 0, & 当\lambda不是特征根 \\1，&当\lambda是1重特征根 \\ 2，&当\lambda是2重特征根 \end{cases}</script><h4 id="2）右边为三角函数"><a href="#2）右边为三角函数" class="headerlink" title="2）右边为三角函数"></a>2）右边为三角函数</h4><p>若<script type="math/tex">f(x) = e^{\lambda x}[P_l(x)cos\beta x + Q_n(x)sin \beta x]</script> 令<strong>特解</strong>为：<script type="math/tex">y^* = x^k e^{\lambda x} [R_m(x)cos\beta x + G_m(x)sin\beta x]</script>，其中</p>
+<script type="math/tex; mode=display">l,m,n是多项式次数，且m = max\{l,n\}\\k = \begin{cases} 0,&\lambda + \beta i不是特征根时 \\ 1, &\lambda + \beta i 时单重特征根时 \end{cases}</script><p>之后有用<strong>解叠加</strong>定理<strong>第二条</strong>求出<strong>非齐次常系数线性微分方程通解</strong>。</p>
+<h1 id="第三节、欧拉方程"><a href="#第三节、欧拉方程" class="headerlink" title="第三节、欧拉方程"></a>第三节、欧拉方程</h1><p>形如</p>
+<script type="math/tex; mode=display">
+x^ny^{(n)} + a_1x^{n-1}y^{(n-1)} + ... + a_{n-1}xy^{(1)} + a_ny = f(x)</script><p>的高阶微分方程，称为欧拉方程（通式：<script type="math/tex">\sum\limits_{i=0}^{n} a_i x^{n-i}y^{(n-i)} = f(x),\quad a_0 = 1</script>），解法如下：</p>
+<p>引入运算符<script type="math/tex">D = \frac{d}{dt}，D^2 = \frac{d^2}{dt^2}</script></p>
+<p>令<script type="math/tex">x = e^t</script></p>
+<p>那么有<script type="math/tex">x^ky^{(k)} = D(D-1)...(D-K+1)y</script>，将<script type="math/tex">D</script>当成一个变量，乘进去再合并同类项。怎么证明不会</p>
+<p>然后带入到原方程中，即可变成二阶微分方程</p>
+<hr>
+<p><strong>例题如下（2004年1）：</strong></p>
+<p>&emsp;欧拉方程<script type="math/tex">x^2\frac{d^2y}{dx^2} + 4x\frac{dy}{dx} + 2y = 0（x > 0）</script>的通解为?</p>
+<p><strong>答</strong>：令<script type="math/tex">x=e^t</script>，原式化为：<script type="math/tex">D(D-1)y + 4Dy + 2y = 0</script>，进一步化解：<script type="math/tex">D^2y + 3Dy + 2y = 0</script>，其中<script type="math/tex">D^2y = \frac{d^2y}{dx^2},\quad Dy = \frac{dy}{dx}</script>。因此，变成了一个二阶常系数齐次方程，答案是：<script type="math/tex">y=\frac{C_1}{x} + \frac{C_2}{x}</script>。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
@@ -374,19 +409,12 @@
 </script>
 <div class="Last-Next">
     
-    <a href="/2022/07/16/%E8%80%83%E7%A0%94%E6%95%B0%E5%AD%A6%E4%B9%8B%E5%BE%AE%E5%88%86%E6%96%B9%E7%A8%8B/">
-        <div class="last">
-            <span>上一篇</span>
-            <p>考研数学之微分方程</p>
-        </div>
-    </a>
-    
 
     
-    <a href="/2022/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+    <a href="/2022/06/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
         <div class="next">
             <span>下一篇</span>
-            <p>计算机网络技术之数据链路层</p>
+            <p>数据结构之插入排序</p>
         </div>
     </a>
     

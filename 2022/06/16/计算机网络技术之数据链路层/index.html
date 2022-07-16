@@ -408,7 +408,7 @@
 <li>与0异或，可以留出原来的状态</li>
 <li>与1异或，可以获取相反的状态</li>
 <li>2k和1异或是0，2k-1个1异或还是1</li>
-<li>满足交换律，<script type="math/tex">a \bigoplus b = b\bigoplus a</script></li>
+<li>满足交换律，  <script type="math/tex">a \bigoplus b = b\bigoplus a</script></li>
 </ul>
 <h3 id="2）检错之循环冗余码"><a href="#2）检错之循环冗余码" class="headerlink" title="2）检错之循环冗余码"></a>2）检错之循环冗余码</h3><p>&emsp;上述编码其实只能够检测到奇数比特出错，如果是偶数个比特出错，检测就会失效了。所以，循环冗余码能够更有效地检测帧的正确与否，但是循环冗余码不能进行纠错，也就是不能确定错误出在哪个位置。循环冗余码检测通过之后，能够以接近1的概率认为此帧没有出错。并且CRC可以由硬件完成，所以速度非常快。</p>
 <h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
@@ -421,16 +421,18 @@
 <ul>
 <li><p><strong>除数P</strong>：</p>
 <blockquote>
-<p>&emsp;一个包含n位的序列，对应的多项式应该是<script type="math/tex">a_{n-1}X^{n-1}+a_{n-2}X^{n-2}+...+a_1X^1+a_0X^0</script>，至于怎么转成二进制序列呢？</p>
-<p>如二进制序列<strong>110110</strong>对应的多项式应该是<script type="math/tex">1\times2^5 + 1\times2^4+0\times2^3+1\times2^2+1\times2^1+0\times2^0</script>。</p>
+<p>&emsp;一个包含n位的序列，对应的多项式应该是</p>
+<script type="math/tex; mode=display">a_{n-1}X^{n-1}+a_{n-2}X^{n-2}+...+a_1X^1+a_0X^0</script><p>，至于怎么转成二进制序列呢？</p>
+<p>如二进制序列<strong>110110</strong>对应的多项式应该是</p>
+<script type="math/tex; mode=display">1\times2^5 + 1\times2^4+0\times2^3+1\times2^2+1\times2^1+0\times2^0</script><p>。</p>
 </blockquote>
 </li>
 <li><p><strong>现在广泛使用的多项式：</strong></p>
 <blockquote>
-<p>① <strong>CRC-16:</strong> <script type="math/tex">X^{16}+X^{15}+X^{2}+1</script></p>
-<p>② <strong>CRC-CCITT:</strong> <script type="math/tex">X^{16}+X^{12}+X^{5}+1</script></p>
-<p>③ <strong>CRC-32:</strong> <script type="math/tex">X^{32}+X^{26}+X^{23}+X^{22}+X^{16}+X^{12}+X^{11}+X^{10}+X^{8}+X^{7}+X^{5}+X^{4}+X^{2}+X^{}+1</script></p>
-</blockquote>
+<p>① <strong>CRC-16:</strong> </p>
+<script type="math/tex; mode=display">X^{16}+X^{15}+X^{2}+1</script><p>② <strong>CRC-CCITT:</strong> </p>
+<script type="math/tex; mode=display">X^{16}+X^{12}+X^{5}+1</script><p>③ <strong>CRC-32:</strong> </p>
+<script type="math/tex; mode=display">X^{32}+X^{26}+X^{23}+X^{22}+X^{16}+X^{12}+X^{11}+X^{10}+X^{8}+X^{7}+X^{5}+X^{4}+X^{2}+X^{}+1</script></blockquote>
 </li>
 </ul>
 <h3 id="3）纠错之海明码"><a href="#3）纠错之海明码" class="headerlink" title="3）纠错之海明码"></a>3）纠错之海明码</h3><p>&emsp;前面提到的两种方法，都只适用于检错，如果出现差错，那么只能丢弃差错帧。而海明码，不仅可以检测出差错帧，还能检测出在哪出现的差错帧，并对其进行纠正。但是，海明码也只能<strong>发现双比特错误</strong>，<strong>纠正单比特错误</strong>。</p>
@@ -442,7 +444,9 @@
 <h4 id="确定检验位数"><a href="#确定检验位数" class="headerlink" title="确定检验位数"></a>确定检验位数</h4><p>&emsp;如果需要对<strong>长度为n</strong>的有效信息进行检验，需要<strong>k位</strong>检验码，n与k之间的关系式应该是怎样的呢？</p>
 <p>&emsp;首先，我们知道，海明码只对单个比特进行纠错，就是假设只有单个比特发生错误。那么，接收方收到的数据有多少种情况呢？应该是有<strong>有效信息发生错误（n种）</strong>加上<strong>校验码发生错误（k种）</strong>再加上<strong>全部正确（1种）</strong>的总共<script type="math/tex">n+k+1</script>种情况。那么，k位校验码能够代表多少种情况呢？应该是<script type="math/tex">2^k</script>种情况。所以，得到<strong>关系式</strong>为：<script type="math/tex">n+k+1\leq2^k</script>。</p>
 <h4 id="校验码应该如何放置"><a href="#校验码应该如何放置" class="headerlink" title="校验码应该如何放置"></a>校验码应该如何放置</h4><p>&emsp;按照以往来说，校验码都是拼接到数据的最后部分。而海明码则不是拼接到数据最后部分，这样能够快地确定纠错位置。</p>
-<p>&emsp;海明码规定，第<code>i</code>位海明码<script type="math/tex">P_i</script>应该在<strong>整个数据（有效数据+检验码）</strong>第<script type="math/tex">2^{i-1}</script>的位置。如，第1位海明码在数据的第1位，第2位海明码在数据的第2位，第3位海明码在数据的第4位，第5位海明码在数据的第16位。</p>
+<p>&emsp;海明码规定，第 <code>i</code>位海明码<script type="math/tex">P_i</script></p>
+<p>应该在<strong>整个数据（有效数据+检验码）</strong>第<script type="math/tex">2^{i-1}</script></p>
+<p>的位置。如，第1位海明码在数据的第1位，第2位海明码在数据的第2位，第3位海明码在数据的第4位，第5位海明码在数据的第16位。</p>
 <h4 id="检验原理与步骤"><a href="#检验原理与步骤" class="headerlink" title="检验原理与步骤"></a>检验原理与步骤</h4><p>&emsp;假设海明码用<strong>H</strong>表示，有效数据用<strong>D</strong>表示，总数据位用<strong>C</strong>来表示。我们要明确一个概念，现在不仅仅是对有效数据在检验，而是对整个数据都在检验，与前面的检验方法有所不同。</p>
 <p>&emsp;假设我们有效数据为<strong>n=4</strong>位，即可算出校验数据只需要<strong>k=3</strong>位即可，太多了浪费。下面总数据的序号用二进制表示，方便之后理解。</p>
 <div class="table-container">
@@ -484,10 +488,19 @@
 </table>
 </div>
 <p>那么如何计算H呢？只需要用<strong>异或</strong>即可，哪几位异或呢？</p>
-<p>&emsp;从上面我们知道，<script type="math/tex">H_i</script>对应于总数据的位置是<script type="math/tex">2^{i-1}</script>，显然数字<script type="math/tex">2^{i-1}</script>对应的二进制序列<strong>只有一位</strong>为1，而且恰好是<strong>第i位</strong>，其他都为0，不信可以写一写。我们只需要把<strong>总数据序号</strong>中，<strong>第i位为1</strong>的数据拿出来异或，异或后的值就是<script type="math/tex">H_i</script>的值了。</p>
-<p>总结下来说，不那么绕的来说就是，<script type="math/tex">H_i</script>对<strong>序号</strong>中<strong>第i位为1</strong>的数据进行检验。</p>
-<script type="math/tex; mode=display">H_1 = D_1 \bigoplus D_2 \bigoplus D_4 \\ H_2 = D_1 \bigoplus D_3 \bigoplus D_4 \\H_3 = D_2 \bigoplus D_3 \bigoplus D_4</script><p>&emsp;现在收到数据之后，如何进行检验呢？检验完之后，如果找错出错位呢？上述提到海明码计算使用的异或来做的，相当于把原始状态异或后保存到了海明码中。异或能够同为0，异为1。我们把原始状态保存到海明码中了，现在接收到的状态便在数据中，所以，只需要检验数据中的状态与原始状态是否相同即可。那么我们可以得出如下式子。</p>
-<script type="math/tex; mode=display">S_1 = H_1 \bigoplus D_1 \bigoplus D_2 \bigoplus D_4 \\ S_2 = H_2 \bigoplus D_1 \bigoplus D_3 \bigoplus D_4 \\S_3 =H_3 \bigoplus D_2 \bigoplus D_3 \bigoplus D_4</script><p>&emsp;如果<script type="math/tex">S_1S_2S_3 = 000</script>，那么说明状态没有改变，接收到的数据是正确的。如果不为0呢？怎么知道哪里发生错误。显然我们在检验过程中有，<script type="math/tex">H_1</script>对序号第1位为1的所有数据进行检验，<script type="math/tex">H_2</script>对序号第2位为1的所有数据进行检验，<script type="math/tex">H_3</script>对序号第3位为1的所有数据进行了检验。</p>
+<p>&emsp;从上面我们知道，<script type="math/tex">H_i</script></p>
+<p>对应于总数据的位置是<script type="math/tex">2^{i-1}</script></p>
+<p>，显然数字<script type="math/tex">2^{i-1}</script></p>
+<p>对应的二进制序列<strong>只有一位</strong>为1，而且恰好是<strong>第i位</strong>，其他都为0，不信可以写一写。我们只需要把<strong>总数据序号</strong>中，<strong>第i位为1</strong>的数据拿出来异或，异或后的值就是</p>
+<script type="math/tex; mode=display">H_i</script><p>的值了。</p>
+<p>总结下来说，不那么绕的来说就是，</p>
+<script type="math/tex; mode=display">H_i</script><p>对<strong>序号</strong>中<strong>第i位为1</strong>的数据进行检验。<script type="math/tex">H_1 = D_1 \bigoplus D_2 \bigoplus D_4 \\ H_2 = D_1 \bigoplus D_3 \bigoplus D_4 \\H_3 = D_2 \bigoplus D_3 \bigoplus D_4</script></p>
+<p>&emsp;现在收到数据之后，如何进行检验呢？检验完之后，如果找错出错位呢？上述提到海明码计算使用的异或来做的，相当于把原始状态异或后保存到了海明码中。异或能够同为0，异为1。我们把原始状态保存到海明码中了，现在接收到的状态便在数据中，所以，只需要检验数据中的状态与原始状态是否相同即可。那么我们可以得出如下式子。</p>
+<script type="math/tex; mode=display">S_1 = H_1 \bigoplus D_1 \bigoplus D_2 \bigoplus D_4 \\ S_2 = H_2 \bigoplus D_1 \bigoplus D_3 \bigoplus D_4 \\S_3 =H_3 \bigoplus D_2 \bigoplus D_3 \bigoplus D_4</script><p>&emsp;如果<script type="math/tex">S_1S_2S_3 = 000</script></p>
+<p>，那么说明状态没有改变，接收到的数据是正确的。如果不为0呢？怎么知道哪里发生错误。显然我们在检验过程中有，<script type="math/tex">H_1</script></p>
+<p>对序号第1位为1的所有数据进行检验，<script type="math/tex">H_2</script></p>
+<p>对序号第2位为1的所有数据进行检验，<script type="math/tex">H_3</script></p>
+<p>对序号第3位为1的所有数据进行了检验。</p>
 <p>&emsp;因此，<script type="math/tex">S_i</script>为1的话，代表序号中<strong>第i位</strong>为1的位置的数据有错误，将所有的S都拼接，即可确定发生错误在序号中的位置。如<script type="math/tex">S_3S_2S_1=010</script>，代表序号中第2位发生了错误，只需要把第2位进行取反即可。</p>
 <h1 id="三、PPP协议"><a href="#三、PPP协议" class="headerlink" title="三、PPP协议"></a>三、PPP协议</h1><h2 id="1、PPP协议满足的需求"><a href="#1、PPP协议满足的需求" class="headerlink" title="1、PPP协议满足的需求"></a>1、PPP协议满足的需求</h2><ul>
 <li>（1）简单：就追求着简单，采用CRC检验，如果发生错误了，直接丢弃帧，什么也不做。正确就收下帧。</li>
@@ -517,6 +530,11 @@
 <tbody>
 <tr>
 <td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 </tbody>
 </table>
@@ -529,7 +547,7 @@
 <li><strong>FCS</strong>：帧检验序列，采用的是CRC检验</li>
 </ul>
 <h2 id="3、PPP协议的透明传输"><a href="#3、PPP协议的透明传输" class="headerlink" title="3、PPP协议的透明传输"></a>3、PPP协议的透明传输</h2><p>&emsp;前面提到为什么需要透明传输，以及什么是透明传输。PPP协议有如下方法：</p>
-<h3 id="（1）字节填充"><a href="#（1）字节填充" class="headerlink" title="（1）字节填充"></a>（1）字节填充</h3><p>&emsp;就是使用转义字符，转义字符定义为<strong>0x7D（0111 1101）</strong> </p>
+<h3 id="（1）字节填充"><a href="#（1）字节填充" class="headerlink" title="（1）字节填充"></a>（1）字节填充</h3><p>&emsp;就是使用转义字符，转义字符定义为<strong>0x7D（0111 1101）</strong></p>
 <ul>
 <li>1）如果数据中出现（0x7E），那么就变成 （0x7D，0x5E）</li>
 <li>2）如果数据中出现（0x7D），那么就变成（0x7D，0x5D）</li>
@@ -546,8 +564,7 @@
 <p>&emsp;PPP链路起始和终止状态都是<strong>链路静止</strong>状态，用户发起连接后（如连接一个WiFi，接上一根网线），进入了链路建立状态。这是LCP开始进行一些协商，发送LCP<strong>配置请求帧</strong>，包括<strong>配置确认帧（接受）、配置否认帧（理解意思但不接受）和配置拒绝帧（无法识别或不接受）</strong>。之后ISP对用户进行鉴别（如WiFi密码正确与否，账号密码登录，网费是否充足）。采用了<strong>口令鉴别协议PAP（Password Authentication Protocol）或口令握手鉴别协议CHAP（Challenge-Handshake Authentication Protocol）</strong>。之后便进入了网络层协议。</p>
 <h1 id="四、数据链路层"><a href="#四、数据链路层" class="headerlink" title="四、数据链路层"></a>四、数据链路层</h1><h2 id="1、局域网的数据链路层"><a href="#1、局域网的数据链路层" class="headerlink" title="1、局域网的数据链路层"></a>1、局域网的数据链路层</h2><p>&emsp;局域网工作的层次横跨了数据链路层和物理层。局域网内的主机共享连接在局域网上的各种软硬件资源，共享需要考虑的一个问题是，如何使众多用户能够合理而方便地共享通信媒体资源。这在技术上有两种方法：</p>
 <ul>
-<li><p>（1）<strong>静态划分信道</strong>，如前面提到的时分复用等，这种信道划分的方法代价高</p>
-</li>
+<li>（1）<strong>静态划分信道</strong>，如前面提到的时分复用等，这种信道划分的方法代价高</li>
 <li><p>（2）<strong>动态媒体接入控制技术</strong>，分为：</p>
 <blockquote>
 <ul>
@@ -561,7 +578,8 @@
 <h2 id="3、适配器"><a href="#3、适配器" class="headerlink" title="3、适配器"></a>3、适配器</h2><p>&emsp;计算机与外界局域网的连接都是通过<strong>适配器（adapter）</strong>，适配器是在主机箱内插入的一块网络接口板，称为<strong>网络接口卡NIC</strong>，简称<strong>网卡</strong>。适配器不仅仅包含<strong>数据链路层</strong>的功能，还需要实现<strong>物理层</strong>的功能。适配器有自己的<strong>处理器（CPU）和存储器（RAM, ROM）</strong>，因此，不需要使用计算机的CPU。<strong>网卡</strong>的ROM有<strong>MAC</strong>地址，而<strong>计算机</strong>的软件地址（<strong>IP</strong>地址），则在计算机的存储器中。</p>
 <h2 id="4、信道划分介质访问控制"><a href="#4、信道划分介质访问控制" class="headerlink" title="4、信道划分介质访问控制"></a>4、信道划分介质访问控制</h2><p>&emsp;介质访问控制有，介质访问控制，随机访问介质访问控制和轮询访问介质访问控制。</p>
 <p>&emsp;信道划分介质访问控制便是之前讲的，复用技术：频分复用、时分复用、码分复用、波分复用</p>
-<h2 id="5、随机访问介质访问控制"><a href="#5、随机访问介质访问控制" class="headerlink" title="5、随机访问介质访问控制"></a>5、随机访问介质访问控制</h2><h3 id="（1）ALOHA协议"><a href="#（1）ALOHA协议" class="headerlink" title="（1）ALOHA协议"></a>（1）ALOHA协议</h3><h4 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h4><p>&emsp;各个用户想发送数据就发送数据，如果一段时间内没有收到确认，就认为发生了冲突，随机等待一段时间后再发送。假设网络负载（单位时间内所有站点发送成功和未成功而重传的帧数）为G，则纯ALOHA协议网络的吞吐量（单位时间内发送成功的平均帧数）为<script type="math/tex">S=Ge^{-2G}</script>。当G=1.5时，S≈0.184。</p>
+<h2 id="5、随机访问介质访问控制"><a href="#5、随机访问介质访问控制" class="headerlink" title="5、随机访问介质访问控制"></a>5、随机访问介质访问控制</h2><h3 id="（1）ALOHA协议"><a href="#（1）ALOHA协议" class="headerlink" title="（1）ALOHA协议"></a>（1）ALOHA协议</h3><h4 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h4><p>&emsp;各个用户想发送数据就发送数据，如果一段时间内没有收到确认，就认为发生了冲突，随机等待一段时间后再发送。假设网络负载（单位时间内所有站点发送成功和未成功而重传的帧数）为G，则纯ALOHA协议网络的吞吐量（单位时间内发送成功的平均帧数）为<script type="math/tex">S=Ge^{-2G}</script></p>
+<p>。当G=1.5时，S≈0.184。</p>
 <h4 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h4><p>&emsp;讲各个用户时间同步起来，并且划分了一段段时隙，只有在时隙开始时，各个用户才可发送消息。其他基本与纯ALOHA协议一致。</p>
 <h3 id="（2）CSMA协议协议"><a href="#（2）CSMA协议协议" class="headerlink" title="（2）CSMA协议协议"></a>（2）CSMA协议协议</h3><p>&emsp;<strong>载波监听多路访问 ( Carrier Sense Multiple Access ) </strong>协议，相比于ALOHA协议，多了一个载波监听装置。CSMA协议分为三种方式：</p>
 <ul>
@@ -582,22 +600,29 @@
 <li><strong>载波监听</strong>：也就是<strong>边发送边监听</strong></li>
 <li><strong>碰撞检测</strong>：通过检测电压变化，判断网络是否发生了冲突</li>
 </ul>
-<h4 id="碰撞检测"><a href="#碰撞检测" class="headerlink" title="碰撞检测"></a>碰撞检测</h4><p>&emsp;首先，假设A、B两方在通信，规定了端到端的传播时延为<script type="math/tex">\tau</script>。假设A向B发送数据，那么最多经过<script type="math/tex">2\tau</script>的时间，A能够检测到碰撞发生与否（即，信号往返的时间）。显然，采用CSMA/CD协议的以太网只能实现<strong>半双工通信</strong>（我的理解是，总线型，只有一根信道，也就是对于任何一个主机而言，接收端也是发送端）。</p>
+<h4 id="碰撞检测"><a href="#碰撞检测" class="headerlink" title="碰撞检测"></a>碰撞检测</h4><p>&emsp;首先，假设A、B两方在通信，规定了端到端的传播时延为<script type="math/tex">\tau</script>。假设A向B发送数据，那么最多经过<script type="math/tex">2\tau</script></p>
+<p>的时间，A能够检测到碰撞发生与否（即，信号往返的时间）。显然，采用CSMA/CD协议的以太网只能实现<strong>半双工通信</strong>（我的理解是，总线型，只有一根信道，也就是对于任何一个主机而言，接收端也是发送端）。</p>
 <p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207061352402.png" alt="image-20220706135253122"></p>
 <p>&emsp;设想如下场景：</p>
 <ul>
-<li><script type="math/tex">t=0</script>，A检测到信道空闲，向B发送数据</li>
-<li><script type="math/tex">t=\tau - \delta</script>，B检测到信道空闲，向A发送数据，<script type="math/tex">\delta</script>为B发送数据到A的数据到达B的时间</li>
-<li><script type="math/tex">t= \tau - \frac{\delta}{2}</script>，也就是B发送数据后经过<script type="math/tex">\frac{\delta}{2}</script>后，A,B数据发生了碰撞</li>
-<li><script type="math/tex">t=\tau</script>，B检测到了碰撞</li>
-<li><script type="math/tex">t=2\tau-\delta</script>，A检测到了碰撞</li>
-<li>当<script type="math/tex">{\lim\limits_{\delta \to 0}}</script>，最慢到<script type="math/tex">t=2\tau</script>时，A检测到碰撞发生。</li>
+<li><p><script type="math/tex">t=0</script>，A检测到信道空闲，向B发送数据</p>
+</li>
+<li><p><script type="math/tex">t=\tau - \delta</script>，B检测到信道空闲，向A发送数据，<script type="math/tex">\delta</script>为B发送数据到A的数据到达B的时间</p>
+</li>
+<li><p><script type="math/tex">t= \tau - \frac{\delta}{2}</script>，也就是B发送数据后经过<script type="math/tex">\frac{\delta}{2}</script>后，A,B数据发生了碰撞</p>
+</li>
+<li><p><script type="math/tex">t=\tau</script>，B检测到了碰撞</p>
+</li>
+<li><p><script type="math/tex">t=2\tau-\delta</script>，A检测到了碰撞</p>
+</li>
+<li><p>当  <script type="math/tex">{\lim\limits_{\delta \to 0}}</script> ，最慢到  <script type="math/tex">t=2\tau</script>时，A检测到碰撞发生。</p>
+</li>
 </ul>
 <p>&emsp;<strong>最短帧长</strong>：A最多在<script type="math/tex">2\tau</script>的时间后能够检测到碰撞，因此把<script type="math/tex">2\tau</script>称为<strong>争用期</strong>。发送方是在发送数据以及将要发送数据的时候才检测信道是否发生冲突，为了确保发送数据过程中，发送方能够检测到冲突，要求发送方在争用期中，一直发送数据。那么争用期中发送数据的帧长就是最短帧长，即<strong>最短帧长</strong>=<script type="math/tex">2\tau\times</script>数据传输率。例如，以太网规定争用期为<script type="math/tex">51.2\mu s</script>，对于<script type="math/tex">10Mb/s</script>的以太网，最短帧长为<script type="math/tex">512bit = 64B</script>。凡是小于<script type="math/tex">64B</script>的帧都是由于冲突而异常中止的无效帧。</p>
 <h4 id="二进制退避算法"><a href="#二进制退避算法" class="headerlink" title="二进制退避算法"></a>二进制退避算法</h4><ul>
-<li>1）确定基本的退避时间，通常为<script type="math/tex">2\tau</script></li>
-<li>2）定义参数<script type="math/tex">k</script>，<script type="math/tex">k = min[重传次数, 10]</script>，重传次数即，此次是该帧第几次重传了，也就是发生了几次碰撞。</li>
-<li>3）从离散集合<script type="math/tex">[0,\quad1,\quad,...,2^k-1]</script>中随机取出一个数<script type="math/tex">r</script>，重传所需要的退避时间就是<script type="math/tex">2r\tau</script>。</li>
+<li>1）确定基本的退避时间，通常为  <script type="math/tex">2\tau</script></li>
+<li>2）定义参数  <script type="math/tex">k</script>，  <script type="math/tex">k = min[重传次数, 10]</script>，重传次数即，此次是该帧第几次重传了，也就是发生了几次碰撞。</li>
+<li>3）从离散集合  <script type="math/tex">[0,\quad1,\quad,...,2^k-1]</script>  中随机取出一个数  <script type="math/tex">r</script>，重传所需要的退避时间就是  <script type="math/tex">2r\tau</script>。</li>
 <li>4）当重传16次都未成功，那么丢弃此帧，并向上层（网络层）报告错误。</li>
 </ul>
 <h3 id="（4）CSMA-CA协议"><a href="#（4）CSMA-CA协议" class="headerlink" title="（4）CSMA/CA协议"></a>（4）CSMA/CA协议</h3><p>&emsp;<strong>载波监听多路访问/碰撞避免（Carries Sense Multiple Access with Collision Avoidance）</strong>协议，相比于CSMA/CD协议，将碰撞<strong>检测</strong>变成了碰撞<strong>避免</strong>。</p>
