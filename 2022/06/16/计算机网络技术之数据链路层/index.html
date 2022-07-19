@@ -662,6 +662,165 @@
 <li>4）数据帧沿着环路到达源发送站点，就不再转发，同时，检测返回的帧来查看数据传输是否出错</li>
 <li>5）源站点传送完数据后，重新生成一个令牌，并且传送个下一个站点，交出控制权。</li>
 </ul>
+<h1 id="五、数据链路层的流量控制与可靠传输"><a href="#五、数据链路层的流量控制与可靠传输" class="headerlink" title="五、数据链路层的流量控制与可靠传输"></a>五、数据链路层的流量控制与可靠传输</h1><h2 id="1、停止-等待流量控制基本原理"><a href="#1、停止-等待流量控制基本原理" class="headerlink" title="1、停止-等待流量控制基本原理"></a>1、停止-等待流量控制基本原理</h2><p>&emsp;发送方每发送一帧，接收方都需要发送确认帧。</p>
+<h2 id="2、滑动窗口流量控制基本原理"><a href="#2、滑动窗口流量控制基本原理" class="headerlink" title="2、滑动窗口流量控制基本原理"></a>2、滑动窗口流量控制基本原理</h2><ul>
+<li>发送方与接收方都有自己的窗口大小</li>
+<li>发送方收到一个确认帧并且可以向前滑动的时候，滑动窗口才向前滑动</li>
+<li>接收方能够向前滑动的时候就向前滑动</li>
+<li>窗口大小都是固定的</li>
+<li>接收窗口先滑动，发送窗口才能滑动，这样就能起到流量控制的作用</li>
+<li>从滑动窗口看下面三种传输机制<ul>
+<li>停止-等待协议： 发送窗口=1，接收窗口=1</li>
+<li>后退N帧协议：发送窗口&gt;1，接收窗口=1</li>
+<li>选择重传协议：发送窗口&gt;1，接收窗口&gt;1</li>
+</ul>
+</li>
+</ul>
+<h2 id="3、三种可靠传输协议"><a href="#3、三种可靠传输协议" class="headerlink" title="3、三种可靠传输协议"></a>3、三种可靠传输协议</h2><p>&emsp;首先，需要对帧进行编号，考虑到节省，对帧编号用固定且少量的比特数进行编号。但是，引入的新问题便是，编号循环后，如何确定发送的帧是上一轮的还是此轮的或者是下一轮的呢？</p>
+<p>答：要求 <script type="math/tex">发送窗口+接收窗口 \leq 2^n,\quad n为用于编号的比特数</script>，至于为什么这样呢？最坏的情况，当接收窗口已经滑动到滑动窗口的尾部了，此时，当前轮发送仍未结束，但是当前发送双方能够扩展的长度应该不大于此轮编号长度才可以。</p>
+<h3 id="3-1-停止-等待协议"><a href="#3-1-停止-等待协议" class="headerlink" title="3.1 停止-等待协议"></a>3.1 停止-等待协议</h3><ul>
+<li>发送与接收窗口都是1</li>
+<li>一个帧被发送，该帧的确认帧需要被接收才能发送下一帧</li>
+<li>发送方有定时重传计时器</li>
+<li>编号的比特数便是：<script type="math/tex">1+1 \leq 2^n,\quad n = 1</script>即可满足</li>
+<li>如果确认帧没有被收到，那么发送方重新发送后，接收方直接丢弃并重新发送确认帧。</li>
+</ul>
+<p>&emsp;信道利用率低</p>
+<h3 id="3-2-后退N帧协议（GBN）"><a href="#3-2-后退N帧协议（GBN）" class="headerlink" title="3.2 后退N帧协议（GBN）"></a>3.2 后退N帧协议（GBN）</h3><ul>
+<li>接收窗口为1，发送窗口为<script type="math/tex">1\leq W_T \leq 2^n-1</script></li>
+<li>接收端只能接收滑动窗口内的帧，也就是只能一帧一帧按序接收</li>
+<li>接收端接收到错误的帧，或者接收到不在滑动窗口的帧（不管是窗口前或后）都丢弃</li>
+<li>接收端可以接收连续多帧，或者有数据发送的时候，才发送一个确认帧</li>
+<li>确认帧的意义是：对该帧及以前的确认帧都进行确认，并期望发送方发送下一帧</li>
+<li>接收方为每一帧都设置了一个定时重传定时器</li>
+<li>接收方没收到一个确认帧，滑动窗口的左端即可移动到该帧后面一个位置。</li>
+</ul>
+<p>&emsp;提高了信道利用率，但是如果有一帧出了问题，那么窗口前面的帧都需要重传，因此在误码率大的信道，信道利用率不一定比停等协议优。</p>
+<h3 id="3-3-选择重传协议（SR）"><a href="#3-3-选择重传协议（SR）" class="headerlink" title="3.3 选择重传协议（SR）"></a>3.3 选择重传协议（SR）</h3><ul>
+<li>窗口尺寸：<script type="math/tex">W_R=W_T = 2^{n-1}</script></li>
+<li>一帧接收和一帧确认，发送方只需要重传没有收到确认的帧即可</li>
+<li>互联网标准还没明确地对该协议规定，所以这里从略</li>
+</ul>
+<h2 id="4、三种协议的信道计算"><a href="#4、三种协议的信道计算" class="headerlink" title="4、三种协议的信道计算"></a>4、三种协议的信道计算</h2><h3 id="4-1-信道利用率"><a href="#4-1-信道利用率" class="headerlink" title="4.1 信道利用率"></a>4.1 信道利用率</h3><p>&emsp;信道利用率相对于发送方而言，有效发送数据的时间占整个发送周期的比率。比如，发送方从开始发送到接收确认帧为止，时间为T，此时发送了L比特数据，发送方数据传输速率为C，那么有：<script type="math/tex">发送方发送有效数据的时间 = \frac{L}{C},\quad 占总时间的比值为：\frac{L/C}{T}</script>，利用率也是这个。</p>
+<p>&emsp;定义参数<script type="math/tex">\alpha = \frac{\tau}{T_0}</script>，假设永远不发生碰撞，以太网利用率最高<script type="math/tex">S_{max} = \frac{T_0}{T_0 + \tau}=\frac{1}{1+a}</script></p>
+<h3 id="4-2-信道吞吐量"><a href="#4-2-信道吞吐量" class="headerlink" title="4.2 信道吞吐量"></a>4.2 信道吞吐量</h3><script type="math/tex; mode=display">信道吞吐量 = 信道利用率 \times 发送方的发送速率，\quad = \frac{L}{T}</script><h3 id="4-3-如何计算"><a href="#4-3-如何计算" class="headerlink" title="4.3 如何计算"></a>4.3 如何计算</h3><ul>
+<li>首先计算第一帧开始发送到第一个确认帧返回的时间</li>
+<li>然后计算这段时间内，发送方发送了多少有效数据，并计算发送有效数据的时间</li>
+<li>对于上面一点，停等协议就只发送了一帧数据，而后退N帧协议就发送了多帧数据，这段时间都要进行计算</li>
+<li>有效数据的时间除以上面总的时间，便是效率</li>
+</ul>
+<h1 id="六、以太网"><a href="#六、以太网" class="headerlink" title="六、以太网"></a>六、以太网</h1><h2 id="1、MAC层"><a href="#1、MAC层" class="headerlink" title="1、MAC层"></a>1、MAC层</h2><p>&emsp;<strong>硬件地址</strong>又称为<strong>物理地址</strong>或<strong>MAC地址</strong>，是一个<strong>48位</strong>固化在<strong>ROM</strong>中的。MAC地址前24位称为组织唯一标识符OUI，后24位称为扩展唯一标识符EUI。第一个字节的最低二位规定为G/L位，表示Global/Local位，为0表示全球管理，为1表示本地管理。全球管理的地址有46位。</p>
+<p>&emsp;适配器会处理一下三种帧</p>
+<ul>
+<li>单播帧：一对一，目的MAC地址与本适配器的MAC地址相同就收下</li>
+<li>广播帧：一对全体，MAC地址为全1</li>
+<li>多播帧：一对多，发送给一部分站点，而不是全部站点，相当于群组</li>
+</ul>
+<p>&emsp;所有适配器都应该识别前面两种帧，有一种网络工具叫做<strong>嗅探器（Sniffer）</strong>能够识别所有的帧，包括MAC地址不是自己的也可以记录下来。</p>
+<h2 id="2、MAC帧格式"><a href="#2、MAC帧格式" class="headerlink" title="2、MAC帧格式"></a>2、MAC帧格式</h2><p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191047007.png" alt="image-20220719104733647"></p>
+<ul>
+<li>源地址与目的地址，MAC地址</li>
+<li>类型，比如交付给上层的协议是什么，如IP：0x0800</li>
+<li>FCS：使用CRC校验，只校验目的地址到FCS为止的字段，不包括前导码和帧开始定界符</li>
+<li>以太网规定最小帧长为64字节，所以数据段最小长度为64-6-6-2-4=46字节</li>
+<li>以太网采用曼彻斯特编码，当电压不再变化了，就代表已经结束传输了，所以帧结束定界符也就不需要</li>
+<li>前导码的作用是用来同步时钟频率的，帧开始定界符是用来告诉帧开始发送的标志</li>
+</ul>
+<p>对于下列的帧情况，以太网直接进行丢弃，不会重传</p>
+<ul>
+<li>帧长度不是整数个字节</li>
+<li>FCS检验出错</li>
+<li>MAC帧长度不是64-1518个字节的</li>
+</ul>
+<p>现在广泛使用的局域网也只剩下以太网了</p>
+<h2 id="3、扩展以太网"><a href="#3、扩展以太网" class="headerlink" title="3、扩展以太网"></a>3、扩展以太网</h2><h3 id="3-1-在物理层扩展以太网"><a href="#3-1-在物理层扩展以太网" class="headerlink" title="3.1 在物理层扩展以太网"></a>3.1 在物理层扩展以太网</h3><p>&emsp;过去使用粗缆或细缆，现在使用光纤</p>
+<h3 id="3-2-在数据链路层扩展以太网"><a href="#3-2-在数据链路层扩展以太网" class="headerlink" title="3.2 在数据链路层扩展以太网"></a>3.2 在数据链路层扩展以太网</h3><p>&emsp;使用交换机进行扩展</p>
+<h3 id="3-3-虚拟局域网"><a href="#3-3-虚拟局域网" class="headerlink" title="3.3 虚拟局域网"></a>3.3 虚拟局域网</h3><p>&emsp;<strong>虚拟局域网VLAN（Virtual LAN）</strong>是局域网提供给用户的一种服务，而不是一种新型局域网。VLAN使用802.1Q帧，格式如下：</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191212887.png" alt="image-20220719121225767"></p>
+<p>相比于以太网帧，多了VLAN标签。VLAN标签前两个字节为0x8100，后面为<strong>VLAN标识符VID（VLAN ID）</strong>，出入VID后，FCS需要重新计算。对于主机来说，并不知道自己的VID，所以主机发送给交换机的是普通以太网帧。交换机通过端口或者MAC地址划分VLAN，并且为VLAN分配好了VID。</p>
+<p>设想一下场景</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191214702.png" alt="image-20220719121409605"></p>
+<ul>
+<li>A向B发送数据，发送普通以太网帧给交换机#1，#1发现是同一VLAN下的主机，不需要增加VLAN标签，直接转发给B</li>
+<li>A向E发送数据，#1通过汇聚链路将帧转发给#2，并增加VLAN标签，#2发送去掉VLAN标签，并转发给E</li>
+<li>A向C发送数据，这种情况比较复杂，书上没讲</li>
+</ul>
+<h2 id="4、扩展到高速以太网"><a href="#4、扩展到高速以太网" class="headerlink" title="4、扩展到高速以太网"></a>4、扩展到高速以太网</h2><h3 id="4-1-100BASE-T以太网"><a href="#4-1-100BASE-T以太网" class="headerlink" title="4.1 100BASE-T以太网"></a>4.1 100BASE-T以太网</h3><ul>
+<li>速度：100Mb/s</li>
+<li>完全可以使用10Mb/s下的软件</li>
+</ul>
+<h3 id="4-2-吉比特以太网"><a href="#4-2-吉比特以太网" class="headerlink" title="4.2 吉比特以太网"></a>4.2 吉比特以太网</h3><ul>
+<li>速度：1Gb/s</li>
+<li>半双工使用CSMA/CD，全双工不使用</li>
+<li>向后兼容</li>
+</ul>
+<p>不改变网段最长长度，但是争用期由原来的64字节，变成512字节，使用如下方法来适用CSMA/CD。</p>
+<ul>
+<li>载波延伸：最短帧长仍然是64字节，但是为他扩充到512字节；引入的问题便是，发送了许多无用的数据</li>
+<li>分组突发：将多个短帧合起来发送</li>
+</ul>
+<h3 id="4-3-10吉比特以太网"><a href="#4-3-10吉比特以太网" class="headerlink" title="4.3 10吉比特以太网"></a>4.3 10吉比特以太网</h3><ul>
+<li>速度：10Gb/s</li>
+<li>只工作在全双工模式</li>
+</ul>
+<h3 id="4-4-40-100吉比特以太网"><a href="#4-4-40-100吉比特以太网" class="headerlink" title="4.4 40/100吉比特以太网"></a>4.4 40/100吉比特以太网</h3><ul>
+<li>速度：40/100Gb/s</li>
+<li>只工作在全双工</li>
+</ul>
+<h1 id="七-、无线局域网"><a href="#七-、无线局域网" class="headerlink" title="七 、无线局域网"></a>七 、无线局域网</h1><p>&emsp;又称为802.11局域网</p>
+<h2 id="1、有固定基础设施无线局域网"><a href="#1、有固定基础设施无线局域网" class="headerlink" title="1、有固定基础设施无线局域网"></a>1、有固定基础设施无线局域网</h2><p>&emsp;采用该星形拓扑，中心称为接入点（Access Point，AP）。基本服务集（Basic Service Set， BSS）包括一个接入点和若干移动站。安装AP时必须为其分配一个不超过32字节的服务集标识符（Service Set IDentifier，SSID）和一个信道。接入点AP在出厂就具有唯一的48位二进制数字的MAC地址，正式名称为<strong>基本服务集标识符 BSSID</strong>。</p>
+<p>&emsp;一个基本服务集，可以时孤立的，还可以通过其他AP，连接到一个<strong>分配系统DS（Distribution System）</strong>，然后再连接到另一个基本服务集，这样就构成一个<strong>扩展服务集ESS（Extended Service Set）</strong>，扩展服务集也有唯一标识称为<strong>扩展服务集标识符ESSID</strong>。</p>
+<p>移动站与接入点AP建立关联的方式由两种，一种是被动扫描，一种是主动扫描。</p>
+<h3 id="被动扫描"><a href="#被动扫描" class="headerlink" title="被动扫描"></a>被动扫描</h3><ul>
+<li>接入点AP周期性发送<strong>信标帧（beacon frame）</strong>，其中包含由若干系统参数，如SSID及支持的速率</li>
+<li>移动站A扫描了11个信道，选择愿意加入接入点AP所在的基本服务集BSS，于是发送<strong>关联请求帧（Association Request frame）</strong></li>
+<li>接入点同意A发来的关联请求，向A发送<strong>关联响应帧（Association Response frame）</strong></li>
+</ul>
+<h3 id="主动扫描"><a href="#主动扫描" class="headerlink" title="主动扫描"></a>主动扫描</h3><ul>
+<li>A广播发送<strong>探测请求帧（Probe Request frame）</strong>，让所有的AP都能够知道有移动站要求建立关联</li>
+<li>有两个接入点回答<strong>探测请求响应帧（Probe Response frame）</strong></li>
+<li>A向一个站发送<strong>关联请求帧</strong></li>
+<li>接入点向A发送<strong>关联响应帧</strong></li>
+</ul>
+<h2 id="2、无固定基础设施移动自组织网络"><a href="#2、无固定基础设施移动自组织网络" class="headerlink" title="2、无固定基础设施移动自组织网络"></a>2、无固定基础设施移动自组织网络</h2><p>&emsp;称为自组网络，没有上述服务中的AP，由一些平等状态的移动站相互通信组成的临时网络。各结点地位平等，中间结点都为转发点。</p>
+<p>&emsp;在军用，救援等中有很好的应用。</p>
+<p>&emsp;移动自组网络的一个子集——<strong>无线传感器网络WSN（Wireless Sensor Network）</strong>。</p>
+<h2 id="3、MAC帧"><a href="#3、MAC帧" class="headerlink" title="3、MAC帧"></a>3、MAC帧</h2><p>&emsp;分为数据帧、控制帧和管理帧。</p>
+<p>下面来讲解数据帧：</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191312492.png" alt="image-20220719131230352"></p>
+<p>上述地址都是指MAC地址，其中地址4用于自组网络；</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">去往AP</th>
+<th style="text-align:center">来自AP</th>
+<th style="text-align:center">地址1</th>
+<th style="text-align:center">地址2</th>
+<th style="text-align:center">地址3</th>
+<th style="text-align:center">地址4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">接收地址=目的地址</td>
+<td style="text-align:center">发送地址=AP地址</td>
+<td style="text-align:center">源地址</td>
+<td style="text-align:center">——</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">接收地址=AP地址</td>
+<td style="text-align:center">发送地址=源地址</td>
+<td style="text-align:center">目的地址</td>
+<td style="text-align:center">——</td>
+</tr>
+</tbody>
+</table>
+</div>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
