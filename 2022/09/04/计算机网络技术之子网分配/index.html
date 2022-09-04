@@ -338,7 +338,166 @@
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>&emsp;后文不再对子网掩码，子网，IP地址，CIDR做解释。</p>
+<p>&emsp;对于是否能够使用全0或者全1作为子网号呢？RFC950是对此有这样的建议，但是在RFC1878中，又把这个建议去除了。依我之见，网段充足情况下，尽量不要用，不充足的话，那就用吧。问最大，最小，非定长网段，往往是用全0或者全1的网段的，所以不做太多探讨。我们下面都认为<strong>全0或者全1可以用</strong>。</p>
+<p>&emsp;至于全0或者全1的主机号能不能用呢？那肯定是不行的，这个目前的规定仍然是网络号与广播地址的定义。</p>
+<h2 id="定长子网的划分"><a href="#定长子网的划分" class="headerlink" title="定长子网的划分"></a>定长子网的划分</h2><p>&emsp;定长子网，这里的长度指的是子网网段IP地址的范围。通俗来说，就是划分子网的时候，每个子网的子网掩码都是一样的。</p>
+<p>&emsp;下面来举个例子，为了方便起见，我们以<code>192.168.1.0/24</code>这个网段来举例子。</p>
+<ul>
+<li><p>给定一个网段，要求你把该网段分成n个子网。</p>
+<blockquote>
+<ul>
+<li><p>题目暗示或者给了子网中主机数量<code>m</code></p>
+<blockquote>
+<p>确定每个子网中，主机号的位数<code>b</code>，<script type="math/tex">2^b-2 \geq m</script>，然后又能得出子网号来</p>
+</blockquote>
+</li>
+<li><p>题目要求划分成n个子网</p>
+<blockquote>
+<p>确定需要多少位作为子网号，才能分配n个子网</p>
+</blockquote>
+</li>
+</ul>
+<p>上面结论得出子网号的位数之后，就可以划分子网。加入依据上面算出来，需要3个子网。那么就是2位子网号，6位主机号</p>
+<p>那么我们开始计算每个网段的IP地址范围，这里<strong>包括</strong>了网络地址与广播地址。做题需要看清楚，题目要不要你把这两个地址写上。</p>
+</blockquote>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>网段</th>
+<th>网络号</th>
+<th>起始IP地址</th>
+<th>结束IP地址</th>
+<th>子网掩码</th>
+<th>IP地址数目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>LAN1</td>
+<td>192.168.1.0/26</td>
+<td>192.168.1.0</td>
+<td>192.168.1.63</td>
+<td>255.255.255.192</td>
+<td>64</td>
+</tr>
+<tr>
+<td>LAN2</td>
+<td>192.168.1.64/26</td>
+<td>192.168.1.64</td>
+<td>192.168.1.127</td>
+<td>255.255.255.192</td>
+<td>64</td>
+</tr>
+<tr>
+<td>LAN3</td>
+<td>192.168.1.128/26</td>
+<td>192.168.1.128</td>
+<td>192.168.1.191</td>
+<td>255.255.255.192</td>
+<td>64</td>
+</tr>
+<tr>
+<td>未使用网段</td>
+<td>192.168.1.192/26</td>
+<td>192.168.1.192</td>
+<td>192.168.1.255</td>
+<td>255.255.255.192</td>
+<td>64</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>做出一些结论</p>
+<blockquote>
+<p>1、路由聚合后的地址，发现是<code>192.168.1.0/24</code>，为什么是这样呢？因为路由聚合后，其实就是把几个小网段分成了一个大网段。而我们是把这个大网段分成了几个小网段，所以聚合后还是这个大网段</p>
+<p>2、每个子网掩码都是一样的，因为网络位是一样的。</p>
+<p>3、我写<strong>起始IP地址</strong>与<strong>结束IP地址</strong>的原因，更多地是想说，分子网的时候，IP地址不应该有重合。所以，分子网，以及确定子网的时候，我们要牢牢抓住IP地址范围来看，哪些子网的IP范围有重合。</p>
+<p>4、注意我把没有使用的网段也写出来，说明这个网段，用这个分法，是可以分出四个子网的，并且如果这么分，是一定会分出四个子网的，只是我们不用而已。所以，全部IP地址数目应该是4*64 = 256个。</p>
+</blockquote>
+</li>
+</ul>
+<p>然后对于题目一些点的注意，看好题目要求什么，是依据子网划分还是依据子网中主机数目划分。有些选择题会给定一些条件，要你判断子网直接是否冲突，这个就根据IP地址范围来看是否冲突。</p>
+<h2 id="非定长子网的划分"><a href="#非定长子网的划分" class="headerlink" title="非定长子网的划分"></a>非定长子网的划分</h2><p>&emsp;这个才是子网划分的难点，上面的应该是挺简单的。非定长子网，便是每个网段的IP地址数目不是等长的。这种一般是根据主机数目来划分的，不会要根据划分几个子网来划分。</p>
+<ul>
+<li><p>假如，我们需要对<code>192.168.1.0/24</code>进行子网的划分，然后每个子网的主机数目为<code>A：30、B：115、C：60、D：4</code>。</p>
+<blockquote>
+<p><script type="math/tex">2^b-2\geq n</script>的原则，每个子网的主机位数依次是<code>A：5、B：7、C：6、D：3</code></p>
+<p>所以，每个子网的子网位依次是<code>A：3、B：1、C：2、D：5</code></p>
+<p>为了方便起见，我们常常把子网位少的先分。</p>
+</blockquote>
+</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>网段</th>
+<th>网络地址</th>
+<th>起始IP地址</th>
+<th>结束IP地址</th>
+<th>子网掩码</th>
+<th>IP地址数目</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>192.168.1.192/27</td>
+<td>192.168.1.192</td>
+<td>192.168.1.223</td>
+<td>255.255.255.224</td>
+<td>32</td>
+</tr>
+<tr>
+<td>B</td>
+<td>192.168.1.0/25</td>
+<td>192.168.1.0</td>
+<td>192.168.1.127</td>
+<td>255.255.255.128</td>
+<td>128</td>
+</tr>
+<tr>
+<td>C</td>
+<td>192.168.1.128/26</td>
+<td>192.168.1.128</td>
+<td>192.168.1.191</td>
+<td>255.255.255.192</td>
+<td>64</td>
+</tr>
+<tr>
+<td>D</td>
+<td>192.168.1.240/29</td>
+<td>192.168.1.240</td>
+<td>192.168.1.247</td>
+<td>255.255.255.248</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><p>结论</p>
+<blockquote>
+<p>1、首先，每个IP地址依然没有冲突</p>
+<p>2、每个网段的IP地址数目都比其主机数目多1</p>
+<p>3、这里我没有给出未分配网段，原因是很多网段太零碎了，所以没有给出</p>
+<p>4、注意网络地址给的很讲究，我们拿IP地址第25位与28位来看。用 空格分割了子网与主机</p>
+<blockquote>
+<p>对于A是<code>110   0</code>，B是<code>0    000</code>，C是<code>10   00</code>。其中，</p>
+<p>A为什么不能是<code>000   0</code>或者<code>011    0</code>呢？假如是这样的话，那么可以看看A的IP地址范围与B的IP地址范围，明显会冲突的。A的IP地址范围是<code>192.168.1.0 ~ 31</code>或者<code>192.168.1.96 ~ 127</code>，与B的<code>192.168.1.0 ~ 127</code>冲突了。</p>
+<p>当然，你此时可以把B改成<code>1    000</code>，这样，B的范围就是<code>192.168.1.128 ~ 255</code>，冲突也避免了</p>
+</blockquote>
+<p>5、根据第4点，得出结论，短子网掩码（如B）不能是长子网掩码（如A）的前缀，不然会冲突。</p>
+<p>6、我们仍然是牢牢抓住IP地址范围来看的，因此IP地址范围是否冲突，是我们划分子网着重需要考虑的因素。如果划分的子网都冲突了，那还叫作什么划分子网啊。</p>
+</blockquote>
+</li>
+</ul>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
