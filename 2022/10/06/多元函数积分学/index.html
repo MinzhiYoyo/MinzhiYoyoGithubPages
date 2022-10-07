@@ -3,15 +3,15 @@
 
 	<head>
 		
-<title>数据结构——串 KMP算法-雨探青鸟</title>
+<title>多元函数积分学-雨探青鸟</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="数据结构,考研,字符串,KMP,">
-<meta name="description" content="数据结构——字符串 KMP算法 学习与记录">
+<meta name="keywords" content="考研,数学,曲线积分,曲面积分,二重积分,三重积分,">
+<meta name="description" content="考研数学中的多元函数积分学知识汇总">
 
 
 <script src="/js/jquery.min.js"></script>
@@ -310,17 +310,21 @@
         <ul class="tag">
             
             
-            <li><a href="/tags/数据结构">数据结构</a></li>
-            
             <li><a href="/tags/考研">考研</a></li>
             
-            <li><a href="/tags/字符串">字符串</a></li>
+            <li><a href="/tags/数学">数学</a></li>
             
-            <li><a href="/tags/KMP">KMP</a></li>
+            <li><a href="/tags/曲线积分">曲线积分</a></li>
+            
+            <li><a href="/tags/曲面积分">曲面积分</a></li>
+            
+            <li><a href="/tags/二重积分">二重积分</a></li>
+            
+            <li><a href="/tags/三重积分">三重积分</a></li>
             
             
         </ul>
-        <h1>数据结构——串 KMP算法</h1>
+        <h1>多元函数积分学</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -333,133 +337,98 @@
                 </svg>
                 
                 <span> <a href="">MINZHI</a></span>
-                <p>2022-05-16 12:25:41</p>
+                <p>2022-10-06 18:29:16</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><h2 id="1、字符串存储"><a href="#1、字符串存储" class="headerlink" title="1、字符串存储"></a>1、字符串存储</h2><h2 id="2、字符串的模式匹配"><a href="#2、字符串的模式匹配" class="headerlink" title="2、字符串的模式匹配"></a>2、字符串的模式匹配</h2><p>&emsp;模式匹配是指，在主串中寻找模式串的位置。</p>
+        <h1 id="二重积分"><a href="#二重积分" class="headerlink" title="二重积分"></a>二重积分</h1><h2 id="1、意义："><a href="#1、意义：" class="headerlink" title="1、意义："></a>1、意义：</h2><ul>
+<li>表示曲顶柱体的体积</li>
+<li>表示面密度为<script type="math/tex">f(x,y)</script>的平面的面质量</li>
+</ul>
+<h2 id="2、计算"><a href="#2、计算" class="headerlink" title="2、计算"></a>2、计算</h2><h3 id="和式极限"><a href="#和式极限" class="headerlink" title="和式极限"></a>和式极限</h3><script type="math/tex; mode=display">\iint \limits_{D} f(x,y) d\sigma = \lim \limits_{n \to \infty} \sum \limits_{i=1}^{n} \sum \limits_{j=1}^n f(a + \frac{b-a}{n} i, c + \frac{d-c}{n}j) \cdot \frac{b-a}{n} \cdot \frac{d-c}{n}</script><h3 id="对称性计算"><a href="#对称性计算" class="headerlink" title="对称性计算"></a>对称性计算</h3><p>积分区域关于x对称，就看积分函数是否关于y对称</p>
+<h3 id="轮换对称性"><a href="#轮换对称性" class="headerlink" title="轮换对称性"></a>轮换对称性</h3><p>积分区域关于 <script type="math/tex">y = x</script> 对称，就具有轮换对称性 <script type="math/tex">I = \iint \limits_D f(x,y)dxdy = \iint \limits_D f(x,y) dx dy</script></p>
+<h3 id="二重积分比大小"><a href="#二重积分比大小" class="headerlink" title="二重积分比大小"></a>二重积分比大小</h3><ul>
+<li>对称性</li>
+<li>保号性</li>
+<li>画图</li>
+</ul>
+<h2 id="3、两大坐标系计算"><a href="#3、两大坐标系计算" class="headerlink" title="3、两大坐标系计算"></a>3、两大坐标系计算</h2><h3 id="（1）直角坐标系"><a href="#（1）直角坐标系" class="headerlink" title="（1）直角坐标系"></a>（1）直角坐标系</h3><h3 id="（2）-极坐标系"><a href="#（2）-极坐标系" class="headerlink" title="（2） 极坐标系"></a>（2） 极坐标系</h3><h3 id="（3）"><a href="#（3）" class="headerlink" title="（3）"></a>（3）</h3><h1 id="第一型曲线积分"><a href="#第一型曲线积分" class="headerlink" title="第一型曲线积分"></a>第一型曲线积分</h1><h2 id="1、二重直接计算"><a href="#1、二重直接计算" class="headerlink" title="1、二重直接计算"></a>1、二重直接计算</h2><script type="math/tex; mode=display">(1) \int_L f(x,y) ds = \int_a^b f[x, y(x)] \sqrt{1+(y'_x)^2}dx\\ (2)\int_L f(x,y) ds = \int_{\alpha}^{\beta} f[x(t), y(t)] \sqrt{(x_t')^2+(y_t')^2}dt \\ (3)\int_L f(x,y) ds = \int_{\alpha}^{\beta} f[r(\theta)cos\theta, r(\theta)sin\theta]\sqrt{[r(\theta)]^2 + [r'(\theta)]^2}</script><h1 id="第一型曲面积分"><a href="#第一型曲面积分" class="headerlink" title="第一型曲面积分"></a>第一型曲面积分</h1><h2 id="1、直接计算"><a href="#1、直接计算" class="headerlink" title="1、直接计算"></a>1、直接计算</h2><script type="math/tex; mode=display">\iint \limits_{\Sigma} f(x,y,z) dS = \iint \limits_{D_{xy}}f[x,y,z(x,y)]\sqrt{1+(z'_x)^2+(z_y')^2}dxdy</script><h1 id="第二型曲线积分"><a href="#第二型曲线积分" class="headerlink" title="第二型曲线积分"></a>第二型曲线积分</h1><h2 id="1、直接计算-1"><a href="#1、直接计算-1" class="headerlink" title="1、直接计算"></a>1、直接计算</h2><script type="math/tex; mode=display">\int_L P(x,y)dx + Q(x,y)dy = \int_\alpha^\beta \{P[x(t),y(t)]x'(t) + Q[x(t),y(t)]y'(t)\}</script><script type="math/tex; mode=display">\int_\Gamma Pdx + Qdy + Rdz = \int_\alpha^\beta \{ P[x(t),y(t),z(t)]x'(t) + Q[x(t),y(t),z(t)]y'(t) + R[x(t), y(t),z(t)]z'(t) \} dt</script><h2 id="2、格林公式"><a href="#2、格林公式" class="headerlink" title="2、格林公式"></a>2、格林公式</h2><script type="math/tex; mode=display">\oint_L P(x,y)dx+Q(x,y)dy = \iint\limits_D(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})d \sigma</script><ul>
+<li><p>曲线封闭</p>
+<blockquote>
 <ul>
-<li><p>简单模式匹配</p>
+<li><p>内部有奇点</p>
 <blockquote>
-<p>依次匹配，如果失配，就后移一位</p>
+<p>在内部使用一个小圆圈消除它</p>
 </blockquote>
 </li>
-<li><p>KMP模式匹配</p>
+<li><p>内部无奇点</p>
 <blockquote>
-<p>依次匹配，如果失配，根据<code>next数组</code>后移</p>
+<p>直接使用格林公式</p>
 </blockquote>
 </li>
 </ul>
-<h2 id="3、KMP算法"><a href="#3、KMP算法" class="headerlink" title="3、KMP算法"></a>3、KMP算法</h2><p>&emsp;<strong><em>假设所有下标都是从1开始</em></strong></p>
-<h3 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h3><ul>
-<li>前缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_0,\quad p_0p_1, \quad... \quad,\quad p_0p_1...p_{n-1}  \}</script></li>
-<li>后缀集合：假设字符串为<code>p</code>，<script type="math/tex">\{ p_1,\quad p_1p_2, \quad... \quad,\quad p_1p_2...p_{n}  \}</script></li>
-<li>最长匹配长度：前缀集合与后缀结合中，最长相等元素的长度。</li>
-<li>注意：<strong>前</strong>缀集合<strong>不包含</strong><script type="math/tex">p_n</script>，<strong>后</strong>缀集合中<strong>不包含</strong><script type="math/tex">p_0</script>，如果字串只有一个字符，那么前缀集合和后缀集合都为<strong>空</strong>。</li>
-</ul>
-<h3 id="KMP算法基本"><a href="#KMP算法基本" class="headerlink" title="KMP算法基本"></a>KMP算法基本</h3><p>&emsp;假设我们已经有了<code>next</code>数组（下面会介绍<code>next</code>数组求解），假如在主串(<code>S</code>)下标为<code>i</code>，模式串(<code>P</code>)下标为<code>j</code>的位置失配了。</p>
-<p>&emsp;暴力算法中，我们将会把<code>i</code>和<code>j</code>都回溯了，<code>i</code>回溯到<code>j</code>个，<code>j</code>回溯到1。KMP算法中，我们让<code>i</code>不进行回溯，仅仅只回溯<code>j</code>。那么，<code>j</code>应该如何回溯呢?</p>
-<p>&emsp;首先，这里只需要考虑模式串，next数组含义就是，在位置<code>j</code>前面有<code>next[j]-1</code>个字符组成的字符串与从位置1开始往后的<code>next[j]-1</code>个字符组成的字符串是相等的。</p>
-<p>&emsp;然后，因为主串与模式串在位置j前面的字符串完全相等。我们就只需要把模式串回溯到不相等的位置，最开始不相等的位置，应该是第<code>next[j]</code>个位置。</p>
-<p>&emsp;解释，因为我们知道<script type="math/tex">P_1...P_{next[j]-1}</script>与<script type="math/tex">P_{j-next[j]}...P_{j-1}</script>是相等的，所以只需要从主串当前位置与模式串<code>P[next[j]]</code>开始继续比较即可。</p>
-<h3 id="Next数组求解"><a href="#Next数组求解" class="headerlink" title="Next数组求解"></a><code>Next</code>数组求解</h3><p>&emsp;定义：模式串为<code>p</code>（下标从1开始），<code>next[i]</code>代表<code>p[1]~p[i-1]</code>组成的<strong>子串</strong>的最长匹配长度<strong>加</strong>1。特殊地，<code>next[0] = 0</code>。<code>next</code>数组只与模式串有关系，与主串无关地。<code>next[i]</code>的值与<code>p[i]</code><strong>无关</strong>，只与<code>p[i]</code><strong>前面的值</strong>有关。</p>
-<script type="math/tex; mode=display">
-next[j] = \begin{cases}
-0 & j=1\\
-max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当此结合不为空时\\
-1 & 其他情况
-\end{cases}</script><p>&emsp;上述公式看不懂，问题不大，我也没看懂。</p>
+</blockquote>
+</li>
+<li><p>曲线不封闭</p>
+<blockquote>
 <ul>
-<li><p>人为求解</p>
+<li><p>如果积分与路径无关</p>
 <blockquote>
-<p>人为求解的话，根据定义来即可，一步一步算</p>
+<p>换条路经，见第3点</p>
 </blockquote>
 </li>
-<li><p>代码求解</p>
+<li><p>如果积分与路径有关</p>
 <blockquote>
-<p>比较复杂</p>
+<p>补线，用格林公式（<strong>注意：</strong>补线所经之处，躲避<strong>奇点</strong>）</p>
 </blockquote>
 </li>
 </ul>
-<p>&emsp;<strong><em>附上代码</em></strong></p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 模式串为p</span></span><br><span class="line"><span class="type">int</span> next[p.size] = &#123;<span class="number">0</span>&#125;;</span><br><span class="line">next[<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">2</span> ; i &lt; p.size; i++)&#123;</span><br><span class="line">    <span class="type">int</span> j = next[i<span class="number">-1</span>];</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>)&#123;</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            next[i] = j;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><p>&emsp;前面提到<code>next[j]</code>值与<code>p[j]</code>无关，只与前前面的字符串有关。如果在<code>j</code>失配，也就是<code>p[j]!=s[i]</code>的话，那么下一个<code>j</code>回溯到<code>next[j]</code>的位置。如果此时<code>p[next[j]]!=s[i]</code>的话，那么还得继续回溯到<code>p[next[next[j]]]</code>，不如我们在构建<code>next</code>数组就把这种情况规避掉。因此，有了下列优化算法。</p>
-<p>&emsp;其他情况与上述<code>next</code>数组构造一样，不同的是，如果<code>p[j]==p[next[j]]</code>，就把上面代码改为如下：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j] != p[i]) next[i] = j;</span><br><span class="line">            <span class="keyword">else</span> next[i] = next[j];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>&emsp;如何在考试中人为求解呢？</p>
-<p>答：我的建议是，先求出<code>next</code>数组，然后在<code>next</code>数组的基础上，再看。如果<code>p[j]==p[next[j]]</code>，就修正<code>nextval[j]=nextval[next[j]]</code>。否则不变。因为是从前往后的，所以我们在<code>next</code>和已修正<code>nextval</code>的基础上，构造出<code>nextval[j]</code>。</p>
-<p>&emsp;如题所示，<code>&quot;ababaaababaa&quot;</code>的<code>nextval</code>数组应该是什么样的？</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">下标</th>
-<th style="text-align:center">1</th>
-<th style="text-align:center">2</th>
-<th style="text-align:center">3</th>
-<th style="text-align:center">4</th>
-<th style="text-align:center">5</th>
-<th style="text-align:center">6</th>
-<th style="text-align:center">7</th>
-<th style="text-align:center">8</th>
-<th style="text-align:center">9</th>
-<th style="text-align:center">10</th>
-<th style="text-align:center">11</th>
-<th style="text-align:center">12</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><strong>模式串</strong></td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">b</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">b</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">b</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">b</td>
-<td style="text-align:center">a</td>
-<td style="text-align:center">a</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>next</code></td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">3</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">5</td>
-<td style="text-align:center">4</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>nextval</code></td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">4</td>
-<td style="text-align:center">2</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">1</td>
-<td style="text-align:center">0</td>
-<td style="text-align:center">4</td>
-</tr>
-</tbody>
-</table>
-</div>
+</blockquote>
+</li>
+</ul>
+<h2 id="3、积分与路径无关"><a href="#3、积分与路径无关" class="headerlink" title="3、积分与路径无关"></a>3、积分与路径无关</h2><p>下面四个问题等价</p>
+<ul>
+<li><script type="math/tex">\int_{L_{AB}} P(x,y)dx + Q(x,y)dy</script>与路径无关</li>
+<li><script type="math/tex">Pdx + Qdy</script>为某二元函数<script type="math/tex">u(x,y)</script>的全微分</li>
+<li><script type="math/tex">Pdx+Qdy=0</script>为全微分方程</li>
+<li><script type="math/tex">P\boldsymbol{i} + Q\boldsymbol{j}</script>为某二元函数<script type="math/tex">u(x,y)</script>的梯度</li>
+<li>沿D内任意分段光滑闭曲线L都有<script type="math/tex">\oint_L Pdx + Qdy = 0</script></li>
+<li><script type="math/tex">\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}</script>处处成立</li>
+</ul>
+<p>三重积分上路径无关</p>
+<ul>
+<li><script type="math/tex">\boldsymbol{rot F} = 0</script> 积分与路径无关</li>
+</ul>
+<h2 id="4、两类曲线积分联系"><a href="#4、两类曲线积分联系" class="headerlink" title="4、两类曲线积分联系"></a>4、两类曲线积分联系</h2><script type="math/tex; mode=display">\int_L P dx + Qdy = \int_L(Pcos\alpha + Qsin\alpha)ds\\ (cos\alpha , sin \alpha) 为L在点(x,y)与L同向的切向量</script><h2 id="5、斯托克公式"><a href="#5、斯托克公式" class="headerlink" title="5、斯托克公式"></a>5、斯托克公式</h2><p>将空间第二型曲线积分化成第二型曲面积分或者第一型曲面积分</p>
+<script type="math/tex; mode=display">\oint_\Gamma Pdx+Qdy+Rdz = \\ \iint_\Sigma \left |\begin{array}{ccc}
+dydz &dzdx   &dxdy \\
+\frac{\partial}{\partial x} &\frac{\partial}{\partial y} &\frac{\partial}{\partial z}  \\
+P &Q &R \\ \end{array}\right| (第二型曲面积分)\\   \iint_\Sigma \left |\begin{array}{ccc}
+cos\alpha &cos\beta   &cos\gamma \\
+\frac{\partial}{\partial x} &\frac{\partial}{\partial y} &\frac{\partial}{\partial z}  \\
+P &Q &R \\ \end{array}\right| dS (第一型曲面积分)</script><script type="math/tex; mode=display">\oint_L \vec{F} = \iint_\Sigma rot\vec{F} dS</script><h1 id="第二型曲面积分"><a href="#第二型曲面积分" class="headerlink" title="第二型曲面积分"></a>第二型曲面积分</h1><h2 id="1、直接计算-2"><a href="#1、直接计算-2" class="headerlink" title="1、直接计算"></a>1、直接计算</h2><script type="math/tex; mode=display">\iint_\Sigma R(x,y,z)dxdy = \pm \iint_{D_{xy}}R[x,y,z(x,y)]dxdy</script><p>其余同理，当<script type="math/tex">\Sigma</script>与<script type="math/tex">z</script>轴成锐角取+，成钝角取-</p>
+<h2 id="2、转换投影法"><a href="#2、转换投影法" class="headerlink" title="2、转换投影法"></a>2、转换投影法</h2><p>如果<script type="math/tex">\Sigma</script>上任意两点到<script type="math/tex">xOy</script>平面不重合</p>
+<script type="math/tex; mode=display">\iint_\Sigma P(x,yz)dydz + Q(x,y,z)dzdx + R(x,y,z)dxdy = \pm \iint\limits_{D{xy}}\{p[x,y,z(x,y)](-\frac{\partial z}{\partial x}) + Q[x,y,z(x,y)](-\frac{\partial z}{\partial y}) + R[x,y,z(x,y)] \}dxdy</script><h2 id="3、高斯公式"><a href="#3、高斯公式" class="headerlink" title="3、高斯公式"></a>3、高斯公式</h2><script type="math/tex; mode=display">\oiint\limits_\Sigma Pdydz + Qdzdx + Rdxdy = \iiint\limits_\Omega (\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z})dv</script><ul>
+<li><p>曲面封闭</p>
+<blockquote>
+<ul>
+<li>内部无奇点：直接高斯公式</li>
+<li>内部有奇点：用一个封闭圈将奇点圈出来</li>
+</ul>
+</blockquote>
+</li>
+<li><p>曲面不封闭</p>
+<blockquote>
+<ul>
+<li><script type="math/tex">div \boldsymbol{F} = 0</script>：换个面积分</li>
+<li><script type="math/tex">div \boldsymbol{F} \neq 0</script>：补面使其封闭</li>
+</ul>
+</blockquote>
+</li>
+</ul>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
@@ -489,19 +458,12 @@ max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当�
 </script>
 <div class="Last-Next">
     
-    <a href="/2022/05/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%9F%A5%E6%89%BE/">
-        <div class="last">
-            <span>上一篇</span>
-            <p>数据结构之查找</p>
-        </div>
-    </a>
-    
 
     
-    <a href="/2022/05/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84-%E5%9B%BE/">
+    <a href="/2022/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E5%AD%90%E7%BD%91%E5%88%86%E9%85%8D/">
         <div class="next">
             <span>下一篇</span>
-            <p>数据结构--图</p>
+            <p>计算机网络技术之子网分配</p>
         </div>
     </a>
     
