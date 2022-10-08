@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>计算机网络技术之物理层-雨探青鸟</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="考研,计算机网络技术,物理层,">
+<meta name="description" content="计算机网络物理层的学习">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
+	<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										档案
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友链
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/photo">
+										照片墙
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/donation">
+										捐赠
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>MINZHI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">档案</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友链</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+        <li>
+            <a href="/photo">照片墙</a>
+        </li>
+        
+        <li>
+            <a href="/donation">捐赠</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+            <img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+        </a>
+        
+        <a href="mailto:2498369702@qq.com">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/考研">考研</a></li>
+            
+            <li><a href="/tags/计算机网络技术">计算机网络技术</a></li>
+            
+            <li><a href="/tags/物理层">物理层</a></li>
+            
+            
+        </ul>
+        <h1>计算机网络技术之物理层</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">MINZHI</a></span>
+                <p>2022-06-15 09:46:55</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h2 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h2><h3 id="1、物理层主要任务"><a href="#1、物理层主要任务" class="headerlink" title="1、物理层主要任务"></a>1、物理层主要任务</h3><p>&emsp;物理层主要描述下列功能：</p>
+<ul>
+<li>机械特性：接线器的形状、尺寸、引脚数目和排列、固定、锁定装置等。</li>
+<li>电气特性：指明接口电缆的各条线上出现的电压范围</li>
+<li>功能特性：指明某条线上出现的各种可能事件的出现顺序</li>
+<li>过程特性：指明对于不同功能的各种可能事件的出现顺序</li>
+</ul>
+<h3 id="2、数据通信的基础知识"><a href="#2、数据通信的基础知识" class="headerlink" title="2、数据通信的基础知识"></a>2、数据通信的基础知识</h3><p>&emsp;数据通信系统由<strong>源系统</strong>、<strong>传输系统</strong>和<strong>目的系统</strong>组成。</p>
+<p>数据通信的流程：输入信息 &rarr; 源点 &rarr; 发送器 &rarr; 传输系统 &rarr; 接收器 &rarr; 终点。</p>
+<p>&emsp;通信的目的是传送<strong>消息</strong>，<strong>数据</strong>是运送消息的实体，<strong>信号</strong>则是数据的电气或电磁的表现。</p>
+<ul>
+<li><p><strong>模拟信号</strong>（或连续信号）：代表消息的参数取值是连续的。</p>
+</li>
+<li><p><strong>数字信号</strong>（或离散信号）：代表消息的参数取值是离散的。</p>
+</li>
+<li><p><strong>编码</strong>：将<strong>信号</strong>转换为<strong>数字信号</strong>，又称为<strong>基带调制</strong>。</p>
+<blockquote>
+<p>包括采样、量化和编码三个步骤，其中采样的频率应该大于最大频率的两倍，即<script type="math/tex">f_{采样} \geq 2 \times f_{max}</script></p>
+<p>如<strong>脉冲编码调制（PCM）</strong></p>
+</blockquote>
+</li>
+<li><p><strong>调制</strong>：将<strong>信号</strong>转换为<strong>模拟信号</strong>，又称为<strong>带通调制</strong>。</p>
+<blockquote>
+<p>如<strong>频分复用（FDM）</strong>就是使用了调制。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3、编码与调制方式"><a href="#3、编码与调制方式" class="headerlink" title="3、编码与调制方式"></a>3、编码与调制方式</h3><h5 id="编码方式："><a href="#编码方式：" class="headerlink" title="编码方式："></a>编码方式：</h5><p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206151027134.png" alt="image-20220615102754864"></p>
+<ul>
+<li><strong>不归零调制（RZ）</strong>：高电平代表1，低电平代表0；</li>
+<li><strong>归零制（NRZ）</strong>：正脉冲代表1，负脉冲代表0；这里与王道考研有点区别，还是以谢书为主。</li>
+<li><strong>曼彻斯特编码（Manchester Encoding）</strong>：位中心向上跳变代表0，向下跳变代表1；以太网常采用此编码。</li>
+<li><strong>差分曼彻斯特编码</strong>：位中心都有跳变。位开始有跳变代表0，位开始没有跳变代表1；</li>
+<li><strong>反向非归零编码（NRZI）</strong>（补充）：信号翻转代表0，信号不变代表1。</li>
+<li><strong>4B/5B编码</strong>（补充）：将数据流每4位为一组，加上一位变成5位。5位码对应32种可能，其中16种作为原来的4位码的16种可能，另外16种作为控制码或保留。</li>
+</ul>
+<p>&emsp;从<strong>信号波形</strong>来看，曼彻斯特编码产生的信号频率比不归零编码高。从<strong>自同步能力</strong>来看，不归零编码不能提取时钟频率，而曼彻斯特编码具有自同步能力。</p>
+<h5 id="带通调制方式："><a href="#带通调制方式：" class="headerlink" title="带通调制方式："></a>带通调制方式：</h5><p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206151035015.png" alt="image-20220615103526967"></p>
+<ul>
+<li><strong>调幅（AM）</strong>：载波的<strong>振幅</strong>随基带数字信号变化。</li>
+<li><strong>调频（FM）</strong>：载波的<strong>频率</strong>随基带数字信号变化。</li>
+<li><strong>调相（PM）</strong>：载波的<strong>相位</strong>随基带数字信号变化。</li>
+</ul>
+<p>&emsp;为了达到更高的信息传输速率，必须采用技术上更为复杂的多元振幅相位混合调制方法，如<strong>正交振幅调制QAM（Quadrature Amplitude Modulation）</strong>。</p>
+<h3 id="4、信道的分类"><a href="#4、信道的分类" class="headerlink" title="4、信道的分类"></a>4、信道的分类</h3><p>&emsp;从双方信息交互的方式来看，可以有以下三种基本方式：</p>
+<ul>
+<li><strong>单向通信</strong>：<strong>单工信道</strong>，只能从一个方向发送给另一个方向而不能反着发的交互。如广播电台和有线电视等。</li>
+<li><strong>双向交替通信</strong>：<strong>半双工通信</strong>，通信双方都能收发，但是不能同时收发。</li>
+<li><strong>双向同时通信</strong>：<strong>全双工通信</strong>，通信双方都能同时收发。</li>
+</ul>
+<h2 id="二、奈奎斯特定理与香农定理"><a href="#二、奈奎斯特定理与香农定理" class="headerlink" title="二、奈奎斯特定理与香农定理"></a>二、奈奎斯特定理与香农定理</h2><h3 id="理想信道（无噪声）"><a href="#理想信道（无噪声）" class="headerlink" title="理想信道（无噪声）"></a>理想信道（无噪声）</h3><p>&emsp;奈奎斯特提出奈式准则：<script type="math/tex">C = 2Wlog_2V</script>，其中：</p>
+<ul>
+<li><code>C</code>：代表传输速率，单位<code>b/s</code>。</li>
+<li><code>W</code>：代表带宽，单位<code>Hz</code>。带宽这里指的是信道宽度了，其他地方一般指最高传输速率（b/s）。</li>
+<li><code>V</code>：多少种不同的状态。<script type="math/tex">log_2V</script>代表了多少比特。</li>
+<li>码元与比特关系：比特才是真正的数据信息，码元只是传输时候的数据。最后，一码元需要转化成若干比特才行的。一码元如果只有两种状态，那么只能携带两种信息。一码元如果有16种状态，那么就能携带4比特信息。所以，<script type="math/tex">比特=log_2码元</script>。</li>
+</ul>
+<p>&emsp;因此奈奎斯特传输定理是限制<strong>码元传输速率</strong>，也就是最高能传输2W的码元信息，然后要想提高比特信息。那么就需要提高每一个码元的状态。如使用0~7V电平代表一个码元（一个码元对应8种状态），那么就能传输3bit数据。</p>
+<h3 id="有高斯白噪声"><a href="#有高斯白噪声" class="headerlink" title="有高斯白噪声"></a>有高斯白噪声</h3><p>&emsp;香农定理提出高斯白噪声干扰下传输速率。<script type="math/tex">C = Wlog_2(1+\frac{S}{N})</script>，其中：</p>
+<ul>
+<li><code>C</code>：传输速率，bit/s</li>
+<li><code>W</code>：带宽，Hz</li>
+<li><code>S/N</code>：信噪比，信号的平均功率与噪声的平均功率比值。可以直接用数字表示，无单位。也可以用dB表示。</li>
+<li>信噪比：<script type="math/tex">1dB = 10log_{10}(\frac{S}{N})</script>，如S/N=10，就是代表信噪比10dB，S/N=1000时，代表信噪比为30dB。</li>
+<li>常用数值：<script type="math/tex">log_2(1+1000)=9.967 \approx 10 \quad log_2(1+10)=3.459 \approx 3.5</script></li>
+</ul>
+<p>&emsp;香农定理限制的直接是<strong>比特传输速率</strong>。</p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<li>奈奎斯特定理：无噪声，码元传输速率</li>
+<li>香农定理：有高斯白噪声，数据传输速率</li>
+</ul>
+<p>&emsp;奈奎斯特定理和香农定理，一个说明了码元的最大传输速率（2W），一个说明了比特最大传输速率，两者结合，说明一码元能够携带的比特数是有最大值的。以及采样定理可知，如果告知采样频率，那么带宽W = f/2，f为采样频率。</p>
+<p>&emsp;<strong>题目中</strong>，应该将两个定理的理论最大值都算出来，取较小的。</p>
+<p>&emsp;<strong>波特率</strong>指码元传输速率，<strong>比特率</strong>指比特传输速率或数据传输速率。<script type="math/tex">比特率(b/s) = 波特率(Baud) \times log_2V</script></p>
+<h2 id="三、信道复用技术"><a href="#三、信道复用技术" class="headerlink" title="三、信道复用技术"></a>三、信道复用技术</h2><h4 id="复用与分用"><a href="#复用与分用" class="headerlink" title="复用与分用"></a>复用与分用</h4><p>&emsp;<strong>复用</strong>是指，多路数据同时使用一个信道来传输。<strong>分用</strong>是指，将一个信道中的数据分开成多路。</p>
+<h4 id="频分复用（FDM）"><a href="#频分复用（FDM）" class="headerlink" title="频分复用（FDM）"></a>频分复用（FDM）</h4><p>&emsp;将一条信道上带宽（频带宽度）分成多个宽带，每个宽带都能给一路数据进行传输，所以同时就能给多路数据进行传输。如果加入更多的用户，那么只能增加频带宽度，但是每个用户的速度是不变的。</p>
+<p>&emsp;采用的<strong>频分多址接入（FDMA）</strong>技术达到频分复用。</p>
+<h4 id="时分复用（TDM）"><a href="#时分复用（TDM）" class="headerlink" title="时分复用（TDM）"></a>时分复用（TDM）</h4><p>&emsp;时间划分成一个一个的TDM帧，每个TMD帧划分成多个时间段，每个时间段为一路数据进行传输。增加用户，只能将每个用户占用的时间间隙分割更小，所以越多的用户会导致传输速度变慢。</p>
+<p>&emsp;采用<strong>时分多址接入（TDMA）</strong>技术达到时分复用。</p>
+<p>&emsp;<strong>统计时分复用（STDM）</strong>是一种改进的时分复用技术，明显提高利用率。普通的时分复用中，如果当前用户分配到时间间隙，但是该用户没有信息要发送，那么信道就是空的。而统计时分复用便是，当前用户没有数据需要发送，那么讲会顺延给下一个发送数据的用户，以此类推，大大提高利用率。</p>
+<p>&emsp;下图便是造成时间段浪费的示意图：</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206151404573.png" alt="image-20220615140444466"></p>
+<p>&emsp;统计时分复用能够更好地利用信道：</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206151405780.png" alt="image-20220615140550744"></p>
+<h4 id="波分复用（WDM）"><a href="#波分复用（WDM）" class="headerlink" title="波分复用（WDM）"></a>波分复用（WDM）</h4><p>&emsp;就是光的频分复用，只在光纤通信中用的复用技术。不用波长的光代表不同用户的数据。</p>
+<h4 id="码分复用（CDM）"><a href="#码分复用（CDM）" class="headerlink" title="码分复用（CDM）"></a>码分复用（CDM）</h4><p>&emsp;采用<strong>码分多址（CDMA）</strong>技术，用户使用同样的频带进行通信，但是每个用户挑选不同的码型，因此不会互相干扰。通信的频率应该变成了原来的m倍，因为原来1单位的数据，已经被扩充到m单位了。</p>
+<p><strong>过程讲解</strong>：</p>
+<ul>
+<li>在一个比特时间再划分m个短的间隔，称为<strong>码片</strong>（chip），通常为64或128</li>
+<li>每个站被指定不同的<code>mbit</code>码片序列，且每个站码片序列必须<strong>正交</strong>（规格化内积为0）</li>
+<li>如果需要发送比特<strong>1</strong>，就发送自己的<strong>码片序列</strong>；如果发送比特<strong>0</strong>，就发送<strong>码片序列的反码</strong>。</li>
+<li>接收方，只需要用<strong>发送方的码片序列</strong>对接收到的<strong>信息</strong>进行规格化内积即可。</li>
+</ul>
+<p><strong>为什么不会冲突讲解</strong>：（规格化内积：<script type="math/tex">S \cdot T = \frac{1}{m}\sum_{i=1}^{m} S_iT_i</script>）</p>
+<p>&emsp;将0记为-1，1记为+1。我们已知，S与自己的规格化内积为1，与T的规格化内积为0。S的反码记为S’，T的反码记为T’。显然有，S与S’的规格化内积为-1，S’与T的规格化内积为0。对T也一样。</p>
+<p>&emsp;假设S发送的数据为<script type="math/tex">S_x</script>，T发送的数据为<script type="math/tex">T_x</script>。两者数据之和为：<script type="math/tex">D = S_x + T_x</script>。用S的码片序列和D进行规格化内积有：<script type="math/tex">D\cdot T = \frac{1}{m} \sum_{i=1}^{m} S_i(S_{xi}+T_{xi}) = \frac{1}{m} \sum_{i=1}^{m} (S_iS_{xi}+S_iT_{xi}) = \frac{1}{m} \sum_{i=1}^{m} S_iS_{xi}</script>，因为<script type="math/tex">S_x \cdot T_x = 0</script>，所以，最后算出来要么是+1，要么是-1，要么是0。代表着，要么发送了1，要么发送了0，要么<script type="math/tex">S_x</script>为空，即没有发送数据。对于T也是一样的，也能够从总共的信息中提取出T的信息。</p>
+<h2 id="四、通信技术"><a href="#四、通信技术" class="headerlink" title="四、通信技术"></a>四、通信技术</h2><p>&emsp;这个在第一章也有提到，这里着重讲解下</p>
+<h3 id="1、电路交换"><a href="#1、电路交换" class="headerlink" title="1、电路交换"></a>1、电路交换</h3><p>&emsp;双方通信之前，需要先建立一条专用（双方独占）的物理通信路径，该路径途径许多节点，这些节点都被双方占用（第三方无法使用）。连接建立、数据传输和连接释放。</p>
+<ul>
+<li><p>优点：</p>
+<blockquote>
+<p>时延小、有序传输、没有冲突、适用范围广，实时性强、控制简单</p>
+</blockquote>
+</li>
+<li><p>缺点：</p>
+<blockquote>
+<p>建立连接时间长、使用率低、灵活性差、难以规格化</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="2、报文交换"><a href="#2、报文交换" class="headerlink" title="2、报文交换"></a>2、报文交换</h3><p>&emsp;数据交换单位是报文，将整个报文保存，待收取成功后再将整个报文转发。</p>
+<ul>
+<li><p>优点</p>
+<blockquote>
+<p>无须连接、动态分配线路、提高线路可靠性、提高线路利用率、提供多目标服务、有序到达、有差错检验和控制</p>
+</blockquote>
+</li>
+<li><p>缺点</p>
+<blockquote>
+<p>利用率比分组交换低，差错开销比分组交换高，重发数据量大。</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="3、分组交换"><a href="#3、分组交换" class="headerlink" title="3、分组交换"></a>3、分组交换</h3><p>&emsp;同报文交换，不过分组交换是将报文拆分成几段，依次保存。</p>
+<ul>
+<li><p>优点</p>
+<blockquote>
+<p>无连接时延、线路利用率最高、简化了存储管理、加速传输、减少了出错概率和重发数量</p>
+</blockquote>
+</li>
+<li><p>缺点</p>
+<blockquote>
+<p>存在传输时延，分组容易失序或丢失，额外信息量大</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="4、数据报"><a href="#4、数据报" class="headerlink" title="4、数据报"></a>4、数据报</h3><p>&emsp;分组交换的一种方式。将多个分组转发到通信子网中，每个分组选择的路由不一定相同，达到时间不一定相同。不建立连接。每个分组都需要有源地址和目的地址。</p>
+<h3 id="5、虚电路"><a href="#5、虚电路" class="headerlink" title="5、虚电路"></a>5、虚电路</h3><p>&emsp;分组交换的一种方式。先建立一条逻辑通路，面向连接。同一虚电路的数据，路由都想同。分组有序到达。包括永久性和临时性连接。仅仅在建立连接时需要源地址和目的地址，之后只需要虚电路号。</p>
+<h2 id="五、物理层物理设备"><a href="#五、物理层物理设备" class="headerlink" title="五、物理层物理设备"></a>五、物理层物理设备</h2><h4 id="1、传输介质"><a href="#1、传输介质" class="headerlink" title="1、传输介质"></a>1、传输介质</h4><p>&emsp;传输媒体又称为传输介质或传输媒介。</p>
+<ul>
+<li><p>1、双绞线：分为屏蔽双绞线（STP）和非屏蔽双绞线（UTP）。价格便宜</p>
+</li>
+<li><p>2、同轴电缆：</p>
+</li>
+<li><p>3、光缆：</p>
+<blockquote>
+<p>1）传输损耗小，中继距离长，远距离传输经济实惠</p>
+<p>2）抗干扰强，体积小，重量轻</p>
+</blockquote>
+</li>
+<li><p>4、无线电波：如WLAN等，信道容量大</p>
+</li>
+<li><p>5、微波、红外线和激光：使用卫星，激光器，红外发射接收器等。</p>
+</li>
+</ul>
+<p>如10GBase-T，10Gb/s传输速率的双绞线。</p>
+<h4 id="2、设备"><a href="#2、设备" class="headerlink" title="2、设备"></a>2、设备</h4><h5 id="（1）中继器"><a href="#（1）中继器" class="headerlink" title="（1）中继器"></a>（1）中继器</h5><p>&emsp;中继器就是长远距离传送中的，会发生信号损失，需要中继器进行放大再传，相当于透明传输，仅作用电气特性。中继器没有存储转发功能，所以不能连接两个物理层不同协议或不同传输速率的网段，更不会进行差错控制等手段。中继器放大的是数字信号（不是简单的振幅放大，是将快辨别不清楚的数字信号重放），放大器放大的是模拟型号。在10BASE5的以太网规范中，最多只能由4个中继器。</p>
+<h5 id="（2）集线器"><a href="#（2）集线器" class="headerlink" title="（2）集线器"></a>（2）集线器</h5><p>&emsp;是多端口中继器，多根线路接在同一个集线器上面，一个端口发送过来的数据，会转发到除<strong>输入端口外</strong>的其他所有端口。所有，集线器不能隔离冲突域，也不能隔离广播域。因此，如果一个带宽为10Mb/s的集线器连接了8台计算机，那么每台计算机的带框为10Mb/s / 8 = 1.25Mb/s。是星形的拓扑结构。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2022/06/16/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%95%B0%E6%8D%AE%E9%93%BE%E8%B7%AF%E5%B1%82/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>计算机网络技术之数据链路层</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/06/11/%E4%BB%8Ehttp%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E7%88%AC%E8%99%AB/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>从http开始学习爬虫</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2022 By MINZHI.    本站总访问量：
+		<!-- . 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a> -->
+	<!-- </div>
+	<div class="Copyright"> -->
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次。</span>
+		<span>
+			<a style="text-decoration: none;display: contents; color: #898F9F;"
+				target="_blank" rel="noopener" href="https://beian.miit.gov.cn">
+				湘ICP备2022006759号
+			</a>
+		</span>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+			<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+		</a>
+		
+		<a href="mailto:2498369702@qq.com">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+<script>
+	if (window.mermaid) {
+		// console.log('开启mermaid');
+		mermaid.initialize({ theme: 'forest' });
+	}
+</script>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>

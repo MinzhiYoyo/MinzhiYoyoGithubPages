@@ -375,7 +375,7 @@ max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当�
 <ul>
 <li><p>人为求解</p>
 <blockquote>
-<p>认为求解的话，根据定义来即可，一步一步算</p>
+<p>人为求解的话，根据定义来即可，一步一步算</p>
 </blockquote>
 </li>
 <li><p>代码求解</p>
@@ -389,8 +389,8 @@ max \{ k \quad|\quad 1<k<j 且 'p_1...p_{k-1}'='p_{j-k+1}...p_{j-1}'  \} & 当�
 <h3 id="KMP算法优化，NextVal数组求解"><a href="#KMP算法优化，NextVal数组求解" class="headerlink" title="KMP算法优化，NextVal数组求解"></a>KMP算法优化，<code>NextVal</code>数组求解</h3><p>&emsp;前面提到<code>next[j]</code>值与<code>p[j]</code>无关，只与前前面的字符串有关。如果在<code>j</code>失配，也就是<code>p[j]!=s[i]</code>的话，那么下一个<code>j</code>回溯到<code>next[j]</code>的位置。如果此时<code>p[next[j]]!=s[i]</code>的话，那么还得继续回溯到<code>p[next[next[j]]]</code>，不如我们在构建<code>next</code>数组就把这种情况规避掉。因此，有了下列优化算法。</p>
 <p>&emsp;其他情况与上述<code>next</code>数组构造一样，不同的是，如果<code>p[j]==p[next[j]]</code>，就把上面代码改为如下：</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">        <span class="keyword">if</span>(j==<span class="number">0</span> || p[j] == p[i<span class="number">-1</span>])&#123;</span><br><span class="line">            <span class="keyword">if</span>(p[j] != p[i]) next[i] = j;</span><br><span class="line">            <span class="keyword">else</span> next[i] = next[j];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            j = next[j];</span><br><span class="line">        &#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-<p>&emsp;如何在考试中认为求解呢？</p>
-<p>答：我的建议是，先求出<code>next</code>数组，然后在<code>next</code>数组的基础上，再看。如果<code>p[j]==p[next[j]]</code>，就修正<code>next[j]=nextval[next[j]]</code>。否则不变。因为是从前往后的，所以我们在<code>next</code>和已修正<code>nextval</code>的基础上，构造出<code>nextval[j]</code>。</p>
+<p>&emsp;如何在考试中人为求解呢？</p>
+<p>答：我的建议是，先求出<code>next</code>数组，然后在<code>next</code>数组的基础上，再看。如果<code>p[j]==p[next[j]]</code>，就修正<code>nextval[j]=nextval[next[j]]</code>。否则不变。因为是从前往后的，所以我们在<code>next</code>和已修正<code>nextval</code>的基础上，构造出<code>nextval[j]</code>。</p>
 <p>&emsp;如题所示，<code>&quot;ababaaababaa&quot;</code>的<code>nextval</code>数组应该是什么样的？</p>
 <div class="table-container">
 <table>

@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>计算机网络技术之数据链路层-雨探青鸟</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="考研,计算机网络技术,物理层,">
+<meta name="description" content="计算机网络技术之数据链路层">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
+	<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										档案
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友链
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/photo">
+										照片墙
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/donation">
+										捐赠
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>MINZHI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">档案</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友链</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+        <li>
+            <a href="/photo">照片墙</a>
+        </li>
+        
+        <li>
+            <a href="/donation">捐赠</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+            <img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+        </a>
+        
+        <a href="mailto:2498369702@qq.com">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/考研">考研</a></li>
+            
+            <li><a href="/tags/计算机网络技术">计算机网络技术</a></li>
+            
+            <li><a href="/tags/物理层">物理层</a></li>
+            
+            
+        </ul>
+        <h1>计算机网络技术之数据链路层</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">MINZHI</a></span>
+                <p>2022-06-16 10:12:19</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="一、基础知识"><a href="#一、基础知识" class="headerlink" title="一、基础知识"></a>一、基础知识</h1><h2 id="1、数据链路层的主要任务"><a href="#1、数据链路层的主要任务" class="headerlink" title="1、数据链路层的主要任务"></a>1、数据链路层的主要任务</h2><p>&emsp;主要包括三个任务：<strong>封装成帧</strong>，<strong>透明传输</strong>和<strong>差错检测</strong>。点对点通信。</p>
+<ul>
+<li>将网络层交下来的IP数据报封装成帧</li>
+<li>把封装好的帧发送给其他节点的数据链路层</li>
+<li>接收其他节点发过来的帧，检测如果无差错，提取出IP数据报并交付给网络层；有差错就直接丢弃帧。</li>
+</ul>
+<h2 id="2、名词解释"><a href="#2、名词解释" class="headerlink" title="2、名词解释"></a>2、名词解释</h2><ul>
+<li>链路：从一个节点到另一个节点的一段物理线路</li>
+<li>数据链路：在链路基础上，增加了执行通信协议的软硬件，构成了数据链路。</li>
+<li>网络适配器：称为网卡，实现上述协议的软硬件</li>
+<li>帧：数据链路层的协议数据单元（PDU），也是最小传输单位。</li>
+</ul>
+<h1 id="二、任务实现"><a href="#二、任务实现" class="headerlink" title="二、任务实现"></a>二、任务实现</h1><h2 id="1、封装成帧"><a href="#1、封装成帧" class="headerlink" title="1、封装成帧"></a>1、封装成帧</h2><p>&emsp;将上一层的网络层交付下来的数据报，加上帧首部与帧尾部之后，交付给物理层进行透明传输。也<strong>只有数据链路层</strong>会添加尾部。并且还会在帧前面和尾部加上帧界定符，帧开始加入<strong>帧开始符（SOH，0x01）</strong>，帧结束处加上<strong>帧结束符（EOT，0x04）</strong>，帧结束符可以判断帧是否完整，除此之外，<strong>PPP协议</strong>还会加入<strong>前导码（7个字节，0101…01）</strong>，前导码之后才是帧开始符。<strong>注意：</strong>上述0x01和0x04在谢书是这样，很多其他地方查的都不一样。</p>
+<p>&emsp;规定帧的格式与使用的协议有关，我们将会在<strong>PPP协议</strong>中具体讲到。</p>
+<h2 id="2、透明传输"><a href="#2、透明传输" class="headerlink" title="2、透明传输"></a>2、透明传输</h2><p>&emsp;我们已经知道了，帧开始符与帧结束符是一个固定的十六进制数，假如我们传输的数据中包含帧结束符的十六进制数据，那么应该如何处理这种情况呢？这就要求我们对数据进行<strong>透明传输</strong>。最常用的方法就是使用转义字符，也就是<strong>字节填充</strong>或<strong>字符填充</strong>，在数据部分中，有帧结束符的字符前面插入<strong>ESC（0x1B）</strong>。</p>
+<p>&emsp;实现透明传输与使用的协议有关，所以我们将会在<strong>PPP协议</strong>中具体讲到。</p>
+<h2 id="3、差错检测"><a href="#3、差错检测" class="headerlink" title="3、差错检测"></a>3、差错检测</h2><p>&emsp;现在的通信线路都不是很理想，容易发生比特错误，即1变成0或者0变成1。因此，差错检测是非常有必要的。常用的差错检测方法有，奇偶校验码和循环冗余码。除了进行检错之外，还发明了一种具有纠错功能的方法——海明码。</p>
+<h3 id="1）检错之奇偶校验码"><a href="#1）检错之奇偶校验码" class="headerlink" title="1）检错之奇偶校验码"></a>1）检错之奇偶校验码</h3><p>&emsp;奇偶校验码包括<strong>奇校验码</strong>和<strong>偶校验码</strong>，发送的比特流包含n位，其中前n-1位是数据，最后一位是<strong>校验位</strong>。</p>
+<ul>
+<li>奇校验：<strong>n-1位数据</strong>加上<strong>校验位</strong>的中<strong>1的个数</strong>是<strong>奇</strong>数，<strong>n位</strong>比特进行<strong>异或</strong>为<strong>1</strong>。</li>
+<li>偶校验：<strong>n-1位数据</strong>加上<strong>校验位</strong>的中<strong>1的个数</strong>是<strong>偶</strong>数，<strong>n位</strong>比特进行<strong>异或</strong>为<strong>0</strong>。</li>
+</ul>
+<p>&emsp;异或是一个比较重要的运算，在检验中常常用到。这里用异或是杀鸡用牛刀，海明码需要用到异或。这里给出异或的性质：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">左操作数</th>
+<th style="text-align:center">异或</th>
+<th style="text-align:center">右操作数</th>
+<th style="text-align:center">=</th>
+<th style="text-align:center">结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center"><script type="math/tex">\bigoplus</script></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">=</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center"><script type="math/tex">\bigoplus</script></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">=</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><script type="math/tex">\bigoplus</script></td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">=</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center"><script type="math/tex">\bigoplus</script></td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">=</td>
+<td style="text-align:center">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>与0异或，可以留出原来的状态</li>
+<li>与1异或，可以获取相反的状态</li>
+<li>2k和1异或是0，2k-1个1异或还是1</li>
+<li>满足交换律，  <script type="math/tex">a \bigoplus b = b\bigoplus a</script></li>
+</ul>
+<h3 id="2）检错之循环冗余码"><a href="#2）检错之循环冗余码" class="headerlink" title="2）检错之循环冗余码"></a>2）检错之循环冗余码</h3><p>&emsp;上述编码其实只能够检测到奇数比特出错，如果是偶数个比特出错，检测就会失效了。所以，循环冗余码能够更有效地检测帧的正确与否，但是循环冗余码不能进行纠错，也就是不能确定错误出在哪个位置。循环冗余码检测通过之后，能够以接近1的概率认为此帧没有出错。并且CRC可以由硬件完成，所以速度非常快。</p>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>首先，双方协定一个多项式，多项式能够对应于一个二进制比特序列<strong>除数P</strong>，P有h位</li>
+<li>用<strong>数据M</strong>后面拼接上<strong>h-1位0</strong>，对上述P进行<strong>模2除</strong>法，小学数学学到的<strong>除过程</strong>中用的<strong>减法</strong>变成了<strong>异或</strong>运算而已。</li>
+<li>最后得到的<strong>余数</strong>长度应该是<strong>比P少1位</strong>，少不止1位，就在前面填充0，这个拼接到M的后面就成为了新的数据。</li>
+<li>接收方收到数据后，只需要把<strong>接收到的数据</strong>对<strong>P</strong>进行<strong>模2除</strong>法，如果<strong>余数为0</strong>，便<strong>通过</strong>，然后再把最后的检验位去除便可。</li>
+</ul>
+<p>其中，<strong>除数P</strong>应该是：</p>
+<ul>
+<li><p><strong>除数P</strong>：</p>
+<blockquote>
+<p>&emsp;一个包含n位的序列，对应的多项式应该是</p>
+<script type="math/tex; mode=display">a_{n-1}X^{n-1}+a_{n-2}X^{n-2}+...+a_1X^1+a_0X^0</script><p>，至于怎么转成二进制序列呢？</p>
+<p>如二进制序列<strong>110110</strong>对应的多项式应该是</p>
+<script type="math/tex; mode=display">1\times2^5 + 1\times2^4+0\times2^3+1\times2^2+1\times2^1+0\times2^0</script><p>。</p>
+</blockquote>
+</li>
+<li><p><strong>现在广泛使用的多项式：</strong></p>
+<blockquote>
+<p>① <strong>CRC-16:</strong> </p>
+<script type="math/tex; mode=display">X^{16}+X^{15}+X^{2}+1</script><p>② <strong>CRC-CCITT:</strong> </p>
+<script type="math/tex; mode=display">X^{16}+X^{12}+X^{5}+1</script><p>③ <strong>CRC-32:</strong> </p>
+<script type="math/tex; mode=display">X^{32}+X^{26}+X^{23}+X^{22}+X^{16}+X^{12}+X^{11}+X^{10}+X^{8}+X^{7}+X^{5}+X^{4}+X^{2}+X^{}+1</script></blockquote>
+</li>
+</ul>
+<h3 id="3）纠错之海明码"><a href="#3）纠错之海明码" class="headerlink" title="3）纠错之海明码"></a>3）纠错之海明码</h3><p>&emsp;前面提到的两种方法，都只适用于检错，如果出现差错，那么只能丢弃差错帧。而海明码，不仅可以检测出差错帧，还能检测出在哪出现的差错帧，并对其进行纠正。但是，海明码也只能<strong>发现双比特错误</strong>，<strong>纠正单比特错误</strong>。</p>
+<ul>
+<li>海明距离：两个比特码对应位不同的个数</li>
+<li><strong>纠错</strong>d位，需要<strong>码距</strong>为<strong>2d+1</strong>的解决方案</li>
+<li><strong>检错</strong>d位，需要<strong>码距</strong>为<strong>d+1</strong>的解决方案</li>
+</ul>
+<h4 id="确定检验位数"><a href="#确定检验位数" class="headerlink" title="确定检验位数"></a>确定检验位数</h4><p>&emsp;如果需要对<strong>长度为n</strong>的有效信息进行检验，需要<strong>k位</strong>检验码，n与k之间的关系式应该是怎样的呢？</p>
+<p>&emsp;首先，我们知道，海明码只对单个比特进行纠错，就是假设只有单个比特发生错误。那么，接收方收到的数据有多少种情况呢？应该是有<strong>有效信息发生错误（n种）</strong>加上<strong>校验码发生错误（k种）</strong>再加上<strong>全部正确（1种）</strong>的总共<script type="math/tex">n+k+1</script>种情况。那么，k位校验码能够代表多少种情况呢？应该是<script type="math/tex">2^k</script>种情况。所以，得到<strong>关系式</strong>为：<script type="math/tex">n+k+1\leq2^k</script>。</p>
+<h4 id="校验码应该如何放置"><a href="#校验码应该如何放置" class="headerlink" title="校验码应该如何放置"></a>校验码应该如何放置</h4><p>&emsp;按照以往来说，校验码都是拼接到数据的最后部分。而海明码则不是拼接到数据最后部分，这样能够快地确定纠错位置。</p>
+<p>&emsp;海明码规定，第 <code>i</code>位海明码<script type="math/tex">P_i</script></p>
+<p>应该在<strong>整个数据（有效数据+检验码）</strong>第<script type="math/tex">2^{i-1}</script></p>
+<p>的位置。如，第1位海明码在数据的第1位，第2位海明码在数据的第2位，第3位海明码在数据的第4位，第5位海明码在数据的第16位。</p>
+<h4 id="检验原理与步骤"><a href="#检验原理与步骤" class="headerlink" title="检验原理与步骤"></a>检验原理与步骤</h4><p>&emsp;假设海明码用<strong>H</strong>表示，有效数据用<strong>D</strong>表示，总数据位用<strong>C</strong>来表示。我们要明确一个概念，现在不仅仅是对有效数据在检验，而是对整个数据都在检验，与前面的检验方法有所不同。</p>
+<p>&emsp;假设我们有效数据为<strong>n=4</strong>位，即可算出校验数据只需要<strong>k=3</strong>位即可，太多了浪费。下面总数据的序号用二进制表示，方便之后理解。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">序号</th>
+<th style="text-align:center">111</th>
+<th style="text-align:center">110</th>
+<th style="text-align:center">101</th>
+<th style="text-align:center">100</th>
+<th style="text-align:center">011</th>
+<th style="text-align:center">010</th>
+<th style="text-align:center">001</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><strong>海明码</strong></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center">-</td>
+<td style="text-align:center"><script type="math/tex">H_3,2^{3-1}=b100</script></td>
+<td style="text-align:center">-</td>
+<td style="text-align:center"><script type="math/tex">H_2,2^{2-1}=b010</script></td>
+<td style="text-align:center"><script type="math/tex">H_1,2^{1-1}=b001</script></td>
+</tr>
+<tr>
+<td style="text-align:center"><strong>有效数据</strong></td>
+<td style="text-align:center"><script type="math/tex">D_4</script></td>
+<td style="text-align:center"><script type="math/tex">D_3</script></td>
+<td style="text-align:center"><script type="math/tex">D_2</script></td>
+<td style="text-align:center">——</td>
+<td style="text-align:center"><script type="math/tex">D_1</script></td>
+<td style="text-align:center">——</td>
+<td style="text-align:center">——</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>那么如何计算H呢？只需要用<strong>异或</strong>即可，哪几位异或呢？</p>
+<p>&emsp;从上面我们知道，<script type="math/tex">H_i</script></p>
+<p>对应于总数据的位置是<script type="math/tex">2^{i-1}</script></p>
+<p>，显然数字<script type="math/tex">2^{i-1}</script></p>
+<p>对应的二进制序列<strong>只有一位</strong>为1，而且恰好是<strong>第i位</strong>，其他都为0，不信可以写一写。我们只需要把<strong>总数据序号</strong>中，<strong>第i位为1</strong>的数据拿出来异或，异或后的值就是</p>
+<script type="math/tex; mode=display">H_i</script><p>的值了。</p>
+<p>总结下来说，不那么绕的来说就是，</p>
+<script type="math/tex; mode=display">H_i</script><p>对<strong>序号</strong>中<strong>第i位为1</strong>的数据进行检验。<script type="math/tex">H_1 = D_1 \bigoplus D_2 \bigoplus D_4 \\ H_2 = D_1 \bigoplus D_3 \bigoplus D_4 \\H_3 = D_2 \bigoplus D_3 \bigoplus D_4</script></p>
+<p>&emsp;现在收到数据之后，如何进行检验呢？检验完之后，如果找错出错位呢？上述提到海明码计算使用的异或来做的，相当于把原始状态异或后保存到了海明码中。异或能够同为0，异为1。我们把原始状态保存到海明码中了，现在接收到的状态便在数据中，所以，只需要检验数据中的状态与原始状态是否相同即可。那么我们可以得出如下式子。</p>
+<script type="math/tex; mode=display">S_1 = H_1 \bigoplus D_1 \bigoplus D_2 \bigoplus D_4 \\ S_2 = H_2 \bigoplus D_1 \bigoplus D_3 \bigoplus D_4 \\S_3 =H_3 \bigoplus D_2 \bigoplus D_3 \bigoplus D_4</script><p>&emsp;如果<script type="math/tex">S_1S_2S_3 = 000</script></p>
+<p>，那么说明状态没有改变，接收到的数据是正确的。如果不为0呢？怎么知道哪里发生错误。显然我们在检验过程中有，<script type="math/tex">H_1</script></p>
+<p>对序号第1位为1的所有数据进行检验，<script type="math/tex">H_2</script></p>
+<p>对序号第2位为1的所有数据进行检验，<script type="math/tex">H_3</script></p>
+<p>对序号第3位为1的所有数据进行了检验。</p>
+<p>&emsp;因此，<script type="math/tex">S_i</script>为1的话，代表序号中<strong>第i位</strong>为1的位置的数据有错误，将所有的S都拼接，即可确定发生错误在序号中的位置。如<script type="math/tex">S_3S_2S_1=010</script>，代表序号中第2位发生了错误，只需要把第2位进行取反即可。</p>
+<h1 id="三、PPP协议"><a href="#三、PPP协议" class="headerlink" title="三、PPP协议"></a>三、PPP协议</h1><h2 id="1、PPP协议满足的需求"><a href="#1、PPP协议满足的需求" class="headerlink" title="1、PPP协议满足的需求"></a>1、PPP协议满足的需求</h2><ul>
+<li>（1）简单：就追求着简单，采用CRC检验，如果发生错误了，直接丢弃帧，什么也不做。正确就收下帧。</li>
+<li>（2）封装成帧：规定了特殊字段作为帧界定符。前面提到过，这里协议具体讲。</li>
+<li>（3）透明性：保证数据透明性。前面提到过，这里协议具体讲。</li>
+<li>（4）多种网络层协议：保证同一条物理链路上同时支持多种网络协议，如（IP和IPX等）。</li>
+<li>（5）多种类型链路：除了要支持多种网络协议外，还需要在多种物理链路运行，如串并，电光等。</li>
+<li>（6）差错检测：对收到的帧进行差错检测</li>
+<li>（7）检测连接状态：能够判断链路是否正常工作</li>
+<li>（8）最大传送单元：限定了点对点<strong>最大传送单元MTU</strong>，数据部分不包括头尾部分，默认值是1500字节。</li>
+<li>（9）网络层地址协商：使得双方的网络层能够知晓对方IP地址</li>
+<li>（10）数据压缩协商：提供一种方法来协商数据压缩算法，但不一定要标准化。</li>
+</ul>
+<h2 id="2、PPP协议的帧格式"><a href="#2、PPP协议的帧格式" class="headerlink" title="2、PPP协议的帧格式"></a>2、PPP协议的帧格式</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>F(0x7E), 1B</th>
+<th>A(0xFF), 1B</th>
+<th>C(0x01), 1B</th>
+<th>协议, 2B</th>
+<th>数据部分, 1500B以内</th>
+<th>FCS, 2B</th>
+<th>F(0x7E), 1B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>F</strong>：帧界定符，二进制为：0111 1110。注意，这里有6个连续的1，之后会用到。</li>
+<li><strong>A</strong>：这个字段相当于保留字段，目前没有任何定义</li>
+<li><strong>C</strong>：同上</li>
+<li><strong>协议</strong>：表示数据部分使用的协议。比如，0x0021代表IP数据报。0xC021代表LCP（链路控制协议）数据。</li>
+<li><strong>FCS</strong>：帧检验序列，采用的是CRC检验</li>
+</ul>
+<h2 id="3、PPP协议的透明传输"><a href="#3、PPP协议的透明传输" class="headerlink" title="3、PPP协议的透明传输"></a>3、PPP协议的透明传输</h2><p>&emsp;前面提到为什么需要透明传输，以及什么是透明传输。PPP协议有如下方法：</p>
+<h3 id="（1）字节填充"><a href="#（1）字节填充" class="headerlink" title="（1）字节填充"></a>（1）字节填充</h3><p>&emsp;就是使用转义字符，转义字符定义为<strong>0x7D（0111 1101）</strong></p>
+<ul>
+<li>1）如果数据中出现（0x7E），那么就变成 （0x7D，0x5E）</li>
+<li>2）如果数据中出现（0x7D），那么就变成（0x7D，0x5D）</li>
+<li>3）如果出现ASCII码控制字符，数值小于0x20的字符，那么就在此字符前面加上0x7D，并将其加以改变，比如加上0x20。</li>
+</ul>
+<h3 id="（2）零比特填充"><a href="#（2）零比特填充" class="headerlink" title="（2）零比特填充"></a>（2）零比特填充</h3><p>&emsp;我们前面提到，0x7E中有连续的6个1，那么我们只要保证数据中没有连续的6个1即可，具体做法是，每发现5个1，就填充1个0。接收数据后，只要每发现5个1，就删除后面的1个0。</p>
+<h3 id="（3）其他方法"><a href="#（3）其他方法" class="headerlink" title="（3）其他方法"></a>（3）其他方法</h3><p>&emsp;这些不是PPP协议的内容，但是也是进行透明传输的方法。</p>
+<ul>
+<li>字符计数法：在帧的头部加上一个表示该帧后面跟随的字节数。这样，就能明确边界在哪了。这种方法的问题就是，出现一个错误，那么后面全部的帧都发生错误。</li>
+<li>违规编码法：在物理层常使用这种方法，如曼彻斯特编码中，一个比特位周期的电平要么是 高-低，要么是 低-高，所以，高-高或者低-低就是违规编码，我们用来作为帧的开始和结束。</li>
+</ul>
+<h2 id="4、PPP协议的工作状态"><a href="#4、PPP协议的工作状态" class="headerlink" title="4、PPP协议的工作状态"></a>4、PPP协议的工作状态</h2><p>&emsp;我们知道PPP协议主要是为了传输网络层的数据，但是，数据链路层也有自己的数据需要传送，如有些链路需要建立连接。PPP协议组成应该包含了三个部分，<strong>一是</strong>将IP数据报封装到串行链路中，既支持异步链路，又支持面向比特的同步链路。<strong>二是</strong>用来建立、配置和测试数据链路连接的<strong>链路控制协议LCP（Link Control Protocol）</strong>。<strong>三是</strong>一套<strong>网络控制协议（Network Control Protocol）</strong>，这其中，每一个协议支持不同的网络层协议。</p>
+<p>&emsp;用户接入ISP后，会主动发送一系列LCP分组，以便建立LCP。紧接着，NCP就会为新接入的主机分配一个IP地址。用户通信完毕，NCP收回IP地址，并释放连接。步骤如下图所示：<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206161415001.png" alt="image-20220616141536749"></p>
+<p>&emsp;PPP链路起始和终止状态都是<strong>链路静止</strong>状态，用户发起连接后（如连接一个WiFi，接上一根网线），进入了链路建立状态。这是LCP开始进行一些协商，发送LCP<strong>配置请求帧</strong>，包括<strong>配置确认帧（接受）、配置否认帧（理解意思但不接受）和配置拒绝帧（无法识别或不接受）</strong>。之后ISP对用户进行鉴别（如WiFi密码正确与否，账号密码登录，网费是否充足）。采用了<strong>口令鉴别协议PAP（Password Authentication Protocol）或口令握手鉴别协议CHAP（Challenge-Handshake Authentication Protocol）</strong>。之后便进入了网络层协议。</p>
+<h1 id="四、数据链路层"><a href="#四、数据链路层" class="headerlink" title="四、数据链路层"></a>四、数据链路层</h1><h2 id="1、局域网的数据链路层"><a href="#1、局域网的数据链路层" class="headerlink" title="1、局域网的数据链路层"></a>1、局域网的数据链路层</h2><p>&emsp;局域网工作的层次横跨了数据链路层和物理层。局域网内的主机共享连接在局域网上的各种软硬件资源，共享需要考虑的一个问题是，如何使众多用户能够合理而方便地共享通信媒体资源。这在技术上有两种方法：</p>
+<ul>
+<li>（1）<strong>静态划分信道</strong>，如前面提到的时分复用等，这种信道划分的方法代价高</li>
+<li><p>（2）<strong>动态媒体接入控制技术</strong>，分为：</p>
+<blockquote>
+<ul>
+<li><strong>随机接入</strong>：所有用户可以随时发送消息，但是如果恰巧不止一个用户在发送消息，那么就会产生<strong>碰撞</strong>（<strong>即产生冲突</strong>），因此需要有协议来解决这些碰撞。</li>
+<li><strong>受控接入</strong>：用户不能随时发送消息，而是服从一定控制发送消息，使用<strong>轮询</strong>方式</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="2、数据链路层的划分"><a href="#2、数据链路层的划分" class="headerlink" title="2、数据链路层的划分"></a>2、数据链路层的划分</h2><p>&emsp;因为各个公司的协议不同，所以产生了很多不同种类的数据链路层，而IEEE 802 委员会将<strong>局域网的数据链路层</strong>拆分为<strong>逻辑链路控制LLC（Logical Link Control）</strong>和<strong>媒体接入控制MAC（Medium Access Control）</strong>两层。而委员会仅仅只能是制定标准的人，真正实行的还是各大企业，因此，最后局域网只剩下<strong>以太网（DIX Ethernet V2）</strong>了，<strong>LLC</strong>已经消失，只剩下<strong>MAC</strong>。</p>
+<h2 id="3、适配器"><a href="#3、适配器" class="headerlink" title="3、适配器"></a>3、适配器</h2><p>&emsp;计算机与外界局域网的连接都是通过<strong>适配器（adapter）</strong>，适配器是在主机箱内插入的一块网络接口板，称为<strong>网络接口卡NIC</strong>，简称<strong>网卡</strong>。适配器不仅仅包含<strong>数据链路层</strong>的功能，还需要实现<strong>物理层</strong>的功能。适配器有自己的<strong>处理器（CPU）和存储器（RAM, ROM）</strong>，因此，不需要使用计算机的CPU。<strong>网卡</strong>的ROM有<strong>MAC</strong>地址，而<strong>计算机</strong>的软件地址（<strong>IP</strong>地址），则在计算机的存储器中。</p>
+<h2 id="4、信道划分介质访问控制"><a href="#4、信道划分介质访问控制" class="headerlink" title="4、信道划分介质访问控制"></a>4、信道划分介质访问控制</h2><p>&emsp;介质访问控制有，介质访问控制，随机访问介质访问控制和轮询访问介质访问控制。</p>
+<p>&emsp;信道划分介质访问控制便是之前讲的，复用技术：频分复用、时分复用、码分复用、波分复用</p>
+<h2 id="5、随机访问介质访问控制"><a href="#5、随机访问介质访问控制" class="headerlink" title="5、随机访问介质访问控制"></a>5、随机访问介质访问控制</h2><h3 id="（1）ALOHA协议"><a href="#（1）ALOHA协议" class="headerlink" title="（1）ALOHA协议"></a>（1）ALOHA协议</h3><h4 id="纯ALOHA协议"><a href="#纯ALOHA协议" class="headerlink" title="纯ALOHA协议"></a>纯ALOHA协议</h4><p>&emsp;各个用户想发送数据就发送数据，如果一段时间内没有收到确认，就认为发生了冲突，随机等待一段时间后再发送。假设网络负载（单位时间内所有站点发送成功和未成功而重传的帧数）为G，则纯ALOHA协议网络的吞吐量（单位时间内发送成功的平均帧数）为<script type="math/tex">S=Ge^{-2G}</script></p>
+<p>。当G=1.5时，S≈0.184。</p>
+<h4 id="时隙ALOHA协议"><a href="#时隙ALOHA协议" class="headerlink" title="时隙ALOHA协议"></a>时隙ALOHA协议</h4><p>&emsp;讲各个用户时间同步起来，并且划分了一段段时隙，只有在时隙开始时，各个用户才可发送消息。其他基本与纯ALOHA协议一致。</p>
+<h3 id="（2）CSMA协议协议"><a href="#（2）CSMA协议协议" class="headerlink" title="（2）CSMA协议协议"></a>（2）CSMA协议协议</h3><p>&emsp;<strong>载波监听多路访问 ( Carrier Sense Multiple Access ) </strong>协议，相比于ALOHA协议，多了一个载波监听装置。CSMA协议分为三种方式：</p>
+<ul>
+<li>1-坚持CSMA：结点需要发送数据，首先侦听信道，信道<strong>空闲</strong>就立马<strong>发送</strong>，信道<strong>忙</strong>，就一直<strong>等待并持续监听</strong>。</li>
+<li>非坚持CSMA：结点需要发送数据，首先侦听信道，信道<strong>空闲</strong>就立马<strong>发送</strong>，信道<strong>忙</strong>，就<strong>等待</strong>一个<strong>随机</strong>时间再重复上述过程</li>
+<li>p-坚持CSMA：结点需要发送数据，首先侦听信道，信道<strong>忙</strong>就持续监听，信道<strong>空闲</strong>，以概率p发送数据，以概率1-p推迟到下个时隙，重复。</li>
+</ul>
+<h3 id="（3）CSMA-CD协议"><a href="#（3）CSMA-CD协议" class="headerlink" title="（3）CSMA/CD协议"></a>（3）CSMA/CD协议</h3><h4 id="CSMA-CD协议介绍"><a href="#CSMA-CD协议介绍" class="headerlink" title="CSMA/CD协议介绍"></a>CSMA/CD协议介绍</h4><p>&emsp;<strong>载波侦听多路访问/碰撞检测（Carrier Sense Multiple Access with Collision Detection，CSMA/CD）</strong>过程如下：</p>
+<ul>
+<li>1）适配器从网络层获得一个分组，封装成以太网帧，放入适配器缓存，准备发送。</li>
+<li>2）如果适配器侦听到信道空闲，就发送该帧。侦听到忙，就持续侦听直到信道上没有信号能量，然后发送该帧</li>
+<li>3）在发送过程中，仍然持续检测信道，如果没有检测到碰撞，就顺利发送该帧。否则，中止发送，并发送一个拥塞信号。</li>
+<li>4）中止发送后，适配器执行指数退避算法，等到一段随机事件后返回步骤2。</li>
+</ul>
+<p>&emsp;<strong>以太网</strong>常常采用此方法进行处理冲突，以太网使用<strong>曼彻斯特编码</strong>，曼彻斯特在传输过程中自带了时钟信息，可以很方便的检测出当前信道是否有数据在发送。下面讲解<strong>CSMA/CD</strong>协议的要点：</p>
+<ul>
+<li><strong>多点接入</strong>：表示了是<strong>总线型</strong>，各台计算机以多点的方式接入到网络中</li>
+<li><strong>载波监听</strong>：也就是<strong>边发送边监听</strong></li>
+<li><strong>碰撞检测</strong>：通过检测电压变化，判断网络是否发生了冲突</li>
+</ul>
+<h4 id="碰撞检测"><a href="#碰撞检测" class="headerlink" title="碰撞检测"></a>碰撞检测</h4><p>&emsp;首先，假设A、B两方在通信，规定了端到端的传播时延为<script type="math/tex">\tau</script>。假设A向B发送数据，那么最多经过<script type="math/tex">2\tau</script></p>
+<p>的时间，A能够检测到碰撞发生与否（即，信号往返的时间）。显然，采用CSMA/CD协议的以太网只能实现<strong>半双工通信</strong>（我的理解是，总线型，只有一根信道，也就是对于任何一个主机而言，接收端也是发送端）。</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207061352402.png" alt="image-20220706135253122"></p>
+<p>&emsp;设想如下场景：</p>
+<ul>
+<li><p><script type="math/tex">t=0</script>，A检测到信道空闲，向B发送数据</p>
+</li>
+<li><p><script type="math/tex">t=\tau - \delta</script>，B检测到信道空闲，向A发送数据，<script type="math/tex">\delta</script>为B发送数据到A的数据到达B的时间</p>
+</li>
+<li><p><script type="math/tex">t= \tau - \frac{\delta}{2}</script>，也就是B发送数据后经过<script type="math/tex">\frac{\delta}{2}</script>后，A,B数据发生了碰撞</p>
+</li>
+<li><p><script type="math/tex">t=\tau</script>，B检测到了碰撞</p>
+</li>
+<li><p><script type="math/tex">t=2\tau-\delta</script>，A检测到了碰撞</p>
+</li>
+<li><p>当  <script type="math/tex">{\lim\limits_{\delta \to 0}}</script> ，最慢到  <script type="math/tex">t=2\tau</script>时，A检测到碰撞发生。</p>
+</li>
+</ul>
+<p>&emsp;<strong>最短帧长</strong>：A最多在<script type="math/tex">2\tau</script>的时间后能够检测到碰撞，因此把<script type="math/tex">2\tau</script>称为<strong>争用期</strong>。发送方是在发送数据以及将要发送数据的时候才检测信道是否发生冲突，为了确保发送数据过程中，发送方能够检测到冲突，要求发送方在争用期中，一直发送数据。那么争用期中发送数据的帧长就是最短帧长，即<strong>最短帧长</strong>=<script type="math/tex">2\tau\times</script>数据传输率。例如，以太网规定争用期为<script type="math/tex">51.2\mu s</script>，对于<script type="math/tex">10Mb/s</script>的以太网，最短帧长为<script type="math/tex">512bit = 64B</script>。凡是小于<script type="math/tex">64B</script>的帧都是由于冲突而异常中止的无效帧。</p>
+<h4 id="二进制退避算法"><a href="#二进制退避算法" class="headerlink" title="二进制退避算法"></a>二进制退避算法</h4><ul>
+<li>1）确定基本的退避时间，通常为  <script type="math/tex">2\tau</script></li>
+<li>2）定义参数  <script type="math/tex">k</script>，  <script type="math/tex">k = min[重传次数, 10]</script>，重传次数即，此次是该帧第几次重传了，也就是发生了几次碰撞。</li>
+<li>3）从离散集合  <script type="math/tex">[0,\quad1,\quad,...,2^k-1]</script>  中随机取出一个数  <script type="math/tex">r</script>，重传所需要的退避时间就是  <script type="math/tex">2r\tau</script>。</li>
+<li>4）当重传16次都未成功，那么丢弃此帧，并向上层（网络层）报告错误。</li>
+</ul>
+<h3 id="（4）CSMA-CA协议"><a href="#（4）CSMA-CA协议" class="headerlink" title="（4）CSMA/CA协议"></a>（4）CSMA/CA协议</h3><p>&emsp;<strong>载波监听多路访问/碰撞避免（Carries Sense Multiple Access with Collision Avoidance）</strong>协议，相比于CSMA/CD协议，将碰撞<strong>检测</strong>变成了碰撞<strong>避免</strong>。</p>
+<p>&emsp;<strong>CSMA/CD</strong>协议很好地应用于<strong>有线局域网</strong>中了，但在<strong>无线局域网</strong>中，则需要使用<strong>CSMA/CA</strong>协议。原因如下：</p>
+<ul>
+<li>1）接收信号的强度往往远小于发送信号的强度，因此要是实现碰撞检测，硬件花费大。</li>
+<li>2）无线通信中，并非所有的站点都能够听见对方，存在<strong>隐蔽站</strong>问题。</li>
+</ul>
+<p>&emsp;无线信道的通信质量远远小于有线信道，所以采用了<strong>链路层确认/重传（ARQ）</strong>方案，发送完一帧，需要收到确认才能发送下一帧。为了尽量避免碰撞，所有站发送完成后，必须等待一段很短的时间才能发送下一帧，这段时间间隔称为<strong>帧间间隔（InterFrame Space, IFS）</strong>，类型如下：</p>
+<ul>
+<li>1）SIFS（短IFS）：最短的IFS，用于分隔属于一次对话的各帧，如ACK帧，CTS帧，分片后的数据帧，以及所有回答AP探询的帧。</li>
+<li>2）PIFS（点协调IFS）：中等长度的IFS，在PCF操作中使用</li>
+<li>3）DIFS（分布式协调IFS）：最长的IFS，用于异步帧竞争访问的时延</li>
+</ul>
+<p>&emsp;CSMA/CA的退避算法和CSMA/CD的稍有不同，当且仅当信道空闲且当前为发送的第一个帧才不使用退避算法，其他时间都需要使用。CSMA/CA协议归纳如下：</p>
+<ul>
+<li>1）若站点有数据发送（该帧第一次发送），检测到信道空闲，等待DIFS后，发送整个数据帧</li>
+<li>2）否则，站点执行CSMA/CA退避算法，选取一个随机时间回退值。一旦检测到信道忙，退避计时器保持不变，信道空闲，计时器才计时</li>
+<li>3）当计时器减到0，发送数据帧</li>
+<li>4）发送站收到确认帧，发送第二帧时，从步骤2）开始。</li>
+</ul>
+<p>&emsp;隐蔽站问题：RTS和CTS</p>
+<ul>
+<li><strong>RTS(Request  To Send)</strong>：请求发送帧，每个站点发送数据帧之前广播发送一个RTS进行信道预约，包括源地址、目的地址、和此次通信持续时间。</li>
+<li><strong>CTS(Clear To Send)</strong>：允许发送帧，若信道空闲，AP广播发送一个CTS，包括此次发送持续时间（从RTS中获得）。任何站点听到此帧，将会抑制发送。</li>
+</ul>
+<h3 id="（5）CSMA-CD-VS-CSMA-CA"><a href="#（5）CSMA-CD-VS-CSMA-CA" class="headerlink" title="（5）CSMA/CD   VS   CSMA/CA"></a>（5）CSMA/CD   VS   CSMA/CA</h3><ul>
+<li>1）CD可以检测冲突，无法避免；CA不能同时发送和检测冲突</li>
+<li>2）介质不同，CD是以太网，CA是无线局域网</li>
+<li>3）检测方式不同，CD是通过电压变化，CA通过能量检测、载波检测、能量载波混合检测三种检测信道的方式。</li>
+</ul>
+<h2 id="6、轮询访问介质访问控制"><a href="#6、轮询访问介质访问控制" class="headerlink" title="6、轮询访问介质访问控制"></a>6、轮询访问介质访问控制</h2><p>&emsp;令牌传递协议，物理上不必是环形，但是逻辑上是环形结构，过程如下：</p>
+<ul>
+<li>1）网络空闲时，环路中只有令牌帧在循环传递</li>
+<li>2）令牌传递到有数据发送的站点时，该站点就修改令牌中的一个标志位，并在令牌中附上自己的数据，令牌就变成一个数据帧</li>
+<li>3）数据帧沿着环路传输，接收到的站点一边转发数据，一边查看目的地址，如果目的地址是自己的，就复制下来该数据</li>
+<li>4）数据帧沿着环路到达源发送站点，就不再转发，同时，检测返回的帧来查看数据传输是否出错</li>
+<li>5）源站点传送完数据后，重新生成一个令牌，并且传送个下一个站点，交出控制权。</li>
+</ul>
+<h1 id="五、数据链路层的流量控制与可靠传输"><a href="#五、数据链路层的流量控制与可靠传输" class="headerlink" title="五、数据链路层的流量控制与可靠传输"></a>五、数据链路层的流量控制与可靠传输</h1><h2 id="1、停止-等待流量控制基本原理"><a href="#1、停止-等待流量控制基本原理" class="headerlink" title="1、停止-等待流量控制基本原理"></a>1、停止-等待流量控制基本原理</h2><p>&emsp;发送方每发送一帧，接收方都需要发送确认帧。</p>
+<h2 id="2、滑动窗口流量控制基本原理"><a href="#2、滑动窗口流量控制基本原理" class="headerlink" title="2、滑动窗口流量控制基本原理"></a>2、滑动窗口流量控制基本原理</h2><ul>
+<li>发送方与接收方都有自己的窗口大小</li>
+<li>发送方收到一个确认帧并且可以向前滑动的时候，滑动窗口才向前滑动</li>
+<li>接收方能够向前滑动的时候就向前滑动</li>
+<li>窗口大小都是固定的</li>
+<li>接收窗口先滑动，发送窗口才能滑动，这样就能起到流量控制的作用</li>
+<li>从滑动窗口看下面三种传输机制<ul>
+<li>停止-等待协议： 发送窗口=1，接收窗口=1</li>
+<li>后退N帧协议：发送窗口&gt;1，接收窗口=1</li>
+<li>选择重传协议：发送窗口&gt;1，接收窗口&gt;1</li>
+</ul>
+</li>
+</ul>
+<h2 id="3、三种可靠传输协议"><a href="#3、三种可靠传输协议" class="headerlink" title="3、三种可靠传输协议"></a>3、三种可靠传输协议</h2><p>&emsp;首先，需要对帧进行编号，考虑到节省，对帧编号用固定且少量的比特数进行编号。但是，引入的新问题便是，编号循环后，如何确定发送的帧是上一轮的还是此轮的或者是下一轮的呢？</p>
+<p>答：要求 <script type="math/tex">发送窗口+接收窗口 \leq 2^n,\quad n为用于编号的比特数</script>，至于为什么这样呢？最坏的情况，当接收窗口已经滑动到滑动窗口的尾部了，此时，当前轮发送仍未结束，但是当前发送双方能够扩展的长度应该不大于此轮编号长度才可以。</p>
+<h3 id="3-1-停止-等待协议"><a href="#3-1-停止-等待协议" class="headerlink" title="3.1 停止-等待协议"></a>3.1 停止-等待协议</h3><ul>
+<li>发送与接收窗口都是1</li>
+<li>一个帧被发送，该帧的确认帧需要被接收才能发送下一帧</li>
+<li>发送方有定时重传计时器</li>
+<li>编号的比特数便是：<script type="math/tex">1+1 \leq 2^n,\quad n = 1</script>即可满足</li>
+<li>如果确认帧没有被收到，那么发送方重新发送后，接收方直接丢弃并重新发送确认帧。</li>
+</ul>
+<p>&emsp;信道利用率低</p>
+<h3 id="3-2-后退N帧协议（GBN）"><a href="#3-2-后退N帧协议（GBN）" class="headerlink" title="3.2 后退N帧协议（GBN）"></a>3.2 后退N帧协议（GBN）</h3><ul>
+<li>接收窗口为1，发送窗口为<script type="math/tex">1\leq W_T \leq 2^n-1</script></li>
+<li>接收端只能接收滑动窗口内的帧，也就是只能一帧一帧按序接收</li>
+<li>接收端接收到错误的帧，或者接收到不在滑动窗口的帧（不管是窗口前或后）都丢弃</li>
+<li>接收端可以接收连续多帧，或者有数据发送的时候，才发送一个确认帧</li>
+<li>确认帧的意义是：对该帧及以前的确认帧都进行确认，并期望发送方发送下一帧</li>
+<li>接收方为每一帧都设置了一个定时重传定时器</li>
+<li>接收方没收到一个确认帧，滑动窗口的左端即可移动到该帧后面一个位置。</li>
+</ul>
+<p>&emsp;提高了信道利用率，但是如果有一帧出了问题，那么窗口前面的帧都需要重传，因此在误码率大的信道，信道利用率不一定比停等协议优。</p>
+<h3 id="3-3-选择重传协议（SR）"><a href="#3-3-选择重传协议（SR）" class="headerlink" title="3.3 选择重传协议（SR）"></a>3.3 选择重传协议（SR）</h3><ul>
+<li>窗口尺寸：<script type="math/tex">W_R=W_T = 2^{n-1}</script></li>
+<li>一帧接收和一帧确认，发送方只需要重传没有收到确认的帧即可</li>
+<li>互联网标准还没明确地对该协议规定，所以这里从略</li>
+</ul>
+<h2 id="4、三种协议的信道计算"><a href="#4、三种协议的信道计算" class="headerlink" title="4、三种协议的信道计算"></a>4、三种协议的信道计算</h2><h3 id="4-1-信道利用率"><a href="#4-1-信道利用率" class="headerlink" title="4.1 信道利用率"></a>4.1 信道利用率</h3><p>&emsp;信道利用率相对于发送方而言，有效发送数据的时间占整个发送周期的比率。比如，发送方从开始发送到接收确认帧为止，时间为T，此时发送了L比特数据，发送方数据传输速率为C，那么有：<script type="math/tex">发送方发送有效数据的时间 = \frac{L}{C},\quad 占总时间的比值为：\frac{L/C}{T}</script>，利用率也是这个。</p>
+<p>&emsp;定义参数<script type="math/tex">\alpha = \frac{\tau}{T_0}</script>，假设永远不发生碰撞，以太网利用率最高<script type="math/tex">S_{max} = \frac{T_0}{T_0 + \tau}=\frac{1}{1+a}</script></p>
+<h3 id="4-2-信道吞吐量"><a href="#4-2-信道吞吐量" class="headerlink" title="4.2 信道吞吐量"></a>4.2 信道吞吐量</h3><script type="math/tex; mode=display">信道吞吐量 = 信道利用率 \times 发送方的发送速率，\quad = \frac{L}{T}</script><h3 id="4-3-如何计算"><a href="#4-3-如何计算" class="headerlink" title="4.3 如何计算"></a>4.3 如何计算</h3><ul>
+<li>首先计算第一帧开始发送到第一个确认帧返回的时间</li>
+<li>然后计算这段时间内，发送方发送了多少有效数据，并计算发送有效数据的时间</li>
+<li>对于上面一点，停等协议就只发送了一帧数据，而后退N帧协议就发送了多帧数据，这段时间都要进行计算</li>
+<li>有效数据的时间除以上面总的时间，便是效率</li>
+</ul>
+<h1 id="六、以太网"><a href="#六、以太网" class="headerlink" title="六、以太网"></a>六、以太网</h1><h2 id="1、MAC层"><a href="#1、MAC层" class="headerlink" title="1、MAC层"></a>1、MAC层</h2><p>&emsp;<strong>硬件地址</strong>又称为<strong>物理地址</strong>或<strong>MAC地址</strong>，是一个<strong>48位</strong>固化在<strong>ROM</strong>中的。MAC地址前24位称为组织唯一标识符OUI，后24位称为扩展唯一标识符EUI。第一个字节的最低二位规定为G/L位，表示Global/Local位，为0表示全球管理，为1表示本地管理。全球管理的地址有46位。</p>
+<p>&emsp;适配器会处理一下三种帧</p>
+<ul>
+<li>单播帧：一对一，目的MAC地址与本适配器的MAC地址相同就收下</li>
+<li>广播帧：一对全体，MAC地址为全1</li>
+<li>多播帧：一对多，发送给一部分站点，而不是全部站点，相当于群组</li>
+</ul>
+<p>&emsp;所有适配器都应该识别前面两种帧，有一种网络工具叫做<strong>嗅探器（Sniffer）</strong>能够识别所有的帧，包括MAC地址不是自己的也可以记录下来。</p>
+<h2 id="2、MAC帧格式"><a href="#2、MAC帧格式" class="headerlink" title="2、MAC帧格式"></a>2、MAC帧格式</h2><p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191047007.png" alt="image-20220719104733647"></p>
+<ul>
+<li>源地址与目的地址，MAC地址</li>
+<li>类型，比如交付给上层的协议是什么，如IP：0x0800</li>
+<li>FCS：使用CRC校验，只校验目的地址到FCS为止的字段，不包括前导码和帧开始定界符</li>
+<li>以太网规定最小帧长为64字节，所以数据段最小长度为64-6-6-2-4=46字节</li>
+<li>以太网采用曼彻斯特编码，当电压不再变化了，就代表已经结束传输了，所以帧结束定界符也就不需要</li>
+<li>前导码的作用是用来同步时钟频率的，帧开始定界符是用来告诉帧开始发送的标志</li>
+</ul>
+<p>对于下列的帧情况，以太网直接进行丢弃，不会重传</p>
+<ul>
+<li>帧长度不是整数个字节</li>
+<li>FCS检验出错</li>
+<li>MAC帧长度不是64-1518个字节的</li>
+</ul>
+<p>现在广泛使用的局域网也只剩下以太网了</p>
+<h2 id="3、扩展以太网"><a href="#3、扩展以太网" class="headerlink" title="3、扩展以太网"></a>3、扩展以太网</h2><h3 id="3-1-在物理层扩展以太网"><a href="#3-1-在物理层扩展以太网" class="headerlink" title="3.1 在物理层扩展以太网"></a>3.1 在物理层扩展以太网</h3><p>&emsp;过去使用粗缆或细缆，现在使用光纤</p>
+<h3 id="3-2-在数据链路层扩展以太网"><a href="#3-2-在数据链路层扩展以太网" class="headerlink" title="3.2 在数据链路层扩展以太网"></a>3.2 在数据链路层扩展以太网</h3><p>&emsp;使用交换机进行扩展</p>
+<h3 id="3-3-虚拟局域网"><a href="#3-3-虚拟局域网" class="headerlink" title="3.3 虚拟局域网"></a>3.3 虚拟局域网</h3><p>&emsp;<strong>虚拟局域网VLAN（Virtual LAN）</strong>是局域网提供给用户的一种服务，而不是一种新型局域网。VLAN使用802.1Q帧，格式如下：</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191212887.png" alt="image-20220719121225767"></p>
+<p>相比于以太网帧，多了VLAN标签。VLAN标签前两个字节为0x8100，后面为<strong>VLAN标识符VID（VLAN ID）</strong>，出入VID后，FCS需要重新计算。对于主机来说，并不知道自己的VID，所以主机发送给交换机的是普通以太网帧。交换机通过端口或者MAC地址划分VLAN，并且为VLAN分配好了VID。</p>
+<p>设想一下场景</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191214702.png" alt="image-20220719121409605"></p>
+<ul>
+<li>A向B发送数据，发送普通以太网帧给交换机#1，#1发现是同一VLAN下的主机，不需要增加VLAN标签，直接转发给B</li>
+<li>A向E发送数据，#1通过汇聚链路将帧转发给#2，并增加VLAN标签，#2发送去掉VLAN标签，并转发给E</li>
+<li>A向C发送数据，这种情况比较复杂，书上没讲</li>
+</ul>
+<h2 id="4、扩展到高速以太网"><a href="#4、扩展到高速以太网" class="headerlink" title="4、扩展到高速以太网"></a>4、扩展到高速以太网</h2><h3 id="4-1-100BASE-T以太网"><a href="#4-1-100BASE-T以太网" class="headerlink" title="4.1 100BASE-T以太网"></a>4.1 100BASE-T以太网</h3><ul>
+<li>速度：100Mb/s</li>
+<li>完全可以使用10Mb/s下的软件</li>
+</ul>
+<h3 id="4-2-吉比特以太网"><a href="#4-2-吉比特以太网" class="headerlink" title="4.2 吉比特以太网"></a>4.2 吉比特以太网</h3><ul>
+<li>速度：1Gb/s</li>
+<li>半双工使用CSMA/CD，全双工不使用</li>
+<li>向后兼容</li>
+</ul>
+<p>不改变网段最长长度，但是争用期由原来的64字节，变成512字节，使用如下方法来适用CSMA/CD。</p>
+<ul>
+<li>载波延伸：最短帧长仍然是64字节，但是为他扩充到512字节；引入的问题便是，发送了许多无用的数据</li>
+<li>分组突发：将多个短帧合起来发送</li>
+</ul>
+<h3 id="4-3-10吉比特以太网"><a href="#4-3-10吉比特以太网" class="headerlink" title="4.3 10吉比特以太网"></a>4.3 10吉比特以太网</h3><ul>
+<li>速度：10Gb/s</li>
+<li>只工作在全双工模式</li>
+</ul>
+<h3 id="4-4-40-100吉比特以太网"><a href="#4-4-40-100吉比特以太网" class="headerlink" title="4.4 40/100吉比特以太网"></a>4.4 40/100吉比特以太网</h3><ul>
+<li>速度：40/100Gb/s</li>
+<li>只工作在全双工</li>
+</ul>
+<h1 id="七-、无线局域网"><a href="#七-、无线局域网" class="headerlink" title="七 、无线局域网"></a>七 、无线局域网</h1><p>&emsp;又称为802.11局域网</p>
+<h2 id="1、有固定基础设施无线局域网"><a href="#1、有固定基础设施无线局域网" class="headerlink" title="1、有固定基础设施无线局域网"></a>1、有固定基础设施无线局域网</h2><p>&emsp;采用该星形拓扑，中心称为接入点（Access Point，AP）。基本服务集（Basic Service Set， BSS）包括一个接入点和若干移动站。安装AP时必须为其分配一个不超过32字节的服务集标识符（Service Set IDentifier，SSID）和一个信道。接入点AP在出厂就具有唯一的48位二进制数字的MAC地址，正式名称为<strong>基本服务集标识符 BSSID</strong>。</p>
+<p>&emsp;一个基本服务集，可以时孤立的，还可以通过其他AP，连接到一个<strong>分配系统DS（Distribution System）</strong>，然后再连接到另一个基本服务集，这样就构成一个<strong>扩展服务集ESS（Extended Service Set）</strong>，扩展服务集也有唯一标识称为<strong>扩展服务集标识符ESSID</strong>。</p>
+<p>移动站与接入点AP建立关联的方式由两种，一种是被动扫描，一种是主动扫描。</p>
+<h3 id="被动扫描"><a href="#被动扫描" class="headerlink" title="被动扫描"></a>被动扫描</h3><ul>
+<li>接入点AP周期性发送<strong>信标帧（beacon frame）</strong>，其中包含由若干系统参数，如SSID及支持的速率</li>
+<li>移动站A扫描了11个信道，选择愿意加入接入点AP所在的基本服务集BSS，于是发送<strong>关联请求帧（Association Request frame）</strong></li>
+<li>接入点同意A发来的关联请求，向A发送<strong>关联响应帧（Association Response frame）</strong></li>
+</ul>
+<h3 id="主动扫描"><a href="#主动扫描" class="headerlink" title="主动扫描"></a>主动扫描</h3><ul>
+<li>A广播发送<strong>探测请求帧（Probe Request frame）</strong>，让所有的AP都能够知道有移动站要求建立关联</li>
+<li>有两个接入点回答<strong>探测请求响应帧（Probe Response frame）</strong></li>
+<li>A向一个站发送<strong>关联请求帧</strong></li>
+<li>接入点向A发送<strong>关联响应帧</strong></li>
+</ul>
+<h2 id="2、无固定基础设施移动自组织网络"><a href="#2、无固定基础设施移动自组织网络" class="headerlink" title="2、无固定基础设施移动自组织网络"></a>2、无固定基础设施移动自组织网络</h2><p>&emsp;称为自组网络，没有上述服务中的AP，由一些平等状态的移动站相互通信组成的临时网络。各结点地位平等，中间结点都为转发点。</p>
+<p>&emsp;在军用，救援等中有很好的应用。</p>
+<p>&emsp;移动自组网络的一个子集——<strong>无线传感器网络WSN（Wireless Sensor Network）</strong>。</p>
+<h2 id="3、MAC帧"><a href="#3、MAC帧" class="headerlink" title="3、MAC帧"></a>3、MAC帧</h2><p>&emsp;分为数据帧、控制帧和管理帧。</p>
+<p>下面来讲解数据帧：</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202207191312492.png" alt="image-20220719131230352"></p>
+<p>上述地址都是指MAC地址，其中地址4用于自组网络；</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">去往AP</th>
+<th style="text-align:center">来自AP</th>
+<th style="text-align:center">地址1</th>
+<th style="text-align:center">地址2</th>
+<th style="text-align:center">地址3</th>
+<th style="text-align:center">地址4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">1</td>
+<td style="text-align:center">接收地址=目的地址</td>
+<td style="text-align:center">发送地址=AP地址</td>
+<td style="text-align:center">源地址</td>
+<td style="text-align:center">——</td>
+</tr>
+<tr>
+<td style="text-align:center">1</td>
+<td style="text-align:center">0</td>
+<td style="text-align:center">接收地址=AP地址</td>
+<td style="text-align:center">发送地址=源地址</td>
+<td style="text-align:center">目的地址</td>
+<td style="text-align:center">——</td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2022/06/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>数据结构之插入排序</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E7%89%A9%E7%90%86%E5%B1%82/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>计算机网络技术之物理层</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2022 By MINZHI.    本站总访问量：
+		<!-- . 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a> -->
+	<!-- </div>
+	<div class="Copyright"> -->
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次。</span>
+		<span>
+			<a style="text-decoration: none;display: contents; color: #898F9F;"
+				target="_blank" rel="noopener" href="https://beian.miit.gov.cn">
+				湘ICP备2022006759号
+			</a>
+		</span>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+			<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+		</a>
+		
+		<a href="mailto:2498369702@qq.com">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+<script>
+	if (window.mermaid) {
+		// console.log('开启mermaid');
+		mermaid.initialize({ theme: 'forest' });
+	}
+</script>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>

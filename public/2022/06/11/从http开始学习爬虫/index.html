@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>从http开始学习爬虫-雨探青鸟</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="爬虫,http,">
+<meta name="description" content="从http开始学习爬虫知识，不限于什么语言，推荐用Python">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
+	<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										档案
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友链
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/photo">
+										照片墙
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/donation">
+										捐赠
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>MINZHI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">档案</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友链</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+        <li>
+            <a href="/photo">照片墙</a>
+        </li>
+        
+        <li>
+            <a href="/donation">捐赠</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+            <img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+        </a>
+        
+        <a href="mailto:2498369702@qq.com">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/爬虫">爬虫</a></li>
+            
+            <li><a href="/tags/http">http</a></li>
+            
+            
+        </ul>
+        <h1>从http开始学习爬虫</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">MINZHI</a></span>
+                <p>2022-06-11 15:36:20</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><ul>
+<li><p>前置知识</p>
+<blockquote>
+<ul>
+<li>1、URL</li>
+<li>2、http请求</li>
+<li>3、http响应</li>
+<li>4、爬虫步骤</li>
+</ul>
+</blockquote>
+</li>
+<li><p>浏览器抓包知识</p>
+<blockquote>
+<ul>
+<li>1、打开调试窗口</li>
+<li>2、详解请求头参数</li>
+</ul>
+</blockquote>
+</li>
+<li><p>python实现简单抓包</p>
+<blockquote>
+<ul>
+<li>1、requests模块使用</li>
+<li>2、正则表达式</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<p>-</p>
+<h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><h2 id="1、URL"><a href="#1、URL" class="headerlink" title="1、URL"></a>1、URL</h2><p>&emsp;URL是统一资源定位表示符号，当然，还有URI，URN的概念，这里就不细究这两个这三者区别，因为我们重点是讨论<strong>URL</strong>是什么，以及如何解析URL就行。</p>
+<p>&emsp;完整的URL如下，方括号表示可以省略的，圆括号表示不能省略，尖括号表示浏览器默认会加上去的。空格只是为了讲解，URL是<strong>不能</strong>有空格的。不仅如此，URL只能有<strong>英文字母</strong>，<strong>阿拉伯数字</strong>和某些<strong>英文标点符号</strong>组成。</p>
+<ul>
+<li><p>&lt; 协议 &gt; :// ( <strong>域名</strong>或<strong>IP</strong> ) : &lt; 端口 &gt; / 【 [ 路径信息 ] / [ 文件名 ] ? [ 参数部分 ] # [ 锚部分 ] 】</p>
+<blockquote>
+<p><strong>&lt; 协议 &gt;</strong>：指明何种协议，如<code>http</code>，<code>https</code>，<code>ftp</code>等等，这里只讨论<code>http</code>，写爬虫代码时，最好指定为<code>http</code>。</p>
+<p><strong>(域名或IP)</strong>：域名地址或者IP地址都可以，不了解的可以搜索域名地址和IP地址是什么。大白话就是网址（不完全等同），如<code>baidu.com</code>。</p>
+<p><strong>&lt;端口&gt;</strong>：端口地址，不了解的也搜索一下，http协议是80端口，通常省略。</p>
+<p><strong>[路径信息]</strong>：请求的路径信息，即需要请求的资源在服务器的什么位置，通常抓包获得。</p>
+<p><strong>[文件名]</strong>：请求的文件名是什么，通常抓包获得。</p>
+<p><strong>[参数部分]</strong>：请求参数，通常抓包获得，一般叫做<strong>字符串参数</strong>，为了<strong>区别于</strong>请求数据中的参数。这里需要着重讲一下</p>
+<blockquote>
+<p>1）通常是以 <strong>键=值</strong> 的形式表示单个，用 <code>&amp;</code>连接多个参数。</p>
+<p>2）如：<code>quest=http&amp;id=1234&amp;pass=22</code></p>
+<p>3）上述就有三个参数（quest = http，id = 1234，pass = 22），两两直接用<code>&amp;</code>连接起来</p>
+</blockquote>
+<p><strong>[锚部分]</strong>：不重要，反正也是抓包获得。</p>
+<p><strong>特殊字符串表示</strong>：前面说到URL只能由<strong>英文字母</strong>，<strong>阿拉伯数字</strong>和某些<strong>英文标点符号</strong>组成。那么不是这些的怎么表示呢？</p>
+<blockquote>
+<p>答：采用 <strong>URL-ASCII</strong> 编码格式进行编码。URL允许出现的字符有：<code>-</code>，<code>.</code>，<code>_</code>，<code>~</code>，注意都是英文字符。</p>
+<p>保留的字符有：<code>! * &#39; ( ) ; : @ &amp; = + $ , / ? # [ ]</code>这十八个，都是英文字符，如等号用来连接<strong>键</strong>与<strong>值</strong>。</p>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<h2 id="2、http请求"><a href="#2、http请求" class="headerlink" title="2、http请求"></a>2、http请求</h2><p>格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">请求方式 URL 版本号【回车换行符】</span><br><span class="line"></span><br><span class="line">键: 值 【回车换行符】</span><br><span class="line">....(重复键：值)</span><br><span class="line">键: 值 【回车换行符】</span><br><span class="line"></span><br><span class="line">【回车换行符】</span><br><span class="line"></span><br><span class="line">主体内容</span><br></pre></td></tr></table></figure>
+<p>&emsp;上述内容太混乱了，没关系，一行一行来看</p>
+<p>1、第一行：</p>
+<blockquote>
+<p>请求方式：包括<code>POST</code>和<code>GET</code>，当然，还有其他，常用这两种。注意，都是大写。</p>
+<p>URL：上述解释中的URL，一般指包括<strong>路径信息及其后面部分</strong>，而没有前面部分。至于IP地址这些，要么在请求表头中用参数给出，要么直接不给，主要是<strong>IP地址和端口不是应用层</strong>的实体。</p>
+<p>版本号：这个也不重要，现在应该是 <code>HTTP/1.1</code>。</p>
+</blockquote>
+<ul>
+<li>2、第二行及之后几行</li>
+</ul>
+<blockquote>
+<p>这一部分叫做<strong>请求标头</strong>的参数部分，（<strong>第一行</strong>也是请求标头的一部分），通常有很多参数组成，每个参数都是 <strong>键: 值</strong>的形式。一行一个参数。</p>
+</blockquote>
+<ul>
+<li><p>3、主体内容，<code>GET</code>请求一般没有主体内容，但是<code>POST</code>一般有。</p>
+</li>
+<li><p>4、<strong>【回车换行符】</strong>：即 <code>\r\n</code>。注意，主体内容与请求标头中间额外多一个空行，所以额外多一个回车换行符。</p>
+</li>
+</ul>
+<p>下述是一个<code>POST</code>请求示例：（不完整）</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">POST</span> <span class="string">/eportal/?c=ACSetting&amp;a=Login</span> <span class="string">HTTP/1.1</span></span><br><span class="line"><span class="attr">Host:</span> <span class="string">p.t.edu.cn:8032</span></span><br><span class="line"><span class="attr">Referer:</span> <span class="string">http://p.t.edu.cn/</span></span><br><span class="line"><span class="attr">User-Agent:</span> <span class="string">Mozilla</span></span><br><span class="line"></span><br><span class="line"><span class="string">DDDDD=%2C0&amp;upass=1&amp;v6ip=</span></span><br></pre></td></tr></table></figure>
+<h2 id="3、http响应"><a href="#3、http响应" class="headerlink" title="3、http响应"></a>3、http响应</h2><p>格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">版本 状态码 短语【回车换行符】</span><br><span class="line"></span><br><span class="line">键: 值【回车换行符】</span><br><span class="line">.....(重复上一行)</span><br><span class="line">键: 值【回车换行符】</span><br><span class="line"></span><br><span class="line">【回车换行符】</span><br><span class="line"></span><br><span class="line">主体内容</span><br></pre></td></tr></table></figure>
+<p>&emsp;解释如下：</p>
+<ul>
+<li><p>版本：和请求一样，这里不额外解释</p>
+</li>
+<li><p>状态码：此条响应的状态，一般如下：</p>
+<blockquote>
+<p>1xx：表示通知消息，如还在处理上述请求，有些请求需要进行复杂的运算或处理，仍然需要等待</p>
+<p>2xx：表示成功了，常见的是 202</p>
+<p>3xx：表示重定向，需要跳转到另一个网址</p>
+<p>4xx：表示客户端错误，如请求的报文无法解析，常见的 404</p>
+<p>5xx：表示服务器的错误，如服务器没法工作了。</p>
+</blockquote>
+</li>
+<li><p>短语：对上述状态码的解释</p>
+<blockquote>
+<p>如<strong>Accepted</strong>是对<strong>202</strong>状态的解释。</p>
+<p>如<strong>Not Found</strong>是对<strong>404</strong>状态的解释。</p>
+</blockquote>
+</li>
+<li><p>主体内容，返回的响应内容在此。</p>
+</li>
+</ul>
+<h2 id="4、爬虫步骤"><a href="#4、爬虫步骤" class="headerlink" title="4、爬虫步骤"></a>4、爬虫步骤</h2><p>&emsp;首先确定请求方法，然后根据请求方法寻找请求参数，然后使用代码进行请求。寻找请求方法和请求参数的过程叫做<strong>抓包</strong>，用代码进行请求的过程叫做<strong>爬取内容</strong>。请求方法常见的是POST和GET</p>
+<ul>
+<li><p>GET请求</p>
+<blockquote>
+<p>需要找到请求标头，请求字符串参数。</p>
+<p>确定是否需要https，是否需要代理，是否需要cookie等</p>
+</blockquote>
+</li>
+<li><p>POST请求</p>
+<blockquote>
+<p>需要找到请求标头，请求字符串参数，请求数据。</p>
+<p>确定是否需要https，是否需要代理，是否需要cookie等。</p>
+</blockquote>
+</li>
+</ul>
+<hr>
+<h1 id="浏览器抓包知识"><a href="#浏览器抓包知识" class="headerlink" title="浏览器抓包知识"></a>浏览器抓包知识</h1><h2 id="1、打开调试窗口"><a href="#1、打开调试窗口" class="headerlink" title="1、打开调试窗口"></a>1、打开调试窗口</h2><p>&emsp;要么空白地方右键，然后点击属性。要么按F12。打开如下页面，点击网络（Network）就算成功。</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111644891.png" alt="image-20220611164445757"></p>
+<p>&emsp;简要介绍了主体界面构成</p>
+<p><img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111647668.png" alt="image-20220611164720572"></p>
+<ul>
+<li><p>1、主体html部分，一般用来索引到html部分的位置，注意<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111648186.png" alt="image-20220611164808155">左边箭头，可以直接点击页面上的点，确定html元素代码位置。具体做法是，点一下这个箭头，然后点击页面上的元素（如输入框)，即可确定代码位置。</p>
+</li>
+<li><p>2、抓包部分，最常用的部分，分析分析数据的地方。<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111649303.png" alt="image-20220611164955285">这个<strong>红色</strong>的圆圈，表示停止抓包。红色右边<strong>圆圈斜杠</strong>表示请求当前抓到的内容。<strong>全部 | Fetch/XHR JS CSS…</strong>用来过滤抓取的内容，有时候只需要图片的包，就点击图片，有时候只想抓取提交的表单数据，就点击清单。如果内容不多，可以点击全部（ALL)来全部显示，没必要过滤。</p>
+</li>
+<li><p>3、数据解析部分</p>
+<blockquote>
+<p>标头：请求头部分的内容；</p>
+<p>载荷：字符串参数和主体内容部分，GET请求只有字符串参数，POST请求会有请求表单数据。</p>
+<p>预览和响应：因为一个请求对应于一个响应，这里都是只响应的内容；其中，预览代表是人性化的展示了相应内容，响应只是把原始数据给你展示。</p>
+<p>查看源代码：查看原始数据，而不是人性化的给你显示数据。</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2、详解请求头参数"><a href="#2、详解请求头参数" class="headerlink" title="2、详解请求头参数"></a>2、详解请求头参数</h2><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">Accept:</span> <span class="string">text/css,*/*;q=0.1</span></span><br><span class="line"><span class="attr">Accept-Encoding:</span> <span class="string">gzip,</span> <span class="string">deflate</span></span><br><span class="line"><span class="attr">Accept-Language:</span> <span class="string">zh-CN,zh;q=0.9</span></span><br><span class="line"><span class="attr">Connection:</span> <span class="string">keep-alive</span></span><br><span class="line"><span class="attr">Cookie:</span> <span class="string">program=null</span></span><br><span class="line"><span class="attr">Host:</span> <span class="string">p.t.edu.cn</span></span><br><span class="line"><span class="attr">Referer:</span> <span class="string">http://p.t.edu.cn/</span></span><br><span class="line"><span class="attr">User-Agent:</span> <span class="string">Mozilla/5.0</span> <span class="string">(Windows</span> <span class="string">NT</span> <span class="number">10.0</span><span class="string">;</span> <span class="string">Win64;</span> <span class="string">x64)</span> <span class="string">AppleWebKit/537.36</span> <span class="string">(KHTML,</span> <span class="string">like</span> <span class="string">Gecko)</span> <span class="string">Chrome/102.0.5005.115</span> <span class="string">Safari/537.36</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;这里只显示了几个重要的参数。</p>
+<ul>
+<li><p><code>Accept</code>：指的是，请求内容是什么。如这里是指请求类型为<code>text</code>的<code>css</code>数据，常见的还有<code>test/html</code>，一般直接复制到代码中即可，或者可以省略。（我指的<strong>不是</strong>复制这里的到代码，而是复制<strong>自己抓包</strong>时的内容到代码）</p>
+</li>
+<li><p><code>Accept-Encoding</code>：编码格式，一般直接复制到代码，或者省略。</p>
+</li>
+<li><p><code>Accept-Language</code>：请求的语言，一般省略或者复制到代码。</p>
+</li>
+<li><p><code>Connection</code>：众所周知，<code>http</code>是建立在<code>TCP</code>之上的，如果发一次<code>http</code>请求就需要进行一次<code>TCP</code>三次握手连接与四次挥手释放，那么会给网络带来很大的开销，所以使用这个参数告知服务器是否要保持我的<code>TCP</code>连接性。</p>
+</li>
+<li><p><code>Cookie</code>：</p>
+<blockquote>
+<p>&emsp;众所周知，<code>HTTP</code>是具有<strong>单次连接性</strong>，即任何两次连接之间<strong>没有联系</strong>，是相互独立的。</p>
+<p>&emsp;但是，我们常常登录某个网站之后可以自由的操作自己的账户，而不是每次操作账户都要进行提交账密操作，正是因为这个<code>Cookie</code>的作用，用来记录我们的连接性，使得两次连接之间有了关联。</p>
+<p>&emsp;通常省略，复制也没有，反正有时间限制的，而且每次可能会变。对于一般的代码库，应该有能够保持<code>Cookie</code>的工具。</p>
+</blockquote>
+</li>
+<li><p><code>Host</code>：请求的主机，前面说了，URL中没有域名，那么域名就在这了，通常复制。很多网站都没有这一项。</p>
+</li>
+<li><p><code>Referer</code>：</p>
+<blockquote>
+<p>&emsp;重中之重，注意，我没有打错字，之所以是错的原因，当初创立这个键值的时候，就是打错了的。所以一直沿用至今，就是这么离谱。为什么说这个重要呢？</p>
+<p>&emsp;因为，很多网站不希望你从某些地方跳转过来，所以会检验这个，有些网站需要你从指定网站跳转到他们网站，也是用这个来检验。比如我们学校的校园网登录系统，就是不希望你从其他地方跳转过来。这个是我们伪造的重点</p>
+</blockquote>
+</li>
+<li><p><code>User-Agent</code>：</p>
+<blockquote>
+<p>&emsp;重中之重，在是浏览器和系统表示，很多时候，网站不希望我们用爬虫去爬取，所以通过这个检验请求是谁发来的。<code>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36</code>这个是<code>Windows</code>的<code>chrome</code>的标识，大家应该都是一样的。</p>
+</blockquote>
+</li>
+<li><p>其他：具体网站具体分析</p>
+</li>
+<li><p>至于这些请求头，谁给我们加到，一般是网站的<code>js</code>代码和浏览器的默认加。我们要做的，就是用代码伪造这些数据，把我们伪造成网站希望我们访问的方式来访问，听着有点绕。比如，把我们伪造成浏览器来抓取数据。</p>
+</li>
+</ul>
+<hr>
+<h1 id="Python实现简单抓包"><a href="#Python实现简单抓包" class="headerlink" title="Python实现简单抓包"></a>Python实现简单抓包</h1><h2 id="1、requests模块使用"><a href="#1、requests模块使用" class="headerlink" title="1、requests模块使用"></a>1、requests模块使用</h2><h3 id="1）安装requests模块"><a href="#1）安装requests模块" class="headerlink" title="1）安装requests模块"></a>1）安装requests模块</h3><p>&emsp;打开你的命令行，键入如下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install requests</span><br></pre></td></tr></table></figure>
+<h3 id="2）简单介绍"><a href="#2）简单介绍" class="headerlink" title="2）简单介绍"></a>2）简单介绍</h3><p>&emsp;讲得非常浅显，用来下载图片或者自动登录还可以。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests <span class="keyword">as</span> rq  <span class="comment"># 导入代码包</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我的理解是创立一个请求工具箱</span></span><br><span class="line"><span class="comment"># 这个会维持Cookie，就像我上面所说的一样</span></span><br><span class="line"><span class="comment"># 之后使用这个工具箱进行操作</span></span><br><span class="line">tool = rq.session()</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置是否进行SSL验证</span></span><br><span class="line"><span class="comment"># 也就是是否需要验证https</span></span><br><span class="line"><span class="comment"># 这个得看自己决定，看看https是什么样的，有什么用</span></span><br><span class="line"><span class="comment"># 当然，一般可以设置为False</span></span><br><span class="line">verify=<span class="literal">False</span>   </span><br><span class="line"></span><br><span class="line"><span class="comment"># 请求主机，一般就是Host字段的值</span></span><br><span class="line"><span class="comment"># 我这里是百度</span></span><br><span class="line">url=<span class="string">&quot;https://baidu.com&quot;</span> </span><br><span class="line">headers=&#123;   <span class="comment"># 设置请求头</span></span><br><span class="line"><span class="string">&quot;User-Agent&quot;</span>: <span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/&quot;</span></span><br><span class="line"><span class="string">&quot;537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36&quot;</span>,</span><br><span class="line"><span class="string">&quot;Referer&quot;</span>: <span class="string">&quot;https://baidu.com&quot;</span></span><br><span class="line">&#125;</span><br><span class="line">proxies=&#123;    <span class="comment"># 设置代理</span></span><br><span class="line"><span class="string">&quot;http&quot;</span>: <span class="literal">None</span>,</span><br><span class="line"><span class="string">&quot;https&quot;</span>: <span class="literal">None</span></span><br><span class="line">&#125;</span><br><span class="line">params=&#123;   <span class="comment"># 设置字符串参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置请求表单，一般在post请求中常用到</span></span><br><span class="line"><span class="comment"># 我请求百度的页面，用的是post请求</span></span><br><span class="line">data=&#123;  <span class="comment"># 设置请求表单</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发送get请求，得到get响应</span></span><br><span class="line">responseGet = tool.get(url=url, params=params, headers=headers, verify=verify, proxies=proxies)</span><br><span class="line"><span class="comment"># 发送post请求，得到post响应</span></span><br><span class="line">responsePost = tool.post(url=url, data=data, headers=headers, verify=verify, proxies=proxies)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 响应的主体内容一般都是二进制内容</span></span><br><span class="line"><span class="comment"># 需要进行对应解析，这个好像需要设计到python知识</span></span><br><span class="line"><span class="comment"># 我的评价是，不是这里的重点</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 解析响应</span></span><br><span class="line"><span class="comment"># 1、假如响应是文本数据，如html文本</span></span><br><span class="line">response = responseGet</span><br><span class="line">response.content <span class="comment"># 这个是内容，是二进制编码</span></span><br><span class="line">response.content.decode(<span class="string">&quot;gbk&quot;</span>)  <span class="comment"># 使用gbk解码，不加参数就是utf-8解码</span></span><br><span class="line"><span class="comment"># 2、假如响应是图片数据</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;1.png&quot;</span>, <span class="string">&quot;wb&quot;</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(response.content)   <span class="comment"># 直接以二进制写入文件</span></span><br><span class="line"><span class="comment"># 3、假如响应是表单数据</span></span><br><span class="line">dat = json.loads(response.content.decode())   <span class="comment"># 返回的就是一个字典数据了</span></span><br></pre></td></tr></table></figure>
+<h2 id="2、正则表达式"><a href="#2、正则表达式" class="headerlink" title="2、正则表达式"></a>2、正则表达式</h2><p>&emsp;正则表达式有什么用呢？</p>
+<p>​    假如，你需要下载一个页面中的所有图片，虽然我们<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111727842.png" alt="image-20220611164808155">这里的箭头可以确定你要的图片，如果一张一张点，是不是有点太慢了，跟手动下载有什么区别。所以，我们需要用到正则表达式，用来匹配一定规则的字符串。因为我们知道，图片是渲染出来的，本质在html中仍然以字符串存在，如：<code>&lt;img src=&quot;http://example.com/momo.png&quot; width=&quot;300px&quot;&gt;</code>。</p>
+<p>​    如果我们雇佣一个人来找这些图片，你会告诉他如下知识：“</p>
+<p>&emsp;&emsp;按照使用<code>&lt;img&gt;</code>标签圈起来的，里面是以<code>src=</code>开头的后面那串字符串。而且，图片的连接是以<code>http://</code>或者<code>https://</code>并且以<code>.png</code>、<code>.jpeg</code>、<code>.git</code>或者<code>.jpg</code>结尾的那串字符串。请给我把所有的找出来。</p>
+<p>”。</p>
+<p>所以，正则表达式可以帮我们干这个事情。详细正则表达式请看<a target="_blank" rel="noopener" href="https://www.runoob.com/regexp/regexp-tutorial.html">正则表达式教程</a></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re   <span class="comment"># 导入正则表达式包</span></span><br><span class="line">html = response.content <span class="comment"># 这个是请求的html内容，也就是网页，本质是字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 我们需要在html中需要所有的图片链接</span></span><br><span class="line"><span class="comment"># 我们得告诉我们的雇员一个寻找标准</span></span><br><span class="line">standard = <span class="string">&quot;&lt;img\\ssrc=\&quot;(.*?)\&quot;.*?&gt;&quot;</span></span><br><span class="line"><span class="comment"># 显然，我们认为&lt;img&gt;标签里的就是图片，我们直接简化了我们的标准</span></span><br><span class="line"><span class="comment"># 不需要管是不是http开头，是不是.png结尾的字符串</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 简单解释：\\s这三个字符代表空格</span></span><br><span class="line"><span class="comment"># .*?: 代表任意字符串，并且保证匹配的同时，字符串的长度越小越好</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 进行匹配</span></span><br><span class="line">dst_list = re.findall( standard, html) <span class="comment"># 返回列表</span></span><br></pre></td></tr></table></figure>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2022/06/15/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E7%89%A9%E7%90%86%E5%B1%82/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>计算机网络技术之物理层</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/06/09/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E6%A6%82%E8%BF%B0/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>计算机网络技术之概述</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2022 By MINZHI.    本站总访问量：
+		<!-- . 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a> -->
+	<!-- </div>
+	<div class="Copyright"> -->
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次。</span>
+		<span>
+			<a style="text-decoration: none;display: contents; color: #898F9F;"
+				target="_blank" rel="noopener" href="https://beian.miit.gov.cn">
+				湘ICP备2022006759号
+			</a>
+		</span>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+			<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+		</a>
+		
+		<a href="mailto:2498369702@qq.com">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+<script>
+	if (window.mermaid) {
+		// console.log('开启mermaid');
+		mermaid.initialize({ theme: 'forest' });
+	}
+</script>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>

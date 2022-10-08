@@ -65,7 +65,7 @@ $$
 
 - 人为求解
 
-  > 认为求解的话，根据定义来即可，一步一步算
+  > 人为求解的话，根据定义来即可，一步一步算
 
 - 代码求解
 
@@ -110,9 +110,9 @@ for(int i = 2 ; i < p.size; i++){
 ...
 ```
 
-&emsp;如何在考试中认为求解呢？
+&emsp;如何在考试中人为求解呢？
 
-答：我的建议是，先求出`next`数组，然后在`next`数组的基础上，再看。如果`p[j]==p[next[j]]`，就修正`next[j]=nextval[next[j]]`。否则不变。因为是从前往后的，所以我们在`next`和已修正`nextval`的基础上，构造出`nextval[j]`。
+答：我的建议是，先求出`next`数组，然后在`next`数组的基础上，再看。如果`p[j]==p[next[j]]`，就修正`nextval[j]=nextval[next[j]]`。否则不变。因为是从前往后的，所以我们在`next`和已修正`nextval`的基础上，构造出`nextval[j]`。
 
 &emsp;如题所示，`"ababaaababaa"`的`nextval`数组应该是什么样的？
 

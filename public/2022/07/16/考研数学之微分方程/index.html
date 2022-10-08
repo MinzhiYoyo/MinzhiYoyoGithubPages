@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>考研数学之微分方程-雨探青鸟</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="考研,数学,微分方程,">
+<meta name="description" content="考研数学中的微分方程基础知识">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
+	<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										档案
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友链
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/photo">
+										照片墙
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/donation">
+										捐赠
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>MINZHI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">档案</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友链</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+        <li>
+            <a href="/photo">照片墙</a>
+        </li>
+        
+        <li>
+            <a href="/donation">捐赠</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+            <img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+        </a>
+        
+        <a href="mailto:2498369702@qq.com">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/考研">考研</a></li>
+            
+            <li><a href="/tags/数学">数学</a></li>
+            
+            <li><a href="/tags/微分方程">微分方程</a></li>
+            
+            
+        </ul>
+        <h1>考研数学之微分方程</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">MINZHI</a></span>
+                <p>2022-07-16 15:03:22</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="第一节、一阶微分方程"><a href="#第一节、一阶微分方程" class="headerlink" title="第一节、一阶微分方程"></a>第一节、一阶微分方程</h1><h2 id="1、可分离变量的一阶微分方程"><a href="#1、可分离变量的一阶微分方程" class="headerlink" title="1、可分离变量的一阶微分方程"></a>1、可分离变量的一阶微分方程</h2><p>&emsp;形如<script type="math/tex">\frac{dy}{dx}=g(x)h(y)</script>的方程，称为可分离变量的微分方程。解法如下：<script type="math/tex">\frac{dy}{h(y)} = g(x)dx</script>，对两边进行积分即可。<script type="math/tex">\int{\frac{dy}{h(y)}} = \int{ g(x) dx } + C</script></p>
+<h2 id="2、齐次一阶微分方程"><a href="#2、齐次一阶微分方程" class="headerlink" title="2、齐次一阶微分方程"></a>2、齐次一阶微分方程</h2><p>&emsp;形如<script type="math/tex">\frac{dy}{dx} = \varphi(\frac{y}{x})</script>的形式，可令<script type="math/tex">u=\frac{y}{x}, \quad \frac{dy}{dx} = u + x\frac{du}{dx}</script>，进而计算</p>
+<h2 id="3、一阶线性微分方程"><a href="#3、一阶线性微分方程" class="headerlink" title="3、一阶线性微分方程"></a>3、一阶线性微分方程</h2><p>&emsp;形如<script type="math/tex">y' + p(x)y = q(x)</script>的方程，可以得出通解为：<script type="math/tex">y = e^{ -\int{p(x)}dx }[\int{q(x) e^{\int{p(x)}dx}}dx + C]</script>，并且，如果出现绝对值的情况，可以不用考虑，直接去掉即可。</p>
+<h2 id="4、伯努利方程"><a href="#4、伯努利方程" class="headerlink" title="4、伯努利方程"></a>4、伯努利方程</h2><p>&emsp;形如<script type="math/tex">y' + p(x)y = q(x)y^n</script>，将原式化为：<script type="math/tex">y^{-n}y' + p(x)y^{1-n} = q(x) \\ y^{-n}\frac{dy}{dx} + p(x)y^{1-n} = q(x)</script>，然后令<script type="math/tex">z = y^{1-n}</script>，可以带入得出：<script type="math/tex">\frac{1}{1-n} \cdot \frac{dz}{dx} + p(x) z = q(x)</script>，这样，就化为一阶线性微分方程了。得出通解如下：<script type="math/tex">z = e^{ -\int{(1-n)p(x)}dx }[\int{(1-n)q(x) e^{\int{(1-n)p(x)}dx}}dx + C] \\ y = \sqrt[1-n]{z} =  \sqrt[1-n]{e^{ -\int{(1-n)p(x)}dx }[\int{(1-n)q(x) e^{\int{(1-n)p(x)}dx}}dx + C]}</script>，后面这一步完全可以自己化了。</p>
+<h2 id="5、全微分方程"><a href="#5、全微分方程" class="headerlink" title="5、全微分方程"></a>5、全微分方程</h2><p>&emsp;如果存在<script type="math/tex">dF(x,y)  = p(x,y)dx + q(x,y)dy</script>的方程，那么称<script type="math/tex">p(x,y)dx + q(x,y)dy = 0</script>为全微分方程，通解为：<script type="math/tex">F(x,y) = C</script>。判断是否为全微分的依据是：<script type="math/tex">\frac{\partial p}{\partial y} = \frac{\partial q}{\partial x}</script></p>
+<h1 id="第二节、二阶微分方程"><a href="#第二节、二阶微分方程" class="headerlink" title="第二节、二阶微分方程"></a>第二节、二阶微分方程</h1><h2 id="1、二阶微分方程的两种形式"><a href="#1、二阶微分方程的两种形式" class="headerlink" title="1、二阶微分方程的两种形式"></a>1、二阶微分方程的两种形式</h2><ul>
+<li><strong>齐次</strong>：<script type="math/tex">y'' + p(x)y' + q(x)y = 0</script></li>
+<li><strong>非齐次</strong>：<script type="math/tex">y'' + p(x)y' + q(x)y = f(x)</script></li>
+</ul>
+<h2 id="2、解的叠加定理"><a href="#2、解的叠加定理" class="headerlink" title="2、解的叠加定理"></a>2、解的叠加定理</h2><p>&emsp;此处以二阶微分方程举例，可以应用于多阶微分方程。</p>
+<ul>
+<li>如果<script type="math/tex">y_1(x)、y_2(x)</script>是<strong>齐次</strong>的解，那么<script type="math/tex">Y(x) = c_1y_1(x) + c_2y_2(x)</script>也是<strong>齐次</strong>的解，即线性组合仍是<strong>齐次</strong>的解。并且如果<script type="math/tex">y_1(x)、y_2(x)</script>线性无关的话，<script type="math/tex">Y(x)</script>是<strong>齐次</strong>的通解。对于n阶，只要解的个数是n个线性无关的，那也成立。</li>
+<li>如果<script type="math/tex">y^*</script>是<strong>非齐次特解</strong>，<script type="math/tex">Y(x)</script>是<strong>齐次通解</strong>，那么<script type="math/tex">y(x) = Y(x) + y^*</script>是<strong>非齐次通解</strong></li>
+<li>如果<script type="math/tex">y_1^*(x)、y_2^*(x)</script>分别是<script type="math/tex">y'' + p(x)y' + q(x)y = f_1(x)\\y'' + p(x)y' + q(x)y = f_2(x)</script><strong>非齐次特解</strong>，那么<script type="math/tex">y_1^*(x)-y_2^*(x)</script>是<strong>齐次特解</strong>，<script type="math/tex">y_1^*(x)-y_2^*(x)</script>是<script type="math/tex">y'' + p(x)y' + q(x)y = f_1(x)+f_2(x)</script>的<strong>特解</strong>。</li>
+</ul>
+<h2 id="3、二阶微分方程的计算"><a href="#3、二阶微分方程的计算" class="headerlink" title="3、二阶微分方程的计算"></a>3、二阶微分方程的计算</h2><h3 id="（1）可降阶"><a href="#（1）可降阶" class="headerlink" title="（1）可降阶"></a>（1）可降阶</h3><p>&emsp;形如<script type="math/tex">y^{(n)} = f(x)</script>的，一步一步降阶即可。</p>
+<h3 id="（2）不含y的"><a href="#（2）不含y的" class="headerlink" title="（2）不含y的"></a>（2）不含y的</h3><p>&emsp;形如<script type="math/tex">y'' = f(x,y')</script>的，令<script type="math/tex">\frac{dy}{dx}= p, \frac{d^2y}{dx^2} = \frac{dp}{dx} \Rightarrow p'= f(x,p)</script>，即可化成一阶方程，进而计算。</p>
+<h3 id="（3）不含x的"><a href="#（3）不含x的" class="headerlink" title="（3）不含x的"></a>（3）不含x的</h3><p>&emsp;形如<script type="math/tex">y'' = f(y,y')</script>的，令<script type="math/tex">p' = y,y'' = \frac{dp}{dx} = \frac{dp}{dy}\cdot\frac{dy}{dx} = p'\cdot p \Rightarrow pp' = f(y,p)</script>，化成一阶的，进而计算。</p>
+<h3 id="（4）二阶常系数齐次微分方程"><a href="#（4）二阶常系数齐次微分方程" class="headerlink" title="（4）二阶常系数齐次微分方程"></a>（4）二阶常系数齐次微分方程</h3><p>&emsp;注意<strong>常系数</strong>，<strong>齐次</strong>两个关键词。</p>
+<p>&emsp;形如<script type="math/tex">y'' + py' + qy = 0</script>，对应的特征方程为<script type="math/tex">r^2 + pr + q = 0</script>，现在对特征根进行讨论。</p>
+<h4 id="1）两个不相同的实根"><a href="#1）两个不相同的实根" class="headerlink" title="1）两个不相同的实根"></a>1）两个不相同的实根</h4><p>即：<script type="math/tex">r_1 \neq r_2</script>，那么通解：</p>
+<script type="math/tex; mode=display">
+y = c_1 e^{r_1x} + c_2e^{r_2x}</script><h4 id="2）两个相同的实根"><a href="#2）两个相同的实根" class="headerlink" title="2）两个相同的实根"></a>2）两个相同的实根</h4><p>即：<script type="math/tex">r = r_1 = r_2</script>，那么通解：</p>
+<script type="math/tex; mode=display">
+y = e^{rx}(c_1+c_2x)</script><h4 id="3）无实根"><a href="#3）无实根" class="headerlink" title="3）无实根"></a>3）无实根</h4><p>即：<script type="math/tex">r_{1,2} = \alpha + i\beta</script>，那么通解为：</p>
+<script type="math/tex; mode=display">
+y = e^{\alpha x}(c_1cos\beta x + c_2sin\beta x)</script><h3 id="（5）二阶常系数非齐次微分方程"><a href="#（5）二阶常系数非齐次微分方程" class="headerlink" title="（5）二阶常系数非齐次微分方程"></a>（5）二阶常系数非齐次微分方程</h3><p>&emsp;注意，<strong>常系数</strong>和<strong>非齐次</strong>，并且对应的齐次方程的通解用(4)的方法求出。</p>
+<p>形如<script type="math/tex">y'' + py' + qy = f(x)</script></p>
+<h4 id="1）右边为多项式"><a href="#1）右边为多项式" class="headerlink" title="1）右边为多项式"></a>1）右边为多项式</h4><p>若<script type="math/tex">f(x) = e^{\lambda x}P_m(x)</script>，其中，m为多项式的最高次数。令<strong>特解</strong><script type="math/tex">y^*(x) = x^kQ_m(x)e^{\lambda x}</script>，其中</p>
+<script type="math/tex; mode=display">k = \begin{cases} 0, & 当\lambda不是特征根 \\1，&当\lambda是1重特征根 \\ 2，&当\lambda是2重特征根 \end{cases}</script><h4 id="2）右边为三角函数"><a href="#2）右边为三角函数" class="headerlink" title="2）右边为三角函数"></a>2）右边为三角函数</h4><p>若<script type="math/tex">f(x) = e^{\lambda x}[P_l(x)cos\beta x + Q_n(x)sin \beta x]</script> 令<strong>特解</strong>为：<script type="math/tex">y^* = x^k e^{\lambda x} [R_m(x)cos\beta x + G_m(x)sin\beta x]</script>，其中</p>
+<script type="math/tex; mode=display">l,m,n是多项式次数，且m = max\{l,n\}\\k = \begin{cases} 0,&\lambda + \beta i不是特征根时 \\ 1, &\lambda + \beta i 时单重特征根时 \end{cases}</script><p>之后有用<strong>解叠加</strong>定理<strong>第二条</strong>求出<strong>非齐次常系数线性微分方程通解</strong>。</p>
+<h1 id="第三节、欧拉方程"><a href="#第三节、欧拉方程" class="headerlink" title="第三节、欧拉方程"></a>第三节、欧拉方程</h1><p>形如</p>
+<script type="math/tex; mode=display">
+x^ny^{(n)} + a_1x^{n-1}y^{(n-1)} + ... + a_{n-1}xy^{(1)} + a_ny = f(x)</script><p>的高阶微分方程，称为欧拉方程（通式：<script type="math/tex">\sum\limits_{i=0}^{n} a_i x^{n-i}y^{(n-i)} = f(x),\quad a_0 = 1</script>），解法如下：</p>
+<p>引入运算符<script type="math/tex">D = \frac{d}{dt}，D^2 = \frac{d^2}{dt^2}</script></p>
+<p>令<script type="math/tex">x = e^t</script></p>
+<p>那么有<script type="math/tex">x^ky^{(k)} = D(D-1)...(D-K+1)y</script>，将<script type="math/tex">D</script>当成一个变量，乘进去再合并同类项。怎么证明不会</p>
+<p>然后带入到原方程中，即可变成二阶微分方程</p>
+<hr>
+<p><strong>例题如下（2004年1）：</strong></p>
+<p>&emsp;欧拉方程<script type="math/tex">x^2\frac{d^2y}{dx^2} + 4x\frac{dy}{dx} + 2y = 0（x > 0）</script>的通解为?</p>
+<p><strong>答</strong>：令<script type="math/tex">x=e^t</script>，原式化为：<script type="math/tex">D(D-1)y + 4Dy + 2y = 0</script>，进一步化解：<script type="math/tex">D^2y + 3Dy + 2y = 0</script>，其中<script type="math/tex">D^2y = \frac{d^2y}{dx^2},\quad Dy = \frac{dy}{dx}</script>。因此，变成了一个二阶常系数齐次方程，答案是：<script type="math/tex">y=\frac{C_1}{x} + \frac{C_2}{x}</script>。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2022/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E5%AD%90%E7%BD%91%E5%88%86%E9%85%8D/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>计算机网络技术之子网分配</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/06/18/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8B%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>数据结构之插入排序</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2022 By MINZHI.    本站总访问量：
+		<!-- . 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a> -->
+	<!-- </div>
+	<div class="Copyright"> -->
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次。</span>
+		<span>
+			<a style="text-decoration: none;display: contents; color: #898F9F;"
+				target="_blank" rel="noopener" href="https://beian.miit.gov.cn">
+				湘ICP备2022006759号
+			</a>
+		</span>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+			<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+		</a>
+		
+		<a href="mailto:2498369702@qq.com">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+<script>
+	if (window.mermaid) {
+		// console.log('开启mermaid');
+		mermaid.initialize({ theme: 'forest' });
+	}
+</script>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
+
+</html>
