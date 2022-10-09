@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		
+<title>高等数学级数-雨探青鸟</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
+
+
+<meta name="keywords" content="考研,数学,级数,傅里叶级数,">
+<meta name="description" content="考研数学中的级数的基础知识，也可以说是做题知识">
+
+
+<script src="/js/jquery.min.js"></script>
+
+
+
+<!-- Baidu Analytics -->
+<script defer>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+
+
+
+<link rel="stylesheet" href="/css/myhihglight.css">
+
+
+		<!-- <link rel="stylesheet" href="//cdn.bootcss.com/highlight.js/9.2.0/styles/github.min.css"> -->
+		
+	<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.1.0"></head>
+
+	<body>
+		
+<link rel="stylesheet" href="/css/page.css">
+
+
+<link rel="stylesheet" href="/css/page_cente.css">
+
+
+<link rel="stylesheet" href="/css/atom-one-dark.css">
+
+
+<link rel="stylesheet" href="/css/header.css">
+
+	<div class="header">
+		<div class="header-top">
+			<div class="h-left">
+				<a href="/">
+					<img src="/image/logo.png" alt="Quiet">
+				</a>
+			</div>
+			<div class="h-right">
+				<ul>
+					
+						
+								<li>
+									<a href="/">
+										主页
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/archives">
+										档案
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/categories">
+										分类
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/tags">
+										标签
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/links">
+										友链
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/about">
+										关于
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/photo">
+										照片墙
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+						
+								<li>
+									<a href="/donation">
+										捐赠
+									</a>
+									<span class="dot"></span>
+								</li>
+								
+									
+				</ul>
+			</div>
+			<div class="h-right-close">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+					<path fill="none" d="M0 0h24v24H0z" />
+					<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z" fill="rgba(68,68,68,1)" />
+				</svg>
+			</div>
+		</div>
+	</div>
+	<div class="sidebar">
+    <div class="topo">
+        <h2>MINZHI</h2>
+    </div>
+    <ul>
+        
+        <li>
+            <a href="/">主页</a>
+        </li>
+        
+        <li>
+            <a href="/archives">档案</a>
+        </li>
+        
+        <li>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <a href="/links">友链</a>
+        </li>
+        
+        <li>
+            <a href="/about">关于</a>
+        </li>
+        
+        <li>
+            <a href="/photo">照片墙</a>
+        </li>
+        
+        <li>
+            <a href="/donation">捐赠</a>
+        </li>
+        
+    </ul>
+    <div class="my_foot">
+        
+        <a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+            <img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+        </a>
+        
+        <a href="mailto:2498369702@qq.com">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+        </a>
+        
+        <a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+            <img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+        </a>
+        
+    </div>
+</div>
+<div class='shelter'
+    style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'>
+</div>
+<style>
+    .sidebar {
+        width: 0;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        z-index: 999;
+        text-align: center;
+        box-shadow: -6px 0 20px rgba(98, 94, 94, .815)
+    }
+
+    .topo {
+        width: 100%;
+        height: 200px;
+        background: url(https://api.ixiaowai.cn/gqapi/gqapi.php) no-repeat;
+        background-size: 100% 100%;
+        position: relative;
+        display: flex;
+        align-items: flex-end
+    }
+
+    .topo h2 {
+        color: #fff;
+        z-index: 1;
+        position: relative;
+        margin: 0 0 10px 10px;
+        font-size: 1.2em;
+        box-sizing: border-box
+    }
+
+    .topo:before {
+        content: '';
+        background-image: url(/image/pattern.png);
+        background-repeat: repeat;
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1
+    }
+
+    .sidebar ul {
+        width: 100%;
+        margin-top: 50px
+    }
+
+    .sidebar ul li {
+        height: 50px;
+        list-style: none;
+        font-size: 1.2em;
+        text-align: right;
+        margin-right: 10px
+    }
+
+    .sidebar ul li a {
+        display: grid;
+        color: #5d606a;
+        text-overflow: ellipsis;
+        width: 100%;
+        text-decoration: none
+    }
+
+    .my_foot {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+        position: absolute;
+        bottom: 0
+    }
+
+    .my_foot a {
+        text-decoration: none;
+        margin-right: 10px;
+        display: inline-block
+    }
+
+    .my_foot a img {
+        width: 30px;
+        height: 30px
+    }
+</style>
+
+<script>
+    $(function () { $('.h-right-close>svg').click(function () { $('.sidebar').animate({ width: "66%" }, 500); $('.shelter').fadeIn("slow") }); $('.shelter').click(function (e) { $('.sidebar').animate({ width: "0" }, 500); $('.shelter').fadeOut("slow") }) })
+</script>
+		<script>
+			$(function () { $(window).scroll(function () { if ($(document).scrollTop() > 100) { $(".header-top").removeClass("header-move2"); $('.header-top').addClass('header-move1') } else { $(".header-top").removeClass("header-move1"); $('.header-top').addClass('header-move2') } }) });
+		</script>
+<div class="header-bg ">
+    <div class="bg-content">
+        <ul class="tag">
+            
+            
+            <li><a href="/tags/考研">考研</a></li>
+            
+            <li><a href="/tags/数学">数学</a></li>
+            
+            <li><a href="/tags/级数">级数</a></li>
+            
+            <li><a href="/tags/傅里叶级数">傅里叶级数</a></li>
+            
+            
+        </ul>
+        <h1>高等数学级数</h1>
+        <div class="article-info">
+            <div class="article-author">
+                
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+                    <g>
+                        <path fill="#12183A"
+                            d="M6.187 15.265A6.47 6.47 0 0 0 10 16.5a6.47 6.47 0 0 0 3.813-1.235A4.99 4.99 0 0 0 10 13.5a4.99 4.99 0 0 0-3.813 1.765zM5.082 14.25A6.485 6.485 0 0 1 10 12c1.965 0 3.726.872 4.918 2.25a6.5 6.5 0 1 0-9.836 0zM10 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16zm0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6zm0-1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z">
+                        </path>
+                    </g>
+                </svg>
+                
+                <span> <a href="">MINZHI</a></span>
+                <p>2022-10-08 15:15:08</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="article-content">
+    <div id="article" class="content">
+        <h1 id="一、数项级数"><a href="#一、数项级数" class="headerlink" title="一、数项级数"></a>一、数项级数</h1><h2 id="1、性质"><a href="#1、性质" class="headerlink" title="1、性质"></a>1、性质</h2><ul>
+<li><script type="math/tex">\sum\limits_{n=1}^\infty u_n收敛 \Leftrightarrow \lim\limits_{n\to\infty}S_n存在</script>（充要条件）</li>
+<li><script type="math/tex">\sum\limits_{n=1}^\infty u_n收敛 \Rightarrow \lim\limits_{n\to\infty}u_n=0</script>（必要条件）</li>
+<li>收敛，可以不看前有限项，因为前有限项是常数</li>
+</ul>
+<h2 id="2、正项级数（每一项都是正数）"><a href="#2、正项级数（每一项都是正数）" class="headerlink" title="2、正项级数（每一项都是正数）"></a>2、正项级数（每一项都是正数）</h2><ul>
+<li><script type="math/tex; mode=display">S_n有界 \Leftrightarrow \sum\limits_{n=1}^\infty u_n</script></li>
+<li><p>比较判别法：<script type="math/tex">对于n \geq M时，有u_n \leq v_n</script>，</p>
+<blockquote>
+<ul>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty v_n 收敛 \Rightarrow \sum\limits_{n=1}^\infty u_n收敛</script></li>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n 发散 \Rightarrow \sum\limits_{n=1}^\infty v_n 发散</script></li>
+</ul>
+</blockquote>
+</li>
+<li><p>极限比较判别法：<script type="math/tex">a = \lim\limits_{n \to \infty} \frac{u_n}{v_n}</script></p>
+<blockquote>
+<ul>
+<li><script type="math/tex">a = 0</script>：<script type="math/tex">u_n \leq v_n</script>（剩下的看上一点）</li>
+<li><script type="math/tex">a = \infty</script>：<script type="math/tex">u_n \geq v_n</script>（剩下的看上一点）</li>
+<li><script type="math/tex; mode=display">a = A\neq 0$$：$$u_n,v_n同敛散</script></li>
+</ul>
+<p>那么，如何选取另一个来比较呢？</p>
+<ul>
+<li>等比级数：<script type="math/tex">\sum\limits_{n=1}^\infty aq^{n-1} \begin{cases} = \frac{a}{1-q},& \left|  q \right| < 1 \\ 发散, & \left| q \right| \geq 1 \end{cases}</script></li>
+<li><code>p</code>级数：<script type="math/tex">\sum\limits_{n=1}^{\infty} \frac{1}{n^p} \begin{cases} 收敛, & p>1\\发散,&p\leq1 \end{cases}</script></li>
+<li>广义<code>p</code>级数：<script type="math/tex">\sum\limits_{n=2}^{\infty} \frac{1}{n(\ln n)^p} \begin{cases}收敛,& p>1\\发散,& p\leq1\end{cases}</script></li>
+<li>交错<code>p</code>级数：<script type="math/tex">\sum\limits_{n=1}^\infty (-1)^{n-1}\frac{1}{n^p} \begin{cases}绝对收敛，& p > 1 \\ 条件收敛，& 0<p\leq1 \end{cases}</script></li>
+</ul>
+</blockquote>
+<p><strong>下面开始，都是跟自己比较：</strong></p>
+</li>
+<li><p>比值判别法（达朗贝尔）</p>
+<blockquote>
+<script type="math/tex; mode=display">\lim\limits_{n \to \infty}\frac{u^{n+1}}{u^n} = \rho \begin{cases} <1,&收敛\\>1,&发散\\=1,&失效 \end{cases}</script></blockquote>
+</li>
+<li><p>根值判别法（柯西）</p>
+<blockquote>
+<script type="math/tex; mode=display">\lim\limits_{n\to\infty}\sqrt[n]{u_n} = \rho \begin{cases} <1,&收敛\\>1,&发散\\=1,&失效 \end{cases}</script></blockquote>
+</li>
+<li><p>积分判别法（柯西）</p>
+<blockquote>
+<script type="math/tex; mode=display">f(x)\geq 0,连续,x\in\left[1,+\infty \right], u_n = f(n)</script><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n 与 \int_1^{+\infty}f(x)dx敛散性相同</script></blockquote>
+</li>
+</ul>
+<h2 id="交错级数"><a href="#交错级数" class="headerlink" title="交错级数"></a>交错级数</h2><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty (-1)^{n-1}u_n, u_n>0</script><ul>
+<li>莱布尼茨判别法：<script type="math/tex">\begin{cases} \lim\limits_{n\to\infty}u_n=0,\\ u_n\geq u_{n+1}(u_n单调不增) \end{cases} \Rightarrow 级数收敛</script></li>
+</ul>
+<h2 id="任意级数"><a href="#任意级数" class="headerlink" title="任意级数"></a>任意级数</h2><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty  u_n , u_n无符号限制</script><ul>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty \left| u_n \right|收敛\Rightarrow\sum\limits_{n=1}^\infty u_n 绝对收敛</script></li>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty \left| u_n \right|发散，\sum\limits_{n=1}^\infty u_n收敛 \Rightarrow \sum\limits_{n=1}^\infty  u_n 条件收敛</script></li>
+</ul>
+<h1 id="二、幂级数"><a href="#二、幂级数" class="headerlink" title="二、幂级数"></a>二、幂级数</h1><h2 id="1、性质-1"><a href="#1、性质-1" class="headerlink" title="1、性质"></a>1、性质</h2><h3 id="幂级数定义"><a href="#幂级数定义" class="headerlink" title="幂级数定义"></a>幂级数定义</h3><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n(x) = \sum\limits_{n=1}^\infty a_n(x-x_0)^n = a_0 + a_1(x-x_0)^1 + a_2(x-x_0)^2 + ... + a_n(x-x_n)^n + ...</script><h3 id="收敛域与收敛点"><a href="#收敛域与收敛点" class="headerlink" title="收敛域与收敛点"></a>收敛域与收敛点</h3><p>若<script type="math/tex">x\in I</script>，有<script type="math/tex">\sum\limits_{n=1}^\infty u_n(x_0)</script>收敛，则<script type="math/tex">x_0</script>为其收敛点；如果发散，就称为发散点。</p>
+<p>收敛点的集合称为收敛域</p>
+<h3 id="收敛半径，收敛区间和收敛域"><a href="#收敛半径，收敛区间和收敛域" class="headerlink" title="收敛半径，收敛区间和收敛域"></a>收敛半径，收敛区间和收敛域</h3><ul>
+<li>收敛半径：<script type="math/tex">R</script></li>
+<li>收敛区间：<script type="math/tex">-R<(x-x_0) < R</script></li>
+<li>收敛域：考虑端点是否能够取得</li>
+</ul>
+<h2 id="2、具体问题"><a href="#2、具体问题" class="headerlink" title="2、具体问题"></a>2、具体问题</h2><p>记录一个知识点，级数缺项：有的项其系数为0（如奇数项级数或者偶数项级）。</p>
+<ul>
+<li><p>不缺项幂级数<script type="math/tex">\sum\limits_{n=0}^\infty a_n(x-x_0)^n</script>：</p>
+<blockquote>
+<script type="math/tex; mode=display">\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n} \right| = \rho</script><script type="math/tex; mode=display">\rho = \frac{1}{\rho};\quad\rho = 0,R= +\infty;\quad \rho=+\infty,R = 0</script></blockquote>
+</li>
+<li><p>缺项幂级数（比如只有奇数项或者偶数项，直接用这个方法即可）：</p>
+<blockquote>
+<ul>
+<li>令 <script type="math/tex">\lim\limits_{n\to\infty} \left|\frac{u_{n+1}(x)}{u_n(x)}\right|(或\lim\limits_{n\to\infty} \sqrt[n]{\left| u_n(x) \right|}) < 1</script>，求出收敛区间<script type="math/tex">x\in(a,b)</script></li>
+<li>具体讨论端点<script type="math/tex">a,b</script>的值，确定收敛域</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="3、抽象问题"><a href="#3、抽象问题" class="headerlink" title="3、抽象问题"></a>3、抽象问题</h2><p>假如没有告诉你的级数的具体形式，而是给你抽象的，那就用这个方法。</p>
+<ul>
+<li><p>阿贝尔定理，对于级数<script type="math/tex">\sum\limits_{n=0}^{\infty} a_n(x-x_0)^n</script>，设收敛半径为<script type="math/tex">R</script>，在点<script type="math/tex">x_1</script>处有</p>
+<blockquote>
+<ul>
+<li>收敛，<script type="math/tex">|x_1-x_0|\leq R</script></li>
+<li>发散，<script type="math/tex">|x_1-x_0|\geq R</script></li>
+<li><strong>条件收敛</strong>，<script type="math/tex">R = |x_1-x_0|</script>，这一条非常重要，另外两条不能确定R，这条可以</li>
+</ul>
+</blockquote>
+</li>
+<li><p>收敛半径不变化</p>
+<blockquote>
+<ul>
+<li>对级数提出或乘以<script type="math/tex">(x-x_0)^k</script>，或者平移。收敛半径不变化</li>
+<li>求导，收敛半径不变，收敛域可能缩小</li>
+<li>积分，收敛半径不变，收敛域可能扩大</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="4、常用公式"><a href="#4、常用公式" class="headerlink" title="4、常用公式"></a>4、常用公式</h2><p>至于如何求届收敛域呢？首先就是<strong>第2点中的缺项幂级数</strong>，然后就是根据<strong>定义域</strong>来。双重确定。</p>
+<p>下面记住几个基本公式，并且推导出其扩展公式，推导的时候，抓住<strong>收敛半径</strong>不变，确定<strong>端点</strong>（用定义域）的进而确定收敛域范围。</p>
+<ul>
+<li><script type="math/tex; mode=display">\ln(1+x) = \sum\limits_{n=1}^\infty (-1)^{n-1}\cdot\frac{x^n}{n},\quad x\in(-1,1]</script><blockquote>
+<ul>
+<li><script type="math/tex; mode=display">\ln(1-x) = -\sum\limits_{n=1}^\infty \frac{x^n}{n},\quad x\in[-1,1)</script></li>
+<li><script type="math/tex; mode=display">\frac{1}{1+x} = \sum\limits_{n=0}^\infty (-1)^{n}\cdot x^n,\quad x\in(-1,1]</script></li>
+<li><script type="math/tex">\frac{1}{1-x} = \sum\limits_{n=0}^\infty  x^n,\quad x\in[-1,1)</script>，<strong>重点</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><script type="math/tex; mode=display">\arctan x = \sum\limits_{n=0}^\infty (-1)^n \cdot\frac{x^{2n+1}}{2n+1},\quad x\in[-1,1]</script></li>
+<li><script type="math/tex; mode=display">e^x = \sum\limits_{n=0}^\infty \frac{x^n}{n!},\quad x\in(-\infty, +\infty)</script><blockquote>
+<script type="math/tex; mode=display">e^{-x} = \sum\limits_{n=0}^\infty (-1)^n\frac{x^n}{n!},\quad x\in(-\infty, +\infty)</script><script type="math/tex; mode=display">\frac{e^x+e^{-x}}{2} = \sum\limits_{n=0}^\infty \frac{x^{2n}}{(2n)!},\quad x\in(-\infty, +\infty)</script><script type="math/tex; mode=display">\frac{e^x-e^{-x}}{2} = \sum\limits_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!},\quad x\in(-\infty, +\infty)</script></blockquote>
+</li>
+<li><script type="math/tex; mode=display">\sin x = \sum\limits_{n=0}^\infty (-1)^n\cdot \frac{x^(2n+1)}{(2n+1)!},\quad x\in(-\infty,+\infty)</script><blockquote>
+<script type="math/tex; mode=display">\cos x = \sum\limits_{n=0}^\infty (-1)^n\cdot \frac{x^(2n)}{(2n)!},\quad x\in(-\infty,+\infty)</script></blockquote>
+</li>
+</ul>
+<h1 id="三、傅里叶级数"><a href="#三、傅里叶级数" class="headerlink" title="三、傅里叶级数"></a>三、傅里叶级数</h1><h2 id="1、迪利克雷收敛定律"><a href="#1、迪利克雷收敛定律" class="headerlink" title="1、迪利克雷收敛定律"></a>1、迪利克雷收敛定律</h2><script type="math/tex; mode=display">f(x)$$的傅里叶级数在$$[-l,l]$$上处处收敛，其和函数为$$S(x)</script><script type="math/tex; mode=display">S(x) = \begin{cases} f(x),&x为连续点\\ \frac{f(x-0)+f(x+0)}{2},&x为间断点\\\frac{f(-l+0)+f(l-0)}{2},&x=\pm l \end{cases}</script><h2 id="2、傅里叶公式"><a href="#2、傅里叶公式" class="headerlink" title="2、傅里叶公式"></a>2、傅里叶公式</h2><h3 id="设周期为2l"><a href="#设周期为2l" class="headerlink" title="设周期为2l"></a>设<strong>周期</strong>为<script type="math/tex">2l</script></h3><script type="math/tex; mode=display">f(x)\sim \frac{a_0}{2} + \sum\limits_{n=1}^\infty \left( a_n\cos \frac{n\pi x}{l} + b_n \sin \frac{n\pi x}{l} \right)</script><script type="math/tex; mode=display">\begin{cases}a_0 = \frac{1}{l}\int_{-l}^l f(x) dx \\ a_n = \frac{1}{l}\int_{-l}^l  f(x) \cos \frac{n\pi x}{l} dx,&n=1,2,... \\ b_n = \frac{1}{l}\int_{-l}^l  f(x) \sin \frac{n\pi x}{l} dx,&n=0,1,...  \end{cases}</script><ul>
+<li>如果<script type="math/tex">f(x)</script>为奇函数，展开式为正弦函数，只有<script type="math/tex">b</script></li>
+<li>如果<script type="math/tex">f(x)</script>为偶函数，展开式为余弦函数，只有<script type="math/tex">a</script></li>
+</ul>
+<h3 id="如果只要-0-l-有定义"><a href="#如果只要-0-l-有定义" class="headerlink" title="如果只要[0,l]有定义"></a>如果只要<script type="math/tex">[0,l]</script>有定义</h3><p>做奇延拓或者偶延拓，即定义另一边的函数，用原函数来定义。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+    </div>
+</div>
+<style>
+    #noneimg img {
+        display: none;
+        z-index: 109;
+        width: 600px !important;
+        border-radius: 0px;
+        position: fixed;
+        box-shadow: 0 0 0px #c3c3c300 !important;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto !important;
+    }
+
+    @media screen and (max-width:600px) {
+        #noneimg img {
+            width: 88%
+        }
+    }
+</style>
+<script>
+    $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
+</script>
+<div class="Last-Next">
+    
+    <a href="/2022/10/09/%E7%A9%BA%E9%97%B4%E6%9B%B2%E7%BA%BF%E6%9B%B2%E9%9D%A2%E4%BB%A5%E5%8F%8A%E6%A2%AF%E6%95%A3%E6%97%8B%E5%BA%A6/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>空间曲线曲面以及梯散旋度</p>
+        </div>
+    </a>
+    
+
+    
+    <a href="/2022/10/06/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6/">
+        <div class="next">
+            <span>下一篇</span>
+            <p>多元函数积分学</p>
+        </div>
+    </a>
+    
+</div>
+		
+<link rel="stylesheet" href="/css/food.css">
+
+<div class="footer">
+	<div class="Copyright">
+		©2022 By MINZHI.    本站总访问量：
+		<!-- . 主题：<a
+			style="text-decoration: none;display: contents; color: #898F9F;"
+			target="_blank" rel="noopener" href="https://github.com/qiaobug/hexo-theme-quiet">Quiet</a> -->
+	<!-- </div>
+	<div class="Copyright"> -->
+		<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+		<span id="busuanzi_container_site_pv"><span id="busuanzi_value_site_pv"></span>次。</span>
+		<span>
+			<a style="text-decoration: none;display: contents; color: #898F9F;"
+				target="_blank" rel="noopener" href="https://beian.miit.gov.cn">
+				湘ICP备2022006759号
+			</a>
+		</span>
+	</div>
+	<div class="contact">
+		
+		<a target="_blank" rel="noopener" href="https://github.com/MinzhiYoyo">
+			<img src="https://imagere.oss-cn-beijing.aliyuncs.com/img/202204241803604.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2498369702&amp;site=qq&amp;menu=yes">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144258400.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://t.me/Yoyesam">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145144831592.png" alt="Quiet主题">
+		</a>
+		
+		<a href="mailto:2498369702@qq.com">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145415984.png" alt="Quiet主题">
+		</a>
+		
+		<a target="_blank" rel="noopener" href="https://space.bilibili.com/178629981?spm_id_from=333.337.0.0">
+			<img src="http://imagere.oss-cn-beijing.aliyuncs.com/img/20220525145145970793.png" alt="Quiet主题">
+		</a>
+		
+	</div>
+</div>
+
+<script src='https://unpkg.com/mermaid@8.0.0/dist/mermaid.min.js'></script>
+<script>
+	if (window.mermaid) {
+		// console.log('开启mermaid');
+		mermaid.initialize({ theme: 'forest' });
+	}
+</script>
+
+<script src="/js/jquery.min.js"></script>
+
+
+<script src="/js/gotop.js"></script>
+
+
+<style type="text/css">
+    @media screen and (min-width: 600px) {
+        .goTop>span {
+            display: block;
+            border-radius: 50%;
+            width: 66px;
+            height: 66px;
+            cursor: pointer;
+            opacity: 0.8;
+            background: rgba(18, 24, 58, 0.06);
+            text-align: center;
+            border: 1px solid rgba(18, 24, 58, 0.06);
+
+            transition: border .5s;
+            -moz-transition: border .5s;
+            /* Firefox 4 */
+            -webkit-transition: border .5s;
+            /* Safari 和 Chrome */
+            -o-transition: border .5s;
+            /* Opera */
+        }
+
+        .goTop>span:hover {
+            border: 1px solid #6680B3;
+        }
+
+
+        .goTop {
+            position: fixed;
+            right: 30px;
+            bottom: 80px;
+        }
+
+        .goTop>span>svg {
+            width: 30px;
+            height: 30px;
+            margin-top: 17.5px;
+            opacity: 0.7;
+        }
+
+    }
+
+    @media screen and (max-width: 600px) {
+        .goTop {
+            display: none;
+        }
+    }
+</style>
+<div class="goTop" id="js-go_top">
+    <span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <g>
+                <path d="M13 12v8h-2v-8H4l8-8 8 8z"></path>
+            </g>
+        </svg>
+    </span>
+</div>
+<script>
+    $('#js-go_top').gotoTop({ offset: 500, speed: 300, animationShow: { 'transform': 'translate(0,0)', 'transition': 'transform .5s ease-in-out' }, animationHide: { 'transform': 'translate(100px,0)', 'transition': 'transform .5s ease-in-out' } });
+</script>
+
+		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
+		<script>hljs.initHighlightingOnLoad();</script>
+	</body>
+
+</html>
