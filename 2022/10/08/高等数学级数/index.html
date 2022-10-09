@@ -3,14 +3,14 @@
 
 	<head>
 		
-<title>多元函数积分学-雨探青鸟</title>
+<title>高等数学级数-雨探青鸟</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="shortcut icon" type="image/x-icon" href="/image/favicon.ico">
 
 
-<meta name="keywords" content="考研,数学,曲线积分,曲面积分,二重积分,三重积分,">
+<meta name="keywords" content="考研,数学,级数,傅里叶级数,">
 <meta name="description" content="考研数学中的多元函数积分学知识汇总">
 
 
@@ -314,17 +314,13 @@
             
             <li><a href="/tags/数学">数学</a></li>
             
-            <li><a href="/tags/曲线积分">曲线积分</a></li>
+            <li><a href="/tags/级数">级数</a></li>
             
-            <li><a href="/tags/曲面积分">曲面积分</a></li>
-            
-            <li><a href="/tags/二重积分">二重积分</a></li>
-            
-            <li><a href="/tags/三重积分">三重积分</a></li>
+            <li><a href="/tags/傅里叶级数">傅里叶级数</a></li>
             
             
         </ul>
-        <h1>多元函数积分学</h1>
+        <h1>高等数学级数</h1>
         <div class="article-info">
             <div class="article-author">
                 
@@ -337,100 +333,132 @@
                 </svg>
                 
                 <span> <a href="">MINZHI</a></span>
-                <p>2022-10-06 18:29:16</p>
+                <p>2022-10-08 15:15:08</p>
             </div>
         </div>
     </div>
 </div>
 <div class="article-content">
     <div id="article" class="content">
-        <h1 id="二重积分"><a href="#二重积分" class="headerlink" title="二重积分"></a>二重积分</h1><h2 id="1、意义："><a href="#1、意义：" class="headerlink" title="1、意义："></a>1、意义：</h2><ul>
-<li>表示曲顶柱体的体积</li>
-<li>表示面密度为<script type="math/tex">f(x,y)</script>的平面的面质量</li>
+        <h1 id="一、数项级数"><a href="#一、数项级数" class="headerlink" title="一、数项级数"></a>一、数项级数</h1><h2 id="1、性质"><a href="#1、性质" class="headerlink" title="1、性质"></a>1、性质</h2><ul>
+<li><script type="math/tex">\sum\limits_{n=1}^\infty u_n收敛 \Leftrightarrow \lim\limits_{n\to\infty}S_n存在</script>（充要条件）</li>
+<li><script type="math/tex">\sum\limits_{n=1}^\infty u_n收敛 \Rightarrow \lim\limits_{n\to\infty}u_n=0</script>（必要条件）</li>
+<li>收敛，可以不看前有限项，因为前有限项是常数</li>
 </ul>
-<h2 id="2、计算"><a href="#2、计算" class="headerlink" title="2、计算"></a>2、计算</h2><h3 id="和式极限"><a href="#和式极限" class="headerlink" title="和式极限"></a>和式极限</h3><script type="math/tex; mode=display">\iint \limits_{D} f(x,y) d\sigma = \lim \limits_{n \to \infty} \sum \limits_{i=1}^{n} \sum \limits_{j=1}^n f(a + \frac{b-a}{n} i, c + \frac{d-c}{n}j) \cdot \frac{b-a}{n} \cdot \frac{d-c}{n}</script><h3 id="对称性计算"><a href="#对称性计算" class="headerlink" title="对称性计算"></a>对称性计算</h3><p>积分区域关于x对称，就看积分函数是否关于y对称</p>
-<h3 id="轮换对称性"><a href="#轮换对称性" class="headerlink" title="轮换对称性"></a>轮换对称性</h3><p>积分区域关于 <script type="math/tex">y = x</script> 对称，就具有轮换对称性 <script type="math/tex">I = \iint \limits_D f(x,y)dxdy = \iint \limits_D f(x,y) dx dy</script></p>
-<h3 id="二重积分比大小"><a href="#二重积分比大小" class="headerlink" title="二重积分比大小"></a>二重积分比大小</h3><ul>
-<li>对称性</li>
-<li>保号性</li>
-<li>画图</li>
-</ul>
-<h2 id="3、两大坐标系计算"><a href="#3、两大坐标系计算" class="headerlink" title="3、两大坐标系计算"></a>3、两大坐标系计算</h2><h3 id="（1）直角坐标系"><a href="#（1）直角坐标系" class="headerlink" title="（1）直角坐标系"></a>（1）直角坐标系</h3><h3 id="（2）-极坐标系"><a href="#（2）-极坐标系" class="headerlink" title="（2） 极坐标系"></a>（2） 极坐标系</h3><h3 id="（3）"><a href="#（3）" class="headerlink" title="（3）"></a>（3）</h3><h1 id="第一型曲线积分"><a href="#第一型曲线积分" class="headerlink" title="第一型曲线积分"></a>第一型曲线积分</h1><h2 id="1、二重直接计算"><a href="#1、二重直接计算" class="headerlink" title="1、二重直接计算"></a>1、二重直接计算</h2><script type="math/tex; mode=display">(1) \int_L f(x,y) ds = \int_a^b f[x, y(x)] \sqrt{1+(y'_x)^2}dx\\ (2)\int_L f(x,y) ds = \int_{\alpha}^{\beta} f[x(t), y(t)] \sqrt{(x_t')^2+(y_t')^2}dt \\ (3)\int_L f(x,y) ds = \int_{\alpha}^{\beta} f[r(\theta)cos\theta, r(\theta)sin\theta]\sqrt{[r(\theta)]^2 + [r'(\theta)]^2}</script><h1 id="第一型曲面积分"><a href="#第一型曲面积分" class="headerlink" title="第一型曲面积分"></a>第一型曲面积分</h1><h2 id="1、直接计算"><a href="#1、直接计算" class="headerlink" title="1、直接计算"></a>1、直接计算</h2><script type="math/tex; mode=display">\iint \limits_{\Sigma} f(x,y,z) dS = \iint \limits_{D_{xy}}f[x,y,z(x,y)]\sqrt{1+(z'_x)^2+(z_y')^2}dxdy</script><h1 id="第二型曲线积分"><a href="#第二型曲线积分" class="headerlink" title="第二型曲线积分"></a>第二型曲线积分</h1><h2 id="1、直接计算-1"><a href="#1、直接计算-1" class="headerlink" title="1、直接计算"></a>1、直接计算</h2><p>不要小看这个方法，建议最先用这个方法</p>
-<script type="math/tex; mode=display">\int_L P(x,y)dx + Q(x,y)dy = \int_\alpha^\beta \{P[x(t),y(t)]x'(t) + Q[x(t),y(t)]y'(t)\}</script><script type="math/tex; mode=display">\int_\Gamma Pdx + Qdy + Rdz = \int_\alpha^\beta \{ P[x(t),y(t),z(t)]x'(t) + Q[x(t),y(t),z(t)]y'(t) + R[x(t), y(t),z(t)]z'(t) \} dt</script><h2 id="2、格林公式"><a href="#2、格林公式" class="headerlink" title="2、格林公式"></a>2、格林公式</h2><script type="math/tex; mode=display">\oint_L P(x,y)dx+Q(x,y)dy = \iint\limits_D(\frac{\partial Q}{\partial x}-\frac{\partial P}{\partial y})d \sigma</script><ul>
-<li><p>曲线封闭</p>
+<h2 id="2、正项级数（每一项都是正数）"><a href="#2、正项级数（每一项都是正数）" class="headerlink" title="2、正项级数（每一项都是正数）"></a>2、正项级数（每一项都是正数）</h2><ul>
+<li><script type="math/tex; mode=display">S_n有界 \Leftrightarrow \sum\limits_{n=1}^\infty u_n</script></li>
+<li><p>比较判别法：<script type="math/tex">对于n \geq M时，有u_n \leq v_n</script>，</p>
 <blockquote>
 <ul>
-<li><p>内部有奇点</p>
-<blockquote>
-<p>在内部使用一个小圆圈消除它</p>
-</blockquote>
-</li>
-<li><p>内部无奇点</p>
-<blockquote>
-<p>直接使用格林公式</p>
-</blockquote>
-</li>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty v_n 收敛 \Rightarrow \sum\limits_{n=1}^\infty u_n收敛</script></li>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n 发散 \Rightarrow \sum\limits_{n=1}^\infty v_n 发散</script></li>
 </ul>
 </blockquote>
 </li>
-<li><p>曲线不封闭</p>
+<li><p>极限比较判别法：<script type="math/tex">a = \lim\limits_{n \to \infty} \frac{u_n}{v_n}</script></p>
 <blockquote>
 <ul>
-<li><p>如果积分与路径无关</p>
-<blockquote>
-<p>换条路经，见第3点</p>
-</blockquote>
-</li>
-<li><p>如果积分与路径有关</p>
-<blockquote>
-<p>补线，用格林公式（<strong>注意：</strong>补线所经之处，躲避<strong>奇点</strong>）</p>
-</blockquote>
-</li>
+<li><script type="math/tex">a = 0</script>：<script type="math/tex">u_n \leq v_n</script>（剩下的看上一点）</li>
+<li><script type="math/tex">a = \infty</script>：<script type="math/tex">u_n \geq v_n</script>（剩下的看上一点）</li>
+<li><script type="math/tex; mode=display">a = A\neq 0$$：$$u_n,v_n同敛散</script></li>
 </ul>
-</blockquote>
-</li>
-</ul>
-<h2 id="3、积分与路径无关"><a href="#3、积分与路径无关" class="headerlink" title="3、积分与路径无关"></a>3、积分与路径无关</h2><p>下面四个问题等价</p>
+<p>那么，如何选取另一个来比较呢？</p>
 <ul>
-<li><script type="math/tex">\int_{L_{AB}} P(x,y)dx + Q(x,y)dy</script>与路径无关</li>
-<li><script type="math/tex">Pdx + Qdy</script>为某二元函数<script type="math/tex">u(x,y)</script>的全微分</li>
-<li><script type="math/tex">Pdx+Qdy=0</script>为全微分方程</li>
-<li><script type="math/tex">P\boldsymbol{i} + Q\boldsymbol{j}</script>为某二元函数<script type="math/tex">u(x,y)</script>的梯度</li>
-<li>沿D内任意分段光滑闭曲线L都有<script type="math/tex">\oint_L Pdx + Qdy = 0</script></li>
-<li><script type="math/tex">\frac{\partial P}{\partial y} \equiv \frac{\partial Q}{\partial x}</script>处处成立</li>
+<li>等比级数：<script type="math/tex">\sum\limits_{n=1}^\infty aq^{n-1} \begin{cases} = \frac{a}{1-q},& \left|  q \right| < 1 \\ 发散, & \left| q \right| \geq 1 \end{cases}</script></li>
+<li><code>p</code>级数：<script type="math/tex">\sum\limits_{n=1}^{\infty} \frac{1}{n^p} \begin{cases} 收敛, & p>1\\发散,&p\leq1 \end{cases}</script></li>
+<li>广义<code>p</code>级数：<script type="math/tex">\sum\limits_{n=2}^{\infty} \frac{1}{n(\ln n)^p} \begin{cases}收敛,& p>1\\发散,& p\leq1\end{cases}</script></li>
+<li>交错<code>p</code>级数：<script type="math/tex">\sum\limits_{n=1}^\infty (-1)^{n-1}\frac{1}{n^p} \begin{cases}绝对收敛，& p > 1 \\ 条件收敛，& 0<p\leq1 \end{cases}</script></li>
 </ul>
-<p>三重积分上路径无关</p>
+</blockquote>
+<p><strong>下面开始，都是跟自己比较：</strong></p>
+</li>
+<li><p>比值判别法（达朗贝尔）</p>
+<blockquote>
+<script type="math/tex; mode=display">\lim\limits_{n \to \infty}\frac{u^{n+1}}{u^n} = \rho \begin{cases} <1,&收敛\\>1,&发散\\=1,&失效 \end{cases}</script></blockquote>
+</li>
+<li><p>根值判别法（柯西）</p>
+<blockquote>
+<script type="math/tex; mode=display">\lim\limits_{n\to\infty}\sqrt[n]{u_n} = \rho \begin{cases} <1,&收敛\\>1,&发散\\=1,&失效 \end{cases}</script></blockquote>
+</li>
+<li><p>积分判别法（柯西）</p>
+<blockquote>
+<script type="math/tex; mode=display">f(x)\geq 0,连续,x\in\left[1,+\infty \right], u_n = f(n)</script><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n 与 \int_1^{+\infty}f(x)dx敛散性相同</script></blockquote>
+</li>
+</ul>
+<h2 id="交错级数"><a href="#交错级数" class="headerlink" title="交错级数"></a>交错级数</h2><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty (-1)^{n-1}u_n, u_n>0</script><ul>
+<li>莱布尼茨判别法：<script type="math/tex">\begin{cases} \lim\limits_{n\to\infty}u_n=0,\\ u_n\geq u_{n+1}(u_n单调不增) \end{cases} \Rightarrow 级数收敛</script></li>
+</ul>
+<h2 id="任意级数"><a href="#任意级数" class="headerlink" title="任意级数"></a>任意级数</h2><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty  u_n , u_n无符号限制</script><ul>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty \left| u_n \right|收敛\Rightarrow\sum\limits_{n=1}^\infty u_n 绝对收敛</script></li>
+<li><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty \left| u_n \right|发散，\sum\limits_{n=1}^\infty u_n收敛 \Rightarrow \sum\limits_{n=1}^\infty  u_n 条件收敛</script></li>
+</ul>
+<h1 id="二、幂级数"><a href="#二、幂级数" class="headerlink" title="二、幂级数"></a>二、幂级数</h1><h2 id="1、性质-1"><a href="#1、性质-1" class="headerlink" title="1、性质"></a>1、性质</h2><h3 id="幂级数定义"><a href="#幂级数定义" class="headerlink" title="幂级数定义"></a>幂级数定义</h3><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n(x) = \sum\limits_{n=1}^\infty a_n(x-x_0)^n = a_0 + a_1(x-x_0)^1 + a_2(x-x_0)^2 + ... + a_n(x-x_n)^n + ...</script><h3 id="收敛域与收敛点"><a href="#收敛域与收敛点" class="headerlink" title="收敛域与收敛点"></a>收敛域与收敛点</h3><p>若<script type="math/tex">x\in I</script>，有<script type="math/tex">\sum\limits_{n=1}^\infty u_n(x_0)</script>收敛，则<script type="math/tex">x_0</script>为其收敛点；如果发散，就称为发散点。</p>
+<p>收敛点的集合称为收敛域</p>
+<h3 id="收敛半径，收敛区间和收敛域"><a href="#收敛半径，收敛区间和收敛域" class="headerlink" title="收敛半径，收敛区间和收敛域"></a>收敛半径，收敛区间和收敛域</h3><ul>
+<li>收敛半径：<script type="math/tex">R</script></li>
+<li>收敛区间：<script type="math/tex">-R<(x-x_0) < R</script></li>
+<li>收敛域：考虑端点是否能够取得</li>
+</ul>
+<h2 id="2、具体问题"><a href="#2、具体问题" class="headerlink" title="2、具体问题"></a>2、具体问题</h2><p>记录一个知识点，级数缺项：有的项其系数为0（如奇数项级数或者偶数项级）。</p>
 <ul>
-<li><script type="math/tex">\boldsymbol{rot F} = 0</script> 积分与路径无关</li>
-</ul>
-<h2 id="4、两类曲线积分联系"><a href="#4、两类曲线积分联系" class="headerlink" title="4、两类曲线积分联系"></a>4、两类曲线积分联系</h2><script type="math/tex; mode=display">\int_L P dx + Qdy = \int_L(Pcos\alpha + Qsin\alpha)ds\\ (cos\alpha , sin \alpha) 为L在点(x,y)与L同向的切向量</script><h2 id="5、斯托克公式"><a href="#5、斯托克公式" class="headerlink" title="5、斯托克公式"></a>5、斯托克公式</h2><p>将空间第二型曲线积分化成第二型曲面积分或者第一型曲面积分</p>
-<script type="math/tex; mode=display">\oint\limits_\Gamma Pdx+Qdy+Rdz = \\ \iint\limits_\Sigma \left |\begin{array}{ccc}
-dydz &dzdx   &dxdy \\
-\frac{\partial}{\partial x} &\frac{\partial}{\partial y} &\frac{\partial}{\partial z}  \\
-P &Q &R \\ \end{array}\right| (第二型曲面积分)\\   \iint \limits_\Sigma \left |\begin{array}{ccc}
-cos\alpha &cos\beta   &cos\gamma \\
-\frac{\partial}{\partial x} &\frac{\partial}{\partial y} &\frac{\partial}{\partial z}  \\
-P &Q &R \\ \end{array}\right| dS (第一型曲面积分)</script><script type="math/tex; mode=display">\oint_L \vec{F} = \iint_\Sigma rot\vec{F} dS</script><h1 id="第二型曲面积分"><a href="#第二型曲面积分" class="headerlink" title="第二型曲面积分"></a>第二型曲面积分</h1><h2 id="1、直接计算-2"><a href="#1、直接计算-2" class="headerlink" title="1、直接计算"></a>1、直接计算</h2><p>不要小看第1、2方法，建议最先用这两个方法看看</p>
-<script type="math/tex; mode=display">\iint_\Sigma R(x,y,z)dxdy = \pm \iint_{D_{xy}}R[x,y,z(x,y)]dxdy</script><p>其余同理，当<script type="math/tex">\Sigma</script>与<script type="math/tex">z</script>轴成锐角取+，成钝角取-</p>
-<h2 id="2、转换投影法"><a href="#2、转换投影法" class="headerlink" title="2、转换投影法"></a>2、转换投影法</h2><p>如果<script type="math/tex">\Sigma</script>上任意两点到<script type="math/tex">xOy</script>平面不重合</p>
-<script type="math/tex; mode=display">\iint_\Sigma P(x,yz)dydz + Q(x,y,z)dzdx + R(x,y,z)dxdy = \pm \iint\limits_{D{xy}}\{p[x,y,z(x,y)](-\frac{\partial z}{\partial x}) + Q[x,y,z(x,y)](-\frac{\partial z}{\partial y}) + R[x,y,z(x,y)] \}dxdy</script><h2 id="3、高斯公式"><a href="#3、高斯公式" class="headerlink" title="3、高斯公式"></a>3、高斯公式</h2><script type="math/tex; mode=display">\oiint \limits_\Sigma Pdydz + Qdzdx + Rdxdy = \iiint \limits_\Omega (\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z})dv</script><ul>
-<li><p>曲面封闭</p>
+<li><p>不缺项幂级数<script type="math/tex">\sum\limits_{n=0}^\infty a_n(x-x_0)^n</script>：</p>
+<blockquote>
+<script type="math/tex; mode=display">\lim\limits_{n\to\infty} \left|\frac{a_{n+1}}{a_n} \right| = \rho</script><script type="math/tex; mode=display">\rho = \frac{1}{\rho};\quad\rho = 0,R= +\infty;\quad \rho=+\infty,R = 0</script></blockquote>
+</li>
+<li><p>缺项幂级数（比如只有奇数项或者偶数项，直接用这个方法即可）：</p>
 <blockquote>
 <ul>
-<li>内部无奇点：直接高斯公式</li>
-<li>内部有奇点：用一个封闭圈将奇点圈出来</li>
+<li>令 <script type="math/tex">\lim\limits_{n\to\infty} \left|\frac{u_{n+1}(x)}{u_n(x)}\right|(或\lim\limits_{n\to\infty} \sqrt[n]{\left| u_n(x) \right|}) < 1</script>，求出收敛区间<script type="math/tex">x\in(a,b)</script></li>
+<li>具体讨论端点<script type="math/tex">a,b</script>的值，确定收敛域</li>
 </ul>
 </blockquote>
 </li>
-<li><p>曲面不封闭</p>
+</ul>
+<h2 id="3、抽象问题"><a href="#3、抽象问题" class="headerlink" title="3、抽象问题"></a>3、抽象问题</h2><p>假如没有告诉你的级数的具体形式，而是给你抽象的，那就用这个方法。</p>
+<ul>
+<li><p>阿贝尔定理，对于级数<script type="math/tex">\sum\limits_{n=0}^{\infty} a_n(x-x_0)^n</script>，设收敛半径为<script type="math/tex">R</script>，在点<script type="math/tex">x_1</script>处有</p>
 <blockquote>
 <ul>
-<li><script type="math/tex">div \boldsymbol{F} = 0</script>：换个面积分</li>
-<li><script type="math/tex">div \boldsymbol{F} \neq 0</script>：补面使其封闭</li>
+<li>收敛，<script type="math/tex">|x_1-x_0|\leq R</script></li>
+<li>发散，<script type="math/tex">|x_1-x_0|\geq R</script></li>
+<li><strong>条件收敛</strong>，<script type="math/tex">R = |x_1-x_0|</script>，这一条非常重要，另外两条不能确定R，这条可以</li>
+</ul>
+</blockquote>
+</li>
+<li><p>收敛半径不变化</p>
+<blockquote>
+<ul>
+<li>对级数提出或乘以<script type="math/tex">(x-x_0)^k</script>，或者平移。收敛半径不变化</li>
+<li>求导，收敛半径不变，收敛域可能缩小</li>
+<li>积分，收敛半径不变，收敛域可能扩大</li>
 </ul>
 </blockquote>
 </li>
 </ul>
+<h2 id="4、常用公式"><a href="#4、常用公式" class="headerlink" title="4、常用公式"></a>4、常用公式</h2><p>至于如何求届收敛域呢？首先就是<strong>第2点中的缺项幂级数</strong>，然后就是根据<strong>定义域</strong>来。双重确定。</p>
+<p>下面记住几个基本公式，并且推导出其扩展公式，推导的时候，抓住<strong>收敛半径</strong>不变，确定<strong>端点</strong>（用定义域）的进而确定收敛域范围。</p>
+<ul>
+<li><script type="math/tex; mode=display">\ln(1+x) = \sum\limits_{n=1}^\infty (-1)^{n-1}\cdot\frac{x^n}{n},\quad x\in(-1,1]</script><blockquote>
+<ul>
+<li><script type="math/tex; mode=display">\ln(1-x) = -\sum\limits_{n=1}^\infty \frac{x^n}{n},\quad x\in[-1,1)</script></li>
+<li><script type="math/tex; mode=display">\frac{1}{1+x} = \sum\limits_{n=0}^\infty (-1)^{n}\cdot x^n,\quad x\in(-1,1]</script></li>
+<li><script type="math/tex">\frac{1}{1-x} = \sum\limits_{n=0}^\infty  x^n,\quad x\in[-1,1)</script>，<strong>重点</strong></li>
+</ul>
+</blockquote>
+</li>
+<li><script type="math/tex; mode=display">\arctan x = \sum\limits_{n=0}^\infty (-1)^n \cdot\frac{x^{2n+1}}{2n+1},\quad x\in[-1,1]</script></li>
+<li><script type="math/tex; mode=display">e^x = \sum\limits_{n=0}^\infty \frac{x^n}{n!},\quad x\in(-\infty, +\infty)</script><blockquote>
+<script type="math/tex; mode=display">e^{-x} = \sum\limits_{n=0}^\infty (-1)^n\frac{x^n}{n!},\quad x\in(-\infty, +\infty)</script><script type="math/tex; mode=display">\frac{e^x+e^{-x}}{2} = \sum\limits_{n=0}^\infty \frac{x^{2n}}{(2n)!},\quad x\in(-\infty, +\infty)</script><script type="math/tex; mode=display">\frac{e^x-e^{-x}}{2} = \sum\limits_{n=0}^\infty \frac{x^{2n+1}}{(2n+1)!},\quad x\in(-\infty, +\infty)</script></blockquote>
+</li>
+<li><script type="math/tex; mode=display">\sin x = \sum\limits_{n=0}^\infty (-1)^n\cdot \frac{x^(2n+1)}{(2n+1)!},\quad x\in(-\infty,+\infty)</script><blockquote>
+<script type="math/tex; mode=display">\cos x = \sum\limits_{n=0}^\infty (-1)^n\cdot \frac{x^(2n)}{(2n)!},\quad x\in(-\infty,+\infty)</script></blockquote>
+</li>
+</ul>
+<h1 id="三、傅里叶级数"><a href="#三、傅里叶级数" class="headerlink" title="三、傅里叶级数"></a>三、傅里叶级数</h1><h2 id="1、迪利克雷收敛定律"><a href="#1、迪利克雷收敛定律" class="headerlink" title="1、迪利克雷收敛定律"></a>1、迪利克雷收敛定律</h2><script type="math/tex; mode=display">f(x)$$的傅里叶级数在$$[-l,l]$$上处处收敛，其和函数为$$S(x)</script><script type="math/tex; mode=display">S(x) = \begin{cases} f(x),&x为连续点\\ \frac{f(x-0)+f(x+0)}{2},&x为间断点\\\frac{f(-l+0)+f(l-0)}{2},&x=\pm l \end{cases}</script><h2 id="2、傅里叶公式"><a href="#2、傅里叶公式" class="headerlink" title="2、傅里叶公式"></a>2、傅里叶公式</h2><h3 id="设周期为2l"><a href="#设周期为2l" class="headerlink" title="设周期为2l"></a>设<strong>周期</strong>为<script type="math/tex">2l</script></h3><script type="math/tex; mode=display">f(x)\sim \frac{a_0}{2} + \sum\limits_{n=1}^\infty \left( a_n\cos \frac{n\pi x}{l} + b_n \sin \frac{n\pi x}{l} \right)</script><script type="math/tex; mode=display">\begin{cases}a_0 = \frac{1}{l}\int_{-l}^l f(x) dx \\ a_n = \frac{1}{l}\int_{-l}^l  f(x) \cos \frac{n\pi x}{l} dx,&n=1,2,... \\ b_n = \frac{1}{l}\int_{-l}^l  f(x) \sin \frac{n\pi x}{l} dx,&n=0,1,...  \end{cases}</script><ul>
+<li>如果<script type="math/tex">f(x)</script>为奇函数，展开式为正弦函数，只有<script type="math/tex">b</script></li>
+<li>如果<script type="math/tex">f(x)</script>为偶函数，展开式为余弦函数，只有<script type="math/tex">a</script></li>
+</ul>
+<h3 id="如果只要-0-l-有定义"><a href="#如果只要-0-l-有定义" class="headerlink" title="如果只要[0,l]有定义"></a>如果只要<script type="math/tex">[0,l]</script>有定义</h3><p>做奇延拓或者偶延拓，即定义另一边的函数，用原函数来定义。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
@@ -460,19 +488,12 @@ P &Q &R \\ \end{array}\right| dS (第一型曲面积分)</script><script type="m
 </script>
 <div class="Last-Next">
     
-    <a href="/2022/10/08/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6%E7%BA%A7%E6%95%B0/">
-        <div class="last">
-            <span>上一篇</span>
-            <p>高等数学级数</p>
-        </div>
-    </a>
-    
 
     
-    <a href="/2022/09/04/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF%E4%B9%8B%E5%AD%90%E7%BD%91%E5%88%86%E9%85%8D/">
+    <a href="/2022/10/06/%E5%A4%9A%E5%85%83%E5%87%BD%E6%95%B0%E7%A7%AF%E5%88%86%E5%AD%A6/">
         <div class="next">
             <span>下一篇</span>
-            <p>计算机网络技术之子网分配</p>
+            <p>多元函数积分学</p>
         </div>
     </a>
     
