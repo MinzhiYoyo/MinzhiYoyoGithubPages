@@ -3,11 +3,10 @@ title: Python爬虫学习-更加友好的教程
 cover: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141723386044.png'
 date: 2022-04-05 20:07:16
 tags:
-  - Python
-  - 爬虫
+- Python
+- 爬虫
 excerpt: '准备拿来社团授课的教程，比之前那一篇更加清晰一点'
 categories: 
-  - Python
   - 爬虫
 ---
 

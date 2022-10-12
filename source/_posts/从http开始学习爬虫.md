@@ -1,10 +1,10 @@
 ---
 title: 从http开始学习爬虫
 tags: 
-  - 爬虫
-  - http
+- 爬虫
+- http
 excerpt: 从http开始学习爬虫知识，不限于什么语言，推荐用Python
-cover: https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111740272.png
+cover: 'https://imagere.oss-cn-beijing.aliyuncs.com/img/202206111740272.png'
 categories: 
   - 爬虫
 mathjax: true

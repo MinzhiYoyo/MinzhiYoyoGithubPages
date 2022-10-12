@@ -3,11 +3,10 @@ title: Python爬虫学习
 cover: 'http://imagere.oss-cn-beijing.aliyuncs.com/img/20220605141652858875.png'
 date: 2022-04-05 20:07:16
 tags:
-  - Python
-  - 爬虫
+- Python
+- 爬虫
 excerpt: '爬虫是个好东西，轻易的下到别人下不到的东西'
 categories: 
-  - Python
   - 爬虫
 ---
 

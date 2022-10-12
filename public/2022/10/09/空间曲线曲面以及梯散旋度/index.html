@@ -373,9 +373,23 @@
 <p>具体来说：$$$$</p>
 <h2 id="2、绕一般直线旋转"><a href="#2、绕一般直线旋转" class="headerlink" title="2、绕一般直线旋转"></a>2、绕一般直线旋转</h2><p>曲线：<script type="math/tex">\Gamma = \begin{cases}F(x,y,z) = 0\\G(x,y,z) = 0 \end{cases}</script>，直线：<script type="math/tex">\frac{x-x_0}{m} = \frac{y-y_0}{n} = \frac{z-z_0}{p}</script></p>
 <h1 id="向量的运算"><a href="#向量的运算" class="headerlink" title="向量的运算"></a>向量的运算</h1><ul>
-<li>三向量共面：<script type="math/tex">\Leftrightarrow \left| \begin{array}{ccc} a_x & a_y &a_z\\b_x&b_y&b_z\\ c_x&c_y&c_z \end{array} \right| = 0</script></li>
+<li>三向量共面：<script type="math/tex">[\boldsymbol{abc}] = (\boldsymbol{a}\times\boldsymbol{b})\cdot\boldsymbol{c} = \Leftrightarrow \left| \begin{array}{ccc} a_x & a_y &a_z\\b_x&b_y&b_z\\ c_x&c_y&c_z \end{array} \right| = 0</script></li>
 </ul>
-<h1 id="直线与平面关系（P359）"><a href="#直线与平面关系（P359）" class="headerlink" title="直线与平面关系（P359）"></a>直线与平面关系（P359）</h1><h1 id="场论初步"><a href="#场论初步" class="headerlink" title="场论初步"></a>场论初步</h1><h2 id="方向导数"><a href="#方向导数" class="headerlink" title="方向导数"></a>方向导数</h2><h2 id="梯度"><a href="#梯度" class="headerlink" title="梯度"></a>梯度</h2><h2 id="散度"><a href="#散度" class="headerlink" title="散度"></a>散度</h2><h2 id="旋度"><a href="#旋度" class="headerlink" title="旋度"></a>旋度</h2><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
+<h1 id="直线与平面关系（P359）"><a href="#直线与平面关系（P359）" class="headerlink" title="直线与平面关系（P359）"></a>直线与平面关系（P359）</h1><h2 id="平面束方程"><a href="#平面束方程" class="headerlink" title="平面束方程"></a>平面束方程</h2><p>&emsp;假设平面1、2方程：<script type="math/tex">\begin{cases} A_1x+B_1y+C_1z+D_1=0 \\ A_2x+B_2y+C_2z+D_2=0 \end{cases},\quad 其中A_1,B_1,C_1与A_2,B_2,C_2</script>不成比例。设L为两个平面的交线，则过该交线的平面束方程设为：<script type="math/tex">\mu (A_1x+B_1y+C_1z+D_1) + \lambda(A_2x+B_2y+C_2z+D_2) = 0,\quad \mu,\lambda</script>为参数。</p>
+<p>&emsp;除此之外，对于具体题目，如果说过该交线的平面，但是不是平面1（2）的方程，那么就将上述的<script type="math/tex">\mu</script>（<script type="math/tex">\lambda</script>）设置为1。</p>
+<h2 id="点到平面的距离"><a href="#点到平面的距离" class="headerlink" title="点到平面的距离"></a>点到平面的距离</h2><p>点<script type="math/tex">P(x_0,y_0,z_0)</script>到平面<script type="math/tex">Ax+By+Cz+D = 0</script>的距离<script type="math/tex">d = \frac{\left|Ax_0+By_0+Cz_0+D\right|}{\sqrt{A^2+B^2+C^2}}</script></p>
+<h2 id="直线、平面之间的关系"><a href="#直线、平面之间的关系" class="headerlink" title="直线、平面之间的关系"></a>直线、平面之间的关系</h2><p>&emsp;抓住直线的<strong>切向量</strong>与平面的<strong>法向量</strong>，那么问题就迎刃而解了。</p>
+<h1 id="场论初步"><a href="#场论初步" class="headerlink" title="场论初步"></a>场论初步</h1><h2 id="方向导数（值）"><a href="#方向导数（值）" class="headerlink" title="方向导数（值）"></a>方向导数（值）</h2><p>&emsp;设函数<script type="math/tex">u=u(x,y,z)</script>在点<script type="math/tex">P_0(x_0,y_0,z_0)</script>的领域内有定义，那么<script type="math/tex">u(x,y,z)</script>在点<script type="math/tex">P_0(x_0,y_0,z_0)</script>的方向导数的定义应该是：</p>
+<script type="math/tex; mode=display">\frac{\partial u}{\partial \boldsymbol{l}}|_{P_0} = \lim\limits_{t\to 0^+}\frac{u(P)-u(P_0)}{t}= \lim\limits_{t\to 0^+}\frac{u'_x(P_0)\Delta x + u'_y(P_0)\Delta y+u'(P_0)\Delta z     }{\sqrt{(\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2}} = u'_x(P_0)\cos \alpha + u'_y(P_0)\cos\beta +u'(P_0)\cos\gamma</script><p>其中，<script type="math/tex">t = \sqrt{(\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2}, \quad \cos\alpha,\cos\beta,\cos\gamma</script>为方向余弦。</p>
+<h2 id="梯度（向量）"><a href="#梯度（向量）" class="headerlink" title="梯度（向量）"></a>梯度（向量）</h2><script type="math/tex; mode=display">\boldsymbol{grad} \quad u|_{p_0} = (u'_x(P_0) , u'_y(P_0), u'_z(P_0))</script><p>当梯度与方向<script type="math/tex">l</script>同向时，方向导数最大，方向导数为梯度的模：<script type="math/tex">\left| \boldsymbol{grad} \quad u|_{p_0} \right| = \sqrt{[u'_x(P_0)]^2 + [u'_y(P_0)]^2+ [u'_z(P_0)]^2}</script></p>
+<h2 id="散度（值）"><a href="#散度（值）" class="headerlink" title="散度（值）"></a>散度（值）</h2><p>设向量场<script type="math/tex">\boldsymbol{A}(x,y,z) = P(x,y,z)\boldsymbol{i}+Q(x,y,z)\boldsymbol{j}+R(x,y,z)\boldsymbol{k}</script></p>
+<p>则<strong>散度</strong>定义为：<script type="math/tex">div \boldsymbol{A} = \frac{\partial P}{\partial x}+ \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}</script>，散度为0的场叫做<strong>无源场</strong>。</p>
+<h2 id="旋度（向量）"><a href="#旋度（向量）" class="headerlink" title="旋度（向量）"></a>旋度（向量）</h2><p>设向量场<script type="math/tex">\boldsymbol{A}(x,y,z) = P(x,y,z)\boldsymbol{i}+Q(x,y,z)\boldsymbol{j}+R(x,y,z)\boldsymbol{k}</script></p>
+<p>则<strong>旋度</strong>为：<script type="math/tex">\boldsymbol{rot\quad A} =  \left |\begin{array}{ccc}
+\boldsymbol{i} & \boldsymbol{j}  &\boldsymbol{k} \\
+\frac{\partial}{\partial x} &\frac{\partial}{\partial y} &\frac{\partial}{\partial z}  \\
+P &Q &R \\ \end{array}\right|</script>，若旋度为0向量的场叫做<strong>无旋场</strong>。</p>
+<script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
 <style>
@@ -403,6 +417,13 @@
     $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
 </script>
 <div class="Last-Next">
+    
+    <a href="/2022/10/12/%E6%A6%82%E7%8E%87%E8%AE%BA%E4%B9%8B%E5%8D%B7%E7%A7%AF%E5%85%AC%E5%BC%8F%E6%B1%82%E8%A7%A3/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>概率论之卷积公式求解概率密度</p>
+        </div>
+    </a>
     
 
     
@@ -536,6 +557,23 @@
 
 		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 
 </html>

@@ -382,7 +382,25 @@
 </li>
 <li><p>积分判别法（柯西）</p>
 <blockquote>
-<script type="math/tex; mode=display">f(x)\geq 0,连续,x\in\left[1,+\infty \right], u_n = f(n)</script><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n 与 \int_1^{+\infty}f(x)dx敛散性相同</script></blockquote>
+<script type="math/tex; mode=display">f(x)\geq 0,连续,x\in\left[1,+\infty \right], u_n = f(n)</script><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty u_n 与 \int_1^{+\infty}f(x)dx敛散性相同</script><ul>
+<li><p>给出反常积分的判敛（要求只有一个奇点）</p>
+<blockquote>
+<ul>
+<li><p>口诀：大的大、小的小、才收敛</p>
+<blockquote>
+<p>大（积分区间是<script type="math/tex">\infty</script>）的大（<script type="math/tex">p>1</script>）</p>
+<p>小（积分区间是有限）的小（<script type="math/tex">0<p<1</script>）</p>
+</blockquote>
+</li>
+<li><p>数学表述</p>
+<blockquote>
+<script type="math/tex; mode=display">\int_a^b \frac{1}{(x-a)^p}dx\begin{cases}收敛,& p<1\\ 发散,&p\geq1 \end{cases}</script><script type="math/tex; mode=display">\int_a^{+\infty} \frac{1}{x^p} dx \begin{cases}收敛,&p>1\\ 发散,&p\leq 1 \end{cases}</script></blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
 </li>
 </ul>
 <h2 id="交错级数"><a href="#交错级数" class="headerlink" title="交错级数"></a>交错级数</h2><script type="math/tex; mode=display">\sum\limits_{n=1}^\infty (-1)^{n-1}u_n, u_n>0</script><ul>
@@ -396,7 +414,7 @@
 <p>收敛点的集合称为收敛域</p>
 <h3 id="收敛半径，收敛区间和收敛域"><a href="#收敛半径，收敛区间和收敛域" class="headerlink" title="收敛半径，收敛区间和收敛域"></a>收敛半径，收敛区间和收敛域</h3><ul>
 <li>收敛半径：<script type="math/tex">R</script></li>
-<li>收敛区间：<script type="math/tex">-R<(x-x_0) < R</script></li>
+<li>收敛区间：<script type="math/tex">-R<(x-x_0) < R \Rightarrow x_0-R < x < x_0 + R</script></li>
 <li>收敛域：考虑端点是否能够取得</li>
 </ul>
 <h2 id="2、具体问题"><a href="#2、具体问题" class="headerlink" title="2、具体问题"></a>2、具体问题</h2><p>记录一个知识点，级数缺项：有的项其系数为0（如奇数项级数或者偶数项级）。</p>
@@ -627,6 +645,23 @@
 
 		<script src="//cdn.bootcss.com/highlight.js/9.2.0/highlight.min.js"></script>
 		<script>hljs.initHighlightingOnLoad();</script>
-	</body>
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+
+</body>
 
 </html>
