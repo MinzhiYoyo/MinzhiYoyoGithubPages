@@ -343,10 +343,13 @@
         <h1 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h1><p>&emsp;首先，我们应该在前面看到过这几个公式：</p>
 <script type="math/tex; mode=display">
 X_1,X_2,\cdots,X_n来自正态分布N(\mu,\sigma^2)的样本，有：\\
-(1)\quad \frac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1)\\
-(2)\quad \frac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1)</script><p>&emsp;然后，一个点是：样本与整体，我们知道的应该是样本，毕竟我们抽取的样本值是可以测量的。所以，后面的区间估计与假设检验都是使用样本均值来估计或者检验整体均值，但是会分成整体的方差是否已知的情况。并且，置信区间与接收域都是开区间。</p>
+(1)\quad \frac{\sqrt{n}(\overline{X}-\mu)}{\sigma} \sim N(0,1)\qquad Z_{\alpha} \\
+(2)\quad \frac{\sqrt{n}(\overline{X}-\mu)}{S} \sim t(n-1) \qquad t_{\alpha}</script><p>&emsp;然后，一个点是：样本与整体，我们知道的应该是样本，毕竟我们抽取的样本值是可以测量的。所以，后面的区间估计与假设检验都是使用样本均值来估计或者检验整体均值，但是会分成整体的方差是否已知的情况。并且，置信区间与接收域都是开区间。</p>
 <h1 id="区间估计"><a href="#区间估计" class="headerlink" title="区间估计"></a>区间估计</h1><p>&emsp;区间估计：使用样本均值计算出整体均值可能取值的范围，这个范围就是置信区间。</p>
-<h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>&emsp;假设检验：给定一个假设的整体均值，然后应该能得到样本均值理应落入的区间，用实际的样本均值检验这个假设的整体均值是否能够接收。</p>
+<p>&emsp;则估计的整体均值（根据上面式子1）为：</p>
+<script type="math/tex; mode=display">
+\overline{X} - \frac{\sigma  Z_{\alpha/2}}{\sqrt{n}} <\mu<\overline{X} + \frac{\sigma  Z_{\alpha/2}}{\sqrt{n}}</script><h1 id="假设检验"><a href="#假设检验" class="headerlink" title="假设检验"></a>假设检验</h1><p>&emsp;假设检验：给定一个假设的整体均值，然后应该能得到样本均值理应落入的区间，用实际的样本均值检验这个假设的整体均值是否能够接受。</p>
+<p>&emsp;则样本均值为多少，我这个假设的整体均值能够接收（根据上面式子2）：<script type="math/tex">\overline{X} - \frac{S  t_{\alpha/2}}{\sqrt{n}} <\mu< \overline{X} + \frac{S  t_{\alpha/2}}{\sqrt{n}}</script>，这个范围的<script type="math/tex">\mu</script>我们认为是可以接受的，超过这个范围就是拒绝域。当然，还有单边检验。</p>
 <script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
 </div>
