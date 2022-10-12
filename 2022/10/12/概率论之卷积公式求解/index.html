@@ -342,13 +342,10 @@
     <div id="article" class="content">
         <h1 id="一般公式"><a href="#一般公式" class="headerlink" title="一般公式"></a>一般公式</h1><p>&emsp;一般来说，给定你<script type="math/tex">X,Y</script>的分布，并且不一定两者是独立的，然后给你<script type="math/tex">Z</script>关于<script type="math/tex">X,Y</script>的函数，那么要你求解<script type="math/tex">f_Z(z)</script>。</p>
 <p>假设我们把<script type="math/tex">Y</script>表示为<script type="math/tex">X,Z</script>的函数，那么有卷积公式：</p>
-<script type="math/tex; mode=display">f_Z(z) = \int_{-\infty}^{+\infty} \left|\frac{\partial y}{\partial z}\right|f(x,z-x)dx \overset{独立}{=} \int_{-\infty}^{+\infty} \left|\frac{\partial y}{\partial z}\right|f_X(x)\cdot f_Y(z-x)dx$$，重要的是判别$$x$$的范围。
-
-# 分布函数法
-
-&emsp;这个不是用卷积法求解，但是也是不可忽视的，所以在这记录。
-
-$$(X,Y)\sim f(x,y), \quad Z=g(X,Y)$$，则：
+<script type="math/tex; mode=display">
+f_Z(z) = \int_{-\infty}^{+\infty} \left|\frac{\partial y}{\partial z}\right|f(x,z-x)dx \overset{独立}{=} \int_{-\infty}^{+\infty} \left|\frac{\partial y}{\partial z}\right|f_X(x)\cdot f_Y(z-x)dx</script><p>重要的是判别<script type="math/tex">x</script>的范围。</p>
+<h1 id="分布函数法"><a href="#分布函数法" class="headerlink" title="分布函数法"></a>分布函数法</h1><p>&emsp;这个不是用卷积法求解，但是也是不可忽视的，所以在这记录。</p>
+<script type="math/tex; mode=display">(X,Y)\sim f(x,y), \quad Z=g(X,Y)$$，则：
 
 $$F_Z(z) = P\left\{ g(X,Y)\leq z \right\} = \iint\limits_{g(x,y)\leq z}f(x,y)dxdy,\quad f_Z(z) = F'_Z(z)</script><script type="text&#x2F;javascript" src="https://unpkg.com/kity@2.0.4/dist/kity.min.js"></script><script type="text&#x2F;javascript" src="https://unpkg.com/kityminder-core@1.4.50/dist/kityminder.core.min.js"></script><script defer="true" type="text&#x2F;javascript" src="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.js"></script><link rel="stylesheet" type="text&#x2F;css" href="https://unpkg.com/hexo-simple-mindmap@0.8.0/dist/mindmap.min.css">
     </div>
