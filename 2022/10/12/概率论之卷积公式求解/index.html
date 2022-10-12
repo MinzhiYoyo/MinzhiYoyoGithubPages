@@ -344,6 +344,8 @@
 <p>假设我们把<script type="math/tex">Y</script>表示为<script type="math/tex">X,Z</script>的函数，那么有卷积公式：</p>
 <script type="math/tex; mode=display">
 f_Z(z) = \int_{-\infty}^{+\infty} \left|\frac{\partial y}{\partial z}\right|f(x,z-x)dx \overset{独立}{=} \int_{-\infty}^{+\infty} \left|\frac{\partial y}{\partial z}\right|f_X(x)\cdot f_Y(z-x)dx</script><p>重要的是判别<script type="math/tex">x</script>的范围。</p>
+<p>&emsp;那么如何判别x的范围呢？</p>
+<p>&emsp;我们不是得到<script type="math/tex">Y=y(Z)</script>，然后，根据题设要求的<script type="math/tex">X,Y</script>取值范围有，<script type="math/tex">y_2(x)\leq Y\leq y_1(x) \Rightarrow y_2(x)\leq y(Z)\leq y_1(x)</script>之后再反解出<script type="math/tex">x</script>的范围。</p>
 <h1 id="分布函数法"><a href="#分布函数法" class="headerlink" title="分布函数法"></a>分布函数法</h1><p>&emsp;这个不是用卷积法求解，但是也是不可忽视的，所以在这记录。</p>
 <script type="math/tex; mode=display">(X,Y)\sim f(x,y), \quad Z=g(X,Y)$$，则：
 
@@ -375,6 +377,13 @@ $$F_Z(z) = P\left\{ g(X,Y)\leq z \right\} = \iint\limits_{g(x,y)\leq z}f(x,y)dxd
     $(function () { $('#article').click(function (e) { if (e.target.tagName == "IMG") { if ($('#nonediv').length == 0) { let MImg = `<div id='noneimg'><img src='${e.target.currentSrc}'></div>`; let MDiv = "<div id='nonediv' style='cursor: pointer;display: none; position: fixed;left: 0;top: 0; right: 0;bottom: 0;background-color: #333;opacity:0.3;z-index: 108;'></div>"; $('#article').append(MDiv); $('#article').append(MImg); $("#nonediv").fadeIn("slow"); $("#noneimg img").fadeIn("slow") } } else { if ($('#nonediv').length !== 0) { $("#noneimg ").fadeOut("slow"); $("#nonediv").fadeOut("slow"); setTimeout(function () { $('#nonediv').remove(); $('#noneimg').remove() }, 500) } } }); $('.article-content').addClass('content-move') });
 </script>
 <div class="Last-Next">
+    
+    <a href="/2022/10/12/%E5%8C%BA%E9%97%B4%E4%BC%B0%E8%AE%A1%E4%B8%8E%E5%81%87%E8%AE%BE%E6%A3%80%E9%AA%8C/">
+        <div class="last">
+            <span>上一篇</span>
+            <p>区间估计与假设检验</p>
+        </div>
+    </a>
     
 
     
