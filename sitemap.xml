@@ -2,15 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lmzyoyo.top/2022/06/11/%E4%BB%8Ehttp%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E7%88%AC%E8%99%AB/</loc>
-    
-    <lastmod>2022-10-12</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>http://lmzyoyo.top/2022/04/05/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0/</loc>
     
     <lastmod>2022-10-12</lastmod>
@@ -21,6 +12,15 @@
   
   <url>
     <loc>http://lmzyoyo.top/2022/04/05/Python%E7%88%AC%E8%99%AB%E5%AD%A6%E4%B9%A0%E2%80%94%E2%80%94%E9%9D%A2%E5%90%91%E5%88%9D%E5%AD%A6%E8%80%85/</loc>
+    
+    <lastmod>2022-10-12</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>http://lmzyoyo.top/2022/06/11/%E4%BB%8Ehttp%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E7%88%AC%E8%99%AB/</loc>
     
     <lastmod>2022-10-12</lastmod>
     
@@ -666,20 +666,6 @@
   
   <url>
     <loc>http://lmzyoyo.top/categories/%E5%89%8D%E7%AB%AF/</loc>
-    <lastmod>2022-10-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://lmzyoyo.top/categories/Python/</loc>
-    <lastmod>2022-10-12</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>http://lmzyoyo.top/categories/Python/%E7%88%AC%E8%99%AB/</loc>
     <lastmod>2022-10-12</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
