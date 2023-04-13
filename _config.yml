@@ -118,7 +118,7 @@ baidusitemap:
 #   type: git
 #   repo: https://github.com/MinzhiYoyo/MinzhiYoyo.github.io.git
 #   branch: main
-#   token: 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
+#   token: ghp#########TSyI
 deploy:
   type: git
   repo: blog@lmzyoyo.top:/www/wwwblog/repo/hexo.git
